@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.HockeyApp;
+using Planel.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +9,9 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +35,7 @@ namespace Planel
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            Microsoft.HockeyApp.HockeyClient.Current.Configure("b1cf0124aaed48d88fecec61c9f7683a ");
         }
 
         /// <summary>
@@ -73,6 +79,29 @@ namespace Planel
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    try
+                    {
+                        ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                        titleBar.BackgroundColor = Color.FromArgb(255, 32, 200, 165);
+                        titleBar.ForegroundColor = Colors.White;
+                        titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+                        titleBar.ButtonForegroundColor = Colors.White;
+
+                    }
+                    catch
+                    {
+
+                    }
+                    if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+                    {
+                        var statusBar = StatusBar.GetForCurrentView();
+                        if (statusBar != null)
+                        {
+                            statusBar.BackgroundOpacity = 1;
+                            statusBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+                            statusBar.ForegroundColor = Colors.White;
+                        }
+                    }
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
