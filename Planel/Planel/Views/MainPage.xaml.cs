@@ -22,13 +22,22 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
         private void menubutton_Click(object sender, RoutedEventArgs e)
         {
             RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
+        }
+
+        private void Changebut_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Panel.Height = 280;
+            Changebut.Content = "";
         }
     }
 }

@@ -64,14 +64,32 @@
             </SplitView.Pane>
             <!--Here is all instructions of page -->
             <Grid >
-                <StackPanel Orientation="Vertical" >
-                <Grid MinHeight="160" Background="{ThemeResource SystemControlBackgroundAccentBrush}" MaxHeight="550" Margin="0,0,0,480">
-                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="Uniform"   />
-                </Grid>
-                <Grid >
-                    
-                </Grid>
-               </StackPanel>
+                <RelativePanel>
+                    <Grid Height="180" x:Name="Panel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
+                        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="UniformToFill"   />
+                        <Button Click="Changebut_Click" x:Name="Changebut" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
+         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30"  />
+                    </Grid>
+                    <Grid RelativePanel.Below="Panel" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                        <TextBlock>
+                            Some info
+                            <LineBreak />
+                            Some info
+                            <LineBreak />
+                            Some info
+                            <LineBreak />
+                            Some info
+                            <LineBreak />
+                            Some info
+                            <LineBreak />
+                            Some info
+                            <LineBreak />
+                            Some info
+                            <LineBreak />
+                        </TextBlock>
+                    </Grid>
+                </RelativePanel>
+
 
             </Grid>
         </SplitView>
