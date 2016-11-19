@@ -22,7 +22,8 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        
+        int a = 0;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -35,9 +36,23 @@ namespace Planel.Views
 
         private void Changebut_Click(object sender, RoutedEventArgs e)
         {
+            if (a == 1)
+            {
+                Panel.Height = 180;
+                Changebut.Content = "";
+                a = 0;
+
+            }
+            else
+            {
+                Panel.Height = 280;
+                Changebut.Content = "";
+                a = 1;
+            }
             
-            Panel.Height = 280;
-            Changebut.Content = "";
+            
+            
+            
         }
     }
 }
