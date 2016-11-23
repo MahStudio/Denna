@@ -66,12 +66,16 @@
             <!--Here is all instructions of page -->
             <Grid >
                 <RelativePanel>
-                    <Grid Height="180" x:Name="Panel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
+                    <Grid  ManipulationMode="TranslateX"
+              ManipulationDelta="gridMain_ManipulationDelta"
+              ManipulationCompleted="gridMain_ManipulationCompleted"
+              SizeChanged="gridMain_SizeChanged" Height="180" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
                         <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="UniformToFill"   />
-                        <Button Click="Changebut_Click" x:Name="Changebut" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
+                        <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
          AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30"  />
+                        
                     </Grid>
-                    <Grid RelativePanel.Below="Panel" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                    <Grid RelativePanel.Below="gridMain" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
                         <TextBlock>
                             Some info
                             <LineBreak />
