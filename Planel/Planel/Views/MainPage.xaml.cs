@@ -28,7 +28,7 @@ namespace Planel.Views
         public MainPage()
         {
             this.InitializeComponent();
-            Loaded += MainPage_Loaded;
+           
 
         }
         private void menubutton_Click(object sender, RoutedEventArgs e)
@@ -36,10 +36,7 @@ namespace Planel.Views
             RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
         }
 
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            //gridMain.Height = ActualHeight;
-        }
+       
 
        
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
@@ -47,7 +44,7 @@ namespace Planel.Views
             // age tage reshte ei controle button barabrare icon e robe bala bod,
             // pas ma niyaz darim ke control ro be hesabi hide konim ,
             // ama dar asl darim height ro mikonim 100
-            if ((string)btnShowHide.Tag == "")
+            if ((string)btnShowHide. Content == "")
                 Animate(gridMain, true);
             else
                 Animate(gridMain);
