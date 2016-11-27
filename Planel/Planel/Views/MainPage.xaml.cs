@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -36,9 +38,20 @@ namespace Planel.Views
             RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
         }
 
-       
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            fhome.Navigate(typeof(fhome));
+            ftoday.Navigate(typeof(ftoday));
+            fmonth.Navigate(typeof(fmonth));
 
-       
+        }
+        private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        #region PanelAnimate
+
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
         {
             // age tage reshte ei controle button barabrare icon e robe bala bod,
@@ -107,6 +120,6 @@ namespace Planel.Views
                 Animate(gridMain);
         }
 
-
+        #endregion
     }
 }

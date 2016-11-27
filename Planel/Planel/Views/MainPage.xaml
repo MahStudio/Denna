@@ -70,28 +70,59 @@
               ManipulationDelta="gridMain_ManipulationDelta"
               ManipulationCompleted="gridMain_ManipulationCompleted"
               SizeChanged="gridMain_SizeChanged" Height="180" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
-                        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="UniformToFill"   />
-                        <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
-         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30"  />
                         
+                        
+                        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="UniformToFill" Grid.RowSpan="2" Height="180"   />
+                        <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
+         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
+                       
                     </Grid>
                     <Grid RelativePanel.Below="gridMain" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-                        <TextBlock>
-                            Some info
-                            <LineBreak />
-                            Some info
-                            <LineBreak />
-                            Some info
-                            <LineBreak />
-                            Some info
-                            <LineBreak />
-                            Some info
-                            <LineBreak />
-                            Some info
-                            <LineBreak />
-                            Some info
-                            <LineBreak />
-                        </TextBlock>
+                        <FlipView SelectionChanged="FlipView_SelectionChanged" x:Name="FlipView" Background="White">
+                            <FlipViewItem>
+                                <Frame x:Name="fhome" />
+                            </FlipViewItem>
+                            <FlipViewItem>
+                                <Frame x:Name="ftoday" />
+                            </FlipViewItem>
+                            <FlipViewItem>
+                                <Frame x:Name="fmonth" />
+                            </FlipViewItem>
+
+                        </FlipView>
+                        <StackPanel x:Name="stack"
+                    Orientation="Horizontal" Grid.Row="1"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Center">
+                            <Rectangle Stroke="White"
+                       StrokeThickness="3"
+                       Width="15"
+                       Height="15"
+                       Margin="0,0,5,0"
+                       Fill="White" />
+                            <Rectangle Stroke="White"
+                       StrokeThickness="3"
+                       Width="15"
+                       Height="15"
+                       Margin="0,0,5,0" />
+                            <Rectangle Stroke="White"
+                       StrokeThickness="3"
+                       Width="15"
+                       Height="15"
+                       Margin="0,0,5,0" />
+                            <Rectangle Stroke="White"
+                       StrokeThickness="3"
+                       Width="15"
+                       Height="15"
+                       Margin="0,0,5,0" />
+                            <Rectangle Stroke="White"
+                       StrokeThickness="3"
+                       Width="15"
+                       Height="15"
+                       Margin="0,0,5,0"
+                       />
+
+                        </StackPanel>
                     </Grid>
                 </RelativePanel>
 
@@ -100,5 +131,10 @@
         </SplitView>
         <Button  x:Name="menubutton" Click="menubutton_Click" Style="{StaticResource SplitViewTogglePaneButtonStyle}"
          AutomationProperties.Name="Menu" ToolTipService.ToolTip="Menu" Width="48" Height="48" VerticalAlignment="Top"  />
+        <StackPanel Margin="46,0,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button Width="48" Height="48" />
+            <Button Width="48" Height="48" />
+            <Button Width="48" Height="48" />
+        </StackPanel>
     </Grid>
 </Page>
