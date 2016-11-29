@@ -66,7 +66,7 @@ namespace Planel.Views
             bhome.BorderThickness = new Thickness(0, 0, 0, 2);
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "Good morning User";
+            news.Text = "Good night Mohsen";
             FlipView.SelectedIndex = 0;
 
         }

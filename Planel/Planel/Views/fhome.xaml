@@ -9,8 +9,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid>
-        <pieCharts:PieChart Percentage="70"
+        <StackPanel>
+            <TextBlock Foreground="Gray" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+            <Grid Margin="0,7,0,0" >
+            <pieCharts:PieChart Percentage="70"
                             Radius="100"
                             BackgroundColor="Transparent"
                             Segment360Color="Gray"
@@ -23,6 +25,7 @@
                        FontWeight="Bold"
                        FontSize="50"
                        Foreground="Gray" />
-    </Grid>
+            </Grid>
+    </StackPanel>
 </Grid>
 </Page>
