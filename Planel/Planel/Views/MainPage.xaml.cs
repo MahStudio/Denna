@@ -33,11 +33,6 @@ namespace Planel.Views
            
 
         }
-        private void menubutton_Click(object sender, RoutedEventArgs e)
-        {
-            RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             fhome.Navigate(typeof(fhome));
@@ -45,6 +40,16 @@ namespace Planel.Views
             fmonth.Navigate(typeof(fmonth));
 
         }
+
+
+        #region hamburger menu
+        private void menubutton_Click(object sender, RoutedEventArgs e)
+        {
+            RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
+        }
+        #endregion
+
+        
         #region pivot
         private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -103,6 +108,8 @@ namespace Planel.Views
             mmonth();
         }
         #endregion
+
+
         #region PanelAnimate
 
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
@@ -128,7 +135,7 @@ namespace Planel.Views
             da.EnableDependentAnimation = true;
             // age hide barabare false bod, barabare actual height gharar midim
             if (!hide)
-                da.To = ActualHeight/2;
+                da.To = 400;
             else
                 // age ham na, barabare 100 kon
                 da.To = 180;

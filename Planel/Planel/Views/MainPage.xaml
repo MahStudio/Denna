@@ -102,7 +102,7 @@
                     </Grid>
                     
                     <Grid RelativePanel.Below="gridMain" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-                        <FlipView SelectionChanged="FlipView_SelectionChanged" x:Name="FlipView" Background="White">
+                        <FlipView SelectionChanged="FlipView_SelectionChanged" x:Name="FlipView" Background="Transparent">
                             <FlipViewItem>
                                 <Frame x:Name="fhome" />
                             </FlipViewItem>
