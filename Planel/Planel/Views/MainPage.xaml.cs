@@ -45,11 +45,64 @@ namespace Planel.Views
             fmonth.Navigate(typeof(fmonth));
 
         }
+        #region pivot
         private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+             if (FlipView.SelectedIndex==0)
+            {
+                mhome();
+            }
+            if (FlipView.SelectedIndex == 1)
+            {
+                mtoday();    
+            }
+            if (FlipView.SelectedIndex == 2)
+            {
+                mmonth();
+            }
+        }
+        private void mhome()
+        {
+            bhome.BorderThickness = new Thickness(0, 0, 0, 2);
+            btoday.BorderThickness = new Thickness(0, 0, 0, 0);
+            bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
+            news.Text = "Good morning User";
+            FlipView.SelectedIndex = 0;
+
+        }
+        private void mtoday()
+        {
+            bhome.BorderThickness = new Thickness(0, 0, 0, 0);
+            btoday.BorderThickness = new Thickness(0, 0, 0, 2);
+            bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
+            news.Text = "Let's do today's plan!";
+            FlipView.SelectedIndex = 1;
+
+        }
+        private void mmonth()
+        {
+            bhome.BorderThickness = new Thickness(0, 0, 0, 0);
+            btoday.BorderThickness = new Thickness(0, 0, 0, 0);
+            bmonth.BorderThickness = new Thickness(0, 0, 0, 2);
+            news.Text = "Entire month";
+            FlipView.SelectedIndex = 2;
+
+        }
+        private void bhome_Click(object sender, RoutedEventArgs e)
+        {
+            mhome();
         }
 
+        private void btoday_Click(object sender, RoutedEventArgs e)
+        {
+            mtoday();
+        }
+
+        private void bmonth_Click(object sender, RoutedEventArgs e)
+        {
+            mmonth();
+        }
+        #endregion
         #region PanelAnimate
 
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
@@ -121,5 +174,7 @@ namespace Planel.Views
         }
 
         #endregion
+
+        
     }
 }

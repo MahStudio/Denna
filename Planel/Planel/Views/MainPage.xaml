@@ -45,6 +45,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
         <SplitView Grid.Row="1" x:Name="RootSplitView"
                    DisplayMode="Inline"
                    OpenPaneLength="256"
@@ -65,6 +66,7 @@
             </SplitView.Pane>
             <!--Here is all instructions of page -->
             <Grid >
+                
                 <RelativePanel>
                     <Grid  ManipulationMode="TranslateX"
               ManipulationDelta="gridMain_ManipulationDelta"
@@ -73,10 +75,18 @@
                         
                         
                         <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="UniformToFill" Grid.RowSpan="2" Height="180"   />
+                        <TextBlock Foreground="White" TextAlignment="Center" x:Name="news" FontSize="23" Margin="10,95,10,35" />
                         <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
          AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
-                       
+                        <Grid ManipulationMode="None" VerticalAlignment="Top" >
+                        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                            <Button Click="btoday_Click" x:Name="btoday" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                            <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                        </StackPanel>
+                       </Grid>
                     </Grid>
+                    
                     <Grid RelativePanel.Below="gridMain" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
                         <FlipView SelectionChanged="FlipView_SelectionChanged" x:Name="FlipView" Background="White">
                             <FlipViewItem>
@@ -90,51 +100,14 @@
                             </FlipViewItem>
 
                         </FlipView>
-                        <StackPanel x:Name="stack"
-                    Orientation="Horizontal" Grid.Row="1"
-                    Margin="0,0,0,20"
-                    HorizontalAlignment="Center">
-                            <Rectangle Stroke="White"
-                       StrokeThickness="3"
-                       Width="15"
-                       Height="15"
-                       Margin="0,0,5,0"
-                       Fill="White" />
-                            <Rectangle Stroke="White"
-                       StrokeThickness="3"
-                       Width="15"
-                       Height="15"
-                       Margin="0,0,5,0" />
-                            <Rectangle Stroke="White"
-                       StrokeThickness="3"
-                       Width="15"
-                       Height="15"
-                       Margin="0,0,5,0" />
-                            <Rectangle Stroke="White"
-                       StrokeThickness="3"
-                       Width="15"
-                       Height="15"
-                       Margin="0,0,5,0" />
-                            <Rectangle Stroke="White"
-                       StrokeThickness="3"
-                       Width="15"
-                       Height="15"
-                       Margin="0,0,5,0"
-                       />
-
-                        </StackPanel>
+                       
                     </Grid>
                 </RelativePanel>
-
-
+               
             </Grid>
         </SplitView>
         <Button  x:Name="menubutton" Click="menubutton_Click" Style="{StaticResource SplitViewTogglePaneButtonStyle}"
-         AutomationProperties.Name="Menu" ToolTipService.ToolTip="Menu" Width="48" Height="48" VerticalAlignment="Top"  />
-        <StackPanel Margin="46,0,0,0" VerticalAlignment="Top" Orientation="Horizontal">
-            <Button Width="48" Height="48" />
-            <Button Width="48" Height="48" />
-            <Button Width="48" Height="48" />
-        </StackPanel>
+         AutomationProperties.Name="Menu" ToolTipService.ToolTip="Menu" Width="48" Height="48" VerticalAlignment="Top" Margin="0,10,0,0"  />
+        
     </Grid>
 </Page>
