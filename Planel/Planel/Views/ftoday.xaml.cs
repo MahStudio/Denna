@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Planel.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,16 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class ftoday : Page
     {
+        private List<Models.todo> todolist = new List<todo>();
         public ftoday()
         {
             this.InitializeComponent();
+            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
+            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
+            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
+            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
+            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
+            listView.ItemsSource = todolist;
         }
     }
 }
