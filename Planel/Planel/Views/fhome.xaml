@@ -9,23 +9,71 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock Foreground="Gray" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
-            <Grid Margin="0,7,0,0" >
-            <pieCharts:PieChart Percentage="70"
+        <Grid Margin="0,0,0,48">
+            <ScrollViewer>
+                <GridView>
+                    <StackPanel HorizontalAlignment="Center" Width="300">
+
+                        <TextBlock Foreground="Gray" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                        <Grid Margin="0,7,0,0" >
+                            <pieCharts:PieChart Percentage="70"
                             Radius="100"
                             BackgroundColor="Transparent"
                             Segment360Color="Gray"
                             SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
-                            StrokeThickness="15" />
+                            StrokeThickness="20" />
 
-        <TextBlock Text="70%"
+                            <TextBlock Text="70%"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        FontWeight="Bold"
                        FontSize="50"
                        Foreground="Gray" />
-            </Grid>
-    </StackPanel>
-</Grid>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Width="300"  >
+                        <TextBlock Foreground="Gray" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                        <Grid Margin="0,7,0,0" >
+                            <pieCharts:PieChart Percentage="95"
+                            Radius="100"
+                            BackgroundColor="Transparent"
+                            Segment360Color="Gray"
+                            SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                            StrokeThickness="20" />
+
+                            <TextBlock Text="95%"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       FontSize="50"
+                       Foreground="Gray" />
+                        </Grid>
+                    </StackPanel>
+                </GridView>
+            </ScrollViewer>
+        </Grid>
+        <CommandBar  VerticalAlignment="Bottom">
+
+
+
+
+
+            <AppBarButton    >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarSeparator/>
+            <AppBarButton >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE72D;"  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+
+        </CommandBar>
+
+    </Grid>
 </Page>
