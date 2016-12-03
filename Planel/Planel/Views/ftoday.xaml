@@ -4,12 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Planel.Views"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:data="using:Planel.Models"
+    
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Microsoft.Toolkit.Uwp.SampleApp.Models"
     mc:Ignorable="d">
-    <Page.Resources>
-        <DataTemplate x:Key="EmailsItemTemplate" x:DataType="data:todo">
+    <!--<Page.Resources>-->
+        <!--<DataTemplate x:Key="EmailsItemTemplate">
             <controls:SlidableListItem 
                     HorizontalAlignment="Stretch"
                     LeftIcon="Emoji" 
@@ -37,10 +38,10 @@
                 </Grid>
             </controls:SlidableListItem>
         </DataTemplate>
-    </Page.Resources>
+    </Page.Resources>-->
 
     <Grid Background="White">
-        <ListView x:Name="listView" 
+        <!--<ListView x:Name="listView" 
                   ItemTemplate="{StaticResource EmailsItemTemplate}" 
                   ItemsSource="{x:Bind detail, Mode=OneWay}" 
                   SelectionMode="None" 
@@ -51,7 +52,13 @@
                     <Setter Property="Margin" Value="0,1"></Setter>
                 </Style>
             </ListView.ItemContainerStyle>
-        </ListView>
-
+        </ListView>-->
+        
+        
+        
+        
+        
+        
+        
     </Grid>
 </Page>

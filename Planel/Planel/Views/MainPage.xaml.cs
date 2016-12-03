@@ -43,10 +43,10 @@ namespace Planel.Views
 
 
         #region hamburger menu
-        private void menubutton_Click(object sender, RoutedEventArgs e)
-        {
-            RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
-        }
+        //private void menubutton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
+        //}
         #endregion
 
         

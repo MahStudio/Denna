@@ -32,7 +32,7 @@ namespace Planel.Views
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            listView.ItemsSource = todolist;
+            //listView.ItemsSource = todolist;
         }
     }
 }

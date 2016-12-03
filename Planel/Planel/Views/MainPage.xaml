@@ -6,25 +6,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Page.Resources>
+    <!--<Page.Resources>
         <DataTemplate x:Key="NavMenuItemTemplate" x:DataType="local:NavMenuItem">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <!-- Showing a ToolTip and the Label is redundant.  We put the ToolTip on the icon.
+                --><!-- Showing a ToolTip and the Label is redundant.  We put the ToolTip on the icon.
                      It appears when the user hovers over the icon, but not the label which provides
                      value when the SplitView is 'Compact' while reducing the likelihood of showing
-                     redundant information when the label is shown.-->
+                     redundant information when the label is shown.--><!--
                 <FontIcon x:Name="Glyph" FontSize="16" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTipService.ToolTip="{x:Bind Label}"/>
                 <TextBlock x:Name="Text" Grid.Column="1" Text="{x:Bind Label}" />
             </Grid>
         </DataTemplate>
         <Storyboard x:Name="opener"/>
-    </Page.Resources>
+    </Page.Resources>-->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <VisualStateManager.VisualStateGroups>
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
@@ -55,16 +55,16 @@
                 <Grid>
 
 
-                    <!--<Button x:Name="SettingsButton" 
+                    --><!--<Button x:Name="SettingsButton" 
                                 ToolTipService.ToolTip="Settings"
                                 TabIndex="4" Foreground="White"
                                 Style="{StaticResource NavigationSettingsButtonStyle}"
                                 Width="{Binding ItemsPanelRoot.Width, ElementName=NavMenuList}"
                                 HorizontalAlignment="{Binding ItemsPanelRoot.HorizontalAlignment, ElementName=NavMenuList}"
-                                Click="SettingsButton_Click" VerticalAlignment="Bottom"/>-->
+                                Click="SettingsButton_Click" VerticalAlignment="Bottom"/>--><!--
                 </Grid>
             </SplitView.Pane>
-            <!--Here is all instructions of page -->
+            --><!--Here is all instructions of page --><!--
             <Grid >
                 
                 <RelativePanel>
@@ -119,9 +119,63 @@
                 </RelativePanel>
                
             </Grid>
-        </SplitView>
-        <Button  x:Name="menubutton" Click="menubutton_Click" Style="{StaticResource SplitViewTogglePaneButtonStyle}"
-         AutomationProperties.Name="Menu" ToolTipService.ToolTip="Menu" Width="48" Height="48" VerticalAlignment="Top" Margin="0,10,0,0"  />
+        </SplitView>-->
+        <Grid >
+
+            <RelativePanel>
+                <Grid  ManipulationMode="TranslateX"
+              ManipulationDelta="gridMain_ManipulationDelta"
+              ManipulationCompleted="gridMain_ManipulationCompleted"
+              SizeChanged="gridMain_SizeChanged" Height="180" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
+
+
+                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="UniformToFill" Grid.RowSpan="2" Height="180"   />
+                    <StackPanel>
+                        <TextBlock Text="Dear User !" Foreground="White" TextAlignment="Center" x:Name="news" FontSize="23" Margin="10,95,10,35" />
+                        <Ellipse Margin="0,25,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
+                        <TextBlock Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
+                                Today you have 6 works to do.
+                                <LineBreak />
+                                <LineBreak />
+
+                        </TextBlock>
+                    </StackPanel>
+                    <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
+         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
+                    <Grid ManipulationMode="None" VerticalAlignment="Top" >
+                        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                            <Button Click="btoday_Click" x:Name="btoday" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                            <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+                <Grid RelativePanel.Below="gridMain" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                    <FlipView SelectionChanged="FlipView_SelectionChanged" x:Name="FlipView" Background="Transparent">
+                        <FlipViewItem>
+                            <Frame x:Name="fhome" />
+                        </FlipViewItem>
+                        <FlipViewItem>
+                            <Frame x:Name="ftoday" />
+                        </FlipViewItem>
+                        <FlipViewItem>
+                            <Frame x:Name="fmonth" />
+                        </FlipViewItem>
+
+                    </FlipView>
+
+                </Grid>
+            </RelativePanel>
+
+        </Grid>
+        <!--<Button  x:Name="menubutton" Click="menubutton_Click" Style="{StaticResource SplitViewTogglePaneButtonStyle}"
+         AutomationProperties.Name="Menu" ToolTipService.ToolTip="Menu" Width="48" Height="48" VerticalAlignment="Top" Margin="0,10,0,0"  />-->
         
     </Grid>
 </Page>
