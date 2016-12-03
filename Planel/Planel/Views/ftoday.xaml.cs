@@ -27,12 +27,27 @@ namespace Planel.Views
         public ftoday()
         {
             this.InitializeComponent();
+            todolist.Add(new todo { title = "Fuckery", detail = "بی تربیت", time = 3 });
+            todolist.Add(new todo { title = "Fuckery", detail = "نحوه صحیح کد نویسی!", time = 3 });
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            //listView.ItemsSource = todolist;
+           lvTest.ItemsSource = todolist;
+        }
+
+        private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -7,7 +7,6 @@
     
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="using:Microsoft.Toolkit.Uwp.SampleApp.Models"
     mc:Ignorable="d">
     <!--<Page.Resources>-->
         <!--<DataTemplate x:Key="EmailsItemTemplate">
@@ -53,8 +52,43 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>-->
-        
-        
+
+        <ListView Name="lvTest">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+            <DataTemplate >
+                <controls:SlidableListItem 
+                    HorizontalAlignment="Stretch"
+                    LeftIcon="Emoji" 
+                    RightIcon="Delete" 
+                    LeftLabel="Done" 
+                    RightLabel="Delete"
+                    LeftBackground="SkyBlue" 
+                    RightBackground="OrangeRed"
+                    LeftForeground ="White" 
+                    RightForeground ="White"
+                    ActivationWidth="310"
+                    IsLeftCommandEnabled="True"
+                    IsRightCommandEnabled="True"
+                    IsOffsetLimited="True"
+                    MouseSlidingEnabled="True"
+                    IsPointerReleasedOnSwipingHandled="True"
+                    RightCommandParameter="{Binding}"
+                    RightCommandRequested="SlidableListItem_RightCommandRequested"
+                    LeftCommandRequested="SlidableListItem_LeftCommandRequested"
+                    >
+                    <Grid>
+                        <TextBlock FontSize="20" Text="{Binding title}"/>
+                    </Grid>
+                    
+                    
+                </controls:SlidableListItem>
+            </DataTemplate></ListView.ItemTemplate>
+        </ListView>
         
         
         

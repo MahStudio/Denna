@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="Planel.Views.sframes.add"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Planel.Views.sframes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBox TextAlignment="Justify" PlaceholderText="Title"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
+            <TextBox TextAlignment="Justify" PlaceholderText="Describtion"  Margin="5,10,5,0" Height="80" VerticalAlignment="Top" />
+
+            <TextBlock  Margin="5,15,5,0" Text="Time:" />
+            <DatePicker  Margin="5,10,5,0" />
+            <TimePicker Margin="5,10,5,0" />
+            <StackPanel Orientation="Horizontal" >
+            <CheckBox Margin="5,10,5,0" Content="Allday" />
+            <CheckBox Margin="5,10,5,0" Content="Important" />
+        </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>
