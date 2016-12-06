@@ -106,6 +106,9 @@
     <Compile Include="Views\fmonth.xaml.cs">
       <DependentUpon>fmonth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\fpref.xaml.cs">
+      <DependentUpon>fpref.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ftoday.xaml.cs">
       <DependentUpon>ftoday.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\fmonth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\fpref.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

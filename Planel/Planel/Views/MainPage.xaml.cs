@@ -38,6 +38,7 @@ namespace Planel.Views
             fhome.Navigate(typeof(fhome));
             ftoday.Navigate(typeof(ftoday));
             fmonth.Navigate(typeof(fmonth));
+            fpref.Navigate(typeof(fpref));
 
         }
 
@@ -65,12 +66,17 @@ namespace Planel.Views
             {
                 mmonth();
             }
+            if (FlipView.SelectedIndex == 3)
+            {
+                mpref();
+            }
         }
         private void mhome()
         {
             bhome.BorderThickness = new Thickness(0, 0, 0, 2);
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
+            bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             news.Text = "Good night Mohsen";
             FlipView.SelectedIndex = 0;
 
@@ -80,6 +86,8 @@ namespace Planel.Views
             bhome.BorderThickness = new Thickness(0, 0, 0, 0);
             btoday.BorderThickness = new Thickness(0, 0, 0, 2);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
+            bpref.BorderThickness = new Thickness(0, 0, 0, 0);
+            bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             news.Text = "Let's do today's plan!";
             FlipView.SelectedIndex = 1;
 
@@ -89,9 +97,19 @@ namespace Planel.Views
             bhome.BorderThickness = new Thickness(0, 0, 0, 0);
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 2);
+            bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             news.Text = "Entire month";
             FlipView.SelectedIndex = 2;
 
+        }
+        private void mpref()
+        {
+            bhome.BorderThickness = new Thickness(0, 0, 0, 0);
+            btoday.BorderThickness = new Thickness(0, 0, 0, 0);
+            bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
+            bpref.BorderThickness = new Thickness(0, 0, 0, 2);
+            news.Text = "Entire month";
+            FlipView.SelectedIndex = 3;
         }
         private void bhome_Click(object sender, RoutedEventArgs e)
         {
@@ -106,6 +124,10 @@ namespace Planel.Views
         private void bmonth_Click(object sender, RoutedEventArgs e)
         {
             mmonth();
+        }
+        private void bpref_Click(object sender, RoutedEventArgs e)
+        {
+            mpref();
         }
         #endregion
 
@@ -195,6 +217,7 @@ namespace Planel.Views
             else
                 Animate(gridMain);
         }
+
 
         #endregion
 
