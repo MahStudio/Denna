@@ -26,6 +26,7 @@
         <Storyboard x:Name="opener"/>
     </Page.Resources>-->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
         <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -186,6 +187,6 @@
         </Grid>
         <!--<Button  x:Name="menubutton" Click="menubutton_Click" Style="{StaticResource SplitViewTogglePaneButtonStyle}"
          AutomationProperties.Name="Menu" ToolTipService.ToolTip="Menu" Width="48" Height="48" VerticalAlignment="Top" Margin="0,10,0,0"  />-->
-
+        <Frame x:FieldModifier="public" x:Name="superframe" />
     </Grid>
 </Page>

@@ -25,6 +25,7 @@ namespace Planel.Views
         public fmonth()
         {
             this.InitializeComponent();
+
         }
     }
 }

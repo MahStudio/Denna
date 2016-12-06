@@ -25,6 +25,13 @@ namespace Planel.Views
         public fhome()
         {
             this.InitializeComponent();
+
+        }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.current.ntonavigate();
+
         }
     }
 }

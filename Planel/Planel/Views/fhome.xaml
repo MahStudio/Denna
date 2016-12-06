@@ -72,7 +72,7 @@
                 </AppBarButton.Icon>
             </AppBarButton>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Like" Label="About"/>
+                <AppBarButton Click="AppBarButton_Click" Icon="Like" Label="About"/>
             </CommandBar.SecondaryCommands>
 
 

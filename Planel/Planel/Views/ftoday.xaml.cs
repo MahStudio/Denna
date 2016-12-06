@@ -34,6 +34,7 @@ namespace Planel.Views
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
             todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
            lvTest.ItemsSource = todolist;
+
         }
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
@@ -54,6 +55,11 @@ namespace Planel.Views
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(add));
+        }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainPage.current.ntonavigate();
         }
     }
 }

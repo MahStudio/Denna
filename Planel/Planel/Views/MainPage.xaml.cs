@@ -26,11 +26,12 @@ namespace Planel.Views
     public sealed partial class MainPage : Page
     {
         double lastPostition;
-
+        public static MainPage current;
         public MainPage()
         {
             this.InitializeComponent();
-           
+            current = this;
+
 
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -39,8 +40,15 @@ namespace Planel.Views
             ftoday.Navigate(typeof(ftoday));
             fmonth.Navigate(typeof(fmonth));
             fpref.Navigate(typeof(fpref));
+            
+            
 
         }
+        public void ntonavigate()
+        {
+            Frame.Navigate(typeof(About));
+        }
+
 
 
         #region hamburger menu
