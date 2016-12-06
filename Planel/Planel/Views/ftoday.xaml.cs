@@ -37,7 +37,7 @@ namespace Planel.Views
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
-
+            
         }
 
         private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)

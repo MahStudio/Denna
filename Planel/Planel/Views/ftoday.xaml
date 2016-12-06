@@ -8,55 +8,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <!--<Page.Resources>-->
-        <!--<DataTemplate x:Key="EmailsItemTemplate">
-            <controls:SlidableListItem 
-                    HorizontalAlignment="Stretch"
-                    LeftIcon="Emoji" 
-                    RightIcon="Delete" 
-                    LeftLabel="Done" 
-                    RightLabel="Delete"
-                    LeftBackground="SkyBlue" 
-                    RightBackground="OrangeRed"
-                    LeftForeground ="White" 
-                    RightForeground ="White"
-                    ActivationWidth="110"
-                    IsLeftCommandEnabled="True"
-                    IsRightCommandEnabled="True"
-                    IsOffsetLimited="True"
-                    MouseSlidingEnabled="True"
-                    IsPointerReleasedOnSwipingHandled="True"
-                    LeftCommand="{x:Bind ToggleFavorite}"
-                    RightCommand="{Binding DeleteItem, ElementName=Page, Mode=OneWay}"
-                    RightCommandParameter="{Binding}">
-                <Grid Height="110" Background="Gray">
-                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                        <CheckBox IsChecked="{x:Bind IsFavorite, Mode=OneWay}"/>
-                        <TextBlock Text="{x:Bind Title}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
-                    </StackPanel>
-                </Grid>
-            </controls:SlidableListItem>
-        </DataTemplate>
-    </Page.Resources>-->
+    
 
     <Grid Background="White">
-        <!--<ListView x:Name="listView" 
-                  ItemTemplate="{StaticResource EmailsItemTemplate}" 
-                  ItemsSource="{x:Bind detail, Mode=OneWay}" 
-                  SelectionMode="None" 
-                  IsItemClickEnabled="False">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                    <Setter Property="Margin" Value="0,1"></Setter>
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>-->
+       
 
         <ListView Name="lvTest">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
@@ -71,7 +32,7 @@
                     RightBackground="OrangeRed"
                     LeftForeground ="White" 
                     RightForeground ="White"
-                    ActivationWidth="310"
+                    ActivationWidth="150"
                     IsLeftCommandEnabled="True"
                     IsRightCommandEnabled="True"
                     IsOffsetLimited="True"
@@ -79,9 +40,11 @@
                     IsPointerReleasedOnSwipingHandled="True"
                     RightCommandParameter="{Binding}"
                     RightCommandRequested="SlidableListItem_RightCommandRequested"
+                    
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
+                    
                     >
-                    <Grid>
+                    <Grid Height="70">
                         <TextBlock FontSize="20" Text="{Binding title}"/>
                     </Grid>
                     

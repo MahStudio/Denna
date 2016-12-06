@@ -111,7 +111,28 @@ namespace Planel.Views
 
 
         #region PanelAnimate
-
+        private void gridMain_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            // ManipulationDelta hamzaman ba tagheire positione angosht ya mouse emal mishe
+            // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
+            lastPostition = e.Position.Y;
+            if (e.Position.Y < gridMain.MinHeight) return;
+            try
+            {
+                Storyboard s = new Storyboard();
+                DoubleAnimation da = new DoubleAnimation();
+                da.Duration = new Duration(TimeSpan.FromMilliseconds(250));
+                da.EnableDependentAnimation = true;
+                // age hide barabare false bod, barabare actual height gharar midim
+                // age ham na, barabare 100 kon
+                da.To = e.Position.Y;
+                s.Children.Add(da);
+                Storyboard.SetTarget(da, gridMain);
+                Storyboard.SetTargetProperty(da, "(FrameworkElement.Height)");
+                s.Begin();
+            }
+            catch { }
+        }
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
         {
             // age tage reshte ei controle button barabrare icon e robe bala bod,
@@ -163,12 +184,7 @@ namespace Planel.Views
             }
         }
 
-        private void gridMain_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
-        {
-            // ManipulationDelta hamzaman ba tagheire positione angosht ya mouse emal mishe
-            // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
-            lastPostition = e.Position.Y;
-        }
+       
 
         private void gridMain_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
