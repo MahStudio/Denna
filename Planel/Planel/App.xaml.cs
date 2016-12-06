@@ -81,16 +81,15 @@ namespace Planel
                     rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
                     try
                     {
-                        //ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-                        //titleBar.BackgroundColor = Color.FromArgb(255, 32, 200, 165);
-                        //titleBar.ForegroundColor = Colors.White;
-                        //titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
-                        //titleBar.ButtonForegroundColor = Colors.White;
                         ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-                        titleBar.BackgroundColor = ((Color)Application.Current.Resources["ApplicationPageBackgroundThemeBrush"]);
-                        // titleBar.ForegroundColor = Colors.White;
-                        titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["ApplicationPageBackgroundThemeBrush"]);
-                        // titleBar.ButtonForegroundColor = Colors.White;
+                        titleBar.BackgroundColor = Color.FromArgb(255, 32, 200, 165);
+                        titleBar.ForegroundColor = Colors.White;
+                        titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+                        titleBar.ButtonForegroundColor = Colors.White;
+
+                        titleBar.ForegroundColor = Colors.White;
+
+                        titleBar.ButtonForegroundColor = Colors.White;
 
                     }
                     catch

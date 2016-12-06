@@ -1,4 +1,5 @@
 ﻿using Planel.Models;
+using Planel.Views.sframes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,6 +49,11 @@ namespace Planel.Views
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(add));
         }
     }
 }

@@ -58,14 +58,14 @@
 
 
 
-            <AppBarButton    >
+            <AppBarButton Content="Add"   >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"  Height="49" VerticalAlignment="Top"/>
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton >
+            <AppBarButton Content="Share" >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE72D;"  Height="49" VerticalAlignment="Top"/>

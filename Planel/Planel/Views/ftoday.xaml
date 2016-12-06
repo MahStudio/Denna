@@ -12,7 +12,7 @@
 
     <Grid Background="White">
        
-
+<Grid Margin="0,0,0,48">
         <ListView Name="lvTest">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -52,10 +52,30 @@
                 </controls:SlidableListItem>
             </DataTemplate></ListView.ItemTemplate>
         </ListView>
-        
-        
-        
-        
-        
+        </Grid>
+
+        <CommandBar  VerticalAlignment="Bottom">
+
+
+
+
+
+            <AppBarButton Content="Add" Click="AppBarButton_Click"   >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            
+           
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Like" Label="About"/>
+            </CommandBar.SecondaryCommands>
+
+
+
+        </CommandBar>
+
+
     </Grid>
 </Page>
