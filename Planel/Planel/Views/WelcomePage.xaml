@@ -8,9 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource SystemControlBackgroundAccentBrush}" >
-        
-       
-        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/bgs.png" Stretch="UniformToFill"  Height="280"   />
+
+
+        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill"      />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,535,0,0" Height="45" VerticalAlignment="Top" >
             <Button x:Name="b1" Click="b1_Click" Style="{StaticResource dotbut}" />
             <Button x:Name="b2" Click="b2_Click" Style="{StaticResource dotbut}"  />

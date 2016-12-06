@@ -13,10 +13,12 @@
                     <ColumnDefinition Width="48" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                --><!-- Showing a ToolTip and the Label is redundant.  We put the ToolTip on the icon.
+                -->
+    <!-- Showing a ToolTip and the Label is redundant.  We put the ToolTip on the icon.
                      It appears when the user hovers over the icon, but not the label which provides
                      value when the SplitView is 'Compact' while reducing the likelihood of showing
-                     redundant information when the label is shown.--><!--
+                     redundant information when the label is shown.-->
+    <!--
                 <FontIcon x:Name="Glyph" FontSize="16" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTipService.ToolTip="{x:Bind Label}"/>
                 <TextBlock x:Name="Text" Grid.Column="1" Text="{x:Bind Label}" />
             </Grid>
@@ -55,16 +57,20 @@
                 <Grid>
 
 
-                    --><!--<Button x:Name="SettingsButton" 
+                    -->
+        <!--<Button x:Name="SettingsButton" 
                                 ToolTipService.ToolTip="Settings"
                                 TabIndex="4" Foreground="White"
                                 Style="{StaticResource NavigationSettingsButtonStyle}"
                                 Width="{Binding ItemsPanelRoot.Width, ElementName=NavMenuList}"
                                 HorizontalAlignment="{Binding ItemsPanelRoot.HorizontalAlignment, ElementName=NavMenuList}"
-                                Click="SettingsButton_Click" VerticalAlignment="Bottom"/>--><!--
+                                Click="SettingsButton_Click" VerticalAlignment="Bottom"/>-->
+        <!--
                 </Grid>
             </SplitView.Pane>
-            --><!--Here is all instructions of page --><!--
+            -->
+        <!--Here is all instructions of page -->
+        <!--
             <Grid >
                 
                 <RelativePanel>
@@ -129,7 +135,7 @@
               SizeChanged="gridMain_SizeChanged" Height="180" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
 
 
-                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Source="/Assets/Headings/s3.jpg" Stretch="UniformToFill" Grid.RowSpan="2" Height="180"   />
+                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
                     <StackPanel>
                         <TextBlock Text="Dear User !" Foreground="White" TextAlignment="Center" x:Name="news" FontSize="23" Margin="10,95,10,35" />
                         <Ellipse Margin="0,25,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
@@ -176,6 +182,6 @@
         </Grid>
         <!--<Button  x:Name="menubutton" Click="menubutton_Click" Style="{StaticResource SplitViewTogglePaneButtonStyle}"
          AutomationProperties.Name="Menu" ToolTipService.ToolTip="Menu" Width="48" Height="48" VerticalAlignment="Top" Margin="0,10,0,0"  />-->
-        
+
     </Grid>
 </Page>
