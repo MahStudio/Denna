@@ -51,6 +51,10 @@ namespace Planel.Views
             {
                 m4();
             }
+            if (flipwel.SelectedIndex == 4)
+            {
+                m5();
+            }
         }
         private void b1_Click(object sender, RoutedEventArgs e)
         {
@@ -71,12 +75,17 @@ namespace Planel.Views
         {
             m4();
         }
+        private void b5_Click(object sender, RoutedEventArgs e)
+        {
+            m5();
+        }
         private void m1()
         {
             b1.Background = new SolidColorBrush( Colors.Gray);
             b2.Background = new SolidColorBrush(Colors.White);
             b3.Background = new SolidColorBrush(Colors.White);
             b4.Background = new SolidColorBrush(Colors.White);
+            b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 0;
         }
         private void m2()
@@ -85,6 +94,7 @@ namespace Planel.Views
             b2.Background = new SolidColorBrush(Colors.Gray);
             b3.Background = new SolidColorBrush(Colors.White);
             b4.Background = new SolidColorBrush(Colors.White);
+            b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 1;
         }
         private void m3()
@@ -93,6 +103,7 @@ namespace Planel.Views
             b2.Background = new SolidColorBrush(Colors.White);
             b3.Background = new SolidColorBrush(Colors.Gray);
             b4.Background = new SolidColorBrush(Colors.White);
+            b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 2;
         }
         private void m4()
@@ -101,8 +112,20 @@ namespace Planel.Views
             b2.Background = new SolidColorBrush(Colors.White);
             b3.Background = new SolidColorBrush(Colors.White);
             b4.Background = new SolidColorBrush(Colors.Gray);
+            b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 3;
         }
+        private void m5()
+        {
+            b1.Background = new SolidColorBrush(Colors.White);
+            b2.Background = new SolidColorBrush(Colors.White);
+            b3.Background = new SolidColorBrush(Colors.White);
+            b4.Background = new SolidColorBrush(Colors.White);
+            b5.Background = new SolidColorBrush(Colors.Gray);
+            goit.IsEnabled = true;
+            flipwel.SelectedIndex = 4;
+        }
+
 
         #endregion
 

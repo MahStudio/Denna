@@ -137,6 +137,10 @@
     <Content Include="Assets\Headings\s.jpg" />
     <Content Include="Assets\Headings\s2.jpg" />
     <Content Include="Assets\Headings\s3.jpg" />
+    <Content Include="Assets\Icons\AreaChart.png" />
+    <Content Include="Assets\Icons\CalendarDelete.png" />
+    <Content Include="Assets\Icons\DeskLamp.png" />
+    <Content Include="Assets\Icons\TodoList.png" />
     <Content Include="Assets\Mockops\usrimg.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

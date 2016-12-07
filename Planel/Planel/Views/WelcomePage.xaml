@@ -11,80 +11,70 @@
 
 
         <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill"      />
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,535,0,0" Height="45" VerticalAlignment="Top" >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,55" Height="45" VerticalAlignment="Bottom" >
             <Button x:Name="b1" Click="b1_Click" Style="{StaticResource dotbut}" />
             <Button x:Name="b2" Click="b2_Click" Style="{StaticResource dotbut}"  />
             <Button x:Name="b3" Click="b3_Click" Style="{StaticResource dotbut}"  />
             <Button x:Name="b4" Click="b4_Click" Style="{StaticResource dotbut}"  />
+            <Button x:Name="b5" Click="b5_Click" Style="{StaticResource dotbut}"  />
         </StackPanel>
         <FlipView x:Name="flipwel" SelectionChanged="flipwel_SelectionChanged" Background="Transparent" Height="535" VerticalAlignment="Top" >
             <FlipViewItem>
-                <StackPanel>
-                    <Image Source="/Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="100"  Width="100" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="App Bulshits" />
-                    <TextBlock Margin="0,100,0,0" MaxLines="5" Foreground="White" TextAlignment="Center" FontSize="15" >
-                               Here is some bulshits 
-                        <LineBreak />
-                        About
-                        <LineBreak />
-                        This
-                        <LineBreak />
-                        Application
+                <StackPanel Margin="0,40,0,0">
+                    <Image Source="/Assets/Icons/DeskLamp.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
+                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="WELCOME" />
+                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Hey there!" />
+                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                       Welcome to Planel! This app would help you to be like successful men !
 
                     </TextBlock>
                 </StackPanel>
             </FlipViewItem>
             <FlipViewItem>
-                <StackPanel>
-                    <Image Source="/Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="100"  Width="100" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="App Bulshits" />
-                    <TextBlock Margin="0,100,0,0" MaxLines="5" Foreground="White" TextAlignment="Center" FontSize="15" >
-                               Here is some bulshits 
-                        <LineBreak />
-                        About
-                        <LineBreak />
-                        This
-                        <LineBreak />
-                        Application
+                <StackPanel Margin="0,40,0,0">
+                    <Image Source="/Assets/Icons/TodoList.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
+                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="PLAN YOUR LIFE" />
+                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="What shall I do today?" />
+                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                       Plan your daily routine. Sort, mind and control your activities. Planning makes everything easier!
 
                     </TextBlock>
                 </StackPanel>
             </FlipViewItem>
             <FlipViewItem>
-                <StackPanel>
-                    <Image Source="/Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="100"  Width="100" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="App Bulshits" />
-                    <TextBlock Margin="0,100,0,0" MaxLines="5" Foreground="White" TextAlignment="Center" FontSize="15" >
-                               Here is some bulshits 
-                        <LineBreak />
-                        About
-                        <LineBreak />
-                        This
-                        <LineBreak />
-                        Application
+                <StackPanel Margin="0,40,0,0">
+                    <Image Source="/Assets/Icons/CalendarDelete.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
+                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="DON'T MISS ANYTHING" />
+                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Oh... I don't remember!" />
+                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                       We won't let you forget your activities in your wounderful day! Everything will go right on time :)
 
                     </TextBlock>
                 </StackPanel>
             </FlipViewItem>
             <FlipViewItem  >
-                <StackPanel>
-                    <Image Source="/Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="100"  Width="100" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="App Bulshits" />
-                    <TextBlock Margin="0,100,0,0" MaxLines="5" Foreground="White" TextAlignment="Center" FontSize="15" >
-                               Here is some bulshits 
-                        <LineBreak />
-                        About
-                        <LineBreak />
-                        This
-                        <LineBreak />
-                        Application
+                <StackPanel Margin="0,40,0,0">
+                    <Image Source="/Assets/Icons/AreaChart.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
+                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="SEE YOUR PREFORMANCE" />
+                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Let's improve!" />
+                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                       See your daily preformance any time you want! The chart would show you how nicely you've done your activities.
 
                     </TextBlock>
                 </StackPanel>
             </FlipViewItem>
-            
+            <FlipViewItem  >
+                <StackPanel  Margin="0,40,0,0" >
+                    <Button BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
+                  FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Let's be familiar" />
+                    <StackPanel>
+                        <TextBox MaxWidth="400" TextAlignment="Justify" PlaceholderText="What's your name?"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
+                    </StackPanel>
+                </StackPanel>
+            </FlipViewItem>
         </FlipView>
-        
-        <Button Click="Button_Click" Content="GO IT!" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+
+        <Button x:Name="goit" IsEnabled="False" Click="Button_Click" Content="GO IT!" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
     </Grid>
 </Page>
