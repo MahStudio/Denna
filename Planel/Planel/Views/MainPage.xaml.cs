@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Phone.UI.Input;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -62,23 +63,69 @@ namespace Planel.Views
         #region pivot
         private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             if (FlipView.SelectedIndex==0)
+            bool isHardwareButtonsAPIPresent =
+                Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons");
+            if(isHardwareButtonsAPIPresent)
+            {
+                HardwareButtons.BackPressed -= HardwareButtons0_BackPressed;
+                HardwareButtons.BackPressed -= HardwareButtons1_BackPressed;
+                HardwareButtons.BackPressed -= HardwareButtons2_BackPressed;
+                HardwareButtons.BackPressed -= HardwareButtons3_BackPressed;
+            }
+            if (FlipView.SelectedIndex==0)
             {
                 mhome();
+                if(isHardwareButtonsAPIPresent)
+                {
+                    HardwareButtons.BackPressed += HardwareButtons0_BackPressed;
+                }
             }
             if (FlipView.SelectedIndex == 1)
             {
-                mtoday();    
+                mtoday();
+                if (isHardwareButtonsAPIPresent)
+                {
+                    HardwareButtons.BackPressed += HardwareButtons1_BackPressed;
+                }
             }
             if (FlipView.SelectedIndex == 2)
             {
                 mmonth();
+                if (isHardwareButtonsAPIPresent)
+                {
+                    HardwareButtons.BackPressed += HardwareButtons2_BackPressed;
+                }
             }
             if (FlipView.SelectedIndex == 3)
             {
                 mpref();
+                if (isHardwareButtonsAPIPresent)
+                {
+                    HardwareButtons.BackPressed += HardwareButtons3_BackPressed;
+                }
             }
         }
+        
+        private void HardwareButtons0_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void HardwareButtons1_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void HardwareButtons2_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void HardwareButtons3_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void mhome()
         {
             bhome.BorderThickness = new Thickness(0, 0, 0, 2);
