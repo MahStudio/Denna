@@ -132,7 +132,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "Good night Mohsen";
+            news.Text = "GOOD NIGHT MOHSEN";
             FlipView.SelectedIndex = 0;
 
             Animate(gridMain, true);
@@ -145,7 +145,7 @@ namespace Planel.Views
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "Let's do today's plan!";
+            news.Text = "LET'S DO TODAY'S!";
             FlipView.SelectedIndex = 1;
             Animate(gridMain, true);
 
@@ -157,7 +157,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 2);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "Entire month";
+            news.Text = "ENTIRE MONTH";
             FlipView.SelectedIndex = 2;
             Animate(gridMain, true); 
 
@@ -168,7 +168,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 2);
-            news.Text = "Entire month";
+            news.Text = "LOOK OVER IT!";
             FlipView.SelectedIndex = 3;
             Animate(gridMain, true);
         }
