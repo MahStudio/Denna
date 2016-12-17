@@ -3,12 +3,56 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Planel.Views"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Grid Background="White">
-        <CalendarView FontWeight="Normal" DayItemFontWeight="Light" Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" HorizontalAlignment="Center" x:Name="MyCalendarView" DisplayMode="Month" SelectionMode="Multiple" />
+        <RelativePanel>
+            <CalendarView RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontWeight="Normal" DayItemFontWeight="Light" Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" SelectionMode="Multiple" Margin="9,35,9,0" VerticalAlignment="Top" />
+            <ListView RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="MyCalendarView" Name="lvTest">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <controls:SlidableListItem 
+                    HorizontalAlignment="Stretch"
+                    LeftIcon="Emoji" 
+                    RightIcon="Delete" 
+                    LeftLabel="Done" 
+                    RightLabel="Delete"
+                    LeftBackground="SkyBlue" 
+                    RightBackground="OrangeRed"
+                    LeftForeground ="White" 
+                    RightForeground ="White"
+                    ActivationWidth="150"
+                    IsLeftCommandEnabled="True"
+                    IsRightCommandEnabled="True"
+                    IsOffsetLimited="True"
+                    MouseSlidingEnabled="True"
+                    IsPointerReleasedOnSwipingHandled="True"
+                    RightCommandParameter="{Binding}"
+                    RightCommandRequested="SlidableListItem_RightCommandRequested"
+                    
+                    LeftCommandRequested="SlidableListItem_LeftCommandRequested"
+                    
+                    >
+                            <Grid Height="70">
+                                <TextBlock FontSize="20" Text="{Binding title}"/>
+                            </Grid>
+
+
+                        </controls:SlidableListItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
+        
 
     </Grid>
 </Page>
