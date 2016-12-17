@@ -26,8 +26,8 @@
                             <TextBlock Text="70%"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       FontWeight="Bold"
-                       FontSize="50"
+                       Opacity="0.7"
+                       FontSize="40"
                        Foreground="Gray" />
                         </Grid>
                     </StackPanel>
@@ -44,8 +44,8 @@
                             <TextBlock Text="95%"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       FontWeight="Bold"
-                       FontSize="50"
+                       Opacity="0.7"
+                       FontSize="40"
                        Foreground="Gray" />
                         </Grid>
                     </StackPanel>
@@ -58,13 +58,7 @@
 
 
 
-            <AppBarButton Content="Add"   >
-
-                <AppBarButton.Icon>
-                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"  Height="49" VerticalAlignment="Top"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarSeparator/>
+            
             <AppBarButton Content="Share" >
 
                 <AppBarButton.Icon>

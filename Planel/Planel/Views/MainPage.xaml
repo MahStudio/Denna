@@ -142,7 +142,7 @@
 
                     <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
                     <StackPanel>
-                        <TextBlock Text="Dear User !" Foreground="White" TextAlignment="Center" x:Name="news" FontSize="23" Margin="10,95,10,35" />
+                        <TextBlock Text="Dear User !" Foreground="White" FontWeight="Bold" TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,95,10,35" />
                         <Ellipse Margin="0,25,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
