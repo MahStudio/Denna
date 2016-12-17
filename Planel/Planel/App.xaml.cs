@@ -90,6 +90,7 @@ namespace Planel
                         titleBar.ForegroundColor = Colors.White;
 
                         titleBar.ButtonForegroundColor = Colors.White;
+                        //fuck you asshilism
 
                     }
                     catch
