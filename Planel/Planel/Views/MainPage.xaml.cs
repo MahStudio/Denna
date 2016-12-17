@@ -135,6 +135,8 @@ namespace Planel.Views
             news.Text = "Good night Mohsen";
             FlipView.SelectedIndex = 0;
 
+            Animate(gridMain, true);
+
         }
         private void mtoday()
         {
@@ -145,6 +147,8 @@ namespace Planel.Views
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             news.Text = "Let's do today's plan!";
             FlipView.SelectedIndex = 1;
+            Animate(gridMain, true);
+
 
         }
         private void mmonth()
@@ -155,6 +159,7 @@ namespace Planel.Views
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             news.Text = "Entire month";
             FlipView.SelectedIndex = 2;
+            Animate(gridMain, true); 
 
         }
         private void mpref()
@@ -165,6 +170,7 @@ namespace Planel.Views
             bpref.BorderThickness = new Thickness(0, 0, 0, 2);
             news.Text = "Entire month";
             FlipView.SelectedIndex = 3;
+            Animate(gridMain, true);
         }
         private void bhome_Click(object sender, RoutedEventArgs e)
         {
