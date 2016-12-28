@@ -10,7 +10,8 @@ namespace Planel.Models
     {
         public string title { get; set; }
         public string detail { get; set; }
-        public int time { get; set; }
+        public DateTime time { get; set; }
+        public bool isdone { get; set; }
 
     }
 }
