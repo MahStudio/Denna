@@ -65,11 +65,19 @@
             </FlipViewItem>
             <FlipViewItem  >
                 <StackPanel  Margin="0,40,0,0" >
-                    <Button BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
+                    <Grid>
+                        <Ellipse   HorizontalAlignment="Center" Height="100"  Width="100" >
+                            <Ellipse.Fill>
+                                <ImageBrush Stretch="UniformToFill" x:Name="avatar"  />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    <Button Click="Button_Click_1" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
                   FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
+                        
+                    </Grid>
                     <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Let's be familiar" />
                     <StackPanel>
-                        <TextBox MaxWidth="400" TextAlignment="Justify" PlaceholderText="What's your name?"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
+                        <TextBox x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="What's your name?"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
                     </StackPanel>
                 </StackPanel>
             </FlipViewItem>

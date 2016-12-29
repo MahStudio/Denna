@@ -2,6 +2,7 @@
 using Planel.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -10,6 +11,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Foundation.Metadata;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -78,7 +80,13 @@ namespace Planel
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
+                    
+                    if ( ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1") 
+                        rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    
+                    else
                     rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
+
                     try
                     {
                         ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;

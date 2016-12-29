@@ -4,6 +4,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
     "Microsoft.Toolkit.Uwp": "1.2.0",
     "Microsoft.Toolkit.Uwp.UI.Controls": "1.2.0",
+    "SQLite.Net-PCL": "3.1.1",
     "winrtxamltoolkit": "2.0.0",
     "WinRTXamlToolkit.Controls.DataVisualization": "2.0.0"
   },

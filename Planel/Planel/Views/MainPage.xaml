@@ -145,10 +145,10 @@
                         <TextBlock Text="Dear User !" Foreground="White" FontWeight="Bold" TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,95,10,35" />
                         <Ellipse Margin="0,25,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
+                                <ImageBrush Stretch="UniformToFill" x:Name="avatar" ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
-                        <TextBlock Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
+                        <TextBlock x:Name="todate" Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
                         <TextBlock Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
                                 Today you have 6 works to do.
                                 <LineBreak />

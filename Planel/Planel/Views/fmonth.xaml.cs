@@ -27,12 +27,7 @@ namespace Planel.Views
         public fmonth()
         {
             this.InitializeComponent();
-            todolist.Add(new todo { title = "Fuckery", detail = "بی تربیت", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "نحوه صحیح کد نویسی!", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            lvTest.ItemsSource = todolist;
+            
 
         }
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)

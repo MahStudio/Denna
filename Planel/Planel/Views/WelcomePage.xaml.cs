@@ -5,13 +5,17 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,12 +30,10 @@ namespace Planel.Views
         public WelcomePage()
         {
             this.InitializeComponent();
+            Models.Localdb.CreateDatabase();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
-        }
+       
         #region FlipView
         private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -129,6 +131,77 @@ namespace Planel.Views
 
         #endregion
 
-       
+
+        #region Database Creation 
+        
+
+
+
+        #endregion
+        private string name;
+        private string filename;
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".jpeg");
+            openPicker.FileTypeFilter.Add(".png");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+
+               
+                // Application now has read/write access to the picked file
+                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+                
+                try
+                {
+                    Windows.Storage.StorageFolder storageFolder =
+    Windows.Storage.ApplicationData.Current.LocalFolder;
+          Windows.Storage.StorageFile sampleFile =
+              await storageFolder.GetFileAsync("avatar.jpg");
+                    sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete); 
+                    
+                }
+                catch { }
+               
+                StorageFile copiedFile = await file.CopyAsync(localFolder,"avatar.jpg");
+                filename = "avatar.jpg"; 
+                StorageFolder storageFolder2 = ApplicationData.Current.LocalFolder;
+                StorageFile sampleFile2 = await storageFolder2.GetFileAsync("avatar.jpg");
+
+                avatar.ImageSource = new BitmapImage(new Uri(sampleFile2.Path));
+                
+            }
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (namebox.Text != "")
+            name = namebox.Text;
+            else
+            {
+                var messageDialog = new MessageDialog("Fill your name and picture and press agian :)");
+                messageDialog.ShowAsync();
+            }
+            if (name != null && filename != null)
+            {
+                Models.Localdb.Iuser( name);
+                
+                
+                    ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
+                Frame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                var messageDialog = new MessageDialog("Fill your name and picture and press agian :)");
+                messageDialog.ShowAsync();
+            }
+
+
+        }
+
     }
 }

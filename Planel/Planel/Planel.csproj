@@ -96,8 +96,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Localdb.cs" />
     <Compile Include="Models\todo.cs" />
-    <Compile Include="Models\user.cs" />
     <Compile Include="NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usercontrols\PieChart.cs" />

@@ -28,12 +28,7 @@ namespace Planel.Views
         public ftoday()
         {
             this.InitializeComponent();
-            todolist.Add(new todo { title = "Fuckery", detail = "بی تربیت", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "نحوه صحیح کد نویسی!", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-            todolist.Add(new todo { title = "Fuckery", detail = "more fuckery", time = 3 });
-           lvTest.ItemsSource = todolist;
+            
 
         }
 

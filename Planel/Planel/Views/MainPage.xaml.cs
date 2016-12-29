@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Phone.UI.Input;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 
@@ -35,14 +37,18 @@ namespace Planel.Views
 
 
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             fhome.Navigate(typeof(fhome));
             ftoday.Navigate(typeof(ftoday));
             fmonth.Navigate(typeof(fmonth));
             fpref.Navigate(typeof(fpref));
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
             
-            
+            avatar.ImageSource = new BitmapImage(new Uri(sampleFile.Path));
+            DateTime thisday = DateTime.Today;
+            todate.Text = thisday.ToString("D");
 
         }
         public void ntonavigate()
@@ -132,7 +138,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "GOOD NIGHT MOHSEN";
+            news.Text = (string.Format("Dear {0}", ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
             FlipView.SelectedIndex = 0;
 
             Animate(gridMain, true);
