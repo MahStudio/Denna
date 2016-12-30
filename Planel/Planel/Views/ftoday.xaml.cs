@@ -35,12 +35,14 @@ namespace Planel.Views
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
-            
+            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            Models.Localdb.Deletetodo(clk.Id);
         }
 
         private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
         {
-
+            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            Models.Localdb.Done(clk.Id);
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

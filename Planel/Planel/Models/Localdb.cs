@@ -69,11 +69,12 @@ namespace Planel.Models
             {
                 var query = conn.Table<todo>();
                 foreach (var message in query)
-            {
-                    todos.Add(new todo() { detail = message.detail,  isdone=message.isdone , time=message.time , title=message.title });
+            {   
+                    todos.Add(new todo() { detail = message.detail,  isdone=message.isdone , time=message.time , title=message.title, Id = message.Id });
                 }
 
             }
+            
 
             return todos;
            
@@ -90,15 +91,38 @@ namespace Planel.Models
                 var query = conn.Table<todo>();
                 foreach (var message in query)
                 {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title });
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title,Id=message.Id});
                 }
 
             }
+
            return todos.Count();
             
 
 
 
+        }
+
+        public static void Deletetodo(int id)
+        {
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.Execute("DELETE FROM todo WHERE Id = ?", id);
+                Classes.worker.refresher();
+            }
+        }
+
+        public static void Done(int id)
+        {
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.Execute("UPDATE todo SET isdone='true' WHERE ?", id);
+                Classes.worker.refresher();
+            }
         }
     }
 
