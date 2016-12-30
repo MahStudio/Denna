@@ -28,7 +28,8 @@ namespace Planel.Views
         public ftoday()
         {
             this.InitializeComponent();
-            
+            todolist = Models.Localdb.Getfordoday();
+            lvTest.ItemsSource = todolist;
 
         }
 

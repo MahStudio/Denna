@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,26 @@ namespace Planel.Views.sframes
         public add()
         {
             this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            
+        }
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            //ignore
+            Frame.Navigate(typeof(ftoday));
+        }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            //add to database
+            DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes,timepic.Time.Seconds);
+          
+            
+                
+            Models.Localdb.Addtodo(title.Text,describe.Text,todate);
+            Frame.Navigate(typeof(ftoday));
         }
     }
 }
