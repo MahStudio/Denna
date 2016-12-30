@@ -96,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\worker.cs" />
     <Compile Include="Models\Localdb.cs" />
     <Compile Include="Models\todo.cs" />
     <Compile Include="NavMenuItem.cs" />

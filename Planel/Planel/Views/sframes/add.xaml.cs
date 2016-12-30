@@ -45,7 +45,7 @@ namespace Planel.Views.sframes
             
                 
             Models.Localdb.Addtodo(title.Text,describe.Text,todate);
-            Frame.Navigate(typeof(ftoday));
+            Classes.worker.refresher();
         }
     }
 }

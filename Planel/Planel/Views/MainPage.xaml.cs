@@ -45,10 +45,21 @@ namespace Planel.Views
             fpref.Navigate(typeof(fpref));
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
-            
+
             avatar.ImageSource = new BitmapImage(new Uri(sampleFile.Path));
             DateTime thisday = DateTime.Today;
             todate.Text = thisday.ToString("D");
+            counterr(Models.Localdb.counter());
+            
+
+        }
+
+        public void counterr(int cnt)
+        {
+            if (cnt==1)
+            counter.Text = string.Format("You have {0} work to do",cnt.ToString());
+            else
+                counter.Text = string.Format("You have {0} works to do", cnt.ToString());
 
         }
         public void ntonavigate()

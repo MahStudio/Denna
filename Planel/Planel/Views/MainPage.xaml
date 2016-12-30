@@ -149,7 +149,7 @@
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock x:Name="todate" Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
-                        <TextBlock Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
+                        <TextBlock x:Name="counter" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
                                 Today you have 6 works to do.
                                 <LineBreak />
                                 <LineBreak />
@@ -171,16 +171,16 @@
                 <Grid RelativePanel.Below="gridMain" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
                     <FlipView SelectionChanged="FlipView_SelectionChanged" x:Name="FlipView" Background="Transparent">
                         <FlipViewItem>
-                            <Frame x:Name="fhome" />
+                            <Frame x:FieldModifier="public" x:Name="fhome" />
                         </FlipViewItem>
                         <FlipViewItem>
-                            <Frame x:Name="ftoday" />
+                            <Frame x:FieldModifier="public" x:Name="ftoday" />
                         </FlipViewItem>
                         <FlipViewItem>
-                            <Frame x:Name="fmonth" />
+                            <Frame x:FieldModifier="public" x:Name="fmonth" />
                         </FlipViewItem>
                         <FlipViewItem>
-                            <Frame x:Name="fpref" />
+                            <Frame x:FieldModifier="public" x:Name="fpref" />
                         </FlipViewItem>
 
                     </FlipView>
