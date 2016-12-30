@@ -36,7 +36,7 @@ namespace Planel.Models
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
                 conn.DropTable<todo>();
-
+                ApplicationData.Current.LocalSettings.Values["Username"] = null;
             }
 
 
@@ -45,7 +45,7 @@ namespace Planel.Models
         public static void Addtodo (string titl, string describe, DateTime date)
         {
 
-            ApplicationData.Current.LocalSettings.Values["Username"] = null;
+            
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))

@@ -9,7 +9,7 @@ namespace Planel.Classes
 {
     class worker
     {
-        public static void refresher()
+        public static async void refresher()
         {
             MainPage.current.counterr(Models.Localdb.counter());
             MainPage.current.fhome.Navigate(typeof(fhome));
