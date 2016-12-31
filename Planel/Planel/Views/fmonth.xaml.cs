@@ -46,7 +46,7 @@ namespace Planel.Views
         private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-            Models.Localdb.Done(clk.Id);
+            Models.Localdb.Done(clk);
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

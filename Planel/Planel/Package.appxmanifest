@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="012f762e-ce57-41d0-97d0-cae539b6aa06" Publisher="CN=Mohsen" Version="1.0.0.0" />
+  <Identity Name="012f762e-ce57-41d0-97d0-cae539b6aa06" Publisher="CN=Mohsen" Version="0.1.1.0" />
   <mp:PhoneIdentity PhoneProductId="012f762e-ce57-41d0-97d0-cae539b6aa06" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Rashelly</DisplayName>
