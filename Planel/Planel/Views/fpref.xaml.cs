@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Planel.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,16 +27,8 @@ namespace Planel.Views
         public fpref()
         {
             this.InitializeComponent();
-            var items1 = new List<NameValueItem>();
-            var items2 = new List<NameValueItem>();
-            var items3 = new List<NameValueItem>();
-            items1.Add(new NameValueItem { Name = "Sat" , Value = 50 });
-            items1.Add(new NameValueItem { Name = "Sun", Value = 50 });
-            items1.Add(new NameValueItem { Name = "Mon", Value = 50 });
-            items1.Add(new NameValueItem { Name = "Tue", Value = 60 });
-            items1.Add(new NameValueItem { Name = "Wed", Value = 90 });
-            items1.Add(new NameValueItem { Name = "Thu", Value = 10 });
-            items1.Add(new NameValueItem { Name = "Fri", Value = 30 });
+            var items1 = Models.Localdb.Wgraph();
+            var items2 =Models.Localdb.Mgraph();         
 
 
             var series = (AreaSeries)this.AreaChartWithNoLabels.Series[0];
@@ -59,7 +52,7 @@ namespace Planel.Views
                     Height = 0
                 };
             var series2 = (AreaSeries)this.AreaChartWithNoLabels2.Series[0];
-            series2.ItemsSource = items1;
+            series2.ItemsSource = items2;
 
 
             series2.DependentRangeAxis =
@@ -88,9 +81,5 @@ namespace Planel.Views
 
 
     }
-    public class NameValueItem
-    {
-        public string Name { get; set; }
-        public int Value { get; set; }
-    }
+    
 

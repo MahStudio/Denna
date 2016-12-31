@@ -16,12 +16,12 @@ namespace Planel.Models
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
                 conn.CreateTable<todo>();
-                
+
             }
 
 
         }
-        public static void Iuser( string name)
+        public static void Iuser(string name)
         {
             ApplicationData.Current.LocalSettings.Values["Username"] = name;
 
@@ -42,26 +42,29 @@ namespace Planel.Models
 
 
         }
-        public static void Addtodo (string titl, string describe, DateTime date)
+        public static void Addtodo(string titl, string describe, DateTime date)
         {
 
-            
+
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
                 conn.Insert(new todo()
                 {
-                   title = titl , detail=describe , time=date, isdone=false 
-                
+                    title = titl,
+                    detail = describe,
+                    time = date,
+                    isdone = false
+
                 });
 
             }
         }
 
 
-            public static List< todo> Getfordoday(DateTime now)
-            {
+        public static List<todo> Getfordoday(DateTime now)
+        {
             List<todo> todos = new List<todo>();
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
@@ -69,12 +72,12 @@ namespace Planel.Models
             {
                 var query = conn.Table<todo>();
                 foreach (var message in query)
-            {   
-                    todos.Add(new todo() { detail = message.detail,  isdone=message.isdone , time=message.time , title=message.title, Id = message.Id });
+                {
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
                 }
 
             }
-            
+
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
             List<todo> todoss = new List<todo>();
@@ -86,7 +89,7 @@ namespace Planel.Models
                 }
             }
             return todoss;
-           
+
 
 
         }
@@ -99,12 +102,12 @@ namespace Planel.Models
             {
                 var query = conn.Table<todo>();
                 foreach (var message in query)
-            {   
-                    todos.Add(new todo() { detail = message.detail,  isdone=message.isdone , time=message.time , title=message.title, Id = message.Id });
+                {
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
                 }
 
             }
-            
+
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
             List<todo> todoss = new List<todo>();
@@ -123,9 +126,9 @@ namespace Planel.Models
                 }
             }
             todoss.AddRange(todos);
-            
+
             return todoss;
-           
+
 
         }
         public static int counter()
@@ -138,13 +141,13 @@ namespace Planel.Models
                 var query = conn.Table<todo>();
                 foreach (var message in query)
                 {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title,Id=message.Id});
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
                 }
 
             }
 
-           return todos.Count();
-            
+            return todos.Count();
+
 
 
 
@@ -176,15 +179,15 @@ namespace Planel.Models
                     todoss.Add(item);
                 }
             }
-            int all=todoss.Count;
+            int all = todoss.Count;
             int done = 0;
             foreach (var item in todos)
             {
-                if (item.isdone==true)
+                if (item.isdone == true)
                 {
                     done++;
                 }
-                
+
             }
             int percentComplete;
 
@@ -192,13 +195,13 @@ namespace Planel.Models
                 percentComplete = (int)Math.Round((double)(100 * done) / all);
             else
                 percentComplete = 0;
-           
-            
+
+
             percentage.firstpercentage = percentComplete;
 
             //calculate for yesterday
-            DateTime startyesterday = new DateTime(now.Year, now.Month, now.Day-1, 0, 0, 0);
-            DateTime endyesterday = new DateTime(now.Year, now.Month, now.Day-1, 23, 59, 59);
+            DateTime startyesterday = new DateTime(now.Year, now.Month, now.Day - 1, 0, 0, 0);
+            DateTime endyesterday = new DateTime(now.Year, now.Month, now.Day - 1, 23, 59, 59);
             List<todo> todosss = new List<todo>();
             foreach (var item in todos)
             {
@@ -219,7 +222,7 @@ namespace Planel.Models
             }
             int percentCompletee;
             if (alll != 0)
-                 percentCompletee = (int)Math.Round((double)(100 * donee) / alll);
+                percentCompletee = (int)Math.Round((double)(100 * donee) / alll);
             else
                 percentCompletee = 0;
             percentage.secondpercentage = percentCompletee;
@@ -234,6 +237,104 @@ namespace Planel.Models
 
         }
 
+        public static List<Classes.NameValueItem> Wgraph()
+        {
+            List<todo> todos = new List<todo>();
+            List<Classes.NameValueItem> weeker = new List<Classes.NameValueItem>();
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                var query = conn.Table<todo>();
+                foreach (var message in query)
+                {
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
+                }
+
+            }
+            DateTime now = DateTime.Now;
+            int done = 0;
+            int alll = todos.Count;
+
+            for (int i = 0; i < 6; i++)
+            {
+                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day - i, 0, 0, 0);
+                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day - i, 23, 59, 59);
+                foreach (var item in todos)
+                {
+                    if (item.isdone == true)
+                    {
+                        done++;
+                    }
+
+                }
+                int percentCompletee;
+                if (alll != 0)
+                    percentCompletee = (int)Math.Round((double)(100 * done) / alll);
+                else
+                    percentCompletee = 0;
+                weeker.Add(new Classes.NameValueItem() { Name = i.ToString(), Value = percentCompletee });
+
+
+
+
+            }
+
+
+            return weeker;
+
+        }
+        public static List<Classes.NameValueItem> Mgraph()
+        {
+            List<todo> todos = new List<todo>();
+            List<Classes.NameValueItem> weeker = new List<Classes.NameValueItem>();
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                var query = conn.Table<todo>();
+                foreach (var message in query)
+                {
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
+                }
+
+            }
+            DateTime now = DateTime.Now;
+            int done = 0;
+            int alll = todos.Count;
+
+            for (int i = 0; i < 6; i++)
+            {
+                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day - i*4, 0, 0, 0);
+                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day - i*4, 23, 59, 59);
+                foreach (var item in todos)
+                {
+                    if (item.isdone == true)
+                    {
+                        done++;
+                    }
+
+                }
+                int percentCompletee;
+                if (alll != 0)
+                    percentCompletee = (int)Math.Round((double)(100 * done) / alll);
+                else
+                    percentCompletee = 0;
+                weeker.Add(new Classes.NameValueItem() { Name = i.ToString(), Value = percentCompletee });
+
+
+
+
+            }
+
+
+            return weeker;
+
+        }
+
+
+
+
 
         public static void Deletetodo(int id)
         {
@@ -241,8 +342,8 @@ namespace Planel.Models
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
-                conn.Execute("DELETE FROM todo WHERE Id = ?",id);
-                
+                conn.Execute("DELETE FROM todo WHERE Id = ?", id);
+
             }
             Classes.worker.refresher();
         }
@@ -256,9 +357,10 @@ namespace Planel.Models
                 item.isdone = true;
                 conn.Update(item);
 
-                
+
             }
             Classes.worker.refresher();
         }
     }
 }
+
