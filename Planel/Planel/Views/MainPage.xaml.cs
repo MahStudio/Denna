@@ -56,8 +56,11 @@ namespace Planel.Views
 
         public void counterr(int cnt)
         {
-            if (cnt==1)
-            counter.Text = string.Format("You have {0} work to do",cnt.ToString());
+
+
+
+            if (cnt == 1)
+                counter.Text = string.Format("You have {0} work to do", cnt.ToString());
             else
                 counter.Text = string.Format("You have {0} works to do", cnt.ToString());
 

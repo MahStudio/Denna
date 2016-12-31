@@ -60,7 +60,7 @@ namespace Planel.Models
         }
 
 
-            public static List< todo> Getfordoday()
+            public static List< todo> Getfordoday(DateTime now)
             {
             List<todo> todos = new List<todo>();
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
@@ -75,8 +75,17 @@ namespace Planel.Models
 
             }
             
-
-            return todos;
+            DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+            DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
+            List<todo> todoss = new List<todo>();
+            foreach (var item in todos)
+            {
+                if (item.time >= starttoday && item.time <= endtoday)
+                {
+                    todoss.Add(item);
+                }
+            }
+            return todoss;
            
 
 
