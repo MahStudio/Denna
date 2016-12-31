@@ -127,6 +127,9 @@
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\sframes\add.xaml.cs">
       <DependentUpon>add.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,7 @@
   <ItemGroup>
     <Content Include="Assets\Headings\bgs.png" />
     <Content Include="Assets\Headings\h3.png" />
+    <Content Include="Assets\Headings\h4.png" />
     <Content Include="Assets\Headings\s.jpg" />
     <Content Include="Assets\Headings\s2.jpg" />
     <Content Include="Assets\Headings\s3.jpg" />
@@ -196,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

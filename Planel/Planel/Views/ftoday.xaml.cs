@@ -66,7 +66,7 @@ namespace Planel.Views
 
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
-            MainPage.current.ntonavigate();
+           
         }
 
         private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)

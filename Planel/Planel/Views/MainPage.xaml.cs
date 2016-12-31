@@ -65,9 +65,12 @@ namespace Planel.Views
                 counter.Text = string.Format("You have {0} works to do", cnt.ToString());
 
         }
-        public void ntonavigate()
+        public void ntonavigate(string nav)
         {
+            if (nav=="about")
             Frame.Navigate(typeof(About));
+            else if (nav=="setting")
+                Frame.Navigate(typeof(Settings));
         }
 
 

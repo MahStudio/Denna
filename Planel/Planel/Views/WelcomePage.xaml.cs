@@ -132,12 +132,7 @@ namespace Planel.Views
         #endregion
 
 
-        #region Database Creation 
         
-
-
-
-        #endregion
         private string name;
         private string filename;
 

@@ -67,7 +67,9 @@
             </AppBarButton>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Click="AppBarButton_Click" Icon="Like" Label="About"/>
+                <AppBarButton Click="AppBarButton_Click_1" Icon="Setting" Label="Settings"/>
             </CommandBar.SecondaryCommands>
+            
 
 
 

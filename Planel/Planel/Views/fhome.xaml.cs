@@ -36,7 +36,7 @@ namespace Planel.Views
         }
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            MainPage.current.ntonavigate();
+            MainPage.current.ntonavigate("about");
 
         }
 
@@ -65,6 +65,9 @@ namespace Planel.Views
             yesterpar.Text = percentage.ToString() + "%";
         }
 
-
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainPage.current.ntonavigate("setting");
+        }
     }
 }
