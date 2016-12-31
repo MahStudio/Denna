@@ -40,6 +40,7 @@ namespace Planel.Views
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
+
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             Models.Localdb.Deletetodo(clk.Id);
             
