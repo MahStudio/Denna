@@ -100,6 +100,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\BooleanToVisibilityConverter.cs" />
     <Compile Include="Classes\mpercent.cs" />
     <Compile Include="Classes\worker.cs" />
     <Compile Include="Models\Localdb.cs" />

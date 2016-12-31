@@ -42,6 +42,7 @@ namespace Planel.Views
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             Models.Localdb.Deletetodo(clk.Id);
+            
             todolist.Remove(clk);
             lvTest.ItemsSource = todolist;
 
@@ -66,6 +67,19 @@ namespace Planel.Views
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             MainPage.current.ntonavigate();
+        }
+
+        private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clk = e.ClickedItem as todo;
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                Title = clk.title,
+                Content = clk.detail ,
+                PrimaryButtonText = "Ok"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
         }
     }
 }
