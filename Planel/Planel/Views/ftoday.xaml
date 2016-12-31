@@ -45,7 +45,7 @@
                     
                     >
                     <Grid Height="70">
-                        <TextBlock FontSize="20" Text="{Binding title}"/>
+                        <TextBlock FontSize="20" Text="{Binding title , Mode=TwoWay}"/>
                     </Grid>
                     
                     

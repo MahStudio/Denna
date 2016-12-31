@@ -1,4 +1,5 @@
 ﻿using Planel.Models;
+using Planel.Views.sframes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,19 +31,56 @@ namespace Planel.Views
             
 
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            todolist = Models.Localdb.Getfordoday(now);
+            lvTest.ItemsSource = todolist;
+        }
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
-
+            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            Models.Localdb.Deletetodo(clk.Id);
         }
 
         private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
         {
-
+            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            Models.Localdb.Done(clk.Id);
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(add));
+        }
+
+        private void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
+        {
+
+            
+          
+
+        }
+
+        private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        {
+            
+            try { 
+            DateTime selecteddate = new DateTime(args.AddedDates[0].Year, args.AddedDates[0].Month, args.AddedDates[0].Day,0,0,0);
+
+               todolist = Models.Localdb.Getfordoday(selecteddate);
+              lvTest.ItemsSource = todolist;
+
+            }
+            catch
+            {
+
+            }
         }
     }
 }

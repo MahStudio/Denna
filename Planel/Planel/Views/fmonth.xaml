@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <RelativePanel>
-            <CalendarView RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontWeight="Normal" DayItemFontWeight="Light" Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" SelectionMode="Multiple" Margin="9,35,9,0" VerticalAlignment="Top" />
+            <CalendarView  CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" SelectionMode="Single" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontWeight="Normal" DayItemFontWeight="Light" Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" Margin="9,35,9,0" VerticalAlignment="Top" SelectedDatesChanged="MyCalendarView_SelectedDatesChanged" />
             <ListView RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="MyCalendarView" Name="lvTest">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -43,7 +43,7 @@
                     
                     >
                             <Grid Height="70">
-                                <TextBlock FontSize="20" Text="{Binding title}"/>
+                                <TextBlock FontSize="20" Text="{Binding title,Mode=TwoWay}"/>
                             </Grid>
 
 

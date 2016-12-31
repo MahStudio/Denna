@@ -28,16 +28,23 @@ namespace Planel.Views
         public ftoday()
         {
             this.InitializeComponent();
+            
+
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
             DateTime now = DateTime.Now;
             todolist = Models.Localdb.Getfordoday(now);
             lvTest.ItemsSource = todolist;
-
         }
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             Models.Localdb.Deletetodo(clk.Id);
+            todolist.Remove(clk);
+            lvTest.ItemsSource = todolist;
+
         }
 
         private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
