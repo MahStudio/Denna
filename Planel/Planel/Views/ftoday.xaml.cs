@@ -34,7 +34,7 @@ namespace Planel.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             DateTime now = DateTime.Now;
-            todolist = Models.Localdb.Getfordoday(now);
+            todolist = Models.Localdb.getall(now);
             lvTest.ItemsSource = todolist;
         }
 
@@ -75,7 +75,7 @@ namespace Planel.Views
             ContentDialog noWifiDialog = new ContentDialog()
             {
                 Title = clk.title,
-                Content = clk.detail ,
+                Content = clk.detail + " at " + clk.time  ,
                 PrimaryButtonText = "Ok"
             };
 

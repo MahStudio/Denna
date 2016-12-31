@@ -10,23 +10,42 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    
+
     <Grid Background="White">
-       
-<Grid Margin="0,0,0,48">
-        <ListView  IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
+
+        <Grid Margin="0,0,0,48">
+            
+            <!--<Grid Height="100" MaxHeight="100" >
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="27"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                   
+                   <Grid Grid.RowSpan="2" HorizontalAlignment="Center" Width="1.5" Background="Black" Opacity="0.4" />
+                <Ellipse Fill="{StaticResource SystemControlBackgroundAccentBrush}" Height="20" Width="20" />    
+                <TextBlock Opacity="0.9" Grid.Column="1" Grid.Row="0" FontSize="20" Text="This it titile" HorizontalAlignment="Left" Width="340"/>
+                    <TextBlock MaxLines="2" TextWrapping="Wrap" Opacity="0.7" Grid.Column="1" Grid.Row="1" Text="this is subtitilesssssssssssssssssssssssssssssssssssssss" FontSize="18" />
+                    <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="15" Text="This time" HorizontalAlignment="Right" Width="95"/>
+                
+            </Grid>-->
+            <ListView  IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
                 <ListView.Resources>
                     <local2:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
                 </ListView.Resources>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    <Setter Property="VerticalAlignment" Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ItemTemplate>
-            <DataTemplate >
-                <controls:SlidableListItem 
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <controls:SlidableListItem 
                     HorizontalAlignment="Stretch"
                     LeftIcon="Emoji" 
                     RightIcon="Delete" 
@@ -48,17 +67,32 @@
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
                     
                     >
-                    <Grid Height="70">
-                                <StackPanel>
-                                <TextBlock FontSize="20" Text="{Binding title , Mode=TwoWay}"/>
-                                <TextBlock Text=":|" FontSize="20" Visibility="{Binding isdone, Converter = {StaticResource BooleanToVisibilityConverter} , Mode=TwoWay}"/>
-                            </StackPanel>
-                    </Grid>
-                    
-                    
-                </controls:SlidableListItem>
-            </DataTemplate></ListView.ItemTemplate>
-        </ListView>
+                            <Grid Height="100" MaxHeight="100" >
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="27"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="27"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.RowSpan="2" HorizontalAlignment="Center" Width="1" Background="Black" Opacity="0.4" />
+                                <Ellipse Visibility="{Binding isdone, Converter = {StaticResource BooleanToVisibilityConverter} , Mode=TwoWay}" Fill="{StaticResource SystemControlBackgroundAccentBrush}" Height="20" Width="20" />
+                                <TextBlock Opacity="0.9" Grid.Column="1" Grid.Row="0" FontSize="20" Text="{Binding title , Mode=TwoWay}" HorizontalAlignment="Left" Width="340"/>
+                                <TextBlock MaxLines="2" TextWrapping="Wrap" Opacity="0.7" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="16" />
+                                <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="15" Text="This time" HorizontalAlignment="Right" Width="95"/>
+
+                            </Grid>
+                            
+
+
+                        </controls:SlidableListItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </Grid>
 
         <CommandBar  VerticalAlignment="Bottom">
@@ -73,8 +107,8 @@
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"  Height="49" VerticalAlignment="Top"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            
-           
+
+
             <CommandBar.SecondaryCommands>
                 <AppBarButton Click="AppBarButton_Click_1" Icon="Like" Label="About"/>
             </CommandBar.SecondaryCommands>

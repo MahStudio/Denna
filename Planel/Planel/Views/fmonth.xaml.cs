@@ -41,6 +41,10 @@ namespace Planel.Views
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             Models.Localdb.Deletetodo(clk.Id);
+
+            todolist.Remove(clk);
+            lvTest.ItemsSource = todolist;
+
         }
 
         private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
@@ -66,7 +70,18 @@ namespace Planel.Views
           
 
         }
+        private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clk = e.ClickedItem as todo;
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                Title = clk.title,
+                Content = clk.detail + " at " + clk.time,
+                PrimaryButtonText = "Ok"
+            };
 
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
         private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
             
