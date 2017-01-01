@@ -200,8 +200,10 @@ namespace Planel.Models
             percentage.firstpercentage = percentComplete;
 
             //calculate for yesterday
-            DateTime startyesterday = new DateTime(now.Year, now.Month, now.Day - 1, 0, 0, 0);
-            DateTime endyesterday = new DateTime(now.Year, now.Month, now.Day - 1, 23, 59, 59);
+            DateTime startyesterday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
+            startyesterday.AddDays(-1);
+            DateTime endyesterday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
+            endyesterday.AddDays(-1);
             List<todo> todosss = new List<todo>();
             foreach (var item in todos)
             {
@@ -258,8 +260,10 @@ namespace Planel.Models
 
             for (int i = 0; i < 6; i++)
             {
-                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day - i, 0, 0, 0);
-                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day - i, 23, 59, 59);
+                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
+                starttoday.AddDays(-i);
+                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
+                endtoday.AddDays(-i);
                 foreach (var item in todos)
                 {
                     if (item.isdone == true)
@@ -305,8 +309,10 @@ namespace Planel.Models
 
             for (int i = 0; i < 6; i++)
             {
-                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day - i*4, 0, 0, 0);
-                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day - i*4, 23, 59, 59);
+                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
+                starttoday.AddDays(-i * 4);
+                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
+                endtoday.AddDays(-i * 4);
                 foreach (var item in todos)
                 {
                     if (item.isdone == true)
