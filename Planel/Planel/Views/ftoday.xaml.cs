@@ -2,6 +2,7 @@
 using Planel.Views.sframes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,7 +25,7 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class ftoday : Page
     {
-        private List<Models.todo> todolist = new List<todo>();
+        ObservableCollection<Models.todo> todolist = new ObservableCollection<todo>();
         public ftoday()
         {
             this.InitializeComponent();

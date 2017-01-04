@@ -155,7 +155,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = (string.Format("Dear {0}", ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
+            news.Text = (string.Format("Happy new year {0}", ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
             FlipView.SelectedIndex = 0;
 
             Animate(gridMain, true);

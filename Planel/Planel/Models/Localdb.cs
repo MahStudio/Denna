@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Planel.Models
 {
     class Localdb
     {
+        //for database creation
         public static void CreateDatabase()
         {
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
@@ -21,6 +23,8 @@ namespace Planel.Models
 
 
         }
+        
+        //save user name
         public static void Iuser(string name)
         {
             ApplicationData.Current.LocalSettings.Values["Username"] = name;
@@ -28,6 +32,7 @@ namespace Planel.Models
 
 
         }
+        //logout proceed
         public static void Logout(string name)
         {
             ApplicationData.Current.LocalSettings.Values["Username"] = null;
@@ -42,6 +47,7 @@ namespace Planel.Models
 
 
         }
+        // add a todo list
         public static void Addtodo(string titl, string describe, DateTime date)
         {
 
@@ -61,11 +67,11 @@ namespace Planel.Models
 
             }
         }
-
-
-        public static List<todo> Getfordoday(DateTime now)
+        
+        // get all list
+        public static ObservableCollection<Models.todo> getlist()
         {
-            List<todo> todos = new List<todo>();
+            ObservableCollection<Models.todo> todos = new ObservableCollection<todo>();
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
@@ -77,10 +83,19 @@ namespace Planel.Models
                 }
 
             }
+            return todos;
+
+
+        }
+        //get stuff for today
+        public static ObservableCollection<Models.todo> Getfordoday(DateTime now)
+        {
+            ObservableCollection < Models.todo > todos = getlist();
+
 
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
-            List<todo> todoss = new List<todo>();
+            ObservableCollection<Models.todo> todoss = new ObservableCollection<Models.todo>();
             foreach (var item in todos)
             {
                 if (item.time >= starttoday && item.time <= endtoday)
@@ -93,24 +108,15 @@ namespace Planel.Models
 
 
         }
-        public static List<todo> getall(DateTime now)
+        //get all todo list with order
+        public static ObservableCollection<Models.todo> getall(DateTime now)
         {
-            List<todo> todos = new List<todo>();
-            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
-
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            {
-                var query = conn.Table<todo>();
-                foreach (var message in query)
-                {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
-                }
-
-            }
+            ObservableCollection<Models.todo> todos = getlist();
+            
 
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
-            List<todo> todoss = new List<todo>();
+            ObservableCollection<Models.todo> todoss = new ObservableCollection<Models.todo>();
             foreach (var item in todos)
             {
                 if (item.time >= starttoday && item.time <= endtoday)
@@ -120,12 +126,12 @@ namespace Planel.Models
             }
             foreach (var item in todos)
             {
-                if (item.time >= starttoday && item.time <= endtoday)
+                if (item.time >= endtoday)
                 {
-                    todoss.Remove(item);
+                    todoss.Add(item);
                 }
             }
-            todoss.AddRange(todos);
+
 
             return todoss;
 
@@ -133,18 +139,8 @@ namespace Planel.Models
         }
         public static int counter()
         {
-            List<todo> todos = new List<todo>();
-            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
-
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            {
-                var query = conn.Table<todo>();
-                foreach (var message in query)
-                {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
-                }
-
-            }
+            ObservableCollection<Models.todo> todos = new ObservableCollection<Models.todo>();
+            
 
             return todos.Count();
 
@@ -154,24 +150,14 @@ namespace Planel.Models
         }
         public static Classes.mpercent percentage()
         {
-            List<todo> todos = new List<todo>();
-            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
-
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            {
-                var query = conn.Table<todo>();
-                foreach (var message in query)
-                {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
-                }
-
-            }
+            ObservableCollection<Models.todo> todos = getlist();
+            
             Classes.mpercent percentage = new Classes.mpercent();
             //calculate for today
             DateTime now = DateTime.Now;
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
-            List<todo> todoss = new List<todo>();
+            ObservableCollection<Models.todo> todoss = new ObservableCollection<Models.todo>();
             foreach (var item in todos)
             {
                 if (item.time >= starttoday && item.time <= endtoday)
@@ -181,7 +167,7 @@ namespace Planel.Models
             }
             int all = todoss.Count;
             int done = 0;
-            foreach (var item in todos)
+            foreach (var item in todoss)
             {
                 if (item.isdone == true)
                 {
@@ -201,10 +187,10 @@ namespace Planel.Models
 
             //calculate for yesterday
             DateTime startyesterday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
-            startyesterday.AddDays(-1);
+            startyesterday=startyesterday.AddDays(-1);
             DateTime endyesterday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
-            endyesterday.AddDays(-1);
-            List<todo> todosss = new List<todo>();
+            endyesterday= endyesterday.AddDays(-1);
+            ObservableCollection<Models.todo> todosss = new ObservableCollection<Models.todo>();
             foreach (var item in todos)
             {
                 if (item.time >= startyesterday && item.time <= endyesterday)
@@ -212,7 +198,7 @@ namespace Planel.Models
                     todosss.Add(item);
                 }
             }
-            int alll = todoss.Count;
+            int alll = todosss.Count;
             int donee = 0;
             foreach (var item in todosss)
             {
@@ -261,9 +247,9 @@ namespace Planel.Models
             for (int i = 0; i < 6; i++)
             {
                 DateTime starttoday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
-                starttoday.AddDays(-i);
+                starttoday=starttoday.AddDays(-i);
                 DateTime endtoday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
-                endtoday.AddDays(-i);
+                endtoday=endtoday.AddDays(-i);
                 foreach (var item in todos)
                 {
                     if (item.isdone == true)
@@ -310,9 +296,9 @@ namespace Planel.Models
             for (int i = 0; i < 6; i++)
             {
                 DateTime starttoday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
-                starttoday.AddDays(-i * 4);
+                starttoday=starttoday.AddDays(-i * 4);
                 DateTime endtoday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
-                endtoday.AddDays(-i * 4);
+                endtoday=endtoday.AddDays(-i * 4);
                 foreach (var item in todos)
                 {
                     if (item.isdone == true)

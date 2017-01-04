@@ -9,6 +9,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -74,6 +75,8 @@ namespace Planel.Views
 
                 avatar.ImageSource = null;
                 avatar.ImageSource = new BitmapImage(new Uri(copiedFile.Path));
+                var messageDialog = new MessageDialog("Your picture had been saved successfuly.");
+                messageDialog.ShowAsync();
 
             }
         }
