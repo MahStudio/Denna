@@ -139,10 +139,35 @@ namespace Planel.Models
         }
         public static int counter()
         {
-            ObservableCollection<Models.todo> todos = new ObservableCollection<Models.todo>();
-            
+            List<todo> todos = new List<todo>();
+            List<Classes.NameValueItem> weeker = new List<Classes.NameValueItem>();
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
-            return todos.Count();
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                var query = conn.Table<todo>();
+                foreach (var message in query)
+                {
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
+                }
+
+            }
+            DateTime now = DateTime.Now;
+            DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+            List<todo> todoss = new List<todo>();
+            foreach (var item in todos)
+            {
+                if (starttoday <= item.time && item.isdone == false)
+                {
+                    todoss.Add(item);
+                }
+                
+
+            }
+            
+            int a = todoss.Count();
+
+            return a ;
 
 
 

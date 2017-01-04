@@ -26,16 +26,24 @@ namespace Planel.Views
     public sealed partial class fmonth : Page
     {
         private ObservableCollection<Models.todo> todolist = new ObservableCollection<Models.todo>();
+        public static fmonth current;
         public fmonth()
         {
             this.InitializeComponent();
+            current = this;
             
 
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+       
+            protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            filllist();
+        }
+
+        public void filllist()
         {
             DateTime now = DateTime.Now;
-            todolist = Models.Localdb.Getfordoday(now);
+            todolist = Models.Localdb.getall(now);
             lvTest.ItemsSource = todolist;
         }
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
@@ -52,6 +60,10 @@ namespace Planel.Views
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             Models.Localdb.Done(clk);
+            clk.isdone = true;
+            int index = todolist.IndexOf(clk);
+            todolist[index] = clk;
+            lvTest.ItemsSource = todolist;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,11 +71,7 @@ namespace Planel.Views
 
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(add));
-        }
-
+        
         private void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
         {
 

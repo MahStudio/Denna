@@ -26,13 +26,19 @@ namespace Planel.Views
     public sealed partial class ftoday : Page
     {
         ObservableCollection<Models.todo> todolist = new ObservableCollection<todo>();
+        public static ftoday current;
         public ftoday()
         {
             this.InitializeComponent();
-            
+            current = this;
 
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            filllist();
+        }
+
+        public void filllist()
         {
             DateTime now = DateTime.Now;
             todolist = Models.Localdb.getall(now);
@@ -54,6 +60,8 @@ namespace Planel.Views
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             Models.Localdb.Done(clk);
+            
+
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

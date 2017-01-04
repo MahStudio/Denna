@@ -62,9 +62,9 @@
                                     <Ellipse Visibility="{Binding isdone, Converter = {StaticResource BooleanToVisibilityConverter} , Mode=TwoWay}" Fill="{StaticResource SystemControlBackgroundAccentBrush}" Height="20" Width="20" />
                                     <TextBlock Opacity="0.9" Grid.Column="1" Grid.Row="0" FontSize="20" Text="{Binding title , Mode=TwoWay}" HorizontalAlignment="Left" Width="340"/>
                                     <TextBlock MaxLines="2" TextWrapping="Wrap" Opacity="0.7" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="16" />
-                                    <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="15" Text="This time" HorizontalAlignment="Right" Width="95"/>
+                                <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="95"/>
 
-                                </Grid>
+                            </Grid>
 
 
 

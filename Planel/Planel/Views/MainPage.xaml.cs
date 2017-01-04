@@ -59,7 +59,7 @@ namespace Planel.Views
 
 
 
-            if (cnt == 1)
+            if (cnt == 1 || cnt ==0 )
                 counter.Text = string.Format("You have {0} work to do", cnt.ToString());
             else
                 counter.Text = string.Format("You have {0} works to do", cnt.ToString());
@@ -155,7 +155,16 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = (string.Format("Happy new year {0}", ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
+            string message="Dear";
+            DateTime now = DateTime.Now;
+            if (now.Hour <= 20 && now.Hour >= 4)
+                message = "Good Night";
+            if (now.Hour <= 5 && now.Hour >= 9)
+                message = "Good morning";
+            if (now.Hour <= 13 && now.Hour >= 16)
+                message = "Good Afternoon";
+
+            news.Text = (string.Format("{0} {1}",message , ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
             FlipView.SelectedIndex = 0;
 
             Animate(gridMain, true);
