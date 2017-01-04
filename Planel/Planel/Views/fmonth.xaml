@@ -10,7 +10,9 @@
     mc:Ignorable="d">
 
     <Grid Background="White">
+        <ScrollViewer>
         <RelativePanel>
+           
             <CalendarView  CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" SelectionMode="Single" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontWeight="Normal" DayItemFontWeight="Light" Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" Margin="9,35,9,0" VerticalAlignment="Top" SelectedDatesChanged="MyCalendarView_SelectedDatesChanged" />
             
                 <ListView RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="MyCalendarView" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
@@ -74,7 +76,7 @@
                 </ListView>
 
         </RelativePanel>
-        
+        </ScrollViewer>
 
     </Grid>
 </Page>
