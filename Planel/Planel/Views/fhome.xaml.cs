@@ -1,4 +1,5 @@
 ﻿
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -12,12 +13,18 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class fhome : Page
     {
+        public static fhome current;
         public fhome()
         {
             this.InitializeComponent();
+            current = this;
 
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            percentful();
+        }
+        public async Task percentful()
         {
             Classes.mpercent percent = new Classes.mpercent();
             percent = Models.Localdb.percentage();
@@ -43,7 +50,7 @@ namespace Planel.Views
             else if (percentage <= 39 && percentage >= 10)
                 todayword.Text = "You have a lot to do";
             else if (percentage <= 9 && percentage >= 0)
-                todayword.Text = "Come on! Do it!";
+                todayword.Text = "Add and DO !";
 
 
 

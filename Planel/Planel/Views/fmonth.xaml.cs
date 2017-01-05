@@ -1,6 +1,7 @@
 ﻿using Planel.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -28,7 +29,7 @@ namespace Planel.Views
             filllist();
         }
 
-        public void filllist()
+        public async  Task filllist()
         {
             DateTime now = DateTime.Now;
             todolist = Models.Localdb.getall(now);
@@ -48,10 +49,6 @@ namespace Planel.Views
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             Models.Localdb.Done(clk);
-            clk.isdone = true;
-            int index = todolist.IndexOf(clk);
-            todolist[index] = clk;
-            lvTest.ItemsSource = todolist;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

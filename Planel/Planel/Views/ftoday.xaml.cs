@@ -2,6 +2,7 @@
 using Planel.Views.sframes;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -28,7 +29,7 @@ namespace Planel.Views
             filllist();
         }
 
-        public void filllist()
+        public async Task filllist()
         {
             DateTime now = DateTime.Now;
             todolist = Models.Localdb.getall(now);
