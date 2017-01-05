@@ -24,27 +24,12 @@ namespace Planel.Views
         {
             this.InitializeComponent();
             current = this;
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
-    App_BackRequested;
+           
 
 
         }
 
-        private void App_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame == null)
-                return;
-
-            // Navigate back if possible, and if the event has not 
-            // already been handled .
-            if (rootFrame.CanGoBack && e.Handled == false)
-            {
-                e.Handled = true;
-                rootFrame.GoBack();
-            }
-
-        }
+        
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
