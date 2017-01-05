@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.Phone.UI.Input;
 using Windows.Storage;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -23,11 +24,52 @@ namespace Planel.Views
         {
             this.InitializeComponent();
             current = this;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
+    App_BackRequested;
 
 
         }
+
+        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+
+        }
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            string myPages = "";
+            foreach (PageStackEntry page in rootFrame.BackStack)
+            {
+                myPages += page.SourcePageType.ToString() + "\n";
+            }
+            
+
+            if (rootFrame.CanGoBack)
+            {
+                // Show UI in title bar if opted-in and in-app backstack is not empty.
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    AppViewBackButtonVisibility.Visible;
+            }
+            else
+            {
+                // Remove the UI from the title bar if in-app back stack is empty.
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    AppViewBackButtonVisibility.Collapsed;
+            }
+
             fhome.Navigate(typeof(fhome));
             ftoday.Navigate(typeof(ftoday));
             fmonth.Navigate(typeof(fmonth));
@@ -39,7 +81,16 @@ namespace Planel.Views
             DateTime thisday = DateTime.Today;
             todate.Text = thisday.ToString("D");
             counterr(Models.Localdb.counter());
-            
+            string message = "Dear";
+            DateTime now = DateTime.Now;
+            if (now.Hour >= 20 && now.Hour <= 4)
+                message = "Good Night";
+            if (now.Hour >= 5 && now.Hour <= 9)
+                message = "Good morning";
+            if (now.Hour >= 13 && now.Hour <= 16)
+                message = "Good Afternoon";
+
+            news.Text = (string.Format("{0} {1}", message, ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
 
         }
 
@@ -144,16 +195,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            string message="Dear";
-            DateTime now = DateTime.Now;
-            if (now.Hour <= 20 && now.Hour >= 4)
-                message = "Good Night";
-            if (now.Hour <= 5 && now.Hour >= 9)
-                message = "Good morning";
-            if (now.Hour <= 13 && now.Hour >= 16)
-                message = "Good Afternoon";
-
-            news.Text = (string.Format("{0} {1}",message , ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
+            
             FlipView.SelectedIndex = 0;
 
             Animate(gridMain, true);

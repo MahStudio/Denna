@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -19,9 +20,51 @@ namespace Planel.Views
         public Settings()
         {
             this.InitializeComponent();
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
+        App_BackRequested;
+
+
         }
+
+        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+
+        }
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            string myPages = "";
+            foreach (PageStackEntry page in rootFrame.BackStack)
+            {
+                myPages += page.SourcePageType.ToString() + "\n";
+            }
+
+
+            if (rootFrame.CanGoBack)
+            {
+                // Show UI in title bar if opted-in and in-app backstack is not empty.
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    AppViewBackButtonVisibility.Visible;
+            }
+            else
+            {
+                // Remove the UI from the title bar if in-app back stack is empty.
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    AppViewBackButtonVisibility.Collapsed;
+            }
             namebox.Text = ApplicationData.Current.LocalSettings.Values["Username"].ToString();
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
