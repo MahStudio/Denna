@@ -33,6 +33,7 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             Frame rootFrame = Window.Current.Content as Frame;
 
             string myPages = "";
@@ -76,6 +77,7 @@ namespace Planel.Views
                 message = "Good Afternoon";
 
             news.Text = (string.Format("{0} {1}", message, ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
+            Classes.worker.tiler();
 
         }
 

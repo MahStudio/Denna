@@ -172,6 +172,8 @@ namespace Planel.Models
 
 
         }
+        //return undone list for live tile
+       
         public static Classes.mpercent percentage()
         {
             ObservableCollection<Models.todo> todos = getlist();
