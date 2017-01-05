@@ -21,7 +21,7 @@
                             BackgroundColor="Transparent"
                             Segment360Color="Gray"
                             SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
-                            StrokeThickness="20" />
+                            StrokeThickness="17" />
 
                             <TextBlock x:Name="todayper" Text="70%"
                        VerticalAlignment="Center"
@@ -39,7 +39,7 @@
                             BackgroundColor="Transparent"
                             Segment360Color="Gray"
                             SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
-                            StrokeThickness="20" />
+                            StrokeThickness="17" />
 
                             <TextBlock x:Name="yesterpar" Text="95%"
                        VerticalAlignment="Center"
