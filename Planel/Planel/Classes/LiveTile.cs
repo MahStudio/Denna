@@ -25,7 +25,7 @@ var tileXml =
         
             foreach (var item in todolist)
             {
-                if (item.isdone == false)
+                if (item.isdone == 0)
                     result.Add(item);
 
             }

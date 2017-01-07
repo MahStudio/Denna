@@ -35,7 +35,7 @@
             </Grid>-->
             <ListView  IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
                 <ListView.Resources>
-                    <local2:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+                    <local2:IntToColorConverter x:Key="IntToColorConverter"/>
                 </ListView.Resources>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -47,12 +47,12 @@
                     <DataTemplate >
                         <controls:SlidableListItem 
                     HorizontalAlignment="Stretch"
-                    LeftIcon="Emoji" 
-                    RightIcon="Delete" 
+                    LeftIcon="Accept" 
+                    RightIcon="Clock" 
                     LeftLabel="Done" 
-                    RightLabel="Delete"
-                    LeftBackground="SkyBlue" 
-                    RightBackground="OrangeRed"
+                    RightLabel="Suspend"
+                    LeftBackground="#20c8a5" 
+                    RightBackground="#ffba00"
                     LeftForeground ="White" 
                     RightForeground ="White"
                     ActivationWidth="150"
@@ -79,7 +79,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Grid Grid.RowSpan="2" HorizontalAlignment="Center" Width="1" Background="Black" Opacity="0.4" />
-                                <Ellipse Visibility="{Binding isdone, Converter = {StaticResource BooleanToVisibilityConverter} , Mode=TwoWay}" Fill="{StaticResource SystemControlBackgroundAccentBrush}" Height="20" Width="20" />
+                                <Ellipse Visibility="Visible" Fill="{Binding isdone, Converter = {StaticResource IntToColorConverter} , Mode=TwoWay}" Height="20" Width="20" />
                                 <TextBlock Opacity="0.9" Grid.Column="1" Grid.Row="0" FontSize="20" Text="{Binding title , Mode=TwoWay}" HorizontalAlignment="Left" Width="340"/>
                                 <TextBlock MaxLines="2" TextWrapping="Wrap" Opacity="0.7" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="16" />
                                 <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="95"/>

@@ -40,10 +40,9 @@ namespace Planel.Views
         {
 
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-            await Models.Localdb.Deletetodo(clk.Id);
+            // await Models.Localdb.Deletetodo(clk.Id);
 
-            todolist.Remove(clk);
-            lvTest.ItemsSource = todolist;
+            await Models.Localdb.Suspend(clk);
 
         }
 

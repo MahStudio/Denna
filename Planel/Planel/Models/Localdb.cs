@@ -60,7 +60,7 @@ namespace Planel.Models
                     title = titl,
                     detail = describe,
                     time = date,
-                    isdone = false
+                    isdone = 0
 
                 });
 
@@ -156,7 +156,7 @@ namespace Planel.Models
             List<todo> todoss = new List<todo>();
             foreach (var item in todos)
             {
-                if (starttoday <= item.time && item.isdone == false)
+                if (starttoday <= item.time && item.isdone == 0)
                 {
                     todoss.Add(item);
                 }
@@ -195,7 +195,7 @@ namespace Planel.Models
             int done = 0;
             foreach (var item in todoss)
             {
-                if (item.isdone == true)
+                if (item.isdone == 2)
                 {
                     done++;
                 }
@@ -207,9 +207,25 @@ namespace Planel.Models
                 percentComplete = (int)Math.Round((double)(100 * done) / all);
             else
                 percentComplete = 0;
-
-
             percentage.firstpercentage = percentComplete;
+
+            int suspend = 0;
+            foreach (var item in todoss)
+            {
+                if (item.isdone == 1)
+                {
+                    suspend++;
+                }
+
+            }
+            int percentsuspend;
+
+            if (all != 0)
+                percentsuspend = (int)Math.Round((double)(100 * suspend) / all);
+            else
+                percentsuspend = 0;
+
+            percentage.firstsuspend = percentsuspend;
 
             //calculate for yesterday
             DateTime startyesterday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
@@ -228,7 +244,7 @@ namespace Planel.Models
             int donee = 0;
             foreach (var item in todosss)
             {
-                if (item.isdone == true)
+                if (item.isdone == 2)
                 {
                     donee++;
                 }
@@ -241,6 +257,23 @@ namespace Planel.Models
                 percentCompletee = 0;
             percentage.secondpercentage = percentCompletee;
 
+            int ysuspend = 0;
+            foreach (var item in todosss)
+            {
+                if (item.isdone == 1)
+                {
+                    ysuspend++;
+                }
+
+            }
+            int percentysuspend;
+
+            if (all != 0)
+                percentysuspend = (int)Math.Round((double)(100 * ysuspend) / all);
+            else
+                percentysuspend = 0;
+
+            percentage.secondsuspend = percentysuspend;
 
             return percentage;
 
@@ -278,7 +311,7 @@ namespace Planel.Models
                 endtoday=endtoday.AddDays(-i);
                 foreach (var item in todos)
                 {
-                    if (item.isdone == true)
+                    if (item.isdone == 2)
                     {
                         done++;
                     }
@@ -327,7 +360,7 @@ namespace Planel.Models
                 endtoday=endtoday.AddDays(-i * 4);
                 foreach (var item in todos)
                 {
-                    if (item.isdone == true)
+                    if (item.isdone == 2)
                     {
                         done++;
                     }
@@ -372,7 +405,20 @@ namespace Planel.Models
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
-                item.isdone = true;
+                item.isdone = 2;
+                conn.Update(item);
+
+
+            }
+            Classes.worker.refresher();
+        }
+        public static async Task Suspend(todo item)
+        {
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                item.isdone = 1;
                 conn.Update(item);
 
 

@@ -1,5 +1,8 @@
 ﻿
+using CrossPieCharts.UWP.PieCharts;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -11,8 +14,11 @@ namespace Planel.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+
+
     public sealed partial class fhome : Page
     {
+
         public static fhome current;
         public fhome()
         {
@@ -22,15 +28,16 @@ namespace Planel.Views
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            await percentful();
+            await refe();
         }
-        public async Task percentful()
-        {
+        public async Task refe(){
+            await Classes.worker.percentful();
             Classes.mpercent percent = new Classes.mpercent();
             percent = Models.Localdb.percentage();
             settoday(percent.firstpercentage);
             setyesterday(percent.secondpercentage);
         }
+
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             MainPage.current.ntonavigate("about");
@@ -40,7 +47,7 @@ namespace Planel.Views
         private void settoday(int percentage)
         {
             todayper.Text= percentage.ToString() + "%";
-            todaypie.Percentage = percentage;
+            
             if (percentage == 100)
                 todayword.Text = "Perfect! All done.";
             else if (percentage <=99 && percentage>=75)
@@ -58,7 +65,7 @@ namespace Planel.Views
         private void setyesterday(int percentage)
         {
 
-            yesterpie.Percentage = percentage;
+            
             yesterpar.Text = percentage.ToString() + "%";
         }
 
