@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-
+using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace Planel.Models
@@ -47,7 +47,7 @@ namespace Planel.Models
 
         }
         // add a todo list
-        public static void Addtodo(string titl, string describe, DateTime date)
+        public static async Task Addtodo(string titl, string describe, DateTime date)
         {
 
 
@@ -354,7 +354,7 @@ namespace Planel.Models
 
 
 
-        public static void Deletetodo(int id)
+        public static async Task Deletetodo(int id)
         {
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
@@ -366,7 +366,7 @@ namespace Planel.Models
             Classes.worker.refresher();
         }
 
-        public static void Done(todo item)
+        public static async Task Done(todo item)
         {
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 

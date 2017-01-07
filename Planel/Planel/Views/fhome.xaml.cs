@@ -20,9 +20,9 @@ namespace Planel.Views
             current = this;
 
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            percentful();
+            await percentful();
         }
         public async Task percentful()
         {

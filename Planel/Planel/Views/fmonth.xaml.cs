@@ -23,10 +23,10 @@ namespace Planel.Views
             
 
         }
-       
-            protected override void OnNavigatedTo(NavigationEventArgs e)
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            filllist();
+            await filllist();
         }
 
         public async  Task filllist()
@@ -35,20 +35,20 @@ namespace Planel.Views
             todolist = Models.Localdb.getall(now);
             lvTest.ItemsSource = todolist;
         }
-        private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
+        private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-            Models.Localdb.Deletetodo(clk.Id);
+            await Models.Localdb.Deletetodo(clk.Id);
 
             todolist.Remove(clk);
             lvTest.ItemsSource = todolist;
 
         }
 
-        private void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
+        private async void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-            Models.Localdb.Done(clk);
+            await Models.Localdb.Done(clk);
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

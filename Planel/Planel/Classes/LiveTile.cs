@@ -20,7 +20,7 @@ namespace Planel.Classes
             todolist= Models.Localdb.Getfordoday(now);
 var tileXml =
    TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150Text01);
-
+            
         var tileAttributes = tileXml.GetElementsByTagName("text");
         
             foreach (var item in todolist)
@@ -43,6 +43,12 @@ var tileXml =
                     i++;
                 }
             }
+           
+     
+
+
+
+
 
             var tileNotification = new TileNotification(tileXml);
         TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
