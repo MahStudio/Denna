@@ -160,7 +160,7 @@
          AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
                     <Grid ManipulationMode="None" VerticalAlignment="Top" >
                         <StackPanel VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
-                            <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                            <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}"  Width="48" Height="48" />
                             <Button Click="btoday_Click" x:Name="btoday" Content="&#xE1EF;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
                             <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
                             <Button Click="bpref_Click" x:Name="bpref" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
