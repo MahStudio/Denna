@@ -106,6 +106,7 @@
     <Compile Include="Classes\LiveTile.cs" />
     <Compile Include="Classes\mpercent.cs" />
     <Compile Include="Classes\NameValue.cs" />
+    <Compile Include="Classes\ViewModel.CS" />
     <Compile Include="Classes\worker.cs" />
     <Compile Include="Models\Localdb.cs" />
     <Compile Include="Models\todo.cs" />

@@ -20,9 +20,9 @@
                         <Grid Margin="0,7,0,0" >
 
                             <Charts:RichPieChart PieChartArgsCollection="{Binding Piechartcol,Mode=TwoWay}" StrokeThickness="17" Radius="100" x:Name="todaypie" >
-                            <Charts:RichPieChart.DataContext>
-                                <Classes:worker/>
-                            </Charts:RichPieChart.DataContext>
+                                <Charts:RichPieChart.DataContext>
+                                    <Classes:ViewModel/>
+                                </Charts:RichPieChart.DataContext>
                             </Charts:RichPieChart>
                             <TextBlock x:Name="todayper" Text="70%"
                        VerticalAlignment="Center"
@@ -35,9 +35,9 @@
                     <StackPanel HorizontalAlignment="Center" Width="300"  >
                         <TextBlock Foreground="Gray" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                         <Grid Margin="0,7,0,0" >
-                            <Charts:RichPieChart PieChartArgsCollection="{Binding Piechartcol2}" StrokeThickness="17"  Radius="100" x:Name="yesterpie" >
+                            <Charts:RichPieChart PieChartArgsCollection="{Binding Piechartcol2 ,Mode=TwoWay}" StrokeThickness="17"  Radius="100" x:Name="yesterpie" >
                                 <Charts:RichPieChart.DataContext>
-                                    <Classes:worker/>
+                                    <Classes:ViewModel/>
                                 </Charts:RichPieChart.DataContext>
                             </Charts:RichPieChart>
 

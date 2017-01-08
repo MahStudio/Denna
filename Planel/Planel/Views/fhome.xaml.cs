@@ -29,9 +29,11 @@ namespace Planel.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await refe();
+            
         }
         public async Task refe(){
-            await Classes.worker.percentful();
+            await Classes.ViewModel.piecha();
+            
             Classes.mpercent percent = new Classes.mpercent();
             percent = Models.Localdb.percentage();
             settoday(percent.firstpercentage);
