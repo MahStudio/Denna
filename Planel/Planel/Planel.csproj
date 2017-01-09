@@ -239,6 +239,12 @@
       <Name>Windows Team Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NotifierTask\NotifierTask.csproj">
+      <Project>{4132ff80-98c1-4702-a699-4437f11719c9}</Project>
+      <Name>NotifierTask</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
