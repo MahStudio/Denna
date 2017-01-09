@@ -14,15 +14,14 @@ namespace Planel.Classes
             MainPage.current.counterr(Models.Localdb.counter());
             await fmonth.current.filllist();
             await ftoday.current.filllist();
-            await ViewModel.piecha();
-            await fhome.current.refe();
+            await fhome.current.percentful();
             tiler();
 
 
         }
         public static async void tiler()
         {
-            await Classes.LiveTile.livetile();
+           await Classes.LiveTile.livetile();
             await Classes.LiveTile.updatebadge();
         }
         

@@ -106,7 +106,6 @@
     <Compile Include="Classes\LiveTile.cs" />
     <Compile Include="Classes\mpercent.cs" />
     <Compile Include="Classes\NameValue.cs" />
-    <Compile Include="Classes\ViewModel.CS" />
     <Compile Include="Classes\worker.cs" />
     <Compile Include="Models\Localdb.cs" />
     <Compile Include="Models\todo.cs" />
@@ -221,8 +220,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="SQLite.UWP.2015, Version=3.15.2">
-      <Name>SQLite for Universal Windows Platform</Name>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.11.0">
+      <Name>SQLite for Universal Windows Platform %28SQLite.UWP.2015, Version=3.11.0%29</Name>
     </SDKReference>
     <SDKReference Include="WindowsDesktop, Version=10.0.14393.0">
       <Name>Windows Desktop Extensions for the UWP</Name>

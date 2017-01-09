@@ -1,13 +1,11 @@
 ﻿<Page
+    x:Class="Planel.Views.fhome"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Planel.Views"
     xmlns:pieCharts="using:Planel.PieCharts"
-    xmlns:Charts="using:CrossPieCharts.UWP.PieCharts"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Classes="using:Planel.Classes"
-    x:Class="Planel.Views.fhome"
     mc:Ignorable="d">
 
     <Grid Background="Transparent">
@@ -18,12 +16,13 @@
 
                         <TextBlock Foreground="Gray" x:Name="todayword" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                         <Grid Margin="0,7,0,0" >
+                            <pieCharts:PieChart x:Name="todaypie" Percentage="70"
+                            Radius="100"
+                            BackgroundColor="Transparent"
+                            Segment360Color="Gray"
+                            SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                            StrokeThickness="17" />
 
-                            <Charts:RichPieChart PieChartArgsCollection="{Binding Piechartcol,Mode=TwoWay}" StrokeThickness="17" Radius="100" x:Name="todaypie" >
-                                <Charts:RichPieChart.DataContext>
-                                    <Classes:ViewModel/>
-                                </Charts:RichPieChart.DataContext>
-                            </Charts:RichPieChart>
                             <TextBlock x:Name="todayper" Text="70%"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
@@ -35,11 +34,12 @@
                     <StackPanel HorizontalAlignment="Center" Width="300"  >
                         <TextBlock Foreground="Gray" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                         <Grid Margin="0,7,0,0" >
-                            <Charts:RichPieChart PieChartArgsCollection="{Binding Piechartcol2 ,Mode=TwoWay}" StrokeThickness="17"  Radius="100" x:Name="yesterpie" >
-                                <Charts:RichPieChart.DataContext>
-                                    <Classes:ViewModel/>
-                                </Charts:RichPieChart.DataContext>
-                            </Charts:RichPieChart>
+                            <pieCharts:PieChart x:Name="yesterpie" Percentage="95"
+                            Radius="100"
+                            BackgroundColor="Transparent"
+                            Segment360Color="Gray"
+                            SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                            StrokeThickness="17" />
 
                             <TextBlock x:Name="yesterpar" Text="95%"
                        VerticalAlignment="Center"

@@ -36,7 +36,7 @@ namespace Planel.Views.sframes
 
 
             await Models.Localdb.Addtodo(title.Text, describe.Text, todate);
-            
+            Classes.worker.refresher();
 
             Frame.Navigate(typeof(ftoday));
         }

@@ -71,6 +71,7 @@ namespace Planel.Views
 
         private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
         {
+            
             var clk = e.ClickedItem as todo;
             ContentDialog noWifiDialog = new ContentDialog()
             {
@@ -80,6 +81,13 @@ namespace Planel.Views
             };
 
             ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
+
+        private async void delete_Click(object sender, RoutedEventArgs e)
+        {
+
+            var clk = sender as todo;
+            await Models.Localdb.Deletetodo(clk.Id);
         }
     }
 }

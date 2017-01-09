@@ -14,24 +14,28 @@
     <Grid Background="White">
 
         <Grid Margin="0,0,0,48">
-            
-            <!--<Grid Height="100" MaxHeight="100" >
-                
+
+            <!--<Grid Height="100" VerticalAlignment="Top" MaxHeight="100" >
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="27"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="27"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                   
-                   <Grid Grid.RowSpan="2" HorizontalAlignment="Center" Width="1.5" Background="Black" Opacity="0.4" />
-                <Ellipse Fill="{StaticResource SystemControlBackgroundAccentBrush}" Height="20" Width="20" />    
-                <TextBlock Opacity="0.9" Grid.Column="1" Grid.Row="0" FontSize="20" Text="This it titile" HorizontalAlignment="Left" Width="340"/>
-                    <TextBlock MaxLines="2" TextWrapping="Wrap" Opacity="0.7" Grid.Column="1" Grid.Row="1" Text="this is subtitilesssssssssssssssssssssssssssssssssssssss" FontSize="18" />
-                    <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="15" Text="This time" HorizontalAlignment="Right" Width="95"/>
-                
+
+                <Grid Grid.RowSpan="2" HorizontalAlignment="Right" Width="1" Background="Black" Opacity="0.4" Margin="0,0,16,0" />
+                <Ellipse Fill="{StaticResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Right" Margin="0,3,6,3" Width="21" />
+                <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="17" Text="This it titile" Margin="0,0,95,0"/>
+                <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="this is subtitilesssssssssssssssssssssssssssssssssssssss" FontSize="15" Margin="0,0,38,0" />
+                <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="This time" HorizontalAlignment="Right" Width="95"/>
+                <Button BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="Black" 
+                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,3,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
+                    
+                </Button>
+                <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.7" Grid.Column="0" Grid.Row="1" FontSize="17" Text="" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25"/>
             </Grid>-->
             <ListView  IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
                 <ListView.Resources>
@@ -67,7 +71,28 @@
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
                     
                     >
-                            <Grid Height="100" MaxHeight="100" >
+                            <Grid MinHeight="70" VerticalAlignment="Top" MaxHeight="120" >
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="27"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.RowSpan="2" HorizontalAlignment="Right" Width="1" Background="Black" Opacity="0.4" Margin="0,0,16,0" />
+                                <Ellipse Fill="{Binding isdone, Converter = {StaticResource IntToColorConverter} , Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,3,6,3" Width="21" />
+                                <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title , Mode=TwoWay}"  Margin="0,0,95,0"/>
+                                <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="15" Margin="0,0,38,0" />
+                                <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="100"/>
+                                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="delete" Click="delete_Click" BorderThickness="1" Background="Transparent"
+                                FontFamily="Segoe MDL2 Assets" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,3,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
+                                </Button>
+                                <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.RowSpan="2" FontSize="17" Text="" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Gray" Width="25"/>
+                            </Grid>
+                            <!--<Grid Height="100" MaxHeight="100" >
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="27"/>
@@ -79,13 +104,13 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Grid Grid.RowSpan="2" HorizontalAlignment="Center" Width="1" Background="Black" Opacity="0.4" />
-                                <Ellipse Visibility="Visible" Fill="{Binding isdone, Converter = {StaticResource IntToColorConverter} , Mode=TwoWay}" Height="20" Width="20" />
-                                <TextBlock Opacity="0.9" Grid.Column="1" Grid.Row="0" FontSize="20" Text="{Binding title , Mode=TwoWay}" HorizontalAlignment="Left" Width="340"/>
-                                <TextBlock MaxLines="2" TextWrapping="Wrap" Opacity="0.7" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="16" />
-                                <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="95"/>
+                                <Ellipse Visibility="Visible"  Height="20" Width="20" />
+                                <TextBlock Opacity="0.9" Grid.Column="1" Grid.Row="0" FontSize="20" HorizontalAlignment="Left" Width="340"/>
+                                <TextBlock MaxLines="2" TextWrapping="Wrap" Opacity="0.7" Grid.Column="1" Grid.Row="1"  FontSize="16" />
+                                <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10"  HorizontalAlignment="Right" Width="95"/>
 
-                            </Grid>
-                            
+                            </Grid>-->
+
 
 
                         </controls:SlidableListItem>
@@ -109,7 +134,7 @@
             </AppBarButton>
 
 
-            
+
 
 
 

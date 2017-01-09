@@ -25,7 +25,7 @@ var tileXml =
         
             foreach (var item in todolist)
             {
-                if (item.isdone == 0)
+                if (item.isdone != 2)
                     result.Add(item);
 
             }
@@ -36,12 +36,12 @@ var tileXml =
             }
             else
             {
-                int i = 0;
-                foreach (var item in todolist)
-                {
-                    tileAttributes[i].AppendChild(tileXml.CreateTextNode(item.title));
-                    i++;
-                }
+                //int i = 0;
+                //foreach (var item in todolist)
+                //{
+                //    tileAttributes[i].AppendChild(tileXml.CreateTextNode(item.title));
+                //    i++;
+                //}
             }
            
      
