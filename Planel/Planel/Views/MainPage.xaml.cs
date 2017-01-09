@@ -39,7 +39,7 @@ namespace Planel.Views
             try
             {
                 var req = await BackgroundExecutionManager.RequestAccessAsync();
-                if (req == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity || req == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity)
+                if (req != BackgroundAccessStatus.DeniedByUser && req != BackgroundAccessStatus.DeniedBySystemPolicy && req != BackgroundAccessStatus.Denied)
                 {
                     var list = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "NotifierTask");
                     foreach (var item in list)
