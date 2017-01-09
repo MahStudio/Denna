@@ -85,12 +85,12 @@
                                 <Grid Grid.RowSpan="2" HorizontalAlignment="Right" Width="1" Background="Black" Opacity="0.4" Margin="0,0,16,0" />
                                 <Ellipse Fill="{Binding isdone, Converter = {StaticResource IntToColorConverter} , Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,3,6,3" Width="21" />
                                 <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title , Mode=TwoWay}"  Margin="0,0,95,0"/>
-                                <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="15" Margin="0,0,38,0" />
-                                <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="100"/>
-                                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="delete" Click="delete_Click" BorderThickness="1" Background="Transparent"
-                                FontFamily="Segoe MDL2 Assets" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,3,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
+                                <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="15" Margin="0,5,38,10" />
+                                <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="110"/>
+                                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="delete" Click="delete_Click"  Background="Transparent"
+                                FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
                                 </Button>
-                                <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.RowSpan="2" FontSize="17" Text="" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Gray" Width="25"/>
+                                <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.RowSpan="2" FontSize="17" Text="" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Gray" Width="25"/>
                             </Grid>
                             <!--<Grid Height="100" MaxHeight="100" >
 

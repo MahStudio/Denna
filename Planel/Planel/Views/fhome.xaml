@@ -15,14 +15,30 @@
                     <StackPanel HorizontalAlignment="Center" Width="300">
 
                         <TextBlock Foreground="Gray" x:Name="todayword" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                       
                         <Grid Margin="0,7,0,0" >
+
+                            <pieCharts:PieChart  Percentage="100"
+                            Radius="100"
+                            BackgroundColor="Transparent"
+                            Segment360Color="Transparent"
+                            SegmentColor="#ffba00"
+                            StrokeThickness="20" />
+
+                            <pieCharts:PieChart x:Name="todaysus" Percentage="70"
+                            Radius="100"
+                            BackgroundColor="Transparent"
+                            Segment360Color="Transparent"
+                            SegmentColor="Gray"
+                            StrokeThickness="30" />
+
                             <pieCharts:PieChart x:Name="todaypie" Percentage="70"
                             Radius="100"
                             BackgroundColor="Transparent"
-                            Segment360Color="Gray"
+                            Segment360Color="Transparent"
                             SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
-                            StrokeThickness="17" />
-
+                            StrokeThickness="30" />
+                            
                             <TextBlock x:Name="todayper" Text="70%"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
@@ -34,12 +50,29 @@
                     <StackPanel HorizontalAlignment="Center" Width="300"  >
                         <TextBlock Foreground="Gray" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                         <Grid Margin="0,7,0,0" >
-                            <pieCharts:PieChart x:Name="yesterpie" Percentage="95"
+                            <pieCharts:PieChart  Percentage="100"
                             Radius="100"
                             BackgroundColor="Transparent"
-                            Segment360Color="Gray"
+                            Segment360Color="Transparent"
+                            SegmentColor="#ffba00"
+                            StrokeThickness="20" />
+
+                            <pieCharts:PieChart x:Name="yestersus" Percentage="70"
+                            Radius="100"
+                            BackgroundColor="Transparent"
+                            Segment360Color="Transparent"
+                            SegmentColor="Gray"
+                            StrokeThickness="30" />
+
+                            <pieCharts:PieChart x:Name="yesterpie" Percentage="70"
+                            Radius="100"
+                            BackgroundColor="Transparent"
+                            Segment360Color="Transparent"
                             SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
-                            StrokeThickness="17" />
+                            StrokeThickness="30" />
+                           
+
+                            
 
                             <TextBlock x:Name="yesterpar" Text="95%"
                        VerticalAlignment="Center"

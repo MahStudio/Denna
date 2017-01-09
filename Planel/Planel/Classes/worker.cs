@@ -1,4 +1,4 @@
-﻿using CrossPieCharts.UWP.PieCharts;
+﻿
 using Planel.Views;
 using System.Collections.Generic;
 using System.Threading.Tasks;

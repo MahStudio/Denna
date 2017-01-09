@@ -28,8 +28,8 @@ namespace Planel.Views
         {
             Classes.mpercent percent = new Classes.mpercent();
             percent = Models.Localdb.percentage();
-            settoday(percent.firstpercentage);
-            setyesterday(percent.secondpercentage);
+            settoday(percent);
+            setyesterday(percent);
         }
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -37,10 +37,12 @@ namespace Planel.Views
 
         }
 
-        private void settoday(int percentage)
+        private void settoday(Classes.mpercent percent)
         {
+            int percentage = percent.firstpercentage;
             todayper.Text = percentage.ToString() + "%";
             todaypie.Percentage = percentage;
+            todaysus.Percentage = 100- percent.firstsuspend ;
             if (percentage == 100)
                 todayword.Text = "Perfect! All done.";
             else if (percentage <= 99 && percentage >= 75)
@@ -55,11 +57,12 @@ namespace Planel.Views
 
 
         }
-        private void setyesterday(int percentage)
+        private void setyesterday(Classes.mpercent percent)
         {
-
+            int percentage = percent.secondpercentage;
             yesterpie.Percentage = percentage;
             yesterpar.Text = percentage.ToString() + "%";
+            yestersus.Percentage =100- percent.secondsuspend ;
         }
 
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
