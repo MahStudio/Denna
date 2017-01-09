@@ -1,4 +1,5 @@
 ﻿
+using Windows.Phone.UI.Input;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -19,10 +20,32 @@ namespace Planel.Views
             this.InitializeComponent();
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
          App_BackRequested;
-
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
 
         }
 
+        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+
+        }
+
+        ~About()
+        {
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested -=
+         App_BackRequested;
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+        }
         private void App_BackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
