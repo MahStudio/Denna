@@ -87,7 +87,7 @@
                                 <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title , Mode=TwoWay}"  Margin="0,0,95,0"/>
                                 <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="15" Margin="0,5,38,10" />
                                 <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="110"/>
-                                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="delete" Click="delete_Click"  Background="Transparent"
+                                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="delete" Click="delete_Click"  Background="Transparent" Tag="{Binding}"
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
                                 </Button>
                                 <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.RowSpan="2" FontSize="17" Text="" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Gray" Width="25"/>

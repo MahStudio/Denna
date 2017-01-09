@@ -85,8 +85,7 @@ namespace Planel.Views
 
         private async void delete_Click(object sender, RoutedEventArgs e)
         {
-
-            var clk = sender as todo;
+            var clk = ((sender as Button).Tag) as todo; 
             await Models.Localdb.Deletetodo(clk.Id);
         }
     }
