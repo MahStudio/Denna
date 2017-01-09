@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core;
 using Windows.Phone.UI.Input;
+using Windows.Foundation.Metadata;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,17 +22,21 @@ namespace Planel.Views
         public Settings()
         {
             this.InitializeComponent();
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
-        App_BackRequested;
-            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+                HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            else
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
+            App_BackRequested;
 
 
         }
         ~Settings()
         {
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested -=
-         App_BackRequested;
-            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+            if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+                HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+            else
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested -=
+             App_BackRequested;
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)

@@ -1,4 +1,5 @@
 ﻿
+using Windows.Foundation.Metadata;
 using Windows.Phone.UI.Input;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -18,9 +19,11 @@ namespace Planel.Views
         public About()
         {
             this.InitializeComponent();
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
-         App_BackRequested;
-            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+                HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            else
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
+             App_BackRequested;
 
         }
 
@@ -42,9 +45,11 @@ namespace Planel.Views
 
         ~About()
         {
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested -=
-         App_BackRequested;
-            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+            if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+                HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+            else
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested -=
+             App_BackRequested;
         }
         private void App_BackRequested(object sender, BackRequestedEventArgs e)
         {
