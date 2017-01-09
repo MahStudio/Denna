@@ -1,7 +1,9 @@
 ﻿using Planel.Models;
+using Planel.Views.sframes;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -37,11 +39,11 @@ namespace Planel.Views
         }
         private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
-            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-            await Models.Localdb.Deletetodo(clk.Id);
 
-            todolist.Remove(clk);
-            lvTest.ItemsSource = todolist;
+            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            // await Models.Localdb.Deletetodo(clk.Id);
+
+            await Models.Localdb.Suspend(clk);
 
         }
 
@@ -49,6 +51,8 @@ namespace Planel.Views
         {
             var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             await Models.Localdb.Done(clk);
+
+
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -56,16 +60,19 @@ namespace Planel.Views
 
         }
 
-        
-        private void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            Frame.Navigate(typeof(add));
+        }
 
-            
-          
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
 
         }
+
         private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             var clk = e.ClickedItem as todo;
             ContentDialog noWifiDialog = new ContentDialog()
             {
@@ -75,6 +82,12 @@ namespace Planel.Views
             };
 
             ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
+
+        private async void delete_Click(object sender, RoutedEventArgs e)
+        {
+            var clk = ((sender as Button).Tag) as todo;
+            await Models.Localdb.Deletetodo(clk.Id);
         }
         private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {

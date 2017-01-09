@@ -47,9 +47,9 @@ namespace Planel.Models
 
         }
         // add a todo list
-        public static async Task Addtodo(string titl, string describe, DateTime date)
+        public static async Task Addtodo(string titl, string describe, DateTime date, byte notify)
         {
-
+            byte a = notify;
 
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
@@ -57,10 +57,12 @@ namespace Planel.Models
             {
                 conn.Insert(new todo()
                 {
+                    notify = notify,
                     title = titl,
                     detail = describe,
                     time = date,
                     isdone = 0
+                    
 
                 });
 
@@ -78,7 +80,7 @@ namespace Planel.Models
                 var query = conn.Table<todo>();
                 foreach (var message in query)
                 {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
+                    todos.Add(message);
                 }
 
             }

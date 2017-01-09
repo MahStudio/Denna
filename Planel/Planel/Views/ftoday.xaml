@@ -37,9 +37,10 @@
                 </Button>
                 <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.7" Grid.Column="0" Grid.Row="1" FontSize="17" Text="" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25"/>
             </Grid>-->
-            <ListView  IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
+            <ListView SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
                 <ListView.Resources>
                     <local2:IntToColorConverter x:Key="IntToColorConverter"/>
+                    <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
                 </ListView.Resources>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -90,7 +91,9 @@
                                 <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="delete" Click="delete_Click"  Background="Transparent" Tag="{Binding}"
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
                                 </Button>
-                                <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.RowSpan="2" FontSize="17" Text="" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Gray" Width="25"/>
+                                <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.RowSpan="2" FontSize="17" 
+                                Text="{Binding notify,Converter={StaticResource ByteToGlyphConverter} , Mode=TwoWay}" Margin="-3,5,0,0" HorizontalAlignment="Left"
+                                      VerticalAlignment="Center" Foreground="Gray" Width="25"/>
                             </Grid>
                             <!--<Grid Height="100" MaxHeight="100" >
 

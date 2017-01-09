@@ -32,10 +32,18 @@ namespace Planel.Views.sframes
         {
             //add to database
             DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
+            byte notifymode = 0;
+            if (rbs.IsChecked == true)
+                notifymode = 0;
+
+            if (rbn.IsChecked == true)
+                notifymode = 1;
+
+            if (rba.IsChecked == true)
+                notifymode = 2;
 
 
-
-            await Models.Localdb.Addtodo(title.Text, describe.Text, todate);
+            await Models.Localdb.Addtodo(title.Text, describe.Text, todate,notifymode);
             Classes.worker.refresher();
 
             Frame.Navigate(typeof(ftoday));
