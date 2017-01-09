@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using Windows.ApplicationModel.Background;
 using Windows.Phone.UI.Input;
 using Windows.Storage;
 using Windows.UI.Core;
@@ -24,7 +26,7 @@ namespace Planel.Views
         {
             this.InitializeComponent();
             current = this;
-           
+
 
 
         }
@@ -33,7 +35,28 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+
+            try
+            {
+                var req = await BackgroundExecutionManager.RequestAccessAsync();
+                if (req == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity || req == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity)
+                {
+                    var list = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "NotifierTask");
+                    foreach (var item in list)
+                    {
+                        item.Value.Unregister(false);
+                    }
+                    BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder { Name = "NotifierTask", TaskEntryPoint = "NotifierTask.Notify" };
+                    taskBuilder.SetTrigger(new TimeTrigger(15, false));
+
+                    BackgroundTaskRegistration myFirstTask = taskBuilder.Register();
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
             Frame rootFrame = Window.Current.Content as Frame;
 
             string myPages = "";
