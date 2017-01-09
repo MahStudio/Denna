@@ -8,11 +8,11 @@ using Windows.UI;
 
 namespace Planel.Classes
 {
-    
+
     class ViewModel
     {
-    public static List<PieChartArgs> Piechartcol { get; set; }
-    public static List<PieChartArgs> Piechartcol2 { get; set; }
+        public static List<PieChartArgs> Piechartcol { get; set; }
+        public static List<PieChartArgs> Piechartcol2 { get; set; }
         public ViewModel()
         {
 
@@ -77,5 +77,5 @@ namespace Planel.Classes
             };
         }
     }
-    }
+}
 
