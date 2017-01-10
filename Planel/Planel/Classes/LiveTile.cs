@@ -1,10 +1,13 @@
-﻿using Planel.Models;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using Planel.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Data.Xml.Dom;
+using Windows.Storage;
 using Windows.UI.Notifications;
 
 namespace Planel.Classes
@@ -14,45 +17,31 @@ namespace Planel.Classes
         
         public static async Task livetile()
         {
-           ObservableCollection<Models.todo> todolist = new ObservableCollection<todo>();
-            ObservableCollection<Models.todo> result = new ObservableCollection<todo>();
-            DateTime now = DateTime.Now;
-            todolist= Models.Localdb.Getfordoday(now);
-var tileXml =
-   TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150Text01);
+
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
+                new Uri("ms-appx:///LiveTile.xml"))));
+            //Set Medium tile
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileMediumImageSource", sampleFile.Path ));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileMediumtext", "Dear " + ApplicationData.Current.LocalSettings.Values["Username"].ToString()));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileMediumSubText", "Let's Do!"));
+            //Set Wide Tile 
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideImageSource", sampleFile.Path));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideText", "4Khoune , j k kj , jk kj kj , jkjnkjnk, jknjmn,"));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideSubText", ""));
             
-        var tileAttributes = tileXml.GetElementsByTagName("text");
-        
-            foreach (var item in todolist)
-            {
-                if (item.isdone != 2)
-                    result.Add(item);
 
-            }
-            
-          if (result.Count == 0)
-            {
-                tileAttributes[0].AppendChild(tileXml.CreateTextNode("nothing todo today"));
-            }
-            else
-            {
-                //int i = 0;
-                //foreach (var item in todolist)
-                //{
-                //    tileAttributes[i].AppendChild(tileXml.CreateTextNode(item.title));
-                //    i++;
-                //}
-            }
-           
-     
+            var tup = TileUpdateManager.CreateTileUpdaterForApplication();
+            tup.Update(new TileNotification(xmlDoc));
 
 
 
 
 
-            var tileNotification = new TileNotification(tileXml);
-        TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
-            //Wide310x150Logo
+
         }
         public static async Task updatebadge()
         {
@@ -68,6 +57,7 @@ var tileXml =
             var notification = new BadgeNotification(xml);
             updator.Update(notification);
         }
+
 
 
     }

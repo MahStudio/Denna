@@ -158,7 +158,7 @@ namespace Planel.Models
             List<todo> todoss = new List<todo>();
             foreach (var item in todos)
             {
-                if (starttoday <= item.time && item.isdone == 0)
+                if (starttoday <= item.time && (item.isdone == 0 || item.isdone==1))
                 {
                     todoss.Add(item);
                 }

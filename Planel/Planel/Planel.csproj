@@ -161,6 +161,7 @@
     <Content Include="Assets\Icons\TodoList.png" />
     <Content Include="Assets\Mockops\usrimg.jpg" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="LiveTile.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
