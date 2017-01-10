@@ -8,6 +8,47 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h4.png" Stretch="UniformToFill"      />
+        <Grid>
+            <Image VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h4.png" Stretch="UniformToFill"      />
+        </Grid>
+        <ScrollViewer>
+            
+        <Grid>
+            
+                <StackPanel >
+                    <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                        <TextBlock FontWeight="Bold" FontSize="40" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
+                        <TextBlock x:Name="ApplicationVersion" Margin="3,0,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 12.14.313.40" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
+                    </StackPanel>
+                    <TextBlock TextAlignment="Center" Margin="20,20,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8" FontSize="15" >
+                    This app is dedicated for having the best planning and scheduling experience.
+                    <LineBreak />
+                        Do not miss any thing, just type it in DENNA :)
+
+                    </TextBlock>
+                    <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                        <Button Click="Button_Click" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="SHARE" Width="70"  />
+                        <Button Click="Button_Click_2" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="FEEDBACK" Width="100"  />
+                        <Button Click="Button_Click_1" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="RATE AND REVIEW" Width="150"  />
+                    </StackPanel>
+
+                </StackPanel>
+            <StackPanel VerticalAlignment="Bottom" >
+                <TextBlock TextAlignment="Center" FontWeight="SemiBold" >
+                    DEVELOPED WITH LOVE IN
+                    <LineBreak />
+                    MAH STUDIO
+                </TextBlock>
+                <TextBlock Opacity="0.8" Margin="20,10,20,20" LineHeight="22" TextWrapping="Wrap" TextAlignment="Center" >
+                    The production of this app wouldnt be possible with out these cool guys:
+                    <LineBreak />
+                    @MohsenS22 , @ArefMAhmadi , @AliNGame
+                    <LineBreak />
+                    And all MAH Studio team members :)
+                </TextBlock>
+                
+            </StackPanel>
+        </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

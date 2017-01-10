@@ -49,7 +49,7 @@ namespace Planel.Models
         // add a todo list
         public static async Task Addtodo(string titl, string describe, DateTime date, byte notify)
         {
-            byte a = notify;
+            
 
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
