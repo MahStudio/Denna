@@ -9,43 +9,8 @@ namespace NotifierTask
 {
     class Localdb
     {
-        //for database creation
-        public static void CreateDatabase()
-        {
-            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
-
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            {
-                conn.CreateTable<todo>();
-
-            }
-
-
-        }
         
-        //save user name
-        public static void Iuser(string name)
-        {
-            ApplicationData.Current.LocalSettings.Values["Username"] = name;
-
-
-
-        }
-        //logout proceed
-        public static void Logout(string name)
-        {
-            ApplicationData.Current.LocalSettings.Values["Username"] = null;
-            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
-
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            {
-                conn.DropTable<todo>();
-                ApplicationData.Current.LocalSettings.Values["Username"] = null;
-            }
-
-
-
-        }
+        
         // add a todo list
         public static async Task Addtodo(string titl, string describe, DateTime date)
         {
@@ -66,7 +31,7 @@ namespace NotifierTask
 
             }
         }
-        
+
         // get all list
         public static ObservableCollection<todo> getlist()
         {
@@ -78,7 +43,7 @@ namespace NotifierTask
                 var query = conn.Table<todo>();
                 foreach (var message in query)
                 {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
+                    todos.Add(message);
                 }
 
             }
@@ -89,7 +54,7 @@ namespace NotifierTask
         //get stuff for today
         public static ObservableCollection<todo> Getfordoday(DateTime now)
         {
-            ObservableCollection < todo > todos = getlist();
+            ObservableCollection<todo> todos = getlist();
 
 
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
@@ -111,7 +76,7 @@ namespace NotifierTask
         public static ObservableCollection<todo> getall(DateTime now)
         {
             ObservableCollection<todo> todos = getlist();
-            
+
 
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
