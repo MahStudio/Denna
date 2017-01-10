@@ -60,7 +60,7 @@ namespace Planel.Models
                     notify = notify,
                     title = titl,
                     detail = describe,
-                    time = date,
+                    time = date.ToLocalTime(),
                     isdone = 0
                     
 

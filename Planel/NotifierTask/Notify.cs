@@ -41,7 +41,7 @@ namespace NotifierTask
                 if (item.notify == 1)
                 {
                     var sub = item.time.Subtract(DateTime.Now);
-                    if (sub.TotalMinutes >= 0 && sub.TotalMinutes <= 15)
+                    if (sub.TotalMinutes >= 0 && sub.TotalMinutes <= 15 && item.isdone != 2)
                     {
                         Notifications.Add(item);
                     }
