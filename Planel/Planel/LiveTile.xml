@@ -13,8 +13,8 @@
           <image src="TileWideImageSource" hint-crop="circle" />
         </subgroup>
         <subgroup hint-textStacking="center">
-          <text hint-style="title">TileWideText</text>
-          <text hint-style="subtitleSubtle">TileWideSubText</text>
+          <text hint-wrap="true">TileWideText</text>
+          
         </subgroup>
       </group>
     </binding>

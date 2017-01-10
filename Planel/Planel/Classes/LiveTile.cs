@@ -17,7 +17,17 @@ namespace Planel.Classes
         
         public static async Task livetile()
         {
+            ObservableCollection<Models.todo> todolist = new ObservableCollection<todo>();
+            string result = " Dont forget to :  ";
+            DateTime now = DateTime.Now;
+            todolist = Models.Localdb.Getfordoday(now);
+            foreach (var item in todolist)
+            {
+                if (item.isdone != 2)
+                    result += ","+item.title + "  " ;
 
+            }
+            result.Replace("\n", Environment.NewLine);
 
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
@@ -30,8 +40,8 @@ namespace Planel.Classes
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileMediumSubText", "Let's Do!"));
             //Set Wide Tile 
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideImageSource", sampleFile.Path));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideText", "4Khoune , j k kj , jk kj kj , jkjnkjnk, jknjmn,"));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideSubText", ""));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideText", result));
+           
             
 
             var tup = TileUpdateManager.CreateTileUpdaterForApplication();
