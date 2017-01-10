@@ -3,7 +3,7 @@
   <visual branding="nameAndLogo">
     <binding template="TileMedium" hint-textStacking="center">
       <image src="TileMediumImageSource" placement="peek" hint-crop="circle" />
-      <text hint-style="base" hint-align="center">TileMediumtext</text>
+      <text hint-style="base" hint-wrap="true" hint-align="center">TileMediumtext</text>
       <text hint-style="captionSubtle"  hint-align="center">TileMediumSubText</text>
     </binding>
 

@@ -90,16 +90,16 @@ namespace Planel.Views
             DateTime thisday = DateTime.Today;
             todate.Text = thisday.ToString("D");
             counterr(Models.Localdb.counter());
-            string message = "Dear";
-            DateTime now = DateTime.Now;
-            if (now.Hour >= 20 && now.Hour <= 4)
-                message = "Good Night";
-            if (now.Hour >= 5 && now.Hour <= 9)
-                message = "Good morning";
-            if (now.Hour >= 13 && now.Hour <= 16)
-                message = "Good Afternoon";
+            //string message = "Dear";
+            //DateTime now = DateTime.Now;
+            //if (now.Hour >= 20 && now.Hour <= 4)
+            //    message = "Good Night";
+            //if (now.Hour >= 5 && now.Hour <= 9)
+            //    message = "Good morning";
+            //if (now.Hour >= 13 && now.Hour <= 16)
+            //    message = "Good Afternoon";
 
-            news.Text = (string.Format("{0} {1}", message, ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
+            //news.Text = (string.Format("{0} {1}", message, ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
             Classes.worker.tiler();
 
         }
@@ -205,7 +205,16 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            
+            string message = "Dear";
+            DateTime now = DateTime.Now;
+            if (now.Hour >= 20 && now.Hour <= 4)
+                message = "Good Night";
+            if (now.Hour >= 5 && now.Hour <= 9)
+                message = "Good morning";
+            if (now.Hour >= 13 && now.Hour <= 16)
+                message = "Good Afternoon";
+
+            news.Text = (string.Format("{0} {1}", message, ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
             FlipView.SelectedIndex = 0;
 
             Animate(gridMain, true);
