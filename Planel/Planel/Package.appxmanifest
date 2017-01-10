@@ -25,6 +25,7 @@
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="timer" />
+            <Task Type="location" />
           </BackgroundTasks>
         </Extension>
       </Extensions>
