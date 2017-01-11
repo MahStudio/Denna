@@ -60,14 +60,24 @@ namespace NotifierTask
         public static async void livetile()
         {
             ObservableCollection<todo> todolist = new ObservableCollection<todo>();
+            int counter = Localdb.counter();
             string result = " Dont forget to :  ";
-            DateTime now = DateTime.Now;
-            todolist = Localdb.Getfordoday(now);
-            foreach (var item in todolist)
+            if (counter == 0)
             {
-                if (item.isdone != 2)
-                    result += "," + item.title + "  ";
+                result = "Nothing to do today :) add something todo. ";
 
+            }
+            else
+            {
+
+                DateTime now = DateTime.Now;
+                todolist = Localdb.Getfordoday(now);
+                foreach (var item in todolist)
+                {
+                    if (item.isdone != 2)
+                        result += "," + item.title + "  ";
+
+                }
             }
             result.Replace("\n", Environment.NewLine);
 

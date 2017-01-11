@@ -18,7 +18,15 @@ namespace Planel.Classes
         public static async Task livetile()
         {
             ObservableCollection<Models.todo> todolist = new ObservableCollection<todo>();
+            int counter = Localdb.counter();
             string result = " Dont forget to :  ";
+            if (counter == 0)
+            {
+                result = "Nothing to do today :) add something todo. ";
+
+            }
+            else { 
+            
             DateTime now = DateTime.Now;
             todolist = Models.Localdb.Getfordoday(now);
             foreach (var item in todolist)
@@ -26,6 +34,7 @@ namespace Planel.Classes
                 if (item.isdone != 2)
                     result += ","+item.title + "  " ;
 
+            }
             }
             result.Replace("\n", Environment.NewLine);
 
