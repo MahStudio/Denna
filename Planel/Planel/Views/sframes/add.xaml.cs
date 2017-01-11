@@ -2,7 +2,8 @@
 
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -20,7 +21,22 @@ namespace Planel.Views.sframes
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            SetUpPageAnimation();
+        }
+        private void SetUpPageAnimation()
+        {
+            TransitionCollection collection = new TransitionCollection();
+            // NavigationThemeTransition theme = new NavigationThemeTransition();
+
+            var themeR = new EdgeUIThemeTransition();
+
+            themeR.Edge = EdgeTransitionLocation.Bottom;
+
+            //eorderThemeTransition();
+
+            //theme.DefaultNavigationTransitionInfo = info;
+            collection.Add(themeR);
+            this.Transitions = collection;
         }
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
