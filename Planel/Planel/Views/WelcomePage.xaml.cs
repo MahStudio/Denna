@@ -164,6 +164,10 @@ namespace Planel.Views
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ApplicationData.Current.LocalSettings.Values["SmartieToday"] = 3;
+            ApplicationData.Current.LocalSettings.Values["SmartieHome"] = 0;
+            ApplicationData.Current.LocalSettings.Values["SmartiePref"] = 0;
+            ApplicationData.Current.LocalSettings.Values["SmartieMonth"] = 0;
             if (namebox.Text != "")
             name = namebox.Text;
             else
