@@ -13,8 +13,9 @@ namespace Planel.Classes
         {
             byte a = (byte) int.Parse(value.ToString());
             string ret = "";
+            //
             if (a == 0)
-                ret = "";
+                ret = "";
             if (a == 1)
                 ret = "";
             if (a == 2)

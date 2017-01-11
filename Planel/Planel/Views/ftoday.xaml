@@ -41,6 +41,7 @@
                 <ListView.Resources>
                     <local2:IntToColorConverter x:Key="IntToColorConverter"/>
                     <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
+                    <local2:DateTimeToVisibilityConverter x:Key="DateTimeToVisibilityConverter" />
                 </ListView.Resources>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -83,7 +84,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Grid Grid.RowSpan="2" HorizontalAlignment="Right" Width="1" Background="Black" Opacity="0.4" Margin="0,0,16,0" />
+                                <Grid Visibility="{Binding time , Converter={StaticResource DateTimeToVisibilityConverter}}" Grid.RowSpan="2" HorizontalAlignment="Right" Width="1" Background="Black" Opacity="0.4" Margin="0,0,16,0" />
                                 <Ellipse Fill="{Binding isdone, Converter = {StaticResource IntToColorConverter} , Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,3,6,3" Width="21" />
                                 <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title , Mode=TwoWay}"  Margin="0,0,95,0"/>
                                 <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="15" Margin="0,5,38,10" />
