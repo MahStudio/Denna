@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.Storage;
 
 namespace Planel.Models
@@ -32,17 +33,19 @@ namespace Planel.Models
 
         }
         //logout proceed
-        public static void Logout(string name)
+        public static async Task Logout()
         {
+            
             ApplicationData.Current.LocalSettings.Values["Username"] = null;
+            ApplicationData.Current.LocalSettings.Values["Firstrun"] = null; 
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
                 conn.DropTable<todo>();
-                ApplicationData.Current.LocalSettings.Values["Username"] = null;
+                
             }
-
+            CoreApplication.Exit();
 
 
         }
