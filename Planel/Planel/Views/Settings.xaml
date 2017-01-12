@@ -22,10 +22,11 @@
             </Grid>
             <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Let's be familiar" />
             <StackPanel>
-                <TextBox x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
+                <TextBox BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
             </StackPanel>
         </StackPanel>
-        <HyperlinkButton x:Name="logout" Content="LOG OUT" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="20" Width="180" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Click="logout_Click" Margin="159,0,155,10"/>
+        <StackPanel></StackPanel>
+        <HyperlinkButton x:Name="logout" Content="LOG OUT" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="20"  Width="180" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Click="logout_Click" Margin="0,0,0,10"/>
         <Grid x:Name="bye" Visibility="Collapsed" Background="{StaticResource SystemControlBackgroundAccentBrush}" >
             <TextBlock FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"
 TextWrapping="Wrap" Foreground="White" Text="Bye Bye :)" />

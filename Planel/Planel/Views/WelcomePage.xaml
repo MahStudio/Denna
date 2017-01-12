@@ -77,7 +77,7 @@
                     </Grid>
                     <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Let's be familiar" />
                     <StackPanel>
-                        <TextBox x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="What's your name?"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
+                        <TextBox BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="What's your name?"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
                     </StackPanel>
                 </StackPanel>
             </FlipViewItem>
