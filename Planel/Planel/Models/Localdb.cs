@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.Storage;
 
 namespace Planel.Models
@@ -32,24 +33,26 @@ namespace Planel.Models
 
         }
         //logout proceed
-        public static void Logout(string name)
+        public static async Task Logout()
         {
+            
             ApplicationData.Current.LocalSettings.Values["Username"] = null;
+            ApplicationData.Current.LocalSettings.Values["Firstrun"] = null; 
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
                 conn.DropTable<todo>();
-                ApplicationData.Current.LocalSettings.Values["Username"] = null;
+                
             }
-
+            CoreApplication.Exit();
 
 
         }
         // add a todo list
         public static async Task Addtodo(string titl, string describe, DateTime date, byte notify)
         {
-            byte a = notify;
+            
 
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
@@ -158,7 +161,7 @@ namespace Planel.Models
             List<todo> todoss = new List<todo>();
             foreach (var item in todos)
             {
-                if (starttoday <= item.time && item.isdone == 0)
+                if (starttoday <= item.time && (item.isdone == 0 || item.isdone==1))
                 {
                     todoss.Add(item);
                 }

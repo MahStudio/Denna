@@ -26,5 +26,9 @@
             </StackPanel>
         </StackPanel>
         <HyperlinkButton x:Name="logout" Content="LOG OUT" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="20" Width="180" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Click="logout_Click" Margin="159,0,155,10"/>
+        <Grid x:Name="bye" Visibility="Collapsed" Background="{StaticResource SystemControlBackgroundAccentBrush}" >
+            <TextBlock FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"
+TextWrapping="Wrap" Foreground="White" Text="Bye Bye :)" />
+        </Grid>
     </Grid>
 </Page>

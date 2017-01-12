@@ -1,4 +1,8 @@
 ﻿
+using System;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Foundation;
 using Windows.Foundation.Metadata;
 using Windows.Phone.UI.Input;
 using Windows.UI.Core;
@@ -16,6 +20,7 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class About : Page
     {
+        private DataTransferManager dataTransferManager;
         public About()
         {
             this.InitializeComponent();
@@ -24,6 +29,8 @@ namespace Planel.Views
             else
                 Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
              App_BackRequested;
+            var v = Package.Current.Id.Version;
+            ApplicationVersion.Text = "V" + string.Format("{0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
 
         }
 
@@ -90,6 +97,36 @@ namespace Planel.Views
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                     AppViewBackButtonVisibility.Collapsed;
             }
+            this.dataTransferManager = DataTransferManager.GetForCurrentView();
+            this.dataTransferManager.DataRequested += new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.DataRequested);
+        }
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            // unregister as share source
+            this.dataTransferManager.DataRequested -= new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.DataRequested);
+        }
+        private void DataRequested(DataTransferManager sender, DataRequestedEventArgs e)
+        {
+            Uri dataPackageUri = new Uri("https://www.microsoft.com/store/apps/9n9c2hwnzcft");
+            DataPackage requestData = e.Request.Data;
+            requestData.Properties.Title = "DENNA | Plan your life !";
+            requestData.SetWebLink(dataPackageUri);
+            requestData.Properties.Description = "Check out the best todo manager app world wide  named DENNA ! Now in Windows Store.";
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var uri = new Uri("ms-windows-store://review/?productid=9n9c2hwnzcft");
+            await Windows.System.Launcher.LaunchUriAsync(uri);
+        }
+
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:mohsens22@outlook.com?subject=DENNA_BETA_FeedBack"));
         }
     }
 }

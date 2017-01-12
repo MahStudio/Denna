@@ -9,8 +9,43 @@ namespace NotifierTask
 {
     class Localdb
     {
-        
-        
+        public static int counter()
+        {
+            List<todo> todos = new List<todo>();
+            
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                var query = conn.Table<todo>();
+                foreach (var message in query)
+                {
+                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
+                }
+
+            }
+            DateTime now = DateTime.Now;
+            DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+            List<todo> todoss = new List<todo>();
+            foreach (var item in todos)
+            {
+                if (starttoday <= item.time && (item.isdone == 0 || item.isdone == 1))
+                {
+                    todoss.Add(item);
+                }
+
+
+            }
+
+            int a = todoss.Count();
+
+            return a;
+
+
+
+
+        }
+
         // add a todo list
         public static async Task Addtodo(string titl, string describe, DateTime date)
         {

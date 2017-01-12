@@ -9,6 +9,8 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core;
 using Windows.Phone.UI.Input;
 using Windows.Foundation.Metadata;
+using System.Threading.Tasks;
+using Planel.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -148,9 +150,14 @@ namespace Planel.Views
             ApplicationData.Current.LocalSettings.Values["Username"] = namebox.Text;
         }
 
-        private void logout_Click(object sender, RoutedEventArgs e)
+        private  async void logout_Click(object sender, RoutedEventArgs e)
         {
+            bye.Visibility = Visibility.Visible;
 
+            await Task.Delay(3000);
+
+            Localdb.Logout();
+            
         }
     }
 }
