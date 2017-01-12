@@ -18,6 +18,7 @@ namespace NotifierTask
             taskInstance.Task.Completed += Task_Completed;
             NotifyCheck();
         }
+
         void SendToastNotification(string Content, string Parameters, bool IsDurationLong = false)
         {
             var toastTemplate = ToastTemplateType.ToastText02;
