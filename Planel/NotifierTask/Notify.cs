@@ -20,8 +20,12 @@ namespace NotifierTask
             taskInstance.Canceled += TaskInstance_Canceled;
             taskInstance.Task.Completed += Task_Completed;
             NotifyCheck();
+            try { 
             livetile();
+
             updatebadge();
+            }
+            catch { }
         }
 
         void SendToastNotification(string Content, string Parameters, bool IsDurationLong = false)
