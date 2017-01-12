@@ -37,7 +37,7 @@
                 </Button>
                 <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.7" Grid.Column="0" Grid.Row="1" FontSize="17" Text="" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25"/>
             </Grid>-->
-            <ListView SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
+            <ListView Margin="0,10,0,0" SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
                 <ListView.Resources>
                     <local2:IntToColorConverter x:Key="IntToColorConverter"/>
                     <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
@@ -73,7 +73,7 @@
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
                     
                     >
-                            <Grid MinHeight="70" VerticalAlignment="Top" MaxHeight="120" >
+                            <Grid MinHeight="70" Margin="5,0" VerticalAlignment="Top" MaxHeight="120" >
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="27"/>

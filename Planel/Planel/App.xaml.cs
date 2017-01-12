@@ -83,9 +83,9 @@ namespace Planel
                         titleBar.ForegroundColor = Colors.White;
                         titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
                         titleBar.ButtonForegroundColor = Colors.White;
-
+                        
                         titleBar.ForegroundColor = Colors.White;
-
+                        titleBar.ButtonForegroundColor = Colors.White;
                         titleBar.ButtonForegroundColor = Colors.White;
                         //fuck you asshilism
 
