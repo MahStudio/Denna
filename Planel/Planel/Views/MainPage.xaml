@@ -6,29 +6,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
-    <!--<Page.Resources>
-        <DataTemplate x:Key="NavMenuItemTemplate" x:DataType="local:NavMenuItem">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                -->
-    
-    <!-- Showing a ToolTip and the Label is redundant.  We put the ToolTip on the icon.
-                     It appears when the user hovers over the icon, but not the label which provides
-                     value when the SplitView is 'Compact' while reducing the likelihood of showing
-                     redundant information when the label is shown.-->
-    
-    <!--
-                <FontIcon x:Name="Glyph" FontSize="16" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTipService.ToolTip="{x:Bind Label}"/>
-                <TextBlock x:Name="Text" Grid.Column="1" Text="{x:Bind Label}" />
-            </Grid>
-        </DataTemplate>
-        <Storyboard x:Name="opener"/>
-    </Page.Resources>-->
-    
+
+    <Page.Resources>
+        <Storyboard x:Name="myStoryboard">
+
+            <DoubleAnimation From="0" To="200" Duration="00:00:1" 
+                Storyboard.TargetName="myScaleTransform" 
+                Storyboard.TargetProperty="Y">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="urStoryboard">
+
+            <DoubleAnimation From="200" To="0" Duration="00:00:1" 
+                Storyboard.TargetName="myScaleTransform" 
+                Storyboard.TargetProperty="Y">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <!--<VisualStateManager.VisualStateGroups>
@@ -134,40 +135,6 @@
         <Grid >
 
             <RelativePanel>
-                <Grid  ManipulationMode="TranslateX"
-              ManipulationDelta="gridMain_ManipulationDelta"
-              ManipulationCompleted="gridMain_ManipulationCompleted"
-              SizeChanged="gridMain_SizeChanged" Height="180" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
-
-
-                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
-                    <StackPanel>
-                        <TextBlock Text="Dear User !" Foreground="White" FontWeight="Bold" TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,95,10,35" />
-                        <Ellipse Margin="0,25,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
-                            <Ellipse.Fill>
-                                <ImageBrush Stretch="UniformToFill" x:Name="avatar" ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <TextBlock x:Name="todate" Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
-                        <TextBlock x:Name="counter" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
-                                Today you have 6 works to do.
-                                <LineBreak />
-                                <LineBreak />
-
-                        </TextBlock>
-                    </StackPanel>
-                    <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
-         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
-                    <Grid ManipulationMode="None" VerticalAlignment="Top" >
-                        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
-                            <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}"  Width="48" Height="48" />
-                            <Button Click="btoday_Click" x:Name="btoday" Content="&#xE1EF;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
-                            <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
-                            <Button Click="bpref_Click" x:Name="bpref" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-
                 <Grid RelativePanel.Below="gridMain" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
                     <FlipView SelectionChanged="FlipView_SelectionChanged" x:Name="FlipView" Background="Transparent">
                         <FlipViewItem>
@@ -186,7 +153,52 @@
                     </FlipView>
 
                 </Grid>
+                <Grid  ManipulationMode="TranslateY"
+              ManipulationDelta="gridMain_ManipulationDelta"
+              ManipulationCompleted="gridMain_ManipulationCompleted"
+              Height="400" Margin="0,-240,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}"  >
+
+
+                    
+                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
+                    <Grid>
+                    <StackPanel Margin="0,50,0,0" x:Name="detstack" Visibility="Collapsed">
+                       
+                        <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
+                            <Ellipse.Fill>
+                                <ImageBrush Stretch="UniformToFill" x:Name="avatar" ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock x:Name="todate" Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
+                        <TextBlock x:Name="counter" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
+                                Today you have 6 works to do.
+                                <LineBreak />
+                                <LineBreak />
+
+                        </TextBlock>
+                        
+                    </StackPanel>
+                        <TextBlock Text="Dear User !" Foreground="White" FontWeight="Bold" VerticalAlignment="Bottom" TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,0,10,50" />
+                    </Grid>
+                        <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
+         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
+                    
+                    <Grid.RenderTransform >
+
+                        <TranslateTransform  x:Name="myScaleTransform" />
+                    </Grid.RenderTransform>
+                </Grid>
+                
+
             </RelativePanel>
+            <Grid ManipulationMode="None" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}"  Width="48" Height="48" />
+                    <Button Click="btoday_Click" x:Name="btoday" Content="&#xE1EF;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                    <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                    <Button Click="bpref_Click" x:Name="bpref" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                </StackPanel>
+            </Grid>
 
         </Grid>
         <!--<Button  x:Name="menubutton" Click="menubutton_Click" Style="{StaticResource SplitViewTogglePaneButtonStyle}"
