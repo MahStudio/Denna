@@ -27,7 +27,7 @@
 
             </TextBlock>
 
-            <Button x:Name="goit"  Click="Button_Click" Content="خرید" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+            <Button x:Name="goit"  Content="خرید" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
 
 
         </StackPanel>

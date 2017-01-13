@@ -162,7 +162,7 @@
                     
                     <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
                     <Grid>
-                    <StackPanel Margin="0,50,0,0" x:Name="detstack" Visibility="Collapsed">
+                        <StackPanel Margin="0,0,0,0" Visibility="Collapsed" x:Name="detstack" >
                        
                         <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
                             <Ellipse.Fill>
