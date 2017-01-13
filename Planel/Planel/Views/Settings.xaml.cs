@@ -11,6 +11,8 @@ using Windows.Phone.UI.Input;
 using Windows.Foundation.Metadata;
 using System.Threading.Tasks;
 using Planel.Models;
+using Planel;
+using Windows.ApplicationModel.Store;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -19,6 +21,8 @@ namespace Planel.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
+   
     public sealed partial class Settings : Page
     {
         public Settings()
@@ -75,6 +79,24 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (App.licenseactive == true)
+            {
+                if(App.License.IsActive == true)
+                {
+                    Licencer.Text = "License active WW";
+                }
+                if (App.License.IsActive == false)
+                {
+                    Licencer.Text = "License active IR";
+                }
+            }
+            else
+            {
+                Licencer.Text = "Trial";
+                declame.Visibility = Visibility.Visible;
+            }
+
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             string myPages = "";
@@ -158,6 +180,16 @@ namespace Planel.Views
 
             Localdb.Logout();
             
+        }
+
+        private async void Buy_Click(object sender, RoutedEventArgs e)
+        {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://pdp/?productid=9n9c2hwnzcft"));
+        }
+
+        private void Iran_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(IranBye));
         }
     }
 }

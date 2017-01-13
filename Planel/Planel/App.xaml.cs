@@ -3,6 +3,7 @@ using Planel.Views;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Store;
 using Windows.Foundation.Metadata;
 using Windows.Storage;
 using Windows.UI;
@@ -22,11 +23,52 @@ namespace Planel
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        /// 
+        public static LicenseInformation License;
+        public static ListingInformation Listing;
+        public static bool licenseactive;
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            Microsoft.HockeyApp.HockeyClient.Current.Configure("b1cf0124aaed48d88fecec61c9f7683a ");
+            license();
+            
+            
+        }
+        public static async void license()
+        {
+           
+                var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
+                await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
+                License = CurrentAppSimulator.LicenseInformation;
+            Listing = await CurrentAppSimulator.LoadListingInformationAsync();
+           
+            if (ApplicationData.Current.LocalSettings.Values["LicenceActive"] == null )
+            ApplicationData.Current.LocalSettings.Values["LicenceActive"] =false;
+
+            
+            licenseactive = (bool) ApplicationData.Current.LocalSettings.Values["LicenceActive"];
+            
+                if (License.IsActive == true || licenseactive == true)
+                {
+                    licenseactive = true;
+
+                }
+                else
+                {
+                    licenseactive = false;
+                }
+
+            
+            
+            
+            
+
+
+
+
+
+
         }
 
         /// <summary>
@@ -69,12 +111,14 @@ namespace Planel
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    
-                    if ( ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1") 
+                    if (licenseactive == false && License.IsTrial == false) 
+                        rootFrame.Navigate(typeof(Expire), e.Arguments);
+
+
+                    else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                    
                     else
-                    rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
+                        rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
 
                     try
                     {

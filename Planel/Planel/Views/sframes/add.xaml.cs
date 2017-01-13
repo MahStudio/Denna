@@ -18,10 +18,11 @@ namespace Planel.Views.sframes
         public add()
         {
             this.InitializeComponent();
+            SetUpPageAnimation();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            SetUpPageAnimation();
+           
         }
         private void SetUpPageAnimation()
         {
