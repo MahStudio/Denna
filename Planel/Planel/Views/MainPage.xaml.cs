@@ -35,30 +35,30 @@ namespace Planel.Views
 
         }
 
-        
+
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             //try
             //{
-                smartyieval myval = smartyieval.Today;
-                myval = smartie();
-                if (myval == smartyieval.Home)
-                {
-                    mhome();
-                }
-                else if (myval == smartyieval.Today)
-                {
-                    mtoday();
-                }
-                else if (myval == smartyieval.Month)
-                {
-                    mmonth();
-                }
-                else if (myval == smartyieval.Pref)
-                {
-                    mpref();
-                }
+            smartyieval myval = smartyieval.Today;
+            myval = smartie();
+            if (myval == smartyieval.Home)
+            {
+                mhome();
+            }
+            else if (myval == smartyieval.Today)
+            {
+                mtoday();
+            }
+            else if (myval == smartyieval.Month)
+            {
+                mmonth();
+            }
+            else if (myval == smartyieval.Pref)
+            {
+                mpref();
+            }
 
             //}
             //catch { }
@@ -91,7 +91,7 @@ namespace Planel.Views
             {
                 myPages += page.SourcePageType.ToString() + "\n";
             }
-            
+
 
             if (rootFrame.CanGoBack)
             {
@@ -136,7 +136,7 @@ namespace Planel.Views
 
 
 
-            if (cnt == 1 || cnt ==0 )
+            if (cnt == 1 || cnt == 0)
                 counter.Text = string.Format("You have {0} work to do", cnt.ToString());
             else
                 counter.Text = string.Format("You have {0} works to do", cnt.ToString());
@@ -144,9 +144,9 @@ namespace Planel.Views
         }
         public void ntonavigate(string nav)
         {
-            if (nav=="about")
-            Frame.Navigate(typeof(About));
-            else if (nav=="setting")
+            if (nav == "about")
+                Frame.Navigate(typeof(About));
+            else if (nav == "setting")
                 Frame.Navigate(typeof(Settings));
         }
 
@@ -159,14 +159,14 @@ namespace Planel.Views
         //}
         #endregion
 
-        
+
         #region pivot
         private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+
         }
-        
-        
+
+
 
         private async void mhome()
         {
@@ -183,7 +183,7 @@ namespace Planel.Views
             if (now.Hour >= 13 && now.Hour <= 16)
                 message = "Good Afternoon";
 
-            
+
             FlipView.SelectedIndex = 0;
 
             if (isopen == true)
@@ -231,7 +231,7 @@ namespace Planel.Views
             news.Text = "LOOK OVER IT!";
             FlipView.SelectedIndex = 3;
             if (isopen == true)
-            animate();
+                animate();
 
             ApplicationData.Current.LocalSettings.Values["SmartiePref"] = +1;
         }
@@ -261,29 +261,28 @@ namespace Planel.Views
         {
             // ManipulationDelta hamzaman ba tagheire positione angosht ya mouse emal mishe
             // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
-           // lastPostition = e.Position.Y;
-           // if (e.Position.Y < gridMain.MinHeight) return;
-           // if (e.Position.Y <400) { 
-           // try
-           // {
-                //animate();
-                
-               // gridMain.RenderTransform = new CompositeTransform();
-               // Storyboard s = new Storyboard();
-               // DoubleAnimation da = new DoubleAnimation();
+            lastPostition = e.Position.Y;
+            if (e.Position.Y < gridMain.MinHeight) return;
+            if (e.Position.Y < 250)
+            {
+                try
+                {
+                    myScaleTransform.Y = e.Position.Y;
+                    //Storyboard s = new Storyboard();
+                    //DoubleAnimation da = new DoubleAnimation();
 
-                //da.Duration = new Duration(TimeSpan.FromMilliseconds(250));
-               // da.EnableDependentAnimation = true;
-                
-             //   da.To = e.Position.Y;
-             //   s.Children.Add(da);
-              //  Storyboard.SetTarget(da, gridMain);
-              //  Storyboard.SetTargetProperty(da, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
-              //  s.Begin();
-                
-          //  }
-          //  catch { }
-          //  }
+                    //da.Duration = new Duration(TimeSpan.FromMilliseconds(250));
+                    //da.EnableDependentAnimation = true;
+
+                    //da.To = e.Position.Y;
+                    //s.Children.Add(da);
+                    //Storyboard.SetTarget(da, gridMain);
+                    //Storyboard.SetTargetProperty(da, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
+                    //s.Begin();
+
+                }
+                catch { }
+            }
         }
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
         {
@@ -291,42 +290,51 @@ namespace Planel.Views
         }
 
         private async void animate()
-        {
+        {   
             if (isopen == false)
             {
-                
-                myStoryboard.Begin();
-                btnShowHide.Content = "";
-                await Task.Delay(500);
-                detstack.Visibility = Visibility.Visible;
-                
+                try
+                {
+                    myStoryboard.Begin();
+                    btnShowHide.Content = "";
+                    await Task.Delay(500);
+                    detstack.Visibility = Visibility.Visible;
+                    isopen = !isopen;
+                }
+                catch { }
+
             }
             else
             {
-                
-                urStoryboard.Begin();
-                btnShowHide.Content = "";
-                await Task.Delay(300);
-                detstack.Visibility = Visibility.Collapsed;
-                
+                try
+                {
+                    urStoryboard.Begin();
+                    btnShowHide.Content = "";
+                    await Task.Delay(300);
+                    detstack.Visibility = Visibility.Collapsed;
 
+                    isopen = !isopen;
+                }
+                catch (Exception ex) { }
             }
-            isopen = !isopen;
         }
 
-       
-        
 
-       
+
+
+
 
         private void gridMain_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
+            if (e.Cumulative.Translation.Y > 0) isopen = false;
+            if (e.Cumulative.Translation.Y < 0) isopen = true;
+            if (e.Cumulative.Translation.Y == 0) return;
             animate();
         }
 
 
         #endregion
 
-        
+
     }
 }
