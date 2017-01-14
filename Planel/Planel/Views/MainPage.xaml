@@ -10,7 +10,7 @@
     <Page.Resources>
         <Storyboard x:Name="myStoryboard">
 
-            <DoubleAnimation From="0" To="200" Duration="00:00:1" 
+            <DoubleAnimation To="200" Duration="00:00:1" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="Y">
                 <DoubleAnimation.EasingFunction>
@@ -20,7 +20,7 @@
         </Storyboard>
         <Storyboard x:Name="urStoryboard">
 
-            <DoubleAnimation From="200" To="0" Duration="00:00:1" 
+            <DoubleAnimation To="0" Duration="00:00:1" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="Y">
                 <DoubleAnimation.EasingFunction>

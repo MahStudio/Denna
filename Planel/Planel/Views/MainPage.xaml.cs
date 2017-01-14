@@ -262,7 +262,7 @@ namespace Planel.Views
             // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
             lastPostition = e.Position.Y;
             if (e.Position.Y < gridMain.MinHeight) return;
-            if (e.Position.Y < 250)
+            if (e.Position.Y > 400)
             {
                 try
                 {
