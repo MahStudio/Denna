@@ -178,9 +178,9 @@ namespace Planel.Views
             if (name != null && filename != null)
             {
                 Models.Localdb.Iuser( name);
-                
-                
-                    ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
+                DateTime now = DateTime.Now;
+              //  ApplicationData.Current.LocalSettings.Values["DateCreated"] = now.ToString() ;
+                ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
                 Frame.Navigate(typeof(MainPage));
             }
             else

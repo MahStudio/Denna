@@ -25,7 +25,7 @@
                     <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="WELCOME" />
                     <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Hey there!" />
                     <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
-                       Welcome to Planel! This app would help you to be like successful men !
+                       Welcome to Denna! We'll help you to feel successful all your life !
 
                     </TextBlock>
                 </StackPanel>
@@ -55,7 +55,7 @@
             <FlipViewItem  >
                 <StackPanel Margin="0,40,0,0">
                     <Image Source="/Assets/Icons/AreaChart.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
-                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="SEE YOUR PREFORMANCE" />
+                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="SEE YOUR PERFORMANCE" />
                     <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Let's improve!" />
                     <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
                        See your daily preformance any time you want! The chart would show you how nicely you've done your activities.
