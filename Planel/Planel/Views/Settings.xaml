@@ -21,9 +21,9 @@
                   FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
 
             </Grid>
-            <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Let's be familiar" />
+            
             <StackPanel>
-                <TextBox BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
+                <TextBox BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,20,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
             </StackPanel>
 
             <TextBlock x:Name="Licencer" HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="SemiBold"
@@ -35,7 +35,7 @@
                     <TextBlock MaxWidth="720" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="17">
                         ❤️ , 💪🏻 , 🙏🏻
                         <LineBreak />
-                        What You'll get : What we'll get : App , Support , Better updates ,  Your time with Some people's mind and time and love ;)
+                        What You'll get : App , Support , Better updates ,  Your time with Some people's mind and time and love ;)
                         <LineBreak />
                         What We'll get : encouragement with some coffee :)
                         
@@ -44,7 +44,8 @@
             </Grid>
         </StackPanel>
         </ScrollViewer>
-        <HyperlinkButton x:Name="logout" Content="LOG OUT" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="20"  Width="180" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Click="logout_Click" Margin="0,0,0,10"/>
+        
+        <Button x:Name="logout" Click="logout_Click" Content="LOG OUT" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
         <Grid x:Name="bye" Visibility="Collapsed" Background="{StaticResource SystemControlBackgroundAccentBrush}" >
             <TextBlock FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"
 TextWrapping="Wrap" Foreground="White" Text="Bye Bye :)" />

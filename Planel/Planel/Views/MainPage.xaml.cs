@@ -39,29 +39,7 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            //try
-            //{
-            smartyieval myval = smartyieval.Today;
-            myval = smartie();
-            if (myval == smartyieval.Home)
-            {
-                mhome();
-            }
-            else if (myval == smartyieval.Today)
-            {
-                mtoday();
-            }
-            else if (myval == smartyieval.Month)
-            {
-                mmonth();
-            }
-            else if (myval == smartyieval.Pref)
-            {
-                mpref();
-            }
-
-            //}
-            //catch { }
+           
 
             try
             {
@@ -161,9 +139,30 @@ namespace Planel.Views
 
 
         #region pivot
-        private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void  FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            await Task.Delay(20);
+            if (FlipView.SelectedIndex == 0)
+            {
+                mhome();
+                
+            }
+            if (FlipView.SelectedIndex == 1)
+            {
+                mtoday();
+                
+            }
+            if (FlipView.SelectedIndex == 2)
+            {
+                mmonth();
+                
+               
+            }
+            if (FlipView.SelectedIndex == 3)
+            {
+                mpref();
+                
+            }
         }
 
 
