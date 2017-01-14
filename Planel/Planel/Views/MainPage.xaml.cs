@@ -258,7 +258,6 @@ namespace Planel.Views
         #region PanelAnimate
         private void gridMain_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         { 
-            /*
             // ManipulationDelta hamzaman ba tagheire positione angosht ya mouse emal mishe
             // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
             lastPostition = e.Position.Y;
@@ -267,7 +266,7 @@ namespace Planel.Views
             {
                 try
                 {
-                    myScaleTransform.Y = e.Position.Y;
+                    myScaleTransform.Y += e.Delta.Translation.Y;
                     //Storyboard s = new Storyboard();
                     //DoubleAnimation da = new DoubleAnimation();
 
@@ -283,7 +282,6 @@ namespace Planel.Views
                 }
                 catch { }
             }
-            */
         }
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
         {
