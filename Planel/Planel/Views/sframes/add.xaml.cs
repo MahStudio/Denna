@@ -27,15 +27,13 @@ namespace Planel.Views.sframes
         private void SetUpPageAnimation()
         {
             TransitionCollection collection = new TransitionCollection();
-            // NavigationThemeTransition theme = new NavigationThemeTransition();
+            
 
             var themeR = new EdgeUIThemeTransition();
 
             themeR.Edge = EdgeTransitionLocation.Bottom;
 
-            //eorderThemeTransition();
-
-            //theme.DefaultNavigationTransitionInfo = info;
+            
             collection.Add(themeR);
             this.Transitions = collection;
         }

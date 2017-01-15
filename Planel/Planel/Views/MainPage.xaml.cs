@@ -41,7 +41,16 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-           
+            //DateTime now = DateTime.Now;
+            //DateTime Mooud = (DateTime)ApplicationData.Current.LocalSettings.Values["DateCreated"];
+            //Mooud.AddDays(2);
+            
+            //if (now <= Mooud )
+            //{
+            //    mtoday();
+            //}
+
+
 
             try
             {
@@ -77,7 +86,7 @@ namespace Planel.Views
             {
                 // Show UI in title bar if opted-in and in-app backstack is not empty.
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                    AppViewBackButtonVisibility.Visible;
+                    AppViewBackButtonVisibility.Collapsed;
             }
             else
             {
@@ -202,7 +211,7 @@ namespace Planel.Views
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "LET'S DO TODAY'S!";
+            news.Text = "LET'S SEE !";
             FlipView.SelectedIndex = 1;
             if (isopen == true)
                 animate();
