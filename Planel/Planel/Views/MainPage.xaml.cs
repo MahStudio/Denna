@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
+using Windows.Foundation;
 using Windows.Phone.UI.Input;
 using Windows.Storage;
 using Windows.UI.Core;
@@ -23,7 +24,8 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        double lastPostition;
+        Point startpoint;
+        Point lastPostition;
         public static MainPage current;
         bool isopen = false;
         public MainPage()
@@ -260,25 +262,15 @@ namespace Planel.Views
         { 
             // ManipulationDelta hamzaman ba tagheire positione angosht ya mouse emal mishe
             // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
-            lastPostition = e.Position.Y;
+            
             if (e.Position.Y < gridMain.MinHeight) return;
-            if (e.Position.Y > 400)
+            
+            if (lastPostition.Y < 565 && lastPostition.Y >= 185)
             {
                 try
                 {
                     myScaleTransform.Y += e.Delta.Translation.Y;
-                    //Storyboard s = new Storyboard();
-                    //DoubleAnimation da = new DoubleAnimation();
-
-                    //da.Duration = new Duration(TimeSpan.FromMilliseconds(250));
-                    //da.EnableDependentAnimation = true;
-
-                    //da.To = e.Position.Y;
-                    //s.Children.Add(da);
-                    //Storyboard.SetTarget(da, gridMain);
-                    //Storyboard.SetTargetProperty(da, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
-                    //s.Begin();
-
+                    lastPostition.Y += e.Delta.Translation.Y;
                 }
                 catch { }
             }
@@ -317,12 +309,7 @@ namespace Planel.Views
                 catch (Exception ex) { }
             }
         }
-
-
-
-
-
-
+        
         private void gridMain_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             if (e.Cumulative.Translation.Y > 0) isopen = false;
@@ -332,8 +319,13 @@ namespace Planel.Views
         }
 
 
-        #endregion
+        private void gridMain_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        {
+            startpoint = e.Position;
+            lastPostition = e.Position;
+        }
 
+        #endregion
 
     }
 }
