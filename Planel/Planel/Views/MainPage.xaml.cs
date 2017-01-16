@@ -274,15 +274,27 @@ namespace Planel.Views
             
             if (e.Position.Y < gridMain.MinHeight) return;
             
-            if (lastPostition.Y < 565 && lastPostition.Y >= 185)
+            if (lastPostition.Y < 565 && !isopen)
             {
                 try
                 {
+                    detstack.Opacity += e.Delta.Translation.Y / 100;
                     myScaleTransform.Y += e.Delta.Translation.Y;
                     lastPostition.Y += e.Delta.Translation.Y;
                 }
                 catch { }
             }
+            else if(lastPostition.Y >= 185 && isopen)
+            {
+                try
+                {
+                    detstack.Opacity += e.Delta.Translation.Y / 100;
+                    myScaleTransform.Y += e.Delta.Translation.Y;
+                    lastPostition.Y += e.Delta.Translation.Y;
+                }
+                catch { }
+            }
+            //
         }
         private void btnShowHide_Click(object sender, RoutedEventArgs e)
         {
@@ -290,15 +302,16 @@ namespace Planel.Views
         }
 
         private async void animate()
-        {   
+        {
             if (isopen == false)
             {
                 try
                 {
+                    opacitySb1.Begin();
                     myStoryboard.Begin();
                     btnShowHide.Content = "";
                     await Task.Delay(500);
-                    detstack.Visibility = Visibility.Visible;
+                    //detstack.Visibility = Visibility.Visible;
                     isopen = !isopen;
                 }
                 catch { }
@@ -308,10 +321,11 @@ namespace Planel.Views
             {
                 try
                 {
+                    opacitySb0.Begin();
                     urStoryboard.Begin();
                     btnShowHide.Content = "";
                     await Task.Delay(300);
-                    detstack.Visibility = Visibility.Collapsed;
+                    //detstack.Visibility = Visibility.Collapsed;
 
                     isopen = !isopen;
                 }
@@ -321,8 +335,8 @@ namespace Planel.Views
         
         private void gridMain_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            if (e.Cumulative.Translation.Y > 0) isopen = false;
-            if (e.Cumulative.Translation.Y < 0) isopen = true;
+            if (e.Cumulative.Translation.Y > 0 && !isopen) isopen = false;
+            if (e.Cumulative.Translation.Y < 0 && isopen) isopen = true;
             if (e.Cumulative.Translation.Y == 0) return;
             animate();
         }

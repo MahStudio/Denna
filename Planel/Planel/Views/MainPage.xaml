@@ -8,8 +8,26 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <Storyboard x:Name="myStoryboard">
+        <Storyboard x:Name="opacitySb1">
+            <DoubleAnimation To="1" Duration="00:00:1"
+                Storyboard.TargetName="detstack"
+                Storyboard.TargetProperty="Opacity">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="opacitySb0">
+            <DoubleAnimation To="0" Duration="00:00:1"
+                Storyboard.TargetName="detstack"
+                Storyboard.TargetProperty="Opacity">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
 
+        <Storyboard x:Name="myStoryboard">
             <DoubleAnimation To="200" Duration="00:00:1" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="Y">
@@ -159,36 +177,35 @@
               Height="400" Margin="0,-240,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}" ManipulationStarted="gridMain_ManipulationStarted"  >
 
 
-                    
+
                     <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
                     <Grid>
-                        <StackPanel Margin="0,0,0,0" Visibility="Collapsed" x:Name="detstack" >
-                       
-                        <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
-                            <Ellipse.Fill>
-                                <ImageBrush Stretch="UniformToFill" x:Name="avatar" ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <TextBlock x:Name="todate" Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
-                        <TextBlock x:Name="counter" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
+                        <StackPanel Margin="0,0,0,0" x:Name="detstack" Opacity="0">
+                            <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
+                                <Ellipse.Fill>
+                                    <ImageBrush Stretch="UniformToFill" x:Name="avatar" ImageSource="ms-appx:///Assets/Mockops/usrimg.jpg" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <TextBlock x:Name="todate" Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Tuesday, November 29" />
+                            <TextBlock x:Name="counter" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
                                 Today you have 6 works to do.
                                 <LineBreak />
                                 <LineBreak />
 
-                        </TextBlock>
-                        
-                    </StackPanel>
+                            </TextBlock>
+
+                        </StackPanel>
                         <TextBlock Text="Dear User !" Foreground="White" FontWeight="Bold" VerticalAlignment="Bottom" TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,0,10,50" />
                     </Grid>
-                        <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
+                    <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
          AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
-                    
+
                     <Grid.RenderTransform >
 
                         <TranslateTransform  x:Name="myScaleTransform" />
                     </Grid.RenderTransform>
                 </Grid>
-                
+
 
             </RelativePanel>
             <Grid ManipulationMode="None" HorizontalAlignment="Center" VerticalAlignment="Top" >
