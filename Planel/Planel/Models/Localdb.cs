@@ -123,7 +123,7 @@ namespace Planel.Models
             ObservableCollection<Models.todo> todoss = new ObservableCollection<Models.todo>();
             foreach (var item in todos)
             {
-                if (item.time >= starttoday && item.time <= endtoday)
+                if (item.time >= starttoday && item.time <= endtoday || item.isdone==1)
                 {
                     todoss.Add(item);
                 }
