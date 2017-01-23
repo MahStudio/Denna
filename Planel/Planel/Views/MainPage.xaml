@@ -26,7 +26,22 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
-
+        <Storyboard x:Name="rotate">
+            <DoubleAnimation BeginTime="0"
+                 Duration="0:0:0.5"
+                 To="180"
+                 Storyboard.TargetName="btnShowHide"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" />
+        </Storyboard>
+        <Storyboard x:Name="unrotate">
+            <DoubleAnimation BeginTime="0"
+                 Duration="0:0:0.5"
+                 To="0"
+                 Storyboard.TargetName="btnShowHide"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" />
+        </Storyboard>
+        
+        
         <Storyboard x:Name="myStoryboard">
             <DoubleAnimation To="200" Duration="00:00:1" 
                 Storyboard.TargetName="myScaleTransform" 
@@ -198,7 +213,11 @@
                         <TextBlock Text="Dear User !" Foreground="White" FontWeight="Bold" VerticalAlignment="Bottom" TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,0,10,50" />
                     </Grid>
                     <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
-         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"  />
+         AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"   RenderTransformOrigin="0.5, 0.5">
+                        <Button.RenderTransform>
+                            <RotateTransform />
+                        </Button.RenderTransform>
+                    </Button>
 
                     <Grid.RenderTransform >
 

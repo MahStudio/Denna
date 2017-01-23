@@ -309,7 +309,7 @@ namespace Planel.Views
                 {
                     opacitySb1.Begin();
                     myStoryboard.Begin();
-                    btnShowHide.Content = "";
+                    rotate.Begin();
                     await Task.Delay(500);
                     //detstack.Visibility = Visibility.Visible;
                     isopen = !isopen;
@@ -323,7 +323,7 @@ namespace Planel.Views
                 {
                     opacitySb0.Begin();
                     urStoryboard.Begin();
-                    btnShowHide.Content = "";
+                    unrotate.Begin();
                     await Task.Delay(300);
                     //detstack.Visibility = Visibility.Collapsed;
 
