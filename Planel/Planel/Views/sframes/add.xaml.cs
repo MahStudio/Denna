@@ -45,6 +45,7 @@ namespace Planel.Views.sframes
 
         private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
+            Frame.Navigate(typeof(ftoday));
             //add to database
             DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
             byte notifymode = 0;
@@ -61,7 +62,7 @@ namespace Planel.Views.sframes
             await Models.Localdb.Addtodo(title.Text, describe.Text, todate,notifymode);
             Classes.worker.refresher();
 
-            Frame.Navigate(typeof(ftoday));
+            
         }
     }
 }

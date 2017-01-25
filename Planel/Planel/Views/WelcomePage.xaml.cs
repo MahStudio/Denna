@@ -181,6 +181,7 @@ namespace Planel.Views
                 DateTime now = DateTime.Now;
               //  ApplicationData.Current.LocalSettings.Values["DateCreated"] = now.ToString() ;
                 ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
+                ApplicationData.Current.LocalSettings.Values["RunTime"] = 1;
                 Frame.Navigate(typeof(MainPage));
             }
             else

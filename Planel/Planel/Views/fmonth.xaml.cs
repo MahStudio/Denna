@@ -34,7 +34,7 @@ namespace Planel.Views
         public async  Task filllist()
         {
             DateTime now = DateTime.Now;
-            todolist = Models.Localdb.getall(now);
+            todolist = Models.Localdb.Getfordoday(now);
             lvTest.ItemsSource = todolist;
         }
         private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)

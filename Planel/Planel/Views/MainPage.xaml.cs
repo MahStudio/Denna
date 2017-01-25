@@ -32,8 +32,14 @@ namespace Planel.Views
         {
             this.InitializeComponent();
             current = this;
-
-
+            int runtime = (int)ApplicationData.Current.LocalSettings.Values["RunTime"];
+            if (runtime <= 6)
+            {
+                mtoday();
+                runtime++;
+                ApplicationData.Current.LocalSettings.Values["RunTime"] = runtime;
+            }
+               
 
         }
 
@@ -41,14 +47,7 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            //DateTime now = DateTime.Now;
-            //DateTime Mooud = (DateTime)ApplicationData.Current.LocalSettings.Values["DateCreated"];
-            //Mooud.AddDays(2);
             
-            //if (now <= Mooud )
-            //{
-            //    mtoday();
-            //}
 
 
 
