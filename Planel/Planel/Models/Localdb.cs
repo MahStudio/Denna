@@ -71,7 +71,28 @@ namespace Planel.Models
 
             }
         }
-        
+        public static async Task Addtodo(todo item)
+        {
+
+
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.InsertOrReplace(new todo()
+                { 
+                    notify = item.notify,
+                    title = item.title,
+                    detail = item.detail,
+                    time = item.time.ToLocalTime(),
+                    isdone = item.isdone
+
+
+                });
+
+            }
+        }
+
         // get all list
         public static ObservableCollection<Models.todo> getlist()
         {

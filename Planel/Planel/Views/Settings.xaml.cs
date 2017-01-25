@@ -12,7 +12,13 @@ using Windows.Foundation.Metadata;
 using System.Threading.Tasks;
 using Planel.Models;
 using Planel;
+using Newtonsoft.Json;
 using Windows.ApplicationModel.Store;
+using System.Collections.ObjectModel;
+using System.Collections;
+using System.Collections.Generic;
+using Planel.Classes;
+using System.Linq;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +31,7 @@ namespace Planel.Views
    
     public sealed partial class Settings : Page
     {
+        ObservableCollection<Models.todo> todos = new ObservableCollection<todo>();
         public Settings()
         {
             this.InitializeComponent();
@@ -33,6 +40,7 @@ namespace Planel.Views
             else
                 Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
             App_BackRequested;
+            todos = Models.Localdb.getlist();
 
 
         }
@@ -190,6 +198,67 @@ namespace Planel.Views
         private void Iran_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(IranBye));
+        }
+
+        private async void saver_Click(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<Models.todo> forsave = new ObservableCollection<todo>();
+            forsave = todos;
+            string json = JsonConvert.SerializeObject(forsave);
+            StorageFolder storageFolder = KnownFolders.DocumentsLibrary;
+            StorageFile file = await storageFolder.CreateFileAsync("DennaBackup.json", CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, json);
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                Title = "Success!",
+                Content = "Backup had been saved in your Documents library as DennaBackup",
+                PrimaryButtonText = "Nice!"
+            };
+            noWifiDialog.ShowAsync();
+
+        }
+
+        private async void pick_Click(object sender, RoutedEventArgs e)
+        {
+
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            openPicker.FileTypeFilter.Add(".json");
+            IStorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+
+
+                // Application now has read/write access to the picked file
+
+
+                //try
+                //{
+
+                string json = await FileIO.ReadTextAsync(file);
+                   var toadd = JsonConvert.DeserializeObject<IList <todo>>(json);
+                List<todo> adder = new List<todo>();
+                adder = toadd.ToList();
+                    foreach (var item in toadd)
+                    {
+                        await Models.Localdb.Addtodo(item);
+                    }
+
+                     worker.refresher();
+                    ContentDialog noWifiDialog = new ContentDialog()
+                    {
+                        Title = "Success!",
+                        Content = "Backup had been restored.",
+                        PrimaryButtonText = "Nice!"
+                    };
+                    await noWifiDialog.ShowAsync();
+                //}
+                //catch { }
+
+                
+
+            }
         }
     }
 }

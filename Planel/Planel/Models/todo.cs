@@ -1,4 +1,5 @@
-﻿using SQLite.Net.Attributes;
+﻿using Newtonsoft.Json;
+using SQLite.Net.Attributes;
 using System;
 using System.ComponentModel;
 
@@ -33,7 +34,7 @@ namespace Planel.Models
                 }
             }
         }
-        
+        [JsonProperty("0")]
         public string title
         {
             get { return _title; }
@@ -46,6 +47,7 @@ namespace Planel.Models
                 }
             }
         }
+        [JsonProperty("1")]
         public string detail
         {
             get { return _detail; }
@@ -58,6 +60,7 @@ namespace Planel.Models
                 }
             }
         }
+        [JsonProperty("2")]
         public DateTime time
         {
             get { return _time; }
@@ -70,6 +73,7 @@ namespace Planel.Models
                 }
             }
         }
+        [JsonProperty("3")]
         //0 stands for no notify, 1 stands for toast notify and 2 stands for alarm
         public byte notify
         {
@@ -83,6 +87,7 @@ namespace Planel.Models
                 }
             }
         }
+        [JsonProperty("4")]
         // 0 stands for undone, 1 stands for suspend(snooze) and 2 stands for done
         public byte isdone
         {
@@ -96,6 +101,9 @@ namespace Planel.Models
                 }
             }
         }
+        
 
     }
 }
+
+
