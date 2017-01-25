@@ -11,7 +11,8 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h4.png" Stretch="UniformToFill"      />
         </Grid>
-        <StackPanel HorizontalAlignment="Center" >
+        <ScrollViewer Margin="0,0,0,55">
+        <StackPanel x:Name="detail" HorizontalAlignment="Center" >
             <TextBlock Margin="0,20,0,0" TextAlignment="Center" FontWeight="SemiBold" FontSize="40" Text="خرید اپ" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
             <TextBlock MaxWidth="720" Margin="20" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="17">
                        امکان خرید ریالی اپلیکیشن برای هموطنان عزیز فراهم شده است
@@ -26,11 +27,20 @@
                 
 
             </TextBlock>
+                <TextBox x:Name="eemail" InputScope="EmailNameOrAddress" Margin="20,30,30,0" BorderThickness="0,0,0,1" PlaceholderText="ایمیل شما" />
+                <TextBox x:Name="mob" InputScope="EmailNameOrAddress" Margin="20,30,30,0" BorderThickness="0,0,0,1" PlaceholderText=" شماره موبایل" />
 
-            
 
+            </StackPanel>
+        </ScrollViewer>
+        <Button x:Name="goit" Click="goit_Click"  Content="خرید" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+        
 
-        </StackPanel>
-        <Button x:Name="goit"  Content="خرید" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+            <WebView x:Name="webView"
+                 Grid.ColumnSpan="2"
+                 Visibility="Collapsed"
+                 NavigationCompleted="webView_NavigationCompleted" />
+        
+       
     </Grid>
 </Page>
