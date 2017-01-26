@@ -206,7 +206,7 @@ namespace Planel.Views
             forsave = todos;
             string json = JsonConvert.SerializeObject(forsave);
             StorageFolder storageFolder = KnownFolders.DocumentsLibrary;
-            StorageFile file = await storageFolder.CreateFileAsync("DennaBackup.json", CreationCollisionOption.ReplaceExisting);
+            StorageFile file = await storageFolder.CreateFileAsync("DennaBackup.djson", CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, json);
             ContentDialog noWifiDialog = new ContentDialog()
             {
@@ -224,7 +224,7 @@ namespace Planel.Views
             FileOpenPicker openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            openPicker.FileTypeFilter.Add(".json");
+            openPicker.FileTypeFilter.Add(".djson");
             IStorageFile file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {

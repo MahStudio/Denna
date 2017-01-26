@@ -30,7 +30,7 @@ namespace Planel.Views
         string description = "Denna licence IR";
         string email = string.Empty;
         string mobile = string.Empty;
-        string callBackUrl = "http://mahholding.ir/payment/";
+        string callBackUrl = "http://mahholding.ir/paymentcomplete.html";
         public IranBye()
         {
             this.InitializeComponent();

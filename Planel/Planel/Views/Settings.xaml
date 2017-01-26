@@ -24,12 +24,8 @@
                 <TextBox BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,20,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
                 <StackPanel  Margin="20" >
                     <TextBlock Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Backup and reset" />
-                    <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0" Orientation="Horizontal" >
-                        <RadioButton MinWidth="0"  Width="50" Opacity="0.85" x:Name="rbs" Content="All" IsChecked="True" GroupName="not" />
-                        <RadioButton MinWidth="0" Margin="30" Width="100"  Opacity="0.85" x:Name="Thisyear" Content="This syear" GroupName="not" />
-                        <RadioButton MinWidth="0"  Width="110" Opacity="0.85" x:Name="rba" Content="This month" GroupName="not" />
-                    </StackPanel>
-                    <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0" Orientation="Horizontal" >
+                   
+                    <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0" Orientation="Horizontal" >
                         <Button x:Name="saver" Click="saver_Click" Content="Save" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="90" VerticalAlignment="Bottom" Margin="0,0,0,10" />
                         <Button x:Name="pick" Click="pick_Click" Content="Restore" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="90" VerticalAlignment="Bottom" Margin="5,0,0,10" />
 
