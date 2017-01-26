@@ -79,7 +79,7 @@ namespace Planel.Models
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
-                conn.InsertOrReplace(new todo()
+                conn.Insert(new todo()
                 { 
                     notify = item.notify,
                     title = item.title,
