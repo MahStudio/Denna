@@ -90,7 +90,7 @@ namespace NotifierTask
             xmlDoc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
                 new Uri("ms-appx:///LiveTile.xml"))));
             //Set Medium tile
-            // Sick
+            // Fuck me baby
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileMediumImageSource", sampleFile.Path));
