@@ -11,13 +11,37 @@ namespace Planel.Classes
     class worker
     {
         
-        public static async void refresher()
+        public static async Task refresher(string not)
         {
-            MainPage.current.counterr(Core.Models.Localdb.counter());
-            await fmonth.current.filllist();
-            await ftoday.current.filllist();
-            await fhome.current.percentful();
-            tiler();
+            if (not == "Wall")
+            {
+                MainPage.current.counterr(Core.Models.Localdb.counter());
+                await fmonth.current.filllist();
+               // await ftoday.current.filllist();
+                await fhome.current.percentful();
+                tiler();
+
+            } else if (not == "Month")
+            {
+                MainPage.current.counterr(Core.Models.Localdb.counter());
+               // await fmonth.current.filllist();
+                await ftoday.current.filllist();
+                await fhome.current.percentful();
+                tiler();
+
+            }
+            else
+            {
+                
+                    MainPage.current.counterr(Core.Models.Localdb.counter());
+                    await fmonth.current.filllist();
+                    await ftoday.current.filllist();
+                    await fhome.current.percentful();
+                    tiler();
+
+                
+            }
+
 
 
         }

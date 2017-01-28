@@ -110,7 +110,7 @@ namespace Planel.Views
                         {
                             await Core.Models.Localdb.Addtodo(item);
                         }
-                        worker.refresher();
+                        worker.refresher("");
                         ContentDialog noWifiDialog = new ContentDialog()
                         {
                             Title = "Success!",
@@ -295,7 +295,7 @@ namespace Planel.Views
                         await Core.Models.Localdb.Addtodo(item);
                     }
 
-                     worker.refresher();
+                     worker.refresher("");
                     ContentDialog noWifiDialog = new ContentDialog()
                     {
                         Title = "Success!",

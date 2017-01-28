@@ -45,6 +45,7 @@ namespace Planel.Views
             // await Models.Localdb.Deletetodo(clk.Id);
 
             await Core.Models.Localdb.Suspend(clk);
+            await Classes.worker.refresher("Month");
 
         }
 
@@ -52,6 +53,7 @@ namespace Planel.Views
         {
             var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             await Core.Models.Localdb.Done(clk);
+            await Classes.worker.refresher("Month");
 
 
         }
@@ -92,6 +94,7 @@ namespace Planel.Views
                 var clk = ((sender as Button).Tag) as Core.Models.todo;
                 await Core.Models.Localdb.Deletetodo(clk.Id);
                 todolist.Remove(clk);
+                await Classes.worker.refresher("Month");
             }));
             msg.Commands.Add(new UICommand("Nope"));
             msg.ShowAsync();

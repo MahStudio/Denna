@@ -60,7 +60,7 @@ namespace Planel.Views.sframes
 
 
             await Core.Models.Localdb.Addtodo(title.Text, describe.Text, todate,notifymode);
-            Classes.worker.refresher();
+            await Classes.worker.refresher("Add");
 
             
         }
