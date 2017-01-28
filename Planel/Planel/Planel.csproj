@@ -199,7 +199,11 @@
     <None Include="Service References\ZarinPal\configuration.svcinfo" />
     <None Include="Service References\ZarinPal\configuration91.svcinfo" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\photo_2017-01-28_20-41-34.jpg" />
     <Content Include="Assets\trialmanagement.xml" />
+    <Content Include="CortanaVCD.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="LiveTile.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -285,6 +289,10 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BackgroundAPIs\BackgroundAPIs.csproj">
+      <Project>{8c995a90-ae5a-4538-9011-c341370827ab}</Project>
+      <Name>BackgroundAPIs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NotifierTask\NotifierTask.csproj">
       <Project>{4132ff80-98c1-4702-a699-4437f11719c9}</Project>
       <Name>NotifierTask</Name>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="ToDoCommandSet_en-us">
+    <AppName> Denna </AppName>
+    <Example> What to do today ? </Example>
+    <Command Name="ToDoFetcher" >
+      <Example> What to do today ? </Example>
+      <ListenFor > What to do today ?</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> {builtin:AppName} What to do today ?</ListenFor>
+      <Feedback> Fetching your Todos </Feedback>
+      <VoiceCommandService Target="Bgcommand"/>
+    </Command>
+  </CommandSet>
+</VoiceCommands>

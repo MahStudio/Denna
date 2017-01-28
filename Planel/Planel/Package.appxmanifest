@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="45104MAHStudio.Denna" Publisher="CN=44988219-A722-4FA5-9335-1E47D73A1418" Version="0.9.352.0" />
+  <Identity Name="45104MAHStudio.Denna" Publisher="CN=44988219-A722-4FA5-9335-1E47D73A1418" Version="0.9.354.0" />
   <mp:PhoneIdentity PhoneProductId="012f762e-ce57-41d0-97d0-cae539b6aa06" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Denna</DisplayName>
@@ -21,13 +21,10 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="NotifierTask.Notify">
-          <BackgroundTasks>
-            <Task Type="systemEvent" />
-            <Task Type="timer" />
-            <Task Type="location" />
-          </BackgroundTasks>
-        </Extension>
+        <uap:Extension Category="windows.personalAssistantLaunch" />
+        <uap:Extension Category="windows.appService" EntryPoint="BackgroundAPIs.Commands">
+          <uap:AppService Name="Bgcommand" />
+        </uap:Extension>
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="dennabackup">
             <uap:DisplayName>Denna Backup</uap:DisplayName>
@@ -36,6 +33,13 @@
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="NotifierTask.Notify">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+            <Task Type="location" />
+          </BackgroundTasks>
+        </Extension>
       </Extensions>
     </Application>
   </Applications>

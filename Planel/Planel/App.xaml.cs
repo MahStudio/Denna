@@ -88,6 +88,22 @@ namespace Planel
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
         }
+        private async void SetUpVoiceCommends()
+        {
+            try
+            {
+                // Install the main VCD. 
+                StorageFile vcdStorageFile =
+                  await Package.Current.InstalledLocation.GetFileAsync(@"CortanaVCD.xml");
+
+                await Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.
+                  InstallCommandDefinitionsFromStorageFileAsync(vcdStorageFile);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
+            }
+        }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -104,6 +120,7 @@ namespace Planel
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
 
+            SetUpVoiceCommends();
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (rootFrame == null)
