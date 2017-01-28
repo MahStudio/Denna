@@ -11,6 +11,7 @@ namespace BackgroundAPIs
 {
     public sealed class Commands : IBackgroundTask
     {
+        //fuck you cortana :|
         private VoiceCommandServiceConnection VoiceCommandServiceConnection { get; set; }
         public BackgroundTaskDeferral BackgroundTaskDeferral { get; set; }
         public async void Run(IBackgroundTaskInstance taskInstance)

@@ -1,4 +1,4 @@
-﻿
+﻿using Core;
 using Planel.Views;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Planel.Classes
         
         public static async void refresher()
         {
-            MainPage.current.counterr(Models.Localdb.counter());
+            MainPage.current.counterr(Core.Models.Localdb.counter());
             await fmonth.current.filllist();
             await ftoday.current.filllist();
             await fhome.current.percentful();
@@ -23,8 +23,8 @@ namespace Planel.Classes
         }
         public static async void tiler()
         {
-           await Classes.LiveTile.livetile();
-            await Classes.LiveTile.updatebadge();
+           await Core.Classes.LiveTile.livetile();
+           await Core.Classes.LiveTile.updatebadge();
         }
         public static smartyieval smartie ()
         {

@@ -1,4 +1,4 @@
-﻿
+﻿using Core;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,8 +26,8 @@ namespace Planel.Views
         }
         public async Task percentful()
         {
-            Classes.mpercent percent = new Classes.mpercent();
-            percent = Models.Localdb.percentage();
+            Core.Classes.mpercent percent = new Core.Classes.mpercent();
+            percent = Core.Models.Localdb.percentage();
             settoday(percent);
             setyesterday(percent);
         }
@@ -37,7 +37,7 @@ namespace Planel.Views
 
         }
 
-        private void settoday(Classes.mpercent percent)
+        private void settoday(Core.Classes.mpercent percent)
         {
             int percentage = percent.firstpercentage;
             todayper.Text = percentage.ToString() + "%";
@@ -57,7 +57,7 @@ namespace Planel.Views
 
 
         }
-        private void setyesterday(Classes.mpercent percent)
+        private void setyesterday(Core.Classes.mpercent percent)
         {
             int percentage = percent.secondpercentage;
             yesterpie.Percentage = percentage;

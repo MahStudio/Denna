@@ -14,8 +14,8 @@ namespace Planel.Views
         public fpref()
         {
             this.InitializeComponent();
-            var items1 = Models.Localdb.Wgraph();
-            var items2 =Models.Localdb.Mgraph();         
+            var items1 = Core.Models.Localdb.Wgraph();
+            var items2 = Core.Models.Localdb.Mgraph();         
 
 
             var series = (AreaSeries)this.AreaChartWithNoLabels.Series[0];

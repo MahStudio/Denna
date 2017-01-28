@@ -59,7 +59,7 @@ namespace Planel.Views.sframes
                 notifymode = 2;
 
 
-            await Models.Localdb.Addtodo(title.Text, describe.Text, todate,notifymode);
+            await Core.Models.Localdb.Addtodo(title.Text, describe.Text, todate,notifymode);
             Classes.worker.refresher();
 
             

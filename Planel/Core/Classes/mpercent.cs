@@ -1,8 +1,8 @@
 ﻿
 
-namespace Planel.Classes
+namespace Core.Classes
 {
-    class mpercent
+    public class mpercent
     {
         public int firstpercentage { get; set; }
         public int firstsuspend { get; set; }

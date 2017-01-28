@@ -1,8 +1,9 @@
-﻿using Planel.Models;
+﻿using Core;
 using Planel.Views.sframes;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -16,7 +17,7 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class ftoday : Page
     {
-        ObservableCollection<Models.todo> todolist = new ObservableCollection<todo>();
+        ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
         public static ftoday current;
         public ftoday()
         {
@@ -32,24 +33,23 @@ namespace Planel.Views
         public async Task filllist()
         {
             DateTime now = DateTime.Now;
-            todolist = Models.Localdb.getall(now);
+            todolist = Core.Models.Localdb.getall(now);
             lvTest.ItemsSource = todolist;
         }
 
         private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
 
-            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-            // await Models.Localdb.Deletetodo(clk.Id);
-
-            await Models.Localdb.Suspend(clk);
+            var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+          
+            await Core.Models.Localdb.Suspend(clk);
 
         }
 
         private async void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
         {
-            var clk = (todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-            await Models.Localdb.Done(clk);
+            var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            await Core.Models.Localdb.Done(clk);
 
 
         }
@@ -72,7 +72,7 @@ namespace Planel.Views
         private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
         {
             
-            var clk = e.ClickedItem as todo;
+            var clk = e.ClickedItem as Core.Models.todo;
             ContentDialog noWifiDialog = new ContentDialog()
             {
                 Title = clk.title,
@@ -85,8 +85,14 @@ namespace Planel.Views
 
         private async void delete_Click(object sender, RoutedEventArgs e)
         {
-            var clk = ((sender as Button).Tag) as todo; 
-            await Models.Localdb.Deletetodo(clk.Id);
+            MessageDialog msg = new MessageDialog("Are you sure?");
+            msg.Commands.Add(new UICommand("Yes", async delegate {
+                var clk = ((sender as Button).Tag) as Core.Models.todo;
+                await Core.Models.Localdb.Deletetodo(clk.Id);
+                todolist.Remove(clk);
+            }));
+            msg.Commands.Add(new UICommand("Nope"));
+            msg.ShowAsync();
         }
     }
 }

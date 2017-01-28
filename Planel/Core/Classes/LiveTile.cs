@@ -1,5 +1,5 @@
 ﻿
-using Planel.Models;
+using Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,9 +10,9 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage;
 using Windows.UI.Notifications;
 
-namespace Planel.Classes
+namespace Core.Classes
 {
-    static class LiveTile
+    public static class LiveTile
     {
         
         public static async Task livetile()

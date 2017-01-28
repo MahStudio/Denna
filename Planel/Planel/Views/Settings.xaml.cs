@@ -10,8 +10,7 @@ using Windows.UI.Core;
 using Windows.Phone.UI.Input;
 using Windows.Foundation.Metadata;
 using System.Threading.Tasks;
-using Planel.Models;
-using Planel;
+using Core;
 using Newtonsoft.Json;
 using Windows.ApplicationModel.Store;
 using System.Collections.ObjectModel;
@@ -33,7 +32,7 @@ namespace Planel.Views
     public sealed partial class Settings : Page
     {
         public static bool isloaded = false;
-        ObservableCollection<Models.todo> todos = new ObservableCollection<todo>();
+        ObservableCollection<Core.Models.todo> todos = new ObservableCollection<Core.Models.todo>();
         public Settings()
         {
             
@@ -43,7 +42,7 @@ namespace Planel.Views
             else
                 Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
             App_BackRequested;
-            todos = Models.Localdb.getlist();
+            todos = Core.Models.Localdb.getlist();
 
 
         }
@@ -102,22 +101,29 @@ namespace Planel.Views
                     string strFilePath = fileArgs.Files[0].Path;
                     var file = (StorageFile)fileArgs.Files[0];
                     string json = await FileIO.ReadTextAsync(file);
-                    var toadd = JsonConvert.DeserializeObject<IList<todo>>(json);
-                    List<todo> adder = new List<todo>();
+                    var toadd = JsonConvert.DeserializeObject<IList<Core.Models.todo>>(json);
+                    List<Core.Models.todo> adder = new List<Core.Models.todo>();
                     adder = toadd.ToList();
-                    foreach (var item in toadd)
-                    {
-                        await Models.Localdb.Addtodo(item);
-                    }
+                    MessageDialog msg = new MessageDialog("Are you sure?");
+                    msg.Commands.Add(new UICommand("Yes", async delegate {
+                        foreach (var item in toadd)
+                        {
+                            await Core.Models.Localdb.Addtodo(item);
+                        }
+                        worker.refresher();
+                        ContentDialog noWifiDialog = new ContentDialog()
+                        {
+                            Title = "Success!",
+                            Content = "Backup had been restored.",
+                            PrimaryButtonText = "Nice!"
+                        };
+                        await noWifiDialog.ShowAsync();
+                    }));
+                    msg.Commands.Add(new UICommand("Nope"));
+                    msg.ShowAsync();
+                    
 
-                    worker.refresher();
-                    ContentDialog noWifiDialog = new ContentDialog()
-                    {
-                        Title = "Success!",
-                        Content = "Backup had been restored.",
-                        PrimaryButtonText = "Nice!"
-                    };
-                    await noWifiDialog.ShowAsync();
+                    
 
                 }
             }
@@ -217,12 +223,21 @@ namespace Planel.Views
 
         private  async void logout_Click(object sender, RoutedEventArgs e)
         {
-            bye.Visibility = Visibility.Visible;
+            MessageDialog msg = new MessageDialog("Are you sure?");
+            msg.Commands.Add(new UICommand("Yes", async delegate
+            {
+                bye.Visibility = Visibility.Visible;
 
-            await Task.Delay(3000);
+                await Task.Delay(3000);
 
-            Localdb.Logout();
-            
+                Core.Models.Localdb.Logout();
+            }));
+            msg.Commands.Add(new UICommand("No"
+
+               
+            ));
+            msg.ShowAsync();
+
         }
 
         private async void Buy_Click(object sender, RoutedEventArgs e)
@@ -237,7 +252,7 @@ namespace Planel.Views
 
         private async void saver_Click(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<Models.todo> forsave = new ObservableCollection<todo>();
+            ObservableCollection<Core.Models.todo> forsave = new ObservableCollection<Core.Models.todo>();
             forsave = todos;
             string json = JsonConvert.SerializeObject(forsave);
             StorageFolder storageFolder = KnownFolders.DocumentsLibrary;
@@ -272,12 +287,12 @@ namespace Planel.Views
                 //{
 
                 string json = await FileIO.ReadTextAsync(file);
-                   var toadd = JsonConvert.DeserializeObject<IList <todo>>(json);
-                List<todo> adder = new List<todo>();
+                   var toadd = JsonConvert.DeserializeObject<IList <Core.Models.todo>>(json);
+                List<Core.Models.todo> adder = new List<Core.Models.todo>();
                 adder = toadd.ToList();
                     foreach (var item in toadd)
                     {
-                        await Models.Localdb.Addtodo(item);
+                        await Core.Models.Localdb.Addtodo(item);
                     }
 
                      worker.refresher();

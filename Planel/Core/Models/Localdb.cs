@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
 
-namespace Planel.Models
+namespace Core.Models
 {
-    class Localdb
+    public class Localdb
     {
         //for database creation
         public static void CreateDatabase()
@@ -422,7 +422,7 @@ namespace Planel.Models
                 conn.Execute("DELETE FROM todo WHERE Id = ?", id);
 
             }
-            Classes.worker.refresher();
+          //  Classes.worker.refresher();
         }
 
         public static async Task Done(todo item)
@@ -436,7 +436,7 @@ namespace Planel.Models
 
 
             }
-            Classes.worker.refresher();
+           // Classes.worker.refresher();
         }
         public static async Task Suspend(todo item)
         {
@@ -449,7 +449,7 @@ namespace Planel.Models
 
 
             }
-            Classes.worker.refresher();
+           // Classes.worker.refresher();
         }
     }
 }

@@ -103,7 +103,7 @@ namespace Planel.Views
             avatar.ImageSource = new BitmapImage(new Uri(sampleFile.Path));
             DateTime thisday = DateTime.Today;
             todate.Text = thisday.ToString("D");
-            counterr(Models.Localdb.counter());
+            counterr(Core.Models.Localdb.counter());
             //string message = "Dear";
             //DateTime now = DateTime.Now;
             //if (now.Hour >= 20 && now.Hour <= 4)

@@ -3,9 +3,9 @@ using SQLite.Net.Attributes;
 using System;
 using System.ComponentModel;
 
-namespace Planel.Models
+namespace Core.Models
 {
-    class todo : INotifyPropertyChanged
+    public class todo : INotifyPropertyChanged
     {
         private int _id;
         private string _title;

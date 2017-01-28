@@ -20,7 +20,7 @@ namespace Planel.Views
         public WelcomePage()
         {
             this.InitializeComponent();
-            Models.Localdb.CreateDatabase();
+            Core.Models.Localdb.CreateDatabase();
         }
 
        
@@ -177,7 +177,7 @@ namespace Planel.Views
             }
             if (name != null && filename != null)
             {
-                Models.Localdb.Iuser( name);
+                Core.Models.Localdb.Iuser( name);
                 DateTime now = DateTime.Now;
               //  ApplicationData.Current.LocalSettings.Values["DateCreated"] = now.ToString() ;
                 ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
