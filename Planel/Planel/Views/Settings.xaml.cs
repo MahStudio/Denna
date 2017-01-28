@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using Planel.Classes;
 using System.Linq;
 
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Planel.Views
@@ -31,9 +32,11 @@ namespace Planel.Views
    
     public sealed partial class Settings : Page
     {
+        public static bool isloaded = false;
         ObservableCollection<Models.todo> todos = new ObservableCollection<todo>();
         public Settings()
         {
+            
             this.InitializeComponent();
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
                 HardwareButtons.BackPressed += HardwareButtons_BackPressed;
@@ -63,6 +66,7 @@ namespace Planel.Views
             // already been handled .
             if (rootFrame.CanGoBack && e.Handled == false)
             {
+                
                 e.Handled = true;
                 rootFrame.GoBack();
             }
@@ -87,6 +91,37 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
+            var args = e.Parameter as Windows.ApplicationModel.Activation.IActivatedEventArgs;
+            if (args != null)
+            {
+                if (args.Kind == Windows.ApplicationModel.Activation.ActivationKind.File)
+                {
+                    isloaded = true;
+                    var fileArgs = args as Windows.ApplicationModel.Activation.FileActivatedEventArgs;
+                    string strFilePath = fileArgs.Files[0].Path;
+                    var file = (StorageFile)fileArgs.Files[0];
+                    string json = await FileIO.ReadTextAsync(file);
+                    var toadd = JsonConvert.DeserializeObject<IList<todo>>(json);
+                    List<todo> adder = new List<todo>();
+                    adder = toadd.ToList();
+                    foreach (var item in toadd)
+                    {
+                        await Models.Localdb.Addtodo(item);
+                    }
+
+                    worker.refresher();
+                    ContentDialog noWifiDialog = new ContentDialog()
+                    {
+                        Title = "Success!",
+                        Content = "Backup had been restored.",
+                        PrimaryButtonText = "Nice!"
+                    };
+                    await noWifiDialog.ShowAsync();
+
+                }
+            }
+
             if (App.licenseactive == true)
             {
                 if(App.License.IsActive == true)

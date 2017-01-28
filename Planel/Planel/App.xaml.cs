@@ -70,6 +70,24 @@ namespace Planel
 
 
         }
+        protected override void OnFileActivated(FileActivatedEventArgs args)
+        {
+            base.OnFileActivated(args);
+            coloradjust();
+            var rootFrame = new Frame();
+            if (licenseactive == false && License.IsTrial == false)
+                rootFrame.Navigate(typeof(Expire), args);
+
+
+            else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                rootFrame.Navigate(typeof(MainPage), args);
+            else
+                rootFrame.Navigate(typeof(WelcomePage), args);
+            
+            
+            Window.Current.Content = rootFrame;
+            Window.Current.Activate();
+        }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -111,46 +129,51 @@ namespace Planel
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
+                    coloradjust();
                     if (licenseactive == false && License.IsTrial == false) 
                         rootFrame.Navigate(typeof(Expire), e.Arguments);
-
+                    
 
                     else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
                     else
                         rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
 
-                    try
-                    {
-                        ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-                        titleBar.BackgroundColor = Color.FromArgb(255, 32, 200, 165);
-                        titleBar.ForegroundColor = Colors.White;
-                        titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
-                        titleBar.ButtonForegroundColor = Colors.White;
-                        
-                        titleBar.ForegroundColor = Colors.White;
-                        titleBar.ButtonForegroundColor = Colors.White;
-                        titleBar.ButtonForegroundColor = Colors.White;
-                        //fuck you asshilism
-
-                    }
-                    catch
-                    {
-
-                    }
-                    if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-                    {
-                        var statusBar = StatusBar.GetForCurrentView();
-                        if (statusBar != null)
-                        {
-                            statusBar.BackgroundOpacity = 1;
-                            statusBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
-                            statusBar.ForegroundColor = Colors.White;
-                        }
-                    }
+                   
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
+            }
+        }
+        private void coloradjust()
+        {
+            try
+            {
+                ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                titleBar.BackgroundColor = Color.FromArgb(255, 32, 200, 165);
+                titleBar.ForegroundColor = Colors.White;
+                titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+                titleBar.ButtonForegroundColor = Colors.White;
+
+                titleBar.ForegroundColor = Colors.White;
+                titleBar.ButtonForegroundColor = Colors.White;
+                titleBar.ButtonForegroundColor = Colors.White;
+                //fuck you asshilism
+
+            }
+            catch
+            {
+
+            }
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                var statusBar = StatusBar.GetForCurrentView();
+                if (statusBar != null)
+                {
+                    statusBar.BackgroundOpacity = 1;
+                    statusBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+                    statusBar.ForegroundColor = Colors.White;
+                }
             }
         }
 

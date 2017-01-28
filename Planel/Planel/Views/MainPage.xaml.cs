@@ -50,7 +50,6 @@ namespace Planel.Views
             
 
 
-
             try
             {
                 var req = await BackgroundExecutionManager.RequestAccessAsync();
@@ -116,6 +115,24 @@ namespace Planel.Views
 
             //news.Text = (string.Format("{0} {1}", message, ApplicationData.Current.LocalSettings.Values["Username"])).ToUpper();
             Classes.worker.tiler();
+
+            base.OnNavigatedTo(e);
+            var args = e.Parameter as Windows.ApplicationModel.Activation.IActivatedEventArgs;
+            bool isloaded = Settings.isloaded;
+            if (args != null && isloaded != true)
+            {
+                if (args.Kind == Windows.ApplicationModel.Activation.ActivationKind.File )
+                {
+                    
+                    Frame.Navigate(typeof(Settings), args);
+                    
+
+                }
+            }
+            else
+            {
+                Settings.isloaded = false;
+            }
 
         }
 
