@@ -76,6 +76,7 @@ namespace Core.Classes
             var notification = new BadgeNotification(xml);
             updator.Update(notification);
         }
+        
 
 
 

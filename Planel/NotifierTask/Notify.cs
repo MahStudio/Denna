@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace NotifierTask
             _deferal = taskInstance.GetDeferral();
             taskInstance.Canceled += TaskInstance_Canceled;
             taskInstance.Task.Completed += Task_Completed;
-            NotifyCheck();
+            
             try { 
             livetile();
 
@@ -28,40 +29,9 @@ namespace NotifierTask
             catch { }
         }
 
-        void SendToastNotification(string Content, string Parameters, bool IsDurationLong = false)
-        {
-            var toastTemplate = ToastTemplateType.ToastText02;
-            var toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-            var toastTextElements = toastXml.GetElementsByTagName("text");
-            toastTextElements[0].AppendChild(toastXml.CreateTextNode(Content));
-            var toastNode = toastXml.SelectSingleNode("/toast");
-            if (IsDurationLong)
-                ((Windows.Data.Xml.Dom.XmlElement)toastNode).SetAttribute("duration", "long");
-            ((Windows.Data.Xml.Dom.XmlElement)toastNode).SetAttribute("launch", Parameters);
-            var toast = new ToastNotification(toastXml);
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
-        }
+        
 
-        async void NotifyCheck()
-        {
-            var Notifications = new List<todo>();
-            var list = Localdb.Getfordoday(DateTime.Now);
-            foreach (var item in list)
-            {
-                if (item.notify == 1)
-                {
-                    var sub = item.time.Subtract(DateTime.Now);
-                    if (sub.TotalMinutes >= 0 && sub.TotalMinutes <= 15 && item.isdone != 2)
-                    {
-                        Notifications.Add(item);
-                    }
-                }
-            }
-            foreach (var item in Notifications)
-            {
-                SendToastNotification(item.title + " : " + item.detail, item.Id.ToString(), true);
-            }
-        }
+       
         public static async void livetile()
         {
             ObservableCollection<todo> todolist = new ObservableCollection<todo>();

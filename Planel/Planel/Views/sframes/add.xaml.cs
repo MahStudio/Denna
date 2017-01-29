@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -45,23 +45,31 @@ namespace Planel.Views.sframes
 
         private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ftoday));
-            //add to database
-            DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
-            byte notifymode = 0;
-            if (rbs.IsChecked == true)
-                notifymode = 0;
+            if (title.Text != "")
+            {
+                Frame.Navigate(typeof(ftoday));
+                //add to database
+                DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
+                byte notifymode = 0;
+                if (rbs.IsChecked == true)
+                    notifymode = 0;
 
-            if (rbn.IsChecked == true)
-                notifymode = 1;
+                if (rbn.IsChecked == true)
+                    notifymode = 1;
 
-            if (rba.IsChecked == true)
-                notifymode = 2;
+                if (rba.IsChecked == true)
+                    notifymode = 2;
+                Core.Models.todo item = new Core.Models.todo() { detail = describe.Text, title = title.Text, time = todate, notify = notifymode, isdone = 0 };
 
 
-            await Core.Models.Localdb.Addtodo(title.Text, describe.Text, todate,notifymode);
-            await Classes.worker.refresher("Add");
-
+                await Core.Models.Localdb.Addtodo(item);
+                await Classes.worker.refresher("Add");
+            }
+            else
+            {
+                var messageDialog = new MessageDialog("Fill the title at least :)");
+                messageDialog.ShowAsync();
+            }
             
         }
     }

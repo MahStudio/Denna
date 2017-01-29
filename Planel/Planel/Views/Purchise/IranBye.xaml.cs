@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Planel.ZarinPal;
 using Windows.Storage;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,6 +38,18 @@ namespace Planel.Views
         }
 
         private async void goit_Click(object sender, RoutedEventArgs e)
+        {
+            if (mob.Text !="" && eemail.Text != "")
+            {
+                buyer();
+            }
+            else
+            {
+                var messageDialog = new MessageDialog("لطفا شماره موبایل و ایمیلتان را وارد کنید");
+                messageDialog.ShowAsync();
+            }
+        }
+        private async void buyer()
         {
             mobile = mob.Text;
             email = eemail.Text;

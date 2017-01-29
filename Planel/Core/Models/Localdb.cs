@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.Data.Xml.Dom;
 using Windows.Storage;
+using Windows.UI.Notifications;
 
 namespace Core.Models
 {
@@ -50,27 +52,7 @@ namespace Core.Models
 
         }
         // add a todo list
-        public static async Task Addtodo(string titl, string describe, DateTime date, byte notify)
-        {
-            
-
-            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
-
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            {
-                conn.Insert(new todo()
-                {
-                    notify = notify,
-                    title = titl,
-                    detail = describe,
-                    time = date.ToLocalTime(),
-                    isdone = 0
-                    
-
-                });
-
-            }
-        }
+        
         public static async Task Addtodo(todo item)
         {
 
@@ -89,6 +71,10 @@ namespace Core.Models
 
 
                 });
+                if (item.notify==1)
+                await createnotify(item);
+                else if (item.notify == 2)
+                    await createalarm(item);
 
             }
         }
@@ -309,7 +295,51 @@ namespace Core.Models
 
 
         }
+        private static async Task createalarm(todo item)
+        {
+            var xmlString = @"<toast launch='args' scenario='alarm'>
+    <visual>
+        <binding template='ToastGeneric'>
+            <text>Header</text>
+            <text>Detail</text>
+        </binding>
+    </visual>
+    <actions>
 
+       
+
+        <action arguments = 'dismiss'
+                content = 'OK' />
+
+    </actions>
+</toast>";
+            var doc = new Windows.Data.Xml.Dom.XmlDocument();
+            doc.LoadXml(xmlString);
+            DateTimeOffset offset = item.time;
+            ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
+            ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
+        }
+        private static async Task createnotify(todo item)
+        {
+
+            string xml = @"<toast>
+            <visual>
+            <binding template=""ToastGeneric"">
+                <text>Header</text>
+                <text>Detail</text>
+            </binding>
+            </visual>
+        </toast>";
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(xml);
+            doc.LoadXml(doc.GetXml().Replace("Header", item.title));
+            doc.LoadXml(doc.GetXml().Replace("Detail", item.detail + " " + item.time));
+            DateTimeOffset offset = item.time;
+            ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
+            ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
+        }
         public static List<Classes.NameValueItem> Wgraph()
         {
             List<todo> todos = new List<todo>();
