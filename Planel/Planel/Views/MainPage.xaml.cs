@@ -44,7 +44,11 @@ namespace Planel.Views
         }
 
 
-
+        public  void messagesetter (string message)
+        {
+            news.Text = message;
+        }
+        
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             

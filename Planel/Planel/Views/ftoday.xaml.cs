@@ -27,6 +27,7 @@ namespace Planel.Views
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+           
             filllist();
         }
 
@@ -96,6 +97,11 @@ namespace Planel.Views
             }));
             msg.Commands.Add(new UICommand("Nope"));
             msg.ShowAsync();
+        }
+
+        private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HobbiesList));
         }
     }
 }

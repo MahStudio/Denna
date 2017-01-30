@@ -22,6 +22,11 @@ namespace Core.Models
                 conn.CreateTable<todo>();
 
             }
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.CreateTable<Hobby>();
+
+            }
 
 
         }
@@ -78,7 +83,47 @@ namespace Core.Models
 
             }
         }
+        //Add a hobbie 
+        public static async Task Addhobby(Hobby item)
+        {
 
+
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.Insert(new Hobby()
+                {
+                    notify = item.notify,
+                    title = item.title,
+                    detail = item.detail,
+                    time = item.time,
+                    Days = item.Days
+
+
+                });
+                
+
+            }
+        }
+        //Get hobbies as List
+        public static ObservableCollection<Hobby> Gethobbies()
+        {
+            ObservableCollection<Hobby> hobbies = new ObservableCollection<Hobby>();
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                var query = conn.Table<Hobby>();
+                foreach (var message in query)
+                {
+                    hobbies.Add(message);
+                }
+
+            }
+            
+            return hobbies;
+        }
         // get all list
         public static ObservableCollection<Models.todo> getlist()
         {
@@ -439,7 +484,18 @@ namespace Core.Models
 
         }
 
+        //Deletes a hobby
+        public static async Task DeleteHobby(int id)
+        {
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.Execute("DELETE FROM Hobby WHERE Id = ?", id);
+
+            }
+            
+        }
 
 
 

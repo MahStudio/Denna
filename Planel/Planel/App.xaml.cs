@@ -1,4 +1,6 @@
-﻿using Planel.Views;
+﻿using Core.Models;
+using Planel.Views;
+using SQLite.Net;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -79,7 +81,11 @@ namespace Planel
 
 
             else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+            {
                 rootFrame.Navigate(typeof(MainPage), args);
+                migratedata();
+            }
+                
             else
                 rootFrame.Navigate(typeof(WelcomePage), args);
             
@@ -111,6 +117,7 @@ namespace Planel
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -146,12 +153,15 @@ namespace Planel
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     coloradjust();
-                    if (licenseactive == false && License.IsTrial == false) 
+                    if (licenseactive == false && License.IsTrial == false)
                         rootFrame.Navigate(typeof(Expire), e.Arguments);
-                    
 
-                    else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+
+                    else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1") { 
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                        migratedata();
+                    }
+
                     else
                         rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
 
@@ -161,6 +171,24 @@ namespace Planel
                 Window.Current.Activate();
             }
         }
+        private void migratedata()
+        {
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                var tableExistsQuery = "SELECT name FROM sqlite_master WHERE type='table' AND name='Hobby';";
+                var result = conn.ExecuteScalar<string>(tableExistsQuery);
+                if (result == null)
+                {
+                    conn.CreateTable<Hobby>();
+                }
+
+
+            }
+        }
+        
+        
         private void coloradjust()
         {
             try
@@ -191,6 +219,7 @@ namespace Planel
                     statusBar.ForegroundColor = Colors.White;
                 }
             }
+
         }
 
         /// <summary>

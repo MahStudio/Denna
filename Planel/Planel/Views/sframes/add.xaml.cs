@@ -18,11 +18,11 @@ namespace Planel.Views.sframes
         public add()
         {
             this.InitializeComponent();
-            SetUpPageAnimation();
+            
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-           
+            SetUpPageAnimation();
         }
         private void SetUpPageAnimation()
         {
@@ -47,7 +47,9 @@ namespace Planel.Views.sframes
         {
             if (title.Text != "")
             {
-                Frame.Navigate(typeof(ftoday));
+                if (Frame.CanGoBack)
+                    Frame.GoBack();
+
                 //add to database
                 DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
                 byte notifymode = 0;

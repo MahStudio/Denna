@@ -108,6 +108,7 @@
     <Compile Include="Classes\ByteToGlyphConverter.cs" />
     <Compile Include="Classes\DateTimeToVisibilityConverter.cs" />
     <Compile Include="Classes\IntToColorConverter.cs" />
+    <Compile Include="Classes\JsonToWeekdayConverter.cs" />
     <Compile Include="Classes\worker.cs" />
     <Compile Include="NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

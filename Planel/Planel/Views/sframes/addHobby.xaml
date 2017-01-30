@@ -7,7 +7,58 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid  Margin="0,0,0,48">
+                <StackPanel Margin="5,20,5,0" HorizontalAlignment="Center">
+                <TextBox MaxWidth="720" BorderThickness="0,0,0,1" x:Name="title" TextAlignment="Justify" PlaceholderText="Hobby title"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
+                    <TextBox MaxWidth="720" BorderThickness="0,0,0,1" TextWrapping="Wrap" x:Name="describe" TextAlignment="Justify" PlaceholderText="Hobby describtion"  Margin="5,10,5,0" Height="80" VerticalAlignment="Top" />
 
-    </Grid>
+
+                <TextBlock Text="Repeats" Opacity="0.8" Margin="7,10" />
+                <GridView Margin="5,10,5,0" SelectionMode="None" Width="auto" HorizontalAlignment="Center">
+                    <CheckBox x:Name="sat"  Content="Sat"/>
+                    <CheckBox x:Name="sun"  Content="Sun"/>
+                    <CheckBox x:Name="mon"  Content="Mon"/>
+                    <CheckBox x:Name="tue"  Content="Tue"/>
+                    <CheckBox x:Name="wed"  Content="Wed"/>
+                    <CheckBox x:Name="thu"  Content="Thu"/>
+                    <CheckBox x:Name="fri"  Content="Fri"/>
+                </GridView>
+                <TimePicker Width="300" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" />
+                    <StackPanel HorizontalAlignment="Center" Margin="0,25,0,0" Orientation="Horizontal" >
+                        <RadioButton MinWidth="0"  Width="70" Opacity="0.85" x:Name="rbs" Content="Silent" IsChecked="True" GroupName="not" />
+                        <RadioButton MinWidth="0" Margin="30" Width="70"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
+                        <RadioButton MinWidth="0"  Width="70" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+            <CommandBar  VerticalAlignment="Bottom">
+
+
+
+
+
+                <AppBarButton Content="Save" Click="AppBarButton_Click_1"  >
+
+                    <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+            <AppBarSeparator />
+            <AppBarButton Click="AppBarButton_Click" Content="Delete" >
+
+                    <AppBarButton.Icon>
+                        <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;"  Height="49" VerticalAlignment="Top"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+
+
+
+            </CommandBar>
+        </Grid>
+    
 </Page>
