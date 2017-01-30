@@ -25,7 +25,7 @@
                     <CheckBox x:Name="fri"  Content="Fri"/>
                 </GridView>
                 <TimePicker Width="300" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" />
-                    <StackPanel HorizontalAlignment="Center" Margin="0,25,0,0" Orientation="Horizontal" >
+                    <StackPanel Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,25,0,0" Orientation="Horizontal" >
                         <RadioButton MinWidth="0"  Width="70" Opacity="0.85" x:Name="rbs" Content="Silent" IsChecked="True" GroupName="not" />
                         <RadioButton MinWidth="0" Margin="30" Width="70"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
                         <RadioButton MinWidth="0"  Width="70" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -168,7 +169,7 @@ namespace Core.Models
         public static ObservableCollection<Models.todo> getall(DateTime now)
         {
             ObservableCollection<Models.todo> todos = getlist();
-            
+            ObservableCollection<Hobby> Hobbies = Gethobbies();
 
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
@@ -182,9 +183,30 @@ namespace Core.Models
             }
             foreach (var item in todos)
             {
+                
                 if (item.time >= endtoday)
                 {
                     todoss.Add(item);
+                }
+            }
+            TimeSpan starttodayi = new TimeSpan(0, 0, 0);
+            TimeSpan endtodayi = new TimeSpan(23,59, 59);
+            
+            foreach (var item in Hobbies)
+            {
+                string json = item.Days.ToString();
+                var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
+                List<DayOfWeek> adder = new List<DayOfWeek>();
+                adder = toadd.ToList();
+                bool iscontain = _containstoday(adder , starttoday.DayOfWeek);
+                if (item.time >= starttodayi && item.time <= endtodayi)
+                {
+                    DateTime today = DateTime.Now;
+                    today.AddHours(item.time.Hours);
+                    today.AddMinutes(item.time.Minutes);
+                    today.AddSeconds(item.time.Seconds);
+                    todo hobbytodo = new todo() { notify = item.notify, time = today, title = item.title, detail = item.detail };
+                    todoss.Add(hobbytodo);
                 }
             }
 
@@ -192,6 +214,18 @@ namespace Core.Models
             return todoss;
 
 
+        }
+        private static bool _containstoday(List<DayOfWeek>list , DayOfWeek day)
+        {
+            bool result = false;
+
+            foreach (var item in list)
+            {
+                if (item == day)
+                    result = true;
+            }
+
+            return result;
         }
         public static int counter()
         {
