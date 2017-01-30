@@ -1,11 +1,8 @@
 ﻿{
   "dependencies": {
-    "HockeySDK.UWP": "4.1.5",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
-    "Microsoft.Toolkit.Uwp": "1.2.0",
     "Microsoft.Toolkit.Uwp.UI.Controls": "1.2.0",
     "Newtonsoft.Json": "9.0.1",
-    "winrtxamltoolkit": "2.0.0",
     "WinRTXamlToolkit.Controls.DataVisualization": "2.0.0"
   },
   "frameworks": {

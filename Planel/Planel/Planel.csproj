@@ -19,7 +19,7 @@
     <PackageCertificateKeyFile>Planel_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>DD27282BCA5932272FE9A9C9A31537CE8934DF31</PackageCertificateThumbprint>
     <HockeyAppResourceId>b1cf0124aaed48d88fecec61c9f7683a</HockeyAppResourceId>
   </PropertyGroup>
@@ -275,9 +275,6 @@
     </SDKReference>
     <SDKReference Include="WindowsMobile, Version=10.0.14393.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
-    </SDKReference>
-    <SDKReference Include="WindowsTeam, Version=10.0.14393.0">
-      <Name>Windows Team Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>

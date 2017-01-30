@@ -1,4 +1,4 @@
-﻿using Microsoft.HockeyApp;
+﻿
 using Planel.Views;
 using System;
 using Windows.ApplicationModel;

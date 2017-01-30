@@ -72,9 +72,9 @@ namespace Core.Models
 
                 });
                 if (item.notify==1)
-                await createnotify(item);
+                 createnotify(item);
                 else if (item.notify == 2)
-                    await createalarm(item);
+                    createalarm(item);
 
             }
         }
