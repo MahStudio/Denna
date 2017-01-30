@@ -16,17 +16,17 @@ namespace Planel.Classes
             if (not == "Wall")
             {
                 MainPage.current.counterr(Core.Models.Localdb.counter());
-                await fmonth.current.filllist();
+                 fmonth.current.filllist();
                // await ftoday.current.filllist();
-                await fhome.current.percentful();
+                 fhome.current.percentful();
                 tiler();
 
             } else if (not == "Month")
             {
                 MainPage.current.counterr(Core.Models.Localdb.counter());
                // await fmonth.current.filllist();
-                await ftoday.current.filllist();
-                await fhome.current.percentful();
+                 ftoday.current.filllist();
+                 fhome.current.percentful();
                 tiler();
 
             }
@@ -34,9 +34,9 @@ namespace Planel.Classes
             {
                 
                     MainPage.current.counterr(Core.Models.Localdb.counter());
-                    await fmonth.current.filllist();
-                    await ftoday.current.filllist();
-                    await fhome.current.percentful();
+                     fmonth.current.filllist();
+                     ftoday.current.filllist();
+                     fhome.current.percentful();
                     tiler();
 
                 

@@ -21,10 +21,13 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.personalAssistantLaunch" />
-        <uap:Extension Category="windows.appService" EntryPoint="BackgroundAPIs.Commands">
-          <uap:AppService Name="Bgcommand" />
-        </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="NotifierTask.Notify">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+            <Task Type="location" />
+          </BackgroundTasks>
+        </Extension>
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="dennabackup">
             <uap:DisplayName>Denna Backup</uap:DisplayName>
@@ -33,13 +36,10 @@
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="NotifierTask.Notify">
-          <BackgroundTasks>
-            <Task Type="systemEvent" />
-            <Task Type="timer" />
-            <Task Type="location" />
-          </BackgroundTasks>
-        </Extension>
+        <uap:Extension Category="windows.appService" EntryPoint="Panel.BackgroundAPIs.Commands">
+          <uap:AppService Name="Bgcommand" />
+        </uap:Extension>
+        <uap:Extension Category="windows.personalAssistantLaunch" />
       </Extensions>
     </Application>
   </Applications>

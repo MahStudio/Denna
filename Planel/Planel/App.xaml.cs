@@ -1,5 +1,4 @@
-﻿
-using Planel.Views;
+﻿using Planel.Views;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -202,6 +201,85 @@ namespace Planel
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+            if (args.Kind == ActivationKind.VoiceCommand)
+            {
+                // Event args can represent many different activation types. 
+                // Cast it so we can get the parameters we care about out.
+                var commandArgs = args as VoiceCommandActivatedEventArgs;
+
+                //TODO : Check null and consider what to to here
+                Windows.Media.SpeechRecognition.SpeechRecognitionResult speechRecognitionResult =
+                    commandArgs.Result;
+
+                // Get the name of the voice command and the text spoken. 
+                // See VoiceCommands.xml for supported voice commands.
+                string voiceCommandName = speechRecognitionResult.RulePath[0];
+                string textSpoken = speechRecognitionResult.Text;
+
+                // commandMode indicates whether the command was entered using speech or text.
+                // Apps should respect text mode by providing silent (text) feedback.
+
+                /*
+                       string commandMode = this.SemanticInterpretation("commandMode", speechRecognitionResult);
+
+                     switch (voiceCommandName)
+                     {
+                         case "showTripToDestination":
+                             // Access the value of {destination} in the voice command.
+                             string destination = this.SemanticInterpretation("destination", speechRecognitionResult);
+
+                             // Create a navigation command object to pass to the page. 
+                             navigationCommand = new ViewModel.TripVoiceCommand(
+                                 voiceCommandName,
+                                 commandMode,
+                                 textSpoken,
+                                 destination);
+
+                             // Set the page to navigate to for this voice command.
+                             navigationToPageType = typeof(View.TripDetails);
+                             break;
+                         default:
+                             // If we can't determine what page to launch, go to the default entry point.
+                             navigationToPageType = typeof(View.TripListView);
+                             break;
+                     }
+                     */
+
+            }
+            // Protocol activation occurs when a card is clicked within Cortana (using a background task).
+            else if (args.Kind == ActivationKind.Protocol)
+            {
+                // Extract the launch context. In this case, we're just using the destination from the phrase set (passed
+                // along in the background task inside Cortana), which makes no attempt to be unique. A unique id or 
+                // identifier is ideal for more complex scenarios. We let the destination page check if the 
+                // destination trip still exists, and navigate back to the trip list if it doesn't.
+                var commandArgs = args as ProtocolActivatedEventArgs;
+                Windows.Foundation.WwwFormUrlDecoder decoder = new Windows.Foundation.WwwFormUrlDecoder(commandArgs.Uri.Query);
+                var destination = decoder.GetFirstValueByName("LaunchContext");
+
+                /*
+                 navigationCommand = new ViewModel.TripVoiceCommand(
+                                         "protocolLaunch",
+                                         "text",
+                                         "destination",
+                                         destination);
+
+                 navigationToPageType = typeof(View.TripDetails);
+                 */
+            }
+            else
+            {
+                // If we were launched via any other mechanism, fall back to the main page view.
+                // Otherwise, we'll hang at a splash screen.
+                /*
+                 navigationToPageType = typeof(View.TripListView);
+                 */
+            }
+
         }
 
         /// <summary>

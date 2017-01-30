@@ -7,7 +7,7 @@
     <ProjectGuid>{8C995A90-AE5A-4538-9011-C341370827AB}</ProjectGuid>
     <OutputType>winmdobj</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BackgroundAPIs</RootNamespace>
+    <RootNamespace>Panel.BackgroundAPIs</RootNamespace>
     <AssemblyName>BackgroundAPIs</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
