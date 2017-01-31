@@ -202,10 +202,11 @@ namespace Core.Models
                 if (item.time >= starttodayi && item.time <= endtodayi)
                 {
                     DateTime today = DateTime.Now;
-                    today.AddHours(item.time.Hours);
-                    today.AddMinutes(item.time.Minutes);
-                    today.AddSeconds(item.time.Seconds);
-                    todo hobbytodo = new todo() { notify = item.notify, time = today, title = item.title, detail = item.detail };
+                    DateTime Todate = new DateTime(today.Year,today.Month,today.Day,item.time.Hours,item.time.Minutes,item.time.Seconds);
+                   
+                    
+                    
+                    todo hobbytodo = new todo() { notify = item.notify, time = Todate, title = item.title, detail = item.detail };
                     todoss.Add(hobbytodo);
                 }
             }
