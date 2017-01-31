@@ -40,7 +40,7 @@
 
 
 
-                <AppBarButton Content="Save" Click="AppBarButton_Click_1"  >
+            <AppBarButton Label="Save" Click="AppBarButton_Click_1"  >
 
                     <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
@@ -48,7 +48,7 @@
                 </AppBarButton>
 
             <AppBarSeparator />
-            <AppBarButton Click="AppBarButton_Click" Content="Delete" >
+            <AppBarButton Click="AppBarButton_Click" Label="Delete" >
 
                     <AppBarButton.Icon>
                         <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;"  Height="49" VerticalAlignment="Top"/>

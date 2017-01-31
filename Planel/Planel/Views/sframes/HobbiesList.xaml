@@ -86,14 +86,14 @@
 
 
 
-            <AppBarButton Content="Add" Click="AppBarButton_Click_1"  >
+            <AppBarButton Label="Add" Click="AppBarButton_Click_1"  >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
                 </AppBarButton.Icon>
             </AppBarButton>
 
-            <AppBarButton Click="AppBarButton_Click" Content="Back" >
+            <AppBarButton Click="AppBarButton_Click" Label="Back" >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>

@@ -1,1 +1,1 @@
-C:\Users\Mohsen\Source\Repos\Project-Planel\Planel\Planel\AppPackages\Planel_0.9.353.0\Planel_0.9.353.0_x86_x64_arm.appxbundle
+C:\Users\Mohsen\Source\Repos\Project-Planel\Planel\Planel\AppPackages\Planel_0.9.357.0\Planel_0.9.357.0_x86_arm.appxbundle
