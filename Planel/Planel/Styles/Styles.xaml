@@ -1450,6 +1450,8 @@
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="FontWeight" Value="Normal"/>
     </Style>
+    <!--Calener View-->
+   
     <Style x:Key="Mahcalenderstyle" TargetType="CalendarView">
         <Setter Property="FocusBorderBrush" Value="{ThemeResource CalendarViewFocusBorderBrush}"/>
         <Setter Property="SelectedHoverBorderBrush" Value="{ThemeResource CalendarViewSelectedHoverBorderBrush}"/>
@@ -1848,4 +1850,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
 </ResourceDictionary>
