@@ -77,11 +77,11 @@ namespace Planel.Views
             }
             Frame rootFrame = Window.Current.Content as Frame;
 
-            string myPages = "";
-            foreach (PageStackEntry page in rootFrame.BackStack)
-            {
-                myPages += page.SourcePageType.ToString() + "\n";
-            }
+            //string myPages = "";
+            //foreach (PageStackEntry page in rootFrame.BackStack)
+            //{
+            //    myPages += page.SourcePageType.ToString() + "\n";
+            //}
 
 
             if (rootFrame.CanGoBack)
