@@ -65,11 +65,11 @@
                                 FontFamily="Segoe MDL2 Assets" Grid.RowSpan="2" BorderThickness="0,0,0,0"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,18,0,17" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
                         </Button>
                         <StackPanel Margin="0,0,0,10" Grid.Row="1" Orientation="Horizontal">
-                            <TextBlock Margin="0,0,0,0" FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0"
+                          
+                            <TextBlock MaxLines="1" Margin="0,0,0,0" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding Days, Converter={StaticResource JsonToWeekdayConverter}}" FontSize="12"  />
+                            <TextBlock Margin="5,0,0,0" FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0"
            FontSize="17" Text="{Binding notify,Converter={StaticResource ByteToGlyphConverter} , Mode=TwoWay}"  HorizontalAlignment="Left"
           VerticalAlignment="Center" Foreground="Gray" Width="25" Height="17" />
-                            <TextBlock MaxLines="1" Margin="10,0,0,0" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding Days, Converter={StaticResource JsonToWeekdayConverter}}" FontSize="12"  />
-
                         </StackPanel>
                     </Grid>
 

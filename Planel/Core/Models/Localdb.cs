@@ -395,6 +395,8 @@ namespace Core.Models
 </toast>";
             var doc = new Windows.Data.Xml.Dom.XmlDocument();
             doc.LoadXml(xmlString);
+            doc.LoadXml(doc.GetXml().Replace("Header", item.title));
+            doc.LoadXml(doc.GetXml().Replace("Detail", item.detail + " " + item.time));
             DateTimeOffset offset = item.time;
             ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);

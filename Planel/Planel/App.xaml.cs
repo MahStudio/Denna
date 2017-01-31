@@ -194,11 +194,14 @@ namespace Planel
             try
             {
                 ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-                titleBar.BackgroundColor = Color.FromArgb(255, 32, 200, 165);
+                titleBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
                 titleBar.ForegroundColor = Colors.White;
                 titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
                 titleBar.ButtonForegroundColor = Colors.White;
-
+                titleBar.InactiveBackgroundColor= ((Color)Application.Current.Resources["SystemAccentColor"]);
+                titleBar.ButtonInactiveBackgroundColor= ((Color)Application.Current.Resources["SystemAccentColor"]);
+                titleBar.InactiveForegroundColor= Colors.White;
+                titleBar.ButtonInactiveForegroundColor= Colors.White;
                 titleBar.ForegroundColor = Colors.White;
                 titleBar.ButtonForegroundColor = Colors.White;
                 titleBar.ButtonForegroundColor = Colors.White;
