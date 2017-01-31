@@ -9,9 +9,9 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid  Margin="0,0,0,48">
-            <StackPanel Margin="5,20,5,0" HorizontalAlignment="Center">
-                <TextBox MaxWidth="720" BorderThickness="0,0,0,1" x:Name="title" TextAlignment="Justify" PlaceholderText="Title"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
-                <TextBox MaxWidth="720" BorderThickness="0,0,0,1" TextWrapping="Wrap" x:Name="describe" TextAlignment="Justify" PlaceholderText="Describtion"  Margin="5,10,5,0" Height="80" VerticalAlignment="Top" />
+            <StackPanel Margin="5,20,5,0" >
+                <TextBox MinWidth="80" MaxWidth="620" BorderThickness="0,0,0,1" x:Name="title" TextAlignment="Justify" PlaceholderText="Title"  Margin="15,10,15,0" Height="40" VerticalAlignment="Top" />
+                <TextBox MinWidth="80" MaxWidth="620" BorderThickness="0,0,0,1" TextWrapping="Wrap" x:Name="describe" TextAlignment="Justify" PlaceholderText="Describtion"  Margin="15,10,15,0" Height="80" VerticalAlignment="Top" />
 
             
                 <DatePicker Width="300" HorizontalAlignment="Center" BorderThickness="1"  x:Name="datepic"  Margin="5,10,5,0" />
