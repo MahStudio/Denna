@@ -11,8 +11,8 @@
 
   <actions>
 
-    <input id='textBox' type='text' placeHolderContent='Title'/>
-    <input id='textBox2' type='text' placeHolderContent='Detail'/>
+    <input id='title' type='text' placeHolderContent='Title'/>
+    <input id='detail' type='text' placeHolderContent='Detail'/>
 
     <input id='snoozeTime' type='selection' defaultInput='15'>
       <selection id='15' content='15 minutes'/>
@@ -28,10 +28,10 @@
     </input>
     <action
       content='Send'
-      imageUri='Assets/Icons/send.png'
+      imageUri='Assets/Icons/Plus.png'
       hint-inputId='textBox'
       activationType='background'
-      arguments='action=reply&amp;threadId=92187'/>
+      arguments='adder'/>
 
 
   </actions>

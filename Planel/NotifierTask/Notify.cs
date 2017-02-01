@@ -20,6 +20,12 @@ namespace NotifierTask
             _deferal = taskInstance.GetDeferral();
             taskInstance.Canceled += TaskInstance_Canceled;
             taskInstance.Task.Completed += Task_Completed;
+            var details = taskInstance.TriggerDetails as ToastNotificationActionTriggerDetail;
+            if (details != null)
+            {
+                string arguments = details.Argument;
+                // Perform tasks
+            }
 
 
             toaster();
