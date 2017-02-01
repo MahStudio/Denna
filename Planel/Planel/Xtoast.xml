@@ -29,9 +29,9 @@
     <action
       content='Send'
       imageUri='Assets/Icons/Plus.png'
-      hint-inputId='textBox'
+      hint-inputId='title'
       activationType='background'
-      arguments='adder'/>
+      arguments='action=reply&amp;threadId=92187'/>
 
 
   </actions>
