@@ -307,6 +307,10 @@
       <Project>{4132ff80-98c1-4702-a699-4437f11719c9}</Project>
       <Name>NotifierTask</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Toaster\Toaster.csproj">
+      <Project>{e0778a8b-4902-4976-b411-00b63a51cfde}</Project>
+      <Name>Toaster</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

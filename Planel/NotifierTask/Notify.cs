@@ -20,12 +20,7 @@ namespace NotifierTask
             _deferal = taskInstance.GetDeferral();
             taskInstance.Canceled += TaskInstance_Canceled;
             taskInstance.Task.Completed += Task_Completed;
-            var details = taskInstance.TriggerDetails as ToastNotificationActionTriggerDetail;
-            if (details != null)
-            {
-                string arguments = details.Argument;
-                // Perform tasks
-            }
+           
 
 
             toaster();
@@ -47,10 +42,14 @@ namespace NotifierTask
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
                         new Uri("ms-appx:///Xtoast.xml"))));
+                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
+                    doc.LoadXml(doc.GetXml().Replace("Prophyle", sampleFile.Path));
                     var toast = new ToastNotification(doc);
-
+                    
                     ToastNotificationManager.History.Remove("Qaction");
                     toast.Tag = "Qaction";
+                    
                     toast.SuppressPopup = true;
                     ToastNotificationManager.CreateToastNotifier().Show(toast);
                 }

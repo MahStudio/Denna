@@ -5,7 +5,7 @@
     <binding template='ToastGeneric'>
       <text hint-maxLines='1'>Denna</text>
       <text>Add a todo</text>
-      <image placement='appLogoOverride' hint-crop='circle' src='https://unsplash.it/64?image=1027'/>
+      <image placement='appLogoOverride' hint-crop='circle' src='Prophyle'/>
     </binding>
   </visual>
 
