@@ -255,7 +255,29 @@ namespace Core.Models
                 
 
             }
-            
+            ObservableCollection<Hobby> Hobbies = Gethobbies();
+            TimeSpan starttodayi = new TimeSpan(0, 0, 0);
+            TimeSpan endtodayi = new TimeSpan(23, 59, 59);
+
+            foreach (var item in Hobbies)
+            {
+                string json = item.Days.ToString();
+                var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
+                List<DayOfWeek> adder = new List<DayOfWeek>();
+                adder = toadd.ToList();
+                bool iscontain = _containstoday(adder, starttoday.DayOfWeek);
+                if (item.time >= starttodayi && item.time <= endtodayi)
+                {
+                    DateTime today = DateTime.Now;
+                    DateTime Todate = new DateTime(today.Year, today.Month, today.Day, item.time.Hours, item.time.Minutes, item.time.Seconds);
+
+
+
+                    todo hobbytodo = new todo() { notify = item.notify, time = Todate, title = item.title, detail = item.detail };
+                    todoss.Add(hobbytodo);
+                }
+            }
+
             int a = todoss.Count();
 
             return a ;
@@ -382,13 +404,14 @@ namespace Core.Models
         <binding template='ToastGeneric'>
             <text>Header</text>
             <text>Detail</text>
+<text placement='attribution'>Right now</text>
         </binding>
     </visual>
     <actions>
+<audio src='ms - winsoundevent:Notification.Reminder' loop='true' />
 
-       
 
-        <action arguments = 'dismiss'
+          < action arguments = 'dismiss'
                 content = 'OK' />
 
     </actions>
@@ -396,7 +419,7 @@ namespace Core.Models
             var doc = new Windows.Data.Xml.Dom.XmlDocument();
             doc.LoadXml(xmlString);
             doc.LoadXml(doc.GetXml().Replace("Header", item.title));
-            doc.LoadXml(doc.GetXml().Replace("Detail", item.detail + " " + item.time));
+            doc.LoadXml(doc.GetXml().Replace("Detail", item.detail ));
             DateTimeOffset offset = item.time;
             ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
@@ -409,6 +432,7 @@ namespace Core.Models
             <binding template=""ToastGeneric"">
                 <text>Header</text>
                 <text>Detail</text>
+                <text placement='attribution'>Right now</text>
             </binding>
             </visual>
         </toast>";
@@ -417,7 +441,7 @@ namespace Core.Models
 
             doc.LoadXml(xml);
             doc.LoadXml(doc.GetXml().Replace("Header", item.title));
-            doc.LoadXml(doc.GetXml().Replace("Detail", item.detail + " " + item.time));
+            doc.LoadXml(doc.GetXml().Replace("Detail", item.detail ));
             DateTimeOffset offset = item.time;
             ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);

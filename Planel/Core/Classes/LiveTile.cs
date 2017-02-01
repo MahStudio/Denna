@@ -28,7 +28,7 @@ namespace Core.Classes
             else { 
             
             DateTime now = DateTime.Now;
-            todolist = Models.Localdb.Getfordoday(now);
+            todolist = Models.Localdb.getall(now);
             foreach (var item in todolist)
             {
                 if (item.isdone != 2)
