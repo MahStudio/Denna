@@ -35,5 +35,5 @@
 
 
   </actions>
-
+  <audio silent = 'true' />
 </toast>

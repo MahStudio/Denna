@@ -42,6 +42,10 @@ namespace NotifierTask
                     doc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
                         new Uri("ms-appx:///Xtoast.xml"))));
                     var toast = new ToastNotification(doc);
+
+                    ToastNotificationManager.History.Remove("Qaction");
+                    toast.Tag = "Qaction";
+                    toast.SuppressPopup = true;
                     ToastNotificationManager.CreateToastNotifier().Show(toast);
                 }
             }
