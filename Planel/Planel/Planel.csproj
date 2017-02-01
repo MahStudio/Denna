@@ -176,6 +176,7 @@
     <Content Include="Assets\Icons\DeskLamp.png" />
     <Content Include="Assets\Icons\TodoList.png" />
     <Content Include="Assets\Mockops\usrimg.jpg" />
+    <Content Include="Xtoast.xml" />
     <None Include="Service References\ZarinPal\Planel.ZarinPal.GetUnverifiedTransactionsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

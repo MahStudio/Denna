@@ -424,9 +424,10 @@ namespace Core.Models
             ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
         }
+        
         private static async Task createnotify(todo item)
         {
-
+           
             string xml = @"<toast>
             <visual>
             <binding template=""ToastGeneric"">

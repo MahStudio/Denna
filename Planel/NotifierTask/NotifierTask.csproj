@@ -112,9 +112,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LiveTile.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{10B7381C-C88D-4B3A-A63E-2F440953564D}</Project>
       <Name>Core</Name>

@@ -33,8 +33,10 @@ namespace Planel
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             license();
-            
-            
+
+            if (ApplicationData.Current.LocalSettings.Values["Showtoast"] == null)
+                ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
+
         }
         public static async void license()
         {

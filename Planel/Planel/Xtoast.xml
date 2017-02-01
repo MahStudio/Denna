@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toast launch='action=openThread&amp;threadId=92187'>
+
+  <visual>
+    <binding template='ToastGeneric'>
+      <text hint-maxLines='1'>Denna</text>
+      <text>Add a todo</text>
+      <image placement='appLogoOverride' hint-crop='circle' src='https://unsplash.it/64?image=1027'/>
+    </binding>
+  </visual>
+
+  <actions>
+
+    <input id='textBox' type='text' placeHolderContent='Title'/>
+    <input id='textBox2' type='text' placeHolderContent='Detail'/>
+
+    <input id='snoozeTime' type='selection' defaultInput='15'>
+      <selection id='15' content='15 minutes'/>
+      <selection id='60' content='1 hour'/>
+      <selection id='240' content='4 hours'/>
+      <selection id='260' content='8 hour'/>
+      <selection id='144' content='1 day'/>
+    </input>
+    <input id='notification' type='selection' defaultInput='2'>
+      <selection id='1' content='Silent'/>
+      <selection id='2' content='Notify'/>
+      <selection id='3' content='Alarm'/>
+    </input>
+    <action
+      content='Send'
+      imageUri='Assets/Icons/send.png'
+      hint-inputId='textBox'
+      activationType='background'
+      arguments='action=reply&amp;threadId=92187'/>
+
+
+  </actions>
+
+</toast>
