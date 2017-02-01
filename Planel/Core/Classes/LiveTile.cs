@@ -32,7 +32,7 @@ namespace Core.Classes
             foreach (var item in todolist)
             {
                 if (item.isdone != 2)
-                    result += ","+item.title + "  " ;
+                    result += " "+item.title + "," ;
 
             }
             }
@@ -49,9 +49,11 @@ namespace Core.Classes
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileMediumSubText", "Let's Do!"));
             //Set Wide Tile 
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideImageSource", sampleFile.Path));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideText", result));
-           
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TileWideText",  result));
+            //Set LockScreen Detail
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("DetailLC", ApplicationData.Current.LocalSettings.Values["Username"].ToString()+","+ result));
             
+
 
             var tup = TileUpdateManager.CreateTileUpdaterForApplication();
             tup.Update(new TileNotification(xmlDoc));
@@ -64,6 +66,7 @@ namespace Core.Classes
         }
         public static async Task updatebadge()
         {
+
             var type = BadgeTemplateType.BadgeNumber;
             var xml = BadgeUpdateManager.GetTemplateContent(type);
 

@@ -7,7 +7,9 @@
       <text hint-style="captionSubtle"  hint-align="center">TileMediumSubText</text>
     </binding>
 
-    <binding template="TileWide">
+    <binding template="TileWide" hint-lockDetailedStatus1="DetailLC"
+             hint-lockDetailedStatus2="Denna"
+>
       <group>
         <subgroup hint-weight="33">
           <image src="TileWideImageSource" hint-crop="circle" />
