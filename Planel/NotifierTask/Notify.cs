@@ -23,7 +23,7 @@ namespace NotifierTask
            
 
 
-            toaster();
+            
             try {
                 Core.Classes.LiveTile.livetile();
                 Core.Classes.LiveTile.updatebadge();
@@ -33,28 +33,7 @@ namespace NotifierTask
 
         
 
-       private async void toaster ()
-        {
-            if (ApplicationData.Current.LocalSettings.Values["Showtoast"] != null)
-            {
-                if ((bool)ApplicationData.Current.LocalSettings.Values["Showtoast"] == true)
-                {
-                    XmlDocument doc = new XmlDocument();
-                    doc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
-                        new Uri("ms-appx:///Xtoast.xml"))));
-                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                    StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
-                    doc.LoadXml(doc.GetXml().Replace("Prophyle", sampleFile.Path));
-                    var toast = new ToastNotification(doc);
-                    
-                    ToastNotificationManager.History.Remove("Qaction");
-                    toast.Tag = "Qaction";
-                    
-                    toast.SuppressPopup = true;
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
-                }
-            }
-        }
+       
       
 
         private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)

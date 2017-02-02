@@ -31,7 +31,7 @@
       imageUri='Assets/Icons/Plus.png'
       hint-inputId='title'
       activationType='background'
-      arguments='action=reply&amp;threadId=92187'/>
+      arguments='one'/>
 
 
   </actions>

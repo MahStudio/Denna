@@ -58,7 +58,7 @@ namespace Planel.Views
                 var req = await BackgroundExecutionManager.RequestAccessAsync();
                 if (req != BackgroundAccessStatus.DeniedByUser && req != BackgroundAccessStatus.DeniedBySystemPolicy)
                 {
-                    var list = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "NotifierTask" && x.Value.Name == "MyToastTask");
+                    var list = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "NotifierTask");
                     foreach (var item in list)
                     {
                         item.Value.Unregister(false);

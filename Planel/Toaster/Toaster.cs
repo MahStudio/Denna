@@ -20,11 +20,18 @@ namespace Toaster
 
             if (details != null)
             {
-                string arguments = details.Argument;
-                var userInput = details.UserInput;
+                try
+                {
+                    string arguments = details.Argument;
+                    var userInput = details.UserInput;
+                    string title = (string)userInput["title"];
+                    string detail = (string)userInput["detail"];
+                    byte notify = (byte)userInput["selection"];
+                }
+                catch { }
 
-                // Perform tasks
             }
+            Core.Classes.LiveTile.livetile();
         }
         private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
         {

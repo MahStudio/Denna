@@ -17,6 +17,26 @@ namespace Core.Classes
         
         public static async Task livetile()
         {
+            if (ApplicationData.Current.LocalSettings.Values["Showtoast"] != null)
+            {
+                if ((bool)ApplicationData.Current.LocalSettings.Values["Showtoast"] == true)
+                {
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
+                        new Uri("ms-appx:///Xtoast.xml"))));
+                    StorageFolder storageFolder22 = ApplicationData.Current.LocalFolder;
+                    StorageFile sampleFile22 = await storageFolder22.GetFileAsync("avatar.jpg");
+                    doc.LoadXml(doc.GetXml().Replace("Prophyle", sampleFile22.Path));
+                    var toast = new ToastNotification(doc);
+
+                    ToastNotificationManager.History.Remove("Qaction");
+                    ToastNotificationManager.History.Remove("Qaction", "Quick Denna");
+                    toast.Tag = "Qaction";
+                    toast.Group = "Quick Denna";
+                    toast.SuppressPopup = true;
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
+                }
+            }
             ObservableCollection<Models.todo> todolist = new ObservableCollection<todo>();
             int counter = Localdb.counter();
             string result = " Dont forget to :  ";
