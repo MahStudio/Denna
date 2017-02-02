@@ -112,7 +112,7 @@ namespace Planel.Views
                     var toadd = JsonConvert.DeserializeObject<IList<Core.Models.todo>>(json);
                     List<Core.Models.todo> adder = new List<Core.Models.todo>();
                     adder = toadd.ToList();
-                    MessageDialog msg = new MessageDialog("Are you sure?");
+                    MessageDialog msg = new MessageDialog("Do you wanna restore this backup ?");
                     msg.Commands.Add(new UICommand("Yes", async delegate {
                         foreach (var item in toadd)
                         {

@@ -1,8 +1,10 @@
 ﻿using Core;
+using Newtonsoft.Json;
 using Planel.Views.sframes;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,7 +29,8 @@ namespace Planel.Views
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-           
+            
+
             filllist();
         }
 
@@ -102,6 +105,24 @@ namespace Planel.Views
         private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HobbiesList));
+        }
+
+        private void more_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void sharetodo_Click(object sender, RoutedEventArgs e)
+        {
+            string shareuri = "Denna://Share/todo?";
+            var clk = ((sender as Button).Tag) as Core.Models.todo;
+            string json = JsonConvert.SerializeObject(clk);
+            shareuri += json;
+            var dataPackage = new DataPackage();
+            dataPackage.SetText(shareuri);
+            Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+            var dialog = new Windows.UI.Popups.MessageDialog( "Sharelink copied in your clip board. ");
+            dialog.ShowAsync();
         }
     }
 }

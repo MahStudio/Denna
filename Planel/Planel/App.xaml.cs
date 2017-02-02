@@ -241,123 +241,89 @@ namespace Planel
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            SetUpVoiceCommends();
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
-            {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
+            
+            
 
-                rootFrame.NavigationFailed += OnNavigationFailed;
+
+            
 
 
 
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
-            }
-
-
-            if (rootFrame.Content == null)
-            {
-
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                coloradjust();
-                if (licenseactive == false && License.IsTrial == false)
-                    rootFrame.Navigate(typeof(Expire), args);
-
-
-                else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
-                {
-                    rootFrame.Navigate(typeof(MainPage), args);
-                    migratedata();
-                }
-
-                else
-                    rootFrame.Navigate(typeof(WelcomePage), args);
-
-
-
-                // Ensure the current window is active
-                Window.Current.Activate();
+                
                 base.OnActivated(args);
 
                 if (args.Kind == ActivationKind.VoiceCommand)
                 {
-                    // Event args can represent many different activation types. 
-                    // Cast it so we can get the parameters we care about out.
                     var commandArgs = args as VoiceCommandActivatedEventArgs;
 
-                    //TODO : Check null and consider what to to here
+                    
                     Windows.Media.SpeechRecognition.SpeechRecognitionResult speechRecognitionResult =
                         commandArgs.Result;
 
-                    // Get the name of the voice command and the text spoken. 
-                    // See VoiceCommands.xml for supported voice commands.
+                    
                     string voiceCommandName = speechRecognitionResult.RulePath[0];
                     string textSpoken = speechRecognitionResult.Text;
 
-                    // commandMode indicates whether the command was entered using speech or text.
-                    // Apps should respect text mode by providing silent (text) feedback.
+                // Ensure the current window is active
+                Window.Current.Activate();
 
-                    /*
-                           string commandMode = this.SemanticInterpretation("commandMode", speechRecognitionResult);
 
-                         switch (voiceCommandName)
-                         {
-                             case "showTripToDestination":
-                                 // Access the value of {destination} in the voice command.
-                                 string destination = this.SemanticInterpretation("destination", speechRecognitionResult);
-
-                                 // Create a navigation command object to pass to the page. 
-                                 navigationCommand = new ViewModel.TripVoiceCommand(
-                                     voiceCommandName,
-                                     commandMode,
-                                     textSpoken,
-                                     destination);
-
-                                 // Set the page to navigate to for this voice command.
-                                 navigationToPageType = typeof(View.TripDetails);
-                                 break;
-                             default:
-                                 // If we can't determine what page to launch, go to the default entry point.
-                                 navigationToPageType = typeof(View.TripListView);
-                                 break;
-                         }
-                         */
-
-                }
-                // Protocol activation occurs when a card is clicked within Cortana (using a background task).
-                else if (args.Kind == ActivationKind.Protocol)
+            }
+                
+               if (args.Kind == ActivationKind.Protocol)
                 {
-                    // Extract the launch context. In this case, we're just using the destination from the phrase set (passed
-                    // along in the background task inside Cortana), which makes no attempt to be unique. A unique id or 
-                    // identifier is ideal for more complex scenarios. We let the destination page check if the 
-                    // destination trip still exists, and navigate back to the trip list if it doesn't.
-                    var commandArgs = args as ProtocolActivatedEventArgs;
-                    Windows.Foundation.WwwFormUrlDecoder decoder = new Windows.Foundation.WwwFormUrlDecoder(commandArgs.Uri.Query);
-                    var destination = decoder.GetFirstValueByName("LaunchContext");
 
-                    /*
-                     navigationCommand = new ViewModel.TripVoiceCommand(
-                                             "protocolLaunch",
-                                             "text",
-                                             "destination",
-                                             destination);
-
-                     navigationToPageType = typeof(View.TripDetails);
-                     */
+                license();
+                var protocolArgs = (ProtocolActivatedEventArgs)args;
+                var uri = protocolArgs.Uri;
+                if (rootFrame == null)
+                {
+                    rootFrame = new Frame();
+                    rootFrame.NavigationFailed += OnNavigationFailed;
+                    Window.Current.Content = rootFrame;
                 }
+                coloradjust();
+                if (licenseactive == false && License.IsTrial == false)
+                    rootFrame.Navigate(typeof(Expire), uri);
+
+
+                else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                {
+                    rootFrame.Navigate(typeof(MainPage), uri);
+                    migratedata();
+                }
+
+                else
+                    rootFrame.Navigate(typeof(WelcomePage), uri);
+
+                // Ensure the current window is active
+                Window.Current.Activate();
+
+
+            }
                 else
                 {
-                    // If we were launched via any other mechanism, fall back to the main page view.
-                    // Otherwise, we'll hang at a splash screen.
-                    /*
-                     navigationToPageType = typeof(View.TripListView);
-                     */
+                if (rootFrame.Content == null)
+                {
+                    coloradjust();
+                    if (licenseactive == false && License.IsTrial == false)
+                        rootFrame.Navigate(typeof(Expire), args);
+
+
+                    else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                    {
+                        rootFrame.Navigate(typeof(MainPage), args);
+                        migratedata();
+                    }
+
+                    else
+                        rootFrame.Navigate(typeof(WelcomePage), args);
+
+                    // Ensure the current window is active
+                    Window.Current.Activate();
                 }
+                
+
             }
         }
 
