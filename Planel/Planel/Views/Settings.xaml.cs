@@ -263,16 +263,53 @@ namespace Planel.Views
             ObservableCollection<Core.Models.todo> forsave = new ObservableCollection<Core.Models.todo>();
             forsave = todos;
             string json = JsonConvert.SerializeObject(forsave);
-            StorageFolder storageFolder = KnownFolders.DocumentsLibrary;
-            StorageFile file = await storageFolder.CreateFileAsync("DennaBackup.djson", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, json);
-            ContentDialog noWifiDialog = new ContentDialog()
+            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+            savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            // Dropdown of file types the user can save the file as
+            savePicker.FileTypeChoices.Add("Denna backup file", new List<string>() { ".djson" });
+            // Default file name if the user does not type one in or select a file to replace
+            savePicker.SuggestedFileName = "DennaBackup";
+            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
             {
-                Title = "Success!",
-                Content = "Backup had been saved in your Documents library as DennaBackup",
-                PrimaryButtonText = "Nice!"
-            };
-            noWifiDialog.ShowAsync();
+                Windows.Storage.CachedFileManager.DeferUpdates(file);
+                Windows.Storage.CachedFileManager.DeferUpdates(file);
+                await Windows.Storage.FileIO.WriteTextAsync(file, json);
+                Windows.Storage.Provider.FileUpdateStatus status =
+           await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                {
+                    ContentDialog noWifiDialog = new ContentDialog()
+                    {
+                        Title = "Success!",
+                        Content = "Backup had been saved .",
+                        PrimaryButtonText = "Nice!"
+                    };
+                    noWifiDialog.ShowAsync();
+                }
+                else
+                {
+                    ContentDialog noWifiDialog = new ContentDialog()
+                    {
+                        Title = ":(",
+                        Content = "Something went wrong",
+                        PrimaryButtonText = "OK"
+                    };
+                    noWifiDialog.ShowAsync();
+                }
+                
+            }
+            else
+            {
+                ContentDialog noWifiDialog = new ContentDialog()
+                {
+                    Title = ":/",
+                    Content = "Operation canceled",
+                    PrimaryButtonText = "OK"
+                };
+                noWifiDialog.ShowAsync();
+            }
+            
 
         }
 
