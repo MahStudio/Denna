@@ -303,8 +303,13 @@ namespace Planel
             }
                 else
                 {
-                if (rootFrame.Content == null)
+                if (rootFrame == null)
                 {
+                    rootFrame = new Frame();
+                    rootFrame.NavigationFailed += OnNavigationFailed;
+                    Window.Current.Content = rootFrame;
+                }
+                
                     coloradjust();
                     if (licenseactive == false && License.IsTrial == false)
                         rootFrame.Navigate(typeof(Expire), args);
@@ -321,7 +326,7 @@ namespace Planel
 
                     // Ensure the current window is active
                     Window.Current.Activate();
-                }
+               
                 
 
             }
