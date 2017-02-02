@@ -27,7 +27,7 @@ namespace Planel.Views
     {
         string merchantCode = "3820a6ee-e2ab-11e6-8aa9-000c295eb8fc";
         string authority = string.Empty;
-        int amount = 100;
+        int amount = 2000;
         string description = "Denna licence IR";
         string email = string.Empty;
         string mobile = string.Empty;
