@@ -32,8 +32,10 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>
-               
-            </StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Quick Actions" />
+                    <ToggleSwitch x:Name="swicher" Margin="0,10 ,0,0" HorizontalAlignment="Center" Toggled="swicher_Toggled"/>
+             
+                </StackPanel>
             
 
             <TextBlock x:Name="Licencer" HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="SemiBold"

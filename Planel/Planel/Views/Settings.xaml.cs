@@ -28,7 +28,7 @@ namespace Planel.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     /// 
-   
+   //(bool)ApplicationData.Current.LocalSettings.Values["Showtoast"] == true
     public sealed partial class Settings : Page
     {
         public static bool isloaded = false;
@@ -90,6 +90,14 @@ namespace Planel.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            if ((bool)ApplicationData.Current.LocalSettings.Values["Showtoast"] == true)
+            {
+                swicher.IsOn = true;
+            }
+            else
+            {
+                swicher.IsOn = false;
+            }
             base.OnNavigatedTo(e);
             var args = e.Parameter as Windows.ApplicationModel.Activation.IActivatedEventArgs;
             if (args != null)
@@ -309,6 +317,24 @@ namespace Planel.Views
                 
 
             }
+        }
+        
+private void swicher_Toggled(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
+                }
+                else
+                {
+                    ApplicationData.Current.LocalSettings.Values["Showtoast"] = false;
+                }
+            }
+
+            
         }
     }
 }
