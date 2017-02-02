@@ -25,7 +25,7 @@
                     <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="WELCOME" />
                     <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Hey there!" />
                     <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
-                       Welcome to Denna! We'll help you to feel successful all your life !
+                       Welcome to Denna! Denna will help you to plan your life; Just like successful people.
 
                     </TextBlock>
                 </StackPanel>
@@ -36,7 +36,7 @@
                     <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="PLAN YOUR LIFE" />
                     <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="What shall I do today?" />
                     <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
-                       Plan your daily routine. Sort, mind and control your activities. Planning makes everything easier!
+                       Plan your daily tasks. Do, mind, postpone and control your activities. Don't forget to add your hobbies in Denna :) Planning makes everything easier!
 
                     </TextBlock>
                 </StackPanel>
@@ -47,7 +47,7 @@
                     <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="DON'T MISS ANYTHING" />
                     <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Oh... I don't remember!" />
                     <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
-                       We won't let you forget your activities in your wounderful day! Everything will go right on time :)
+                       We won't let you forget your activities in your wounderful day! You can set notifications or alarm for your tasks. Everything will go right on time :)
 
                     </TextBlock>
                 </StackPanel>
@@ -58,7 +58,7 @@
                     <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="SEE YOUR PERFORMANCE" />
                     <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Let's improve!" />
                     <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
-                       See your daily preformance any time you want! The chart would show you how nicely you've done your activities.
+                       See your daily, weekly and monthly preformance any time you want! The charts would show you how nicely you've done your activities.
 
                     </TextBlock>
                 </StackPanel>
