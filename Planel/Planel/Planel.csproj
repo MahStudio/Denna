@@ -176,6 +176,10 @@
     <Content Include="Assets\Icons\DeskLamp.png" />
     <Content Include="Assets\Icons\Plus.png" />
     <Content Include="Assets\Icons\TodoList.png" />
+    <Content Include="Assets\LockScreenLogo.scale-100.png" />
+    <Content Include="Assets\LockScreenLogo.scale-125.png" />
+    <Content Include="Assets\LockScreenLogo.scale-150.png" />
+    <Content Include="Assets\LockScreenLogo.scale-400.png" />
     <Content Include="Assets\Mockops\usrimg.jpg" />
     <Content Include="Xtoast.xml" />
     <None Include="Service References\ZarinPal\Planel.ZarinPal.GetUnverifiedTransactionsResponse.datasource">

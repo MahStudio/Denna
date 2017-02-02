@@ -19,13 +19,25 @@
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
-        <uap:LockScreen BadgeLogo="Assets\StoreLogo.png" Notification="badgeAndTileText" />
+        <uap:LockScreen BadgeLogo="Assets\LockScreenLogo.png" Notification="badgeAndTileText" />
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="denna">
-            <uap:DisplayName>Denna share portocol</uap:DisplayName>
-          </uap:Protocol>
+        <Extension Category="windows.backgroundTasks" EntryPoint="Toaster.Toaster">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+          </BackgroundTasks>
+        </Extension>
+        <uap:Extension Category="windows.personalAssistantLaunch" />
+        <uap:Extension Category="windows.appService" EntryPoint="Panel.BackgroundAPIs.Commands">
+          <uap:AppService Name="Bgcommand" />
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="dennabackup">
+            <uap:DisplayName>Denna Backup</uap:DisplayName>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.djson</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
         </uap:Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="NotifierTask.Notify">
           <BackgroundTasks>
@@ -34,24 +46,11 @@
             <Task Type="location" />
           </BackgroundTasks>
         </Extension>
-        <uap:Extension Category="windows.fileTypeAssociation">
-          <uap:FileTypeAssociation Name="dennabackup">
-            <uap:DisplayName>Denna Backup</uap:DisplayName>
-            <uap:EditFlags OpenIsSafe="true" />
-            <uap:SupportedFileTypes>
-              <uap:FileType>.djson</uap:FileType>
-            </uap:SupportedFileTypes>
-          </uap:FileTypeAssociation>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="denna">
+            <uap:DisplayName>Denna share portocol</uap:DisplayName>
+          </uap:Protocol>
         </uap:Extension>
-        <uap:Extension Category="windows.appService" EntryPoint="Panel.BackgroundAPIs.Commands">
-          <uap:AppService Name="Bgcommand" />
-        </uap:Extension>
-        <uap:Extension Category="windows.personalAssistantLaunch" />
-        <Extension Category="windows.backgroundTasks" EntryPoint="Toaster.Toaster">
-          <BackgroundTasks>
-            <Task Type="systemEvent" />
-          </BackgroundTasks>
-        </Extension>
       </Extensions>
     </Application>
   </Applications>
