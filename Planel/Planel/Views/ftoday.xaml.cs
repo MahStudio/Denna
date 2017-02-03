@@ -124,5 +124,10 @@ namespace Planel.Views
             var dialog = new Windows.UI.Popups.MessageDialog( "Sharelink copied in your clip board. ");
             dialog.ShowAsync();
         }
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
