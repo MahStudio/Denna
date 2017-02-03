@@ -26,9 +26,10 @@ namespace Toaster
                     var userInput = details.UserInput;
                     string title = (string)userInput["title"];
                     string detail = (string)userInput["detail"];
-                    byte notify = (byte)userInput["selection"];
+                    var notify = (byte)userInput["notification"];
+                    //var snoozeTime = (int)userInput["snoozeTime"];
                 }
-                catch { }
+                catch (Exception ex) { }
 
             }
             Core.Classes.LiveTile.livetile();

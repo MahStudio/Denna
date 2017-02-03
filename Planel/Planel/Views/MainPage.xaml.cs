@@ -53,10 +53,6 @@ namespace Planel.Views
         
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            
-
-
-            
                 var req = await BackgroundExecutionManager.RequestAccessAsync();
                 if (req != BackgroundAccessStatus.DeniedByUser && req != BackgroundAccessStatus.DeniedBySystemPolicy)
                 {
@@ -77,7 +73,8 @@ namespace Planel.Views
                     builder.SetTrigger(new ToastNotificationActionTrigger());
                     BackgroundTaskRegistration registration = builder.Register();
                     BackgroundTaskRegistration myFirstTask = taskBuilder.Register();
-                }
+                
+            }
 
             Frame rootFrame = Window.Current.Content as Frame;
 
