@@ -130,5 +130,15 @@ namespace Planel.Views
             var clk = ((sender as Button).Tag) as Core.Models.todo;
             Frame.Navigate(typeof(EditTask), clk);
         }
+
+        private void AppBarButton_Click_3(object sender, RoutedEventArgs e)
+        {
+            MainPage.current.ntonavigate("setting");
+        }
+
+        private void AppBarButton_Click_4(object sender, RoutedEventArgs e)
+        {
+            MainPage.current.ntonavigate("about");
+        }
     }
 }

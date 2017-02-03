@@ -129,7 +129,10 @@
             </AppBarButton>
 
 
-
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Click="AppBarButton_Click_4" Icon="Like" Label="About"/>
+                <AppBarButton Click="AppBarButton_Click_3" Icon="Setting" Label="Settings"/>
+            </CommandBar.SecondaryCommands>
 
 
 
