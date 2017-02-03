@@ -62,6 +62,16 @@ namespace Core.Models
                 conn.DropTable<Hobby>();
 
             }
+            try
+            {
+                Windows.Storage.StorageFolder storageFolder =
+Windows.Storage.ApplicationData.Current.LocalFolder;
+                Windows.Storage.StorageFile sampleFile =
+                    await storageFolder.GetFileAsync("avatar.jpg");
+                sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
+
+            }
+            catch { }
             var tup = TileUpdateManager.CreateTileUpdaterForApplication();
             tup.Clear();
             var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
