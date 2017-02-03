@@ -178,10 +178,8 @@ namespace Planel.Views
             if (name != null)
             {
                 Core.Models.Localdb.Iuser(name);
-                DateTime now = DateTime.Now;
-                //  ApplicationData.Current.LocalSettings.Values["DateCreated"] = now.ToString() ;
-                ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
-                ApplicationData.Current.LocalSettings.Values["RunTime"] = 1;
+                
+                
                 if (filename == null)
                 {
                     string CountriesFile = @"Assets\Mockops\usrimg.jpg";

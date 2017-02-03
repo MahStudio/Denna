@@ -35,8 +35,7 @@ namespace Planel
             this.Suspending += OnSuspending;
             license();
 
-            if (ApplicationData.Current.LocalSettings.Values["Showtoast"] == null)
-                ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
+            
             Microsoft.HockeyApp.HockeyClient.Current.Configure("452a83706987457a966d88403a1d770e");
         }
         public static async void license()
@@ -177,19 +176,19 @@ namespace Planel
         }
         private void migratedata()
         {
-            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+            //var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
-            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            {
-                var tableExistsQuery = "SELECT name FROM sqlite_master WHERE type='table' AND name='Hobby';";
-                var result = conn.ExecuteScalar<string>(tableExistsQuery);
-                if (result == null)
-                {
-                    conn.CreateTable<Hobby>();
-                }
+            //using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            //{
+            //    var tableExistsQuery = "SELECT name FROM sqlite_master WHERE type='table' AND name='Hobby';";
+            //    var result = conn.ExecuteScalar<string>(tableExistsQuery);
+            //    if (result == null)
+            //    {
+            //        conn.CreateTable<Hobby>();
+            //    }
 
 
-            }
+            //}
         }
         
         

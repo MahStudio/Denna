@@ -36,16 +36,20 @@ namespace Core.Models
         public static void Iuser(string name)
         {
             ApplicationData.Current.LocalSettings.Values["Username"] = name;
+            if (ApplicationData.Current.LocalSettings.Values["Showtoast"] == null)
+                ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
 
-
+            ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
+            ApplicationData.Current.LocalSettings.Values["RunTime"] = 1;
 
         }
         //logout proceed
         public static async Task Logout()
         {
-            
+            ApplicationData.Current.LocalSettings.Values["Showtoast"] = null;
             ApplicationData.Current.LocalSettings.Values["Username"] = null;
             ApplicationData.Current.LocalSettings.Values["Firstrun"] = null; 
+
             var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
@@ -53,6 +57,16 @@ namespace Core.Models
                 conn.DropTable<todo>();
                 
             }
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.DropTable<Hobby>();
+
+            }
+            var tup = TileUpdateManager.CreateTileUpdaterForApplication();
+            tup.Clear();
+            var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
+            updator.Clear();
+
             CoreApplication.Exit();
 
 

@@ -77,7 +77,7 @@ namespace Core.Classes
 
             var tup = TileUpdateManager.CreateTileUpdaterForApplication();
             tup.Update(new TileNotification(xmlDoc));
-
+            
 
 
 
