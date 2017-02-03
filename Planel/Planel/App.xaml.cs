@@ -2,6 +2,7 @@
 using Planel.Views;
 using SQLite.Net;
 using System;
+using Microsoft.HockeyApp;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Store;
@@ -36,7 +37,7 @@ namespace Planel
 
             if (ApplicationData.Current.LocalSettings.Values["Showtoast"] == null)
                 ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
-
+            Microsoft.HockeyApp.HockeyClient.Current.Configure("452a83706987457a966d88403a1d770e");
         }
         public static async void license()
         {
