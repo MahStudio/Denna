@@ -11,7 +11,7 @@
     <Grid Background="Transparent">
         <Grid Margin="0,0,0,48">
             <ScrollViewer>
-                <GridView SelectionMode="None" Width="auto" HorizontalAlignment="Center">
+                <GridView SelectionMode="None" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <StackPanel HorizontalAlignment="Center" Width="300">
 
                         <TextBlock Foreground="Gray" x:Name="todayword" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
