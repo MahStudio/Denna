@@ -399,25 +399,10 @@ namespace Core.Models
         }
         private static async Task createalarm(todo item)
         {
-            var xmlString = @"<toast launch='args' scenario='alarm'>
-    <visual>
-        <binding template='ToastGeneric'>
-            <text>Header</text>
-            <text>Detail</text>
-<text placement='attribution'>Right now</text>
-        </binding>
-    </visual>
-    <actions>
-<audio src='ms - winsoundevent:Notification.Reminder' loop='true' />
-
-
-          < action arguments = 'dismiss'
-                content = 'OK' />
-
-    </actions>
-</toast>";
+            
             var doc = new Windows.Data.Xml.Dom.XmlDocument();
-            doc.LoadXml(xmlString);
+            doc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
+                        new Uri("ms-appx:///AlarmToast.xml"))));
             doc.LoadXml(doc.GetXml().Replace("Header", item.title));
             doc.LoadXml(doc.GetXml().Replace("Detail", item.detail ));
             DateTimeOffset offset = item.time;
