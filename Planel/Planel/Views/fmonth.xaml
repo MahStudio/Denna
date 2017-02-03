@@ -35,7 +35,7 @@
                     LeftIcon="Accept" 
                     RightIcon="Clock" 
                     LeftLabel="Done" 
-                    RightLabel="Do later"
+                    RightLabel="Postpone"
                     LeftBackground="#20c8a5" 
                     RightBackground="#ffba00"
                     LeftForeground ="White" 
