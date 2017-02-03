@@ -26,7 +26,7 @@ namespace Toaster
                     var userInput = details.UserInput;
                     string title = (string)userInput["title"];
                     string detail = (string)userInput["detail"];
-                    var notify = (byte)userInput["notification"];
+                    var notify = (byte)int.Parse(userInput["notification"].ToString());
                     //var snoozeTime = (int)userInput["snoozeTime"];
                 }
                 catch (Exception ex) { }
