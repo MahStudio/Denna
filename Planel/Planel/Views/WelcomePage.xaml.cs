@@ -162,26 +162,37 @@ namespace Planel.Views
                 
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["SmartieToday"] = 3;
             ApplicationData.Current.LocalSettings.Values["SmartieHome"] = 0;
             ApplicationData.Current.LocalSettings.Values["SmartiePref"] = 0;
             ApplicationData.Current.LocalSettings.Values["SmartieMonth"] = 0;
             if (namebox.Text != "")
-            name = namebox.Text;
+                name = namebox.Text;
             else
             {
                 var messageDialog = new MessageDialog("Fill your name and picture and press agian :)");
                 messageDialog.ShowAsync();
             }
-            if (name != null && filename != null)
+            if (name != null)
             {
-                Core.Models.Localdb.Iuser( name);
+                Core.Models.Localdb.Iuser(name);
                 DateTime now = DateTime.Now;
-              //  ApplicationData.Current.LocalSettings.Values["DateCreated"] = now.ToString() ;
+                //  ApplicationData.Current.LocalSettings.Values["DateCreated"] = now.ToString() ;
                 ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
                 ApplicationData.Current.LocalSettings.Values["RunTime"] = 1;
+                if (filename == null)
+                {
+                    string CountriesFile = @"Assets\Mockops\usrimg.jpg";
+                    StorageFolder InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+                    StorageFile file = await InstallationFolder.GetFileAsync(CountriesFile);
+                    StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile copiedFile = await file.CopyAsync(localFolder, "avatar.jpg");
+
+
+
+                }
                 Frame.Navigate(typeof(MainPage));
             }
             else
