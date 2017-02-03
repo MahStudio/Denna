@@ -25,30 +25,7 @@ namespace Planel.Views.sframes
         {
             SetUpPageAnimation();
             base.OnNavigatedTo(e);
-            if (e.Parameter is Uri)
-            {
-                string str = e.Parameter.ToString();
-                str = str.Remove(0,19);
-                var toadd = JsonConvert.DeserializeObject<Core.Models.todo>(str);
-                Core.Models.todo addr = new Core.Models.todo() { notify=toadd.notify , time = toadd.time, title=toadd.title , detail=toadd.detail};
-                 
-                MessageDialog msg = new MessageDialog("Do you wanna add this to your todos ?");
-                msg.Commands.Add(new UICommand("Yes", async delegate {
-                    Core.Models.Localdb.Addtodo(addr);
-                    Classes.worker.refresher("Add");
-                    ContentDialog noWifiDialog = new ContentDialog()
-                    {
-                        Title = "Success!",
-                        Content = "The shared todo had been saved",
-                        PrimaryButtonText = "Nice!"
-                    };
-                    await noWifiDialog.ShowAsync();
-                }));
-                msg.Commands.Add(new UICommand("Nope"));
-                msg.ShowAsync();
-
-
-            }
+            
 
         }
         private void SetUpPageAnimation()

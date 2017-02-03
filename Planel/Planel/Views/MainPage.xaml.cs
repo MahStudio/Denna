@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
@@ -6,6 +7,7 @@ using Windows.Foundation;
 using Windows.Phone.UI.Input;
 using Windows.Storage;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -133,7 +135,26 @@ namespace Planel.Views
              if (e.Parameter is Uri)
             {
                 mtoday();
-                Views.ftoday.current.Frame.Navigate(typeof(sframes.add), e.Parameter);
+
+                string str = e.Parameter.ToString();
+                str = str.Remove(0, 19);
+                var toadd = JsonConvert.DeserializeObject<Core.Models.todo>(str);
+                Core.Models.todo addr = new Core.Models.todo() { notify = toadd.notify, time = toadd.time, title = toadd.title, detail = toadd.detail };
+
+                MessageDialog msg = new MessageDialog("Do you wanna add this to your todos ?");
+                msg.Commands.Add(new UICommand("Yes", async delegate {
+                    Core.Models.Localdb.Addtodo(addr);
+                    Classes.worker.refresher("Add");
+                    ContentDialog noWifiDialog = new ContentDialog()
+                    {
+                        Title = "Success!",
+                        Content = "The shared todo had been saved",
+                        PrimaryButtonText = "Nice!"
+                    };
+                    await noWifiDialog.ShowAsync();
+                }));
+                msg.Commands.Add(new UICommand("Nope"));
+                msg.ShowAsync();
             }
          
 
