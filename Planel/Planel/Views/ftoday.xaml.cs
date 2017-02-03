@@ -127,7 +127,8 @@ namespace Planel.Views
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-
+            var clk = ((sender as Button).Tag) as Core.Models.todo;
+            Frame.Navigate(typeof(EditTask), clk);
         }
     }
 }

@@ -151,6 +151,9 @@
     <Compile Include="Views\sframes\addHobby.xaml.cs">
       <DependentUpon>addHobby.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\sframes\EditTask.xaml.cs">
+      <DependentUpon>EditTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\sframes\HobbiesList.xaml.cs">
       <DependentUpon>HobbiesList.xaml</DependentUpon>
     </Compile>
@@ -322,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\sframes\addHobby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\sframes\EditTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

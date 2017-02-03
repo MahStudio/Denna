@@ -544,7 +544,17 @@ namespace Core.Models
             
         }
 
+        public static async Task UpdateTask(Models.todo item)
+        {
+            var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            {
+                conn.Update(item);
+
+            }
+
+        }
 
         public static async Task Deletetodo(int id)
         {
