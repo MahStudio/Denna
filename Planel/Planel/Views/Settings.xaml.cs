@@ -135,23 +135,30 @@ namespace Planel.Views
 
                 }
             }
-
-            if (App.licenseactive == true)
+            try
             {
-                if(App.License.IsActive == true)
+                if (App.licenseactive == true)
                 {
-                    Licencer.Text = "License active WW";
+                    if (App.License.IsActive == true)
+                    {
+                        Licencer.Text = "License active WW";
+                    }
+                    if (App.License.IsActive == false)
+                    {
+                        Licencer.Text = "License active IR";
+                    }
                 }
-                if (App.License.IsActive == false)
+                else
                 {
-                    Licencer.Text = "License active IR";
+                    Licencer.Text = "Trial";
+                    declame.Visibility = Visibility.Visible;
                 }
             }
-            else
+            catch
             {
-                Licencer.Text = "Trial";
-                declame.Visibility = Visibility.Visible;
+                Licencer.Text = "There was a problem with your licence activation";
             }
+           
 
 
             Frame rootFrame = Window.Current.Content as Frame;

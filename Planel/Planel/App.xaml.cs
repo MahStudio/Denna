@@ -44,13 +44,22 @@ namespace Planel
             {
                 Listing = await CurrentApp.LoadListingInformationAsync();
             }
-            catch
+            catch (Exception ex)
             {
-                var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
-                await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
-                License = CurrentAppSimulator.LicenseInformation;
-                Listing = await CurrentAppSimulator.LoadListingInformationAsync();
+                try
+                {
+                    
+                    var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
+                    await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
+                    License = CurrentAppSimulator.LicenseInformation;
+                    Listing = await CurrentAppSimulator.LoadListingInformationAsync();
+                    
+                }
+                catch { }
+
+                
             }
+            
             
           
 

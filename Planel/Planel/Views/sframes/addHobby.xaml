@@ -14,7 +14,7 @@
                 <TextBox MinWidth="80" MaxWidth="620" BorderThickness="0,0,0,1" TextWrapping="Wrap" x:Name="describe" TextAlignment="Justify" PlaceholderText="Describtion"  Margin="15,10,15,0" Height="80" VerticalAlignment="Top" />
 
 
-                <TextBlock Text="Repeats" Opacity="0.8" Margin="7,10" />
+                <TextBlock Text="Repeats" HorizontalAlignment="Center" Opacity="0.8" Margin="7,10" />
                 <GridView Margin="5,10,5,0" SelectionMode="None" Width="auto" HorizontalAlignment="Center">
                     <CheckBox x:Name="sat"  Content="Sat"/>
                     <CheckBox x:Name="sun"  Content="Sun"/>
