@@ -265,7 +265,9 @@
     <None Include="Service References\ZarinPal\configuration91.svcinfo" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\photo_2017-01-28_20-41-34.jpg" />
-    <Content Include="Assets\trialmanagement.xml" />
+    <Content Include="Assets\trialmanagement.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="CortanaVCD.xml">
       <SubType>Designer</SubType>
     </Content>

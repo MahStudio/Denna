@@ -33,6 +33,7 @@ namespace Planel
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            licenseactive = true;
             license();
 
             
@@ -70,15 +71,23 @@ namespace Planel
             licenseactive = (bool) ApplicationData.Current.LocalSettings.Values["LicenceActive"];
             try
             {
-                if (License.IsActive == true || licenseactive == true)
+                if(License != null)
                 {
-                    licenseactive = true;
+                    if (License.IsActive == true || licenseactive == true)
+                    {
+                        licenseactive = true;
 
+                    }
+                    else
+                    {
+                        licenseactive = false;
+                    }
                 }
                 else
                 {
-                    licenseactive = false;
+                    licenseactive = true;
                 }
+               
             }
             catch
             {
