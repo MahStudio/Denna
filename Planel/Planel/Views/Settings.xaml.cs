@@ -157,6 +157,7 @@ namespace Planel.Views
             catch
             {
                 Licencer.Text = "There was a problem with your licence activation";
+                declame.Visibility = Visibility.Visible;
             }
            
 

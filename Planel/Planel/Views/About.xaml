@@ -14,7 +14,8 @@
         <ScrollViewer>
             
         <Grid>
-            
+
+                <ScrollViewer Margin="0,0,0,180">
                 <StackPanel >
                     <Image Height="200" Width="200" Source="/Assets/Icons/Denna logo Dark.png" />
                     <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
@@ -34,7 +35,8 @@
                     </StackPanel>
 
                 </StackPanel>
-            <StackPanel VerticalAlignment="Bottom" >
+                </ScrollViewer>
+                <StackPanel VerticalAlignment="Bottom" >
                 <TextBlock TextAlignment="Center" FontWeight="SemiBold" >
                     DEVELOPED WITH LOVE IN
                     <LineBreak />
@@ -45,7 +47,7 @@
                     <LineBreak />
                     @MohsenS22 , @ArefMAhmadi , @AliNGame
                     <LineBreak />
-                    And all MAH Studio team members :)
+                    And all MAH Studio team members and insiders :)
                 </TextBlock>
                 
             </StackPanel>
