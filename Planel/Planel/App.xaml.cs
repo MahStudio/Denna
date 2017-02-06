@@ -73,7 +73,7 @@ namespace Planel
             }
             catch
             {
-                licenseactive = false;
+                licenseactive = true;
             }
                 
 
