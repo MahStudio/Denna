@@ -21,7 +21,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>DD27282BCA5932272FE9A9C9A31537CE8934DF31</PackageCertificateThumbprint>
-    <HockeyAppResourceId>b1cf0124aaed48d88fecec61c9f7683a</HockeyAppResourceId>
+    <HockeyAppResourceId>452a83706987457a966d88403a1d770e</HockeyAppResourceId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -177,6 +177,9 @@
     <Content Include="Assets\Headings\s3.jpg" />
     <Content Include="Assets\Icons\AreaChart.png" />
     <Content Include="Assets\Icons\CalendarDelete.png" />
+    <Content Include="Assets\Icons\Denna logo Dark.png" />
+    <Content Include="Assets\Icons\Denna logo Green.png" />
+    <Content Include="Assets\Icons\Denna logo White.png" />
     <Content Include="Assets\Icons\DeskLamp.png" />
     <Content Include="Assets\Icons\Plus.png" />
     <Content Include="Assets\Icons\TodoList.png" />

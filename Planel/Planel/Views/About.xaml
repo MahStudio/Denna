@@ -16,7 +16,8 @@
         <Grid>
             
                 <StackPanel >
-                    <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                    <Image Height="200" Width="200" Source="/Assets/Icons/Denna logo Dark.png" />
+                    <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
                         <TextBlock FontWeight="Bold" FontSize="40" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                         <TextBlock x:Name="ApplicationVersion" Margin="3,0,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 12.14.313.40" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                     </StackPanel>

@@ -40,18 +40,27 @@ namespace Planel
         }
         public static async void license()
         {
-           
+            try
+            {
+                Listing = await CurrentApp.LoadListingInformationAsync();
+            }
+            catch
+            {
                 var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
                 await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
                 License = CurrentAppSimulator.LicenseInformation;
-            Listing = await CurrentAppSimulator.LoadListingInformationAsync();
-           
+                Listing = await CurrentAppSimulator.LoadListingInformationAsync();
+            }
+            
+          
+
             if (ApplicationData.Current.LocalSettings.Values["LicenceActive"] == null )
             ApplicationData.Current.LocalSettings.Values["LicenceActive"] =false;
 
             
             licenseactive = (bool) ApplicationData.Current.LocalSettings.Values["LicenceActive"];
-            
+            try
+            {
                 if (License.IsActive == true || licenseactive == true)
                 {
                     licenseactive = true;
@@ -61,6 +70,12 @@ namespace Planel
                 {
                     licenseactive = false;
                 }
+            }
+            catch
+            {
+                licenseactive = false;
+            }
+                
 
             
             
