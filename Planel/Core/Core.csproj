@@ -112,6 +112,7 @@
     <Compile Include="Classes\NameValue.cs" />
     <Compile Include="Models\Hobby.cs" />
     <Compile Include="Models\Localdb.cs" />
+    <Compile Include="Models\Tips.cs" />
     <Compile Include="Models\todo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Core.rd.xml" />

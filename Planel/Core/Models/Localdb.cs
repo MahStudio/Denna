@@ -42,6 +42,50 @@ namespace Core.Models
             ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
             ApplicationData.Current.LocalSettings.Values["RunTime"] = 1;
 
+
+
+            //Create Tips
+            tipper();
+
+
+        }
+        //Create TIPs
+        private static void tipper()
+        {
+
+            List<Tips> tipsl = new List<Tips>();
+            tipsl.Add(new Tips() { Title="Rate us!" , detail="Rate and review denna" ,Days=5 });
+            tipsl.Add(new Tips() { Title = "Hobbies!", detail = "Add your hobbies and stuff you do frequently", Days = 2 });
+            tipsl.Add(new Tips() { Title = "Add your tasks.", detail = "Add your task and stuff that you are planning to do.", Days = 1 });
+            tipsl.Add(new Tips() { Title = "Pin !", detail = "Pin DENNA to your start menu to see more !", Days = 3 });
+            tipsl.Add(new Tips() { Title = "Lockscreen", detail = "Add DENNA to your lockscreen.", Days = 4 });
+            tipsl.Add(new Tips() { Title = "Feedback", detail = "Please tell us your ideas about DENNA", Days = 17 });
+
+            string xml = @"<toast>
+            <visual>
+            <binding template=""ToastGeneric"">
+                <text>Header</text>
+                <text>Detail</text>
+                <text placement='attribution'>Tips</text>
+            </binding>
+            </visual>
+        </toast>";
+            
+
+            DateTimeOffset todate = DateTimeOffset.Now;
+            foreach (var item in tipsl)
+            {
+                XmlDocument doc = new XmlDocument();
+
+                doc.LoadXml(xml);
+                doc.LoadXml(doc.GetXml().Replace("Header", item.Title));
+                doc.LoadXml(doc.GetXml().Replace("Detail", item.detail));
+                DateTimeOffset offset = todate.AddDays(item.Days);
+                ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
+                ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
+            }
+            
+
         }
         //logout proceed
         public static async Task Logout()

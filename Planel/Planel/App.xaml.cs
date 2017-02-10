@@ -34,7 +34,7 @@ namespace Planel
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             licenseactive = true;
-            license();
+           // license();
 
             
             Microsoft.HockeyApp.HockeyClient.Current.Configure("452a83706987457a966d88403a1d770e");
@@ -50,10 +50,10 @@ namespace Planel
                 try
                 {
                     
-                    var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
-                    await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
-                    License = CurrentAppSimulator.LicenseInformation;
-                    Listing = await CurrentAppSimulator.LoadListingInformationAsync();
+                    //var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
+                    //await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
+                  //  License = CurrentAppSimulator.LicenseInformation;
+                  //  Listing = await CurrentAppSimulator.LoadListingInformationAsync();
                     
                 }
                 catch { }
@@ -111,11 +111,10 @@ namespace Planel
             base.OnFileActivated(args);
             coloradjust();
             var rootFrame = new Frame();
-            if (licenseactive == false && License.IsTrial == false)
-                rootFrame.Navigate(typeof(Expire), args);
+           // if (licenseactive == false && License.IsTrial == false)
+            //    rootFrame.Navigate(typeof(Expire), args);
 
-
-            else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+            if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
             {
                 rootFrame.Navigate(typeof(MainPage), args);
                 migratedata();
@@ -189,11 +188,11 @@ namespace Planel
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     coloradjust();
-                    if (licenseactive == false && License.IsTrial == false)
-                        rootFrame.Navigate(typeof(Expire), e.Arguments);
+                 //   if (licenseactive == false && License.IsTrial == false)
+                    //    rootFrame.Navigate(typeof(Expire), e.Arguments);
 
 
-                    else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1") { 
+                   if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1") { 
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
                         migratedata();
                     }
@@ -316,11 +315,11 @@ namespace Planel
                     Window.Current.Content = rootFrame;
                 }
                 coloradjust();
-                if (licenseactive == false && License.IsTrial == false)
-                    rootFrame.Navigate(typeof(Expire), uri);
+              //  if (licenseactive == false && License.IsTrial == false)
+               //     rootFrame.Navigate(typeof(Expire), uri);
 
 
-                else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
                 {
                     rootFrame.Navigate(typeof(MainPage), uri);
                     migratedata();
@@ -344,11 +343,11 @@ namespace Planel
                 }
                 
                     coloradjust();
-                    if (licenseactive == false && License.IsTrial == false)
-                        rootFrame.Navigate(typeof(Expire), args);
+                    //if (licenseactive == false && License.IsTrial == false)
+                    //    rootFrame.Navigate(typeof(Expire), args);
 
 
-                    else if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                    if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
                     {
                         rootFrame.Navigate(typeof(MainPage), args);
                         migratedata();

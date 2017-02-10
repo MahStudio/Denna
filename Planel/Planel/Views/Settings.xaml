@@ -38,7 +38,7 @@
                 </StackPanel>
             
 
-            <TextBlock x:Name="Licencer" HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="SemiBold"
+            <TextBlock Visibility="Collapsed" x:Name="Licencer" HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="SemiBold"
              FontSize="25" Text="Licence : Active IR" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
             <Grid Height="300" >
                 <StackPanel Margin="20,0,20,0" x:Name="declame" Visibility="Collapsed">
