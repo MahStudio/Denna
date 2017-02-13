@@ -37,7 +37,7 @@ namespace Core.Models
         {
             ApplicationData.Current.LocalSettings.Values["Username"] = name;
             if (ApplicationData.Current.LocalSettings.Values["Showtoast"] == null)
-                ApplicationData.Current.LocalSettings.Values["Showtoast"] = false;
+                ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
 
             ApplicationData.Current.LocalSettings.Values["Firstrun"] = "1";
             ApplicationData.Current.LocalSettings.Values["RunTime"] = 1;

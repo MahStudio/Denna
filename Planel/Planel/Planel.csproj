@@ -19,7 +19,7 @@
     <PackageCertificateKeyFile>Planel_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>DD27282BCA5932272FE9A9C9A31537CE8934DF31</PackageCertificateThumbprint>
     <HockeyAppResourceId>452a83706987457a966d88403a1d770e</HockeyAppResourceId>
   </PropertyGroup>

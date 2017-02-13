@@ -17,14 +17,14 @@
     <input id='snoozeTime' type='selection' defaultInput='15'>
       <selection id='15' content='15 minutes'/>
       <selection id='60' content='1 hour'/>
-      <selection id='240' content='4 hours'/>
-      <selection id='260' content='8 hour'/>
-      <selection id='144' content='1 day'/>
+      <selection id='140' content='4 hours'/>
+      <selection id='160' content='8 hour'/>
+      <selection id='190' content='1 day'/>
     </input>
-    <input id='notification' type='selection' defaultInput='2'>
-      <selection id='1' content='Silent'/>
-      <selection id='2' content='Notify'/>
-      <selection id='3' content='Alarm'/>
+    <input id='notification' type='selection' defaultInput='1'>
+      <selection id='0' content='Silent'/>
+      <selection id='1' content='Notify'/>
+      <selection id='2' content='Alarm'/>
     </input>
     <action
       content='Send'

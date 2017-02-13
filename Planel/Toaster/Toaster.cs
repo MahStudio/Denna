@@ -27,7 +27,31 @@ namespace Toaster
                     string title = (string)userInput["title"];
                     string detail = (string)userInput["detail"];
                     var notify = (byte)int.Parse(userInput["notification"].ToString());
-                    //var snoozeTime = (int)userInput["snoozeTime"];
+                    var Time = int.Parse(userInput["snoozeTime"].ToString());
+                    DateTime now = DateTime.Now;
+                    if (Time == 15)
+                    {
+                        now.AddMinutes(15);
+                    }
+                    else if (Time == 60)
+                    {
+                        now.AddHours(1);
+                    }
+                    else if(Time==140)
+                    {
+                        now.AddHours(4);
+                    }
+                    else if (Time == 160)
+                    {
+                        now.AddHours(8);
+
+                    }
+                    else if (Time == 190)
+                    {
+                        now.AddDays(1);
+                    }
+                    Core.Models.todo task = new Core.Models.todo() {detail=detail , title=title,notify=notify ,time=now.ToLocalTime()};
+                    Core.Models.Localdb.Addtodo(task);
                 }
                 catch (Exception ex) { }
 
