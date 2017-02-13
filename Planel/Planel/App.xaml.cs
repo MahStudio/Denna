@@ -284,23 +284,7 @@ namespace Planel
                 
                 base.OnActivated(args);
 
-                if (args.Kind == ActivationKind.VoiceCommand)
-                {
-                    var commandArgs = args as VoiceCommandActivatedEventArgs;
-
-                    
-                    Windows.Media.SpeechRecognition.SpeechRecognitionResult speechRecognitionResult =
-                        commandArgs.Result;
-
-                    
-                    string voiceCommandName = speechRecognitionResult.RulePath[0];
-                    string textSpoken = speechRecognitionResult.Text;
-
-                // Ensure the current window is active
-                Window.Current.Activate();
-
-
-            }
+              
                 
                if (args.Kind == ActivationKind.Protocol)
                 {
@@ -315,13 +299,21 @@ namespace Planel
                     Window.Current.Content = rootFrame;
                 }
                 coloradjust();
-              //  if (licenseactive == false && License.IsTrial == false)
-               //     rootFrame.Navigate(typeof(Expire), uri);
-
-
+                //  if (licenseactive == false && License.IsTrial == false)
+                //     rootFrame.Navigate(typeof(Expire), uri);
+                string x = uri.ToString();
+                
                 if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
                 {
-                    rootFrame.Navigate(typeof(MainPage), uri);
+                    if (x.Contains("agsonCortana") == false)
+                    {
+                        rootFrame.Navigate(typeof(MainPage), uri);
+                    }
+                    else
+                    {
+                        rootFrame.Navigate(typeof(MainPage));
+                    }
+                    
                     migratedata();
                 }
 

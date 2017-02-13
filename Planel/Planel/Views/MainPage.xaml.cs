@@ -134,6 +134,7 @@ namespace Planel.Views
                 mtoday();
 
                 string str = e.Parameter.ToString();
+
                 str = str.Remove(0, 19);
                 var toadd = JsonConvert.DeserializeObject<Core.Models.todo>(str);
                 Core.Models.todo addr = new Core.Models.todo() { notify = toadd.notify, time = toadd.time, title = toadd.title, detail = toadd.detail };
