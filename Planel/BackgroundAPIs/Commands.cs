@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,8 @@ namespace Planel.BackgroundAPIs
             //Take a service deferral so the service isn&#39;t terminated.
             this.serviceDeferral = taskInstance.GetDeferral();
 
-            taskInstance.Canceled += OnTaskCanceled;
+            taskInstance.Canceled += TaskInstance_Canceled;
+            taskInstance.Task.Completed += Task_Completed;
 
             var triggerDetails =
                 taskInstance.TriggerDetails as AppServiceTriggerDetails;
@@ -38,21 +40,19 @@ namespace Planel.BackgroundAPIs
 
                     VoiceCommand voiceCommand = await
                         voiceServiceConnection.GetVoiceCommandAsync();
-                    //switch (voiceCommand.CommandName)
-                    //{
-                    //    case "CityFoodCenter":
-                    //        {
-                    //            var destination =
-                    //                voiceCommand.Properties["destination"][0];
-                    //            SendCompletionMessageForDestination(destination);
-                    //            break;
-                    //        }
+                    switch (voiceCommand.CommandName)
+                    {
+                        case "ToDoFetcher":
+                            {
+                                SendCompletionMessageFortodolist();
+                                break;
+                            }
 
-                        // As a last resort, launch the app in the foreground.
-                       // default:
+                         //   As a last resort, launch the app in the foreground.
+                        default:
                             LaunchAppInForeground();
-                         //   break;
-                   // }
+                            break;
+                    }
                 }
                 finally
                 {
@@ -76,12 +76,17 @@ namespace Planel.BackgroundAPIs
             }
         }
 
-        private void OnTaskCanceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
+        
+      private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
         {
-            //throw new NotImplementedException();
+            serviceDeferral.Complete();
         }
-        private async void SendCompletionMessageForDestination(
-            string destination)
+
+        private void TaskInstance_Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
+        {
+            serviceDeferral.Complete();
+        }
+        private async void SendCompletionMessageFortodolist(  )
         {
             // Take action and determine when the next trip to destination
             // Insert code here.
@@ -92,25 +97,32 @@ namespace Planel.BackgroundAPIs
             // First, create the VoiceCommandUserMessage with the strings 
             // that Cortana will show and speak.
             var userMessage = new VoiceCommandUserMessage();
-            userMessage.DisplayMessage = $"Here’s Food Center in {destination}.";
-            userMessage.SpokenMessage = $"Here’s Food Center in {destination}.";
+            userMessage.DisplayMessage = "Here's your to do list on Denna";
+            userMessage.SpokenMessage = "Here's your to do list";
 
             // Optionally, present visual information about the answer.
             // For this example, create a VoiceCommandContentTile with an 
             // icon and a string.
             var destinationsContentTiles = new List<VoiceCommandContentTile>();
 
-            var destinationTile = new VoiceCommandContentTile();
-            destinationTile.ContentTileType =
-                VoiceCommandContentTileType.TitleWithText;
+           
             // The user can tap on the visual content to launch the app. 
             // Pass in a launch argument to enable the app to deep link to a 
             // page relevant to the item displayed on the content tile.
-            destinationTile.AppLaunchArgument =
-                string.Format("destination={0}", destination);
-            destinationTile.Title = destination;
-            destinationTile.TextLine1 = "August 3rd 2015";
+            
+            ObservableCollection<Core.Models.todo> mycol = new ObservableCollection<Core.Models.todo>();
+            mycol = Core.Models.Localdb.getall(DateTime.Now.ToLocalTime());
+            foreach (var item in mycol)
+            {
+                var destinationTile = new VoiceCommandContentTile();
+                destinationTile.ContentTileType = VoiceCommandContentTileType.TitleWithText;
+                destinationTile.AppLaunchArgument = "agsonCortana";
+                destinationTile.Title = item.title;
+            destinationTile.TextLine1 = item.detail;
+                destinationTile.TextLine2 = item.time.ToString();
             destinationsContentTiles.Add(destinationTile);
+            }
+            
 
             // Create the VoiceCommandResponse from the userMessage and list    
             // of content tiles.
@@ -122,8 +134,7 @@ namespace Planel.BackgroundAPIs
             // can tap to launch the app. 
             // Pass in a launch to enable the app to deep link to a page 
             // relevant to the voice command.
-            response.AppLaunchArgument =
-                string.Format("destination={0}", destination);
+            response.AppLaunchArgument = "agsonCortana";
 
             // Ask Cortana to display the user message and content tile and 
             // also speak the user message.

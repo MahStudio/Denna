@@ -8,13 +8,15 @@
     <Command Name="ToDoFetcher">
       <Example>What to do today ?</Example>
       <ListenFor RequireAppName="BeforeOrAfterPhrase">What to do {date}</ListenFor>
+      <ListenFor >What to do {date}</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">What you do {date}</ListenFor>
+      <ListenFor >What you do {date}</ListenFor>
       <Feedback>Fetching your {date} To do List</Feedback>
       <VoiceCommandService Target="Bgcommand" />
     </Command>
 
     <PhraseList Label="date">
       <Item>today</Item>
-      <Item>tomorrow</Item>
     </PhraseList>
 
   </CommandSet>
