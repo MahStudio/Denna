@@ -8,6 +8,7 @@
     mc:Ignorable="d">
 
     <Page.Resources>
+        
         <Storyboard x:Name="opacitySb1">
             <DoubleAnimation To="1" Duration="00:00:1"
                 Storyboard.TargetName="detstack"
@@ -61,9 +62,12 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
+        
+        
+        
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
 
         <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -189,11 +193,11 @@
                 <Grid  ManipulationMode="TranslateY"
               ManipulationDelta="gridMain_ManipulationDelta"
               ManipulationCompleted="gridMain_ManipulationCompleted"
-              Height="400" Margin="0,-240,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource SystemControlBackgroundAccentBrush}" ManipulationStarted="gridMain_ManipulationStarted"  >
+              Height="400" Margin="0,-240,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource AppSuspressBrush}" ManipulationStarted="gridMain_ManipulationStarted"  >
 
 
 
-                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
+                    <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource SuspressImg}" Stretch="UniformToFill" Height="427" Margin="0,-247,-444,0"   />
                     <Grid>
                         <StackPanel Margin="0,0,0,0" x:Name="detstack" Opacity="0">
                             <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >

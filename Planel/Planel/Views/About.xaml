@@ -6,8 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <Style x:Key="WikiSedaIcon" TargetType="Image">
+                        <Setter Property="Source" Value="/Assets/Icons/Denna logo Dark.png"/>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <Style x:Key="WikiSedaIcon" TargetType="Image">
+                        <Setter Property="Source" Value="/Assets/Icons/Denna logo Green.png"/>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource AppBackgroundColor}">
         <Grid>
             <Image VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h4.png" Stretch="UniformToFill"      />
         </Grid>
@@ -17,7 +32,7 @@
 
                 <ScrollViewer Margin="0,0,0,180">
                 <StackPanel >
-                    <Image Height="200" Width="200" Source="/Assets/Icons/Denna logo Dark.png" />
+                        <Image Style="{StaticResource WikiSedaIcon}" Height="200" Width="200"  />
                     <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
                         <TextBlock FontWeight="Bold" FontSize="40" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                         <TextBlock x:Name="ApplicationVersion" Margin="3,0,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 12.14.313.40" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />

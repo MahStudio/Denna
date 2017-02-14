@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation;
+using Windows.Foundation.Metadata;
 using Windows.Phone.UI.Input;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -41,10 +44,47 @@ namespace Planel.Views
                 runtime++;
                 ApplicationData.Current.LocalSettings.Values["RunTime"] = runtime;
             }
-               
+            coloradjust();
+
+
 
         }
+        private void coloradjust()
+        {
+            SolidColorBrush a = (SolidColorBrush)Application.Current.Resources["AppSuspressBrush"];
+            try
+            {
+                ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                titleBar.BackgroundColor = a.Color;
+                titleBar.ForegroundColor = Colors.White;
+                titleBar.ButtonBackgroundColor = a.Color;
+                titleBar.ButtonForegroundColor = Colors.White;
+                titleBar.InactiveBackgroundColor = a.Color;
+                titleBar.ButtonInactiveBackgroundColor = a.Color;
+                titleBar.InactiveForegroundColor = Colors.White;
+                titleBar.ButtonInactiveForegroundColor = Colors.White;
+                titleBar.ForegroundColor = Colors.White;
+                titleBar.ButtonForegroundColor = Colors.White;
+                titleBar.ButtonForegroundColor = Colors.White;
+                //fuck you asshilism
 
+            }
+            catch
+            {
+
+            }
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                var statusBar = StatusBar.GetForCurrentView();
+                if (statusBar != null)
+                {
+                    statusBar.BackgroundOpacity = 1;
+                    statusBar.BackgroundColor = a.Color;
+                    statusBar.ForegroundColor = Colors.White;
+                }
+            }
+
+        }
 
         public  void messagesetter (string message)
         {

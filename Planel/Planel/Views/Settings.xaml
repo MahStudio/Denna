@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
         <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h4.png" Stretch="UniformToFill"      />
         <ScrollViewer Margin="0,0,0,49">
         <StackPanel  Margin="0,40,0,0" >
@@ -21,7 +21,7 @@
                   FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
 
             </Grid>
-                <TextBox BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,20,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
+                <TextBox Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,20,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
                 <StackPanel  Margin="20" >
                     <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Backup and reset" />
                    
@@ -33,7 +33,7 @@
                 </StackPanel>
                 <StackPanel Visibility="Visible">
                     <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Quick Actions" />
-                    <ToggleSwitch x:Name="swicher" Margin="0,10 ,0,0" HorizontalAlignment="Center" Toggled="swicher_Toggled"/>
+                    <ToggleSwitch x:Name="swicher" MinWidth="10" Margin="0,10 ,0,0" HorizontalAlignment="Center" Toggled="swicher_Toggled"/>
              
                 </StackPanel>
             

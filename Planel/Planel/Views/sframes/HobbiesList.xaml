@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
         <!--<Grid MinHeight="70" Margin="5,0" VerticalAlignment="Top" MaxHeight="120" >
 
             <Grid.RowDefinitions>

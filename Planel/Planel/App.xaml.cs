@@ -226,37 +226,37 @@ namespace Planel
         
         private void coloradjust()
         {
-            try
-            {
-                ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-                titleBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
-                titleBar.ForegroundColor = Colors.White;
-                titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
-                titleBar.ButtonForegroundColor = Colors.White;
-                titleBar.InactiveBackgroundColor= ((Color)Application.Current.Resources["SystemAccentColor"]);
-                titleBar.ButtonInactiveBackgroundColor= ((Color)Application.Current.Resources["SystemAccentColor"]);
-                titleBar.InactiveForegroundColor= Colors.White;
-                titleBar.ButtonInactiveForegroundColor= Colors.White;
-                titleBar.ForegroundColor = Colors.White;
-                titleBar.ButtonForegroundColor = Colors.White;
-                titleBar.ButtonForegroundColor = Colors.White;
-                //fuck you asshilism
+            //try
+            //{
+            //    ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            //    titleBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+            //    titleBar.ForegroundColor = Colors.White;
+            //    titleBar.ButtonBackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+            //    titleBar.ButtonForegroundColor = Colors.White;
+            //    titleBar.InactiveBackgroundColor= ((Color)Application.Current.Resources["SystemAccentColor"]);
+            //    titleBar.ButtonInactiveBackgroundColor= ((Color)Application.Current.Resources["SystemAccentColor"]);
+            //    titleBar.InactiveForegroundColor= Colors.White;
+            //    titleBar.ButtonInactiveForegroundColor= Colors.White;
+            //    titleBar.ForegroundColor = Colors.White;
+            //    titleBar.ButtonForegroundColor = Colors.White;
+            //    titleBar.ButtonForegroundColor = Colors.White;
+            //    //fuck you asshilism
 
-            }
-            catch
-            {
+            //}
+            //catch
+            //{
 
-            }
-            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                var statusBar = StatusBar.GetForCurrentView();
-                if (statusBar != null)
-                {
-                    statusBar.BackgroundOpacity = 1;
-                    statusBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
-                    statusBar.ForegroundColor = Colors.White;
-                }
-            }
+            //}
+            //if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            //{
+            //    var statusBar = StatusBar.GetForCurrentView();
+            //    if (statusBar != null)
+            //    {
+            //        statusBar.BackgroundOpacity = 1;
+            //        statusBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
+            //        statusBar.ForegroundColor = Colors.White;
+            //    }
+            //}
 
         }
 

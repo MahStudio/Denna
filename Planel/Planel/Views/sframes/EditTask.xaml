@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
         <Grid  Margin="0,0,0,48">
             <StackPanel Margin="5,20,5,0" >
                 <TextBox MinWidth="80" MaxWidth="620" BorderThickness="0,0,0,1" x:Name="title" TextAlignment="Justify" PlaceholderText="Title"  Margin="15,10,15,0" Height="40" VerticalAlignment="Top" />

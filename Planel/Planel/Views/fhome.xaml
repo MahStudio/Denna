@@ -14,7 +14,7 @@
                 <GridView SelectionMode="None" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <StackPanel HorizontalAlignment="Center" Width="300">
 
-                        <TextBlock Foreground="Gray" x:Name="todayword" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                        <TextBlock Opacity="0.8" Foreground="{StaticResource AntiForeground}" x:Name="todayword" Text="Not enough yet ..." TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                        
                         <Grid Margin="0,7,0,0" >
 
@@ -42,13 +42,13 @@
                             <TextBlock x:Name="todayper" Text="70%"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       Opacity="0.7"
+                                       
                        FontSize="40"
-                       Foreground="Gray" />
+                       Opacity="0.6" Foreground="{StaticResource AntiForeground}" />
                         </Grid>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" Width="300"  >
-                        <TextBlock Foreground="Gray" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                        <TextBlock Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                         <Grid Margin="0,7,0,0" >
                             <pieCharts:PieChart  Percentage="100"
                             Radius="100"
@@ -76,10 +76,9 @@
 
                             <TextBlock x:Name="yesterpar" Text="95%"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Opacity="0.7"
+                       HorizontalAlignment="Center" 
                        FontSize="40"
-                       Foreground="Gray" />
+                       Opacity="0.6" Foreground="{StaticResource AntiForeground}" />
                         </Grid>
                     </StackPanel>
                 </GridView>
