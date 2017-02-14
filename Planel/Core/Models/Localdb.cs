@@ -137,7 +137,7 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
-                conn.Insert(new todo()
+                var si =new todo()
                 { 
                     notify = item.notify,
                     title = item.title,
@@ -146,7 +146,11 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
                     isdone = item.isdone
 
 
-                });
+                };
+
+                conn.Insert(si);
+
+                item.Id = si.Id;
                 if (item.notify==1)
                  createnotify(item);
                 else if (item.notify == 2)
@@ -485,6 +489,7 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
             doc.LoadXml(doc.GetXml().Replace("Detail", item.detail ));
             DateTimeOffset offset = item.time;
             ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
+            toast.Id = item.Id.ToString();
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
         }
         
@@ -508,6 +513,8 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
             doc.LoadXml(doc.GetXml().Replace("Detail", item.detail ));
             DateTimeOffset offset = item.time;
             ScheduledToastNotification toast = new ScheduledToastNotification(doc, offset);
+            toast.Id = item.Id.ToString();
+            
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
         }
         public static List<Classes.NameValueItem> Wgraph()
@@ -631,6 +638,21 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
                 conn.Update(item);
 
             }
+            var toastnotifier = ToastNotificationManager.CreateToastNotifier();
+
+            foreach (var scheduledToastNotification in toastnotifier.GetScheduledToastNotifications())
+            {
+                if (scheduledToastNotification.Id == item.Id.ToString())
+                {
+
+                    toastnotifier.RemoveFromSchedule(scheduledToastNotification);
+                }
+            }
+            if (item.notify == 1)
+                createnotify(item);
+            else if (item.notify == 2)
+                createalarm(item);
+
 
         }
 
@@ -643,7 +665,16 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
                 conn.Execute("DELETE FROM todo WHERE Id = ?", id);
 
             }
-          //  Classes.worker.refresher();
+            var toastnotifier = ToastNotificationManager.CreateToastNotifier();
+
+            foreach (var scheduledToastNotification in toastnotifier.GetScheduledToastNotifications())
+            {
+                if (scheduledToastNotification.Id == id.ToString())
+                {
+
+                    toastnotifier.RemoveFromSchedule(scheduledToastNotification);
+                }
+            }
         }
 
         public static async Task Done(todo item)
@@ -657,7 +688,16 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
 
 
             }
-           // Classes.worker.refresher();
+            var toastnotifier = ToastNotificationManager.CreateToastNotifier();
+
+            foreach (var scheduledToastNotification in toastnotifier.GetScheduledToastNotifications())
+            {
+                if (scheduledToastNotification.Id == item.Id.ToString())
+                {
+
+                    toastnotifier.RemoveFromSchedule(scheduledToastNotification);
+                }
+            }
         }
         public static async Task Suspend(todo item)
         {
