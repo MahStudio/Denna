@@ -216,7 +216,7 @@
                         </StackPanel>
                         <TextBlock Text="Dear User !" Foreground="White" FontWeight="Bold" VerticalAlignment="Bottom" TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,0,10,50" />
                     </Grid>
-                    <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center"
+                    <Button Click="btnShowHide_Click" x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center" BorderThickness="0,0,0,0"
          AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"   RenderTransformOrigin="0.5, 0.5">
                         <Button.RenderTransform>
                             <RotateTransform />

@@ -44,9 +44,9 @@
 
                     </TextBlock>
                     <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
-                        <Button Click="Button_Click" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="SHARE" Width="70"  />
-                        <Button Click="Button_Click_2" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="FEEDBACK" Width="100"  />
-                        <Button Click="Button_Click_1" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="RATE AND REVIEW" Width="150"  />
+                            <Button BorderThickness="0,0,0,0" Click="Button_Click" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="SHARE" Width="70"  />
+                            <Button BorderThickness="0,0,0,0" Click="Button_Click_2" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="FEEDBACK" Width="100"  />
+                            <Button BorderThickness="0,0,0,0" Click="Button_Click_1" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="RATE AND REVIEW" Width="150"  />
                     </StackPanel>
 
                 </StackPanel>
@@ -60,7 +60,7 @@
                 <TextBlock Opacity="0.8" Margin="20,10,20,20" LineHeight="22" TextWrapping="Wrap" TextAlignment="Center" >
                     The production of this app wouldnt be possible with out these cool guys:
                     <LineBreak />
-                    @MohsenS22 , @ArefMAhmadi , @AliNGame
+                    @MohsenS22 , @ArefMAhmadi 
                     <LineBreak />
                     And all MAH Studio team members and insiders :)
                 </TextBlock>
