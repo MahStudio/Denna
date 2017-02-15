@@ -45,9 +45,32 @@ namespace Planel.Views
                 ApplicationData.Current.LocalSettings.Values["RunTime"] = runtime;
             }
             coloradjust();
+            filsupress();
+            
 
 
 
+        }
+        private async void filsupress()
+        {
+            //string CountriesFile = @"Assets\Countries.xml";
+            //StorageFolder InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            //StorageFile file = await InstallationFolder.GetFileAsync(CountriesFile);
+            if (Convert.ToBoolean(Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) == false))
+            {
+                if (App.Current.RequestedTheme==ApplicationTheme.Light)
+                {
+                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h3.png"));
+                }
+                else
+                {
+                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h4.png"));
+                }
+            }
+            else
+            {
+                Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h4.png"));
+            }
         }
         private void coloradjust()
         {

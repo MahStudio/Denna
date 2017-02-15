@@ -36,7 +36,7 @@
                             Radius="100"
                             BackgroundColor="Transparent"
                             Segment360Color="Transparent"
-                            SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                            SegmentColor="#20c8a5"
                             StrokeThickness="30" />
                             
                             <TextBlock x:Name="todayper" Text="70%"
@@ -68,7 +68,7 @@
                             Radius="100"
                             BackgroundColor="Transparent"
                             Segment360Color="Transparent"
-                            SegmentColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                            SegmentColor="#20c8a5"
                             StrokeThickness="30" />
                            
 

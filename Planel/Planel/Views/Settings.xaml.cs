@@ -45,6 +45,15 @@ namespace Planel.Views
             todos = Core.Models.Localdb.getlist();
             try
             {
+                if (Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) == true)
+                    FollowAccent.IsOn = true;
+                else
+                    FollowAccent.IsOn = false;
+            }
+            catch
+            { }
+            try
+            {
                 if (Classes.Themesetter.GetApplicationTheme() == "Dark")
                     ThemeSelector.SelectedIndex = 0;
                 else if (Classes.Themesetter.GetApplicationTheme() == "Light")
@@ -400,6 +409,21 @@ namespace Planel.Views
                 Classes.Themesetter.SetApplicationTheme((ThemeSelector.SelectedItem as ComboBoxItem).Content.ToString());
             }
             catch { }
+        }
+
+        private void FollowAccent_Toggled(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (FollowAccent.IsOn)
+                    ApplicationData.Current.LocalSettings.Values["FollowAccent"] = true;
+                else
+                    ApplicationData.Current.LocalSettings.Values["FollowAccent"] = false;
+            }
+            catch
+            {
+
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
                              Color="#FF00232B" />
             <SolidColorBrush x:Key="BackgroundColor"
                              Color="#f2f2f2" />
-            <Color x:Key="SystemAccentColor">#20c8a5</Color>
+            
             <Style x:Key="SuspressImg" TargetType="Image">
                 <Setter Property="Source" Value="/Assets/Headings/h3.png"/>
             </Style>
@@ -45,7 +45,7 @@
                              Color="#FF838987" />
             <SolidColorBrush x:Key="BackgroundColor"
                              Color="#171717" />
-            <Color x:Key="SystemAccentColor">#20c8a5</Color>
+            
             <Style x:Key="SuspressImg" TargetType="Image">
                 <Setter Property="Source" Value="/Assets/Headings/h4.png"/>
             </Style>
@@ -79,7 +79,7 @@
             <SolidColorBrush x:Key="AppSuspressBrush" Color="Black" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrastBlack">
-            <Color x:Key="SystemAccentColor">#20c8a5</Color>
+            
             <Style x:Key="SuspressImg" TargetType="Image">
                 <Setter Property="Source" Value="/Assets/Headings/h4.png"/>
             </Style>
@@ -111,7 +111,7 @@
             <SolidColorBrush x:Key="AppSuspressBrush" Color="Black" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrastWhite">
-            <Color x:Key="SystemAccentColor">#20c8a5</Color>
+          
             <Style x:Key="SuspressImg" TargetType="Image">
                 <Setter Property="Source" Value="/Assets/Headings/h4.png"/>
             </Style>
@@ -144,7 +144,7 @@
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
     <ResourceDictionary x:Key="Default">
-        <Color x:Key="SystemAccentColor">#20c8a5</Color>
+       
         <!--Your accent color-->
 
         <SolidColorBrush x:Key="SystemControlBackgroundAccentBrush" Color="{ThemeResource SystemAccentColor}" />

@@ -116,8 +116,21 @@ namespace Planel
 
 
         }
+        private void stuff()
+        {
+            try
+            {
+                if (ApplicationData.Current.LocalSettings.Values["FollowAccent"] == null)
+                    ApplicationData.Current.LocalSettings.Values["FollowAccent"] = false;
+                if (Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) != true)
+                    App.Current.Resources["SystemAccentColor"] = Windows.UI.Color.FromArgb(255, 32, 200, 165);
+            }
+            catch
+            { }
+        }
         protected override void OnFileActivated(FileActivatedEventArgs args)
         {
+            stuff();
             base.OnFileActivated(args);
             coloradjust();
             var rootFrame = new Frame();
@@ -161,7 +174,8 @@ namespace Planel
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            
+            stuff();
+
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -281,6 +295,7 @@ namespace Planel
         }
         protected override void OnActivated(IActivatedEventArgs args)
         {
+            stuff();
             Frame rootFrame = Window.Current.Content as Frame;
 
             
