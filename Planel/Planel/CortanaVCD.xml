@@ -39,6 +39,29 @@
       <Feedback>Fetching your Tasks</Feedback>
       <VoiceCommandService Target="Bgcommand" />
     </Command>
+    <Command Name="addtask">
+      <Example>Add a task</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Add a task</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Create a task</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Add a todo</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Create a todo</ListenFor>
+      <Feedback>Openning the app</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
+    <Command Name="addhobby">
+      <Example>Add a hobbby?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Add a hobby</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Create a hobby</ListenFor>
+      <Feedback>openning the app</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
+    <Command Name="getperformance">
+      <Example>What's my performance?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">what's my performance</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How good where I</ListenFor>
+      <Feedback>Collecting information</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
     <PhraseList Label="date">
       <Item>today</Item>
     </PhraseList>

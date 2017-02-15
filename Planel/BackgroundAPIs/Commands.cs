@@ -64,8 +64,23 @@ namespace Planel.BackgroundAPIs
                                 hobbycounter();
                                 break;
                             }
-
-                         //   As a last resort, launch the app in the foreground.
+                        case "addhobby":
+                            {
+                                LaunchAppInForeground();
+                                    break;
+                            }
+                        case "addtask":
+                            {
+                                LaunchAppInForeground();
+                                break;
+                            }
+                        case "getperformance":
+                            {
+                                getperf();
+                                break;
+                            }
+                            
+                        //   As a last resort, launch the app in the foreground.
                         default:
                             LaunchAppInForeground();
                             break;
@@ -92,7 +107,36 @@ namespace Planel.BackgroundAPIs
                 this.serviceDeferral.Complete();
             }
         }
+        private async void getperf()
+        {
+            var z = Core.Models.Localdb.percentage();
 
+            VoiceCommandResponse response = null;
+            
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "There's your performance";
+                userMessage.SpokenMessage = "You have done" + z.firstpercentage+ " pescent and postponed" +z.firstsuspend + "percent of your tasks today." + "and You have done" + z.secondpercentage + " pescent and postponed" + z.secondsuspend + "percent of your tasks Yesterday.";
+                response =
+                 VoiceCommandResponse.CreateResponse(userMessage);
+           
+            
+
+
+
+            // Create the VoiceCommandResponse from the userMessage and list    
+            // of content tiles.
+
+
+            // Cortana will present a “Go to app_name” link that the user 
+            // can tap to launch the app. 
+            // Pass in a launch to enable the app to deep link to a page 
+            // relevant to the voice command.
+            response.AppLaunchArgument = "agsonCortana";
+
+            // Ask Cortana to display the user message and content tile and 
+            // also speak the user message.
+            await voiceServiceConnection.ReportSuccessAsync(response);
+        } 
         
       private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
         {
