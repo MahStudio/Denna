@@ -14,7 +14,45 @@ namespace Core.Classes
 {
     public static class LiveTile
     {
-        
+      
+        const string TranslatorGroup = "Translator";
+        public static async Task GenerateToast()
+        {
+            var toastFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(
+                   new Uri("ms-appx:///Xtoast.xml"));
+            var xmlString = await FileIO.ReadTextAsync(toastFile);
+            var doc = new Windows.Data.Xml.Dom.XmlDocument();
+            doc.LoadXml(xmlString);
+            StorageFolder storageFolder22 = ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile22 = await storageFolder22.GetFileAsync("avatar.jpg");
+            doc.LoadXml(doc.GetXml().Replace("Prophyle", sampleFile22.Path));
+            var toast = new ToastNotification(doc)
+            {
+                Group = TranslatorGroup,
+                SuppressPopup = true
+            };
+            toast.Dismissed += Toast_Dismissed;
+            toast.Activated += ToastOnActivated;
+            toast.Failed += Toast_Failed;
+
+            var history = ToastNotificationManager.History.GetHistory();
+            if (!history.Any(t => t.Group.Equals(TranslatorGroup)))
+                ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
+        private static async void Toast_Failed(ToastNotification sender, ToastFailedEventArgs args)
+        {
+            await GenerateToast();
+        }
+
+        private static async void ToastOnActivated(ToastNotification sender, object args)
+        {
+            await GenerateToast();
+        }
+
+        private static async void Toast_Dismissed(ToastNotification sender, ToastDismissedEventArgs args)
+        {
+            await GenerateToast();
+        }
         public static async Task livetile()
         {
            

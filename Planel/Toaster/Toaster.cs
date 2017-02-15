@@ -54,10 +54,22 @@ namespace Toaster
                     Core.Models.Localdb.Addtodo(task);
                 }
                 catch (Exception ex) { }
+                try
+                {
+                    sthr();
+                }
+                catch
+                {
 
+                }
             }
-            Core.Classes.LiveTile.livetile();
+            
         }
+        private async void sthr()
+        {
+            await Core.Classes.LiveTile.livetile();
+           await Core.Classes.LiveTile.GenerateToast();
+        } 
         private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
         {
             _deferal.Complete();

@@ -363,8 +363,8 @@ namespace Planel.Views
 
             }
         }
-        
-private void swicher_Toggled(object sender, RoutedEventArgs e)
+
+        private async void swicher_Toggled(object sender, RoutedEventArgs e)
         {
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
@@ -372,6 +372,7 @@ private void swicher_Toggled(object sender, RoutedEventArgs e)
                 if (toggleSwitch.IsOn == true)
                 {
                     ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
+                    await Core.Classes.LiveTile.GenerateToast();
                 }
                 else
                 {
@@ -379,7 +380,7 @@ private void swicher_Toggled(object sender, RoutedEventArgs e)
                 }
             }
 
-            
+
         }
     }
 }
