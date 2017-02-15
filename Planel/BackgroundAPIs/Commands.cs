@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -47,6 +49,21 @@ namespace Planel.BackgroundAPIs
                                 SendCompletionMessageFortodolist();
                                 break;
                             }
+                        case "HobbyFetcher":
+                            {
+                                fetchhobby();
+                                break;
+                            }
+                        case "TodoCounter":
+                            {
+                                taskcounter();
+                                break;
+                            }
+                        case "HobbyCounter":
+                            {
+                                hobbycounter();
+                                break;
+                            }
 
                          //   As a last resort, launch the app in the foreground.
                         default:
@@ -86,6 +103,170 @@ namespace Planel.BackgroundAPIs
         {
             serviceDeferral.Complete();
         }
+        private async void hobbycounter()
+        {
+            ObservableCollection<Core.Models.Hobby> mycol = new ObservableCollection<Core.Models.Hobby>();
+            mycol = Core.Models.Localdb.Gethobbies();
+            VoiceCommandResponse response = null;
+            if (mycol.Count == 0)
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "No hobbies on Denna";
+                userMessage.SpokenMessage = "You have no hobbies ! Add one";
+                response =
+                 VoiceCommandResponse.CreateResponse(userMessage);
+            }
+            else
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                var x = mycol.Count;
+                userMessage.DisplayMessage = "You have " + x + " hobbies" + " on Denna";
+                userMessage.SpokenMessage = "You have " + x + " hobbbies";
+
+            }
+
+
+
+            // Create the VoiceCommandResponse from the userMessage and list    
+            // of content tiles.
+
+
+            // Cortana will present a “Go to app_name” link that the user 
+            // can tap to launch the app. 
+            // Pass in a launch to enable the app to deep link to a page 
+            // relevant to the voice command.
+            response.AppLaunchArgument = "agsonCortana";
+
+            // Ask Cortana to display the user message and content tile and 
+            // also speak the user message.
+            await voiceServiceConnection.ReportSuccessAsync(response);
+        }
+        private async void taskcounter()
+        {
+            var x = Localdb.counter();
+            VoiceCommandResponse response = null;
+            if (x==0)
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "No tasks on Denna";
+                userMessage.SpokenMessage = "You have no tasks ! Add one";
+                response =
+                 VoiceCommandResponse.CreateResponse(userMessage);
+            }
+            else
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "You have "+ x +" tasks"+" on Denna";
+                userMessage.SpokenMessage = "You have " + x + " tasks";
+                
+            }
+
+
+
+            // Create the VoiceCommandResponse from the userMessage and list    
+            // of content tiles.
+
+
+            // Cortana will present a “Go to app_name” link that the user 
+            // can tap to launch the app. 
+            // Pass in a launch to enable the app to deep link to a page 
+            // relevant to the voice command.
+            response.AppLaunchArgument = "agsonCortana";
+
+            // Ask Cortana to display the user message and content tile and 
+            // also speak the user message.
+            await voiceServiceConnection.ReportSuccessAsync(response);
+        }
+        private async void fetchhobby()
+        {
+            // Take action and determine when the next trip to destination
+            // Insert code here.
+
+            // Replace the hardcoded strings used here with strings 
+            // appropriate for your application.
+
+            // First, create the VoiceCommandUserMessage with the strings 
+            // that Cortana will show and speak.
+            
+
+            // Optionally, present visual information about the answer.
+            // For this example, create a VoiceCommandContentTile with an 
+            // icon and a string.
+            var destinationsContentTiles = new List<VoiceCommandContentTile>();
+
+
+            // The user can tap on the visual content to launch the app. 
+            // Pass in a launch argument to enable the app to deep link to a 
+            // page relevant to the item displayed on the content tile.
+
+            ObservableCollection<Core.Models.Hobby> mycol = new ObservableCollection<Core.Models.Hobby>();
+            mycol = Core.Models.Localdb.Gethobbies();
+            VoiceCommandResponse response = null;
+            if (mycol.Count == 0)
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "No hobbies on Denna";
+                userMessage.SpokenMessage = "You have no hobbies ! Add one";
+                response =
+                 VoiceCommandResponse.CreateResponse( userMessage);
+            }
+            else
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "Here's your hobbbies on Denna";
+                userMessage.SpokenMessage = "Here's your hobbies";
+                foreach (var item in mycol)
+                {
+                    var destinationTile = new VoiceCommandContentTile();
+                    destinationTile.ContentTileType = VoiceCommandContentTileType.TitleWithText;
+                    destinationTile.AppLaunchArgument = "agsonCortana";
+                    destinationTile.Title = item.title;
+                    destinationTile.TextLine1 = item.detail;
+                    destinationTile.TextLine2 = convertor(item.Days);
+                    destinationTile.TextLine3 = item.time.ToString();
+                    destinationsContentTiles.Add(destinationTile);
+                    response =
+                VoiceCommandResponse.CreateResponse(
+                    userMessage, destinationsContentTiles);
+                }
+            }
+            
+
+
+            // Create the VoiceCommandResponse from the userMessage and list    
+            // of content tiles.
+             
+
+            // Cortana will present a “Go to app_name” link that the user 
+            // can tap to launch the app. 
+            // Pass in a launch to enable the app to deep link to a page 
+            // relevant to the voice command.
+            response.AppLaunchArgument = "agsonCortana";
+
+            // Ask Cortana to display the user message and content tile and 
+            // also speak the user message.
+            await voiceServiceConnection.ReportSuccessAsync(response);
+        }
+        private string convertor(string json)
+        {
+            
+            var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
+            string Days = "";
+            if (toadd.Count == 7)
+            {
+                Days = "Every Day";
+            }
+            else
+            {
+                foreach (var item in toadd)
+                {
+                    Days += item.ToString() + "  ";
+                }
+            }
+
+
+            return Days;
+        }
         private async void SendCompletionMessageFortodolist(  )
         {
             // Take action and determine when the next trip to destination
@@ -96,9 +277,7 @@ namespace Planel.BackgroundAPIs
 
             // First, create the VoiceCommandUserMessage with the strings 
             // that Cortana will show and speak.
-            var userMessage = new VoiceCommandUserMessage();
-            userMessage.DisplayMessage = "Here's your to do list on Denna";
-            userMessage.SpokenMessage = "Here's your to do list";
+            
 
             // Optionally, present visual information about the answer.
             // For this example, create a VoiceCommandContentTile with an 
@@ -112,23 +291,39 @@ namespace Planel.BackgroundAPIs
             
             ObservableCollection<Core.Models.todo> mycol = new ObservableCollection<Core.Models.todo>();
             mycol = Core.Models.Localdb.getall(DateTime.Now.ToLocalTime());
-            foreach (var item in mycol)
+            VoiceCommandResponse response = null;
+            if (mycol.Count == 0)
             {
-                var destinationTile = new VoiceCommandContentTile();
-                destinationTile.ContentTileType = VoiceCommandContentTileType.TitleWithText;
-                destinationTile.AppLaunchArgument = "agsonCortana";
-                destinationTile.Title = item.title;
-            destinationTile.TextLine1 = item.detail;
-                destinationTile.TextLine2 = item.time.ToString();
-            destinationsContentTiles.Add(destinationTile);
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "Nothing in Denna";
+                userMessage.SpokenMessage = "You have no tasks ! add one.";
+                response = VoiceCommandResponse.CreateResponse(userMessage);
             }
+            else
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.DisplayMessage = "Here's your to do list on Denna";
+                userMessage.SpokenMessage = "Here's your to do list";
+                foreach (var item in mycol)
+                {
+                    var destinationTile = new VoiceCommandContentTile();
+                    destinationTile.ContentTileType = VoiceCommandContentTileType.TitleWithText;
+                    destinationTile.AppLaunchArgument = "agsonCortana";
+                    destinationTile.Title = item.title;
+                    destinationTile.TextLine1 = item.detail;
+                    destinationTile.TextLine2 = item.time.ToString();
+                    destinationsContentTiles.Add(destinationTile);
+                     response =
+                VoiceCommandResponse.CreateResponse(
+                    userMessage, destinationsContentTiles);
+                }
+            }
+            
             
 
             // Create the VoiceCommandResponse from the userMessage and list    
             // of content tiles.
-            var response =
-                VoiceCommandResponse.CreateResponse(
-                    userMessage, destinationsContentTiles);
+            
 
             // Cortana will present a “Go to app_name” link that the user 
             // can tap to launch the app. 

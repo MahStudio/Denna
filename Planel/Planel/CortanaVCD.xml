@@ -14,7 +14,31 @@
       <Feedback>Fetching your {date} To do List</Feedback>
       <VoiceCommandService Target="Bgcommand" />
     </Command>
-
+    <Command Name="HobbyFetcher">
+      <Example>What are my hobbies ?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">What are my hobbies</ListenFor>
+      <ListenFor >What are my hobbies</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">What is my hobby</ListenFor>
+      <Feedback>Fetching your hobbies</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
+    <Command Name="HobbyCounter">
+      <Example>How much hobbies do I have?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much hobbies do I have</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Count my hobbies</ListenFor>
+      <Feedback>Fetching your hobbies</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
+    <Command Name="TodoCounter">
+      <Example>How much tasks do I have ?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much tasks do i have</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much task do i have</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much tasks shall i do</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much tasks should i do</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Count my tasks</ListenFor>
+      <Feedback>Fetching your Tasks</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
     <PhraseList Label="date">
       <Item>today</Item>
     </PhraseList>
