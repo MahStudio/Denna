@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Models;
 using Newtonsoft.Json;
 using Planel.Views.sframes;
 using System;
@@ -19,6 +20,7 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class ftoday : Page
     {
+        private static ObservableCollection<Hobby> Hobbiese = new ObservableCollection<Hobby>();
         ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
         public static ftoday current;
         public ftoday()
@@ -39,6 +41,8 @@ namespace Planel.Views
             DateTime now = DateTime.Now;
             todolist = Core.Models.Localdb.getall(now);
             lvTest.ItemsSource = todolist;
+            Hobbiese = Core.Models.Localdb.Gethobbies();
+            Hobbies.ItemsSource = Hobbiese;
         }
 
         private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
@@ -104,7 +108,7 @@ namespace Planel.Views
 
         private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(HobbiesList));
+            Frame.Navigate(typeof(addHobby));
         }
 
         private void more_Click(object sender, RoutedEventArgs e)
@@ -139,6 +143,32 @@ namespace Planel.Views
         private void AppBarButton_Click_4(object sender, RoutedEventArgs e)
         {
             MainPage.current.ntonavigate("about");
+        }
+
+        private async void Hobbies_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clk = e.ClickedItem as Core.Models.Hobby;
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                Title = clk.title,
+                Content = clk.detail + " at " + clk.time,
+                PrimaryButtonText = "Ok"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
+
+        private void removehobbie_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog msg = new MessageDialog("Are you sure?");
+            msg.Commands.Add(new UICommand("Yes", async delegate {
+                var clk = ((sender as Button).Tag) as Core.Models.Hobby;
+                await Core.Models.Localdb.DeleteHobby(clk.Id);
+                Hobbiese.Remove(clk);
+                await Classes.worker.refresher("Wall");
+            }));
+            msg.Commands.Add(new UICommand("Nope"));
+            msg.ShowAsync();
         }
     }
 }

@@ -255,27 +255,27 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
                     todoss.Add(item);
                 }
             }
-            TimeSpan starttodayi = new TimeSpan(0, 0, 0);
-            TimeSpan endtodayi = new TimeSpan(23, 59, 59);
+            //TimeSpan starttodayi = new TimeSpan(0, 0, 0);
+            //TimeSpan endtodayi = new TimeSpan(23, 59, 59);
 
-            foreach (var item in Hobbies)
-            {
-                string json = item.Days.ToString();
-                var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
-                List<DayOfWeek> adder = new List<DayOfWeek>();
-                adder = toadd.ToList();
-                bool iscontain = _containstoday(adder, starttoday.DayOfWeek);
-                if (item.time >= starttodayi && item.time <= endtodayi)
-                {
-                    DateTime today = DateTime.Now;
-                    DateTime Todate = new DateTime(today.Year, today.Month, today.Day, item.time.Hours, item.time.Minutes, item.time.Seconds);
+            //foreach (var item in Hobbies)
+            //{
+            //    string json = item.Days.ToString();
+            //    var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
+            //    List<DayOfWeek> adder = new List<DayOfWeek>();
+            //    adder = toadd.ToList();
+            //    bool iscontain = _containstoday(adder, starttoday.DayOfWeek);
+            //    if (item.time >= starttodayi && item.time <= endtodayi)
+            //    {
+            //        DateTime today = DateTime.Now;
+            //        DateTime Todate = new DateTime(today.Year, today.Month, today.Day, item.time.Hours, item.time.Minutes, item.time.Seconds);
 
 
 
-                    todo hobbytodo = new todo() { notify = item.notify, time = Todate, title = item.title, detail = item.detail };
-                    todoss.Add(hobbytodo);
-                }
-            }
+            //        todo hobbytodo = new todo() { notify = item.notify, time = Todate, title = item.title, detail = item.detail };
+            //        todoss.Add(hobbytodo);
+            //    }
+            //}
             foreach (var item in todos)
             {
                 if (item.time >= starttoday && item.time <= endtoday )

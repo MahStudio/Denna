@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +27,7 @@ namespace Planel.Views.sframes
     /// </summary>
     public sealed partial class addHobby : Page
     {
+        private static ObservableCollection<Hobby> Hobbies = new ObservableCollection<Hobby>();
         public addHobby()
         {
             this.InitializeComponent();
@@ -34,6 +36,12 @@ namespace Planel.Views.sframes
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SetUpPageAnimation();
+            filler();
+        }
+        public void filler()
+        {
+            Hobbies = Core.Models.Localdb.Gethobbies();
+            lvTest.ItemsSource = Hobbies;
         }
         private void SetUpPageAnimation()
         {
@@ -53,7 +61,31 @@ namespace Planel.Views.sframes
             if (Frame.CanGoBack)
                 Frame.GoBack();
         }
+        private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clk = e.ClickedItem as Core.Models.Hobby;
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                Title = clk.title,
+                Content = clk.detail + " at " + clk.time,
+                PrimaryButtonText = "Ok"
+            };
 
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog msg = new MessageDialog("Are you sure?");
+            msg.Commands.Add(new UICommand("Yes", async delegate {
+                var clk = ((sender as Button).Tag) as Core.Models.Hobby;
+                await Core.Models.Localdb.DeleteHobby(clk.Id);
+                Hobbies.Remove(clk);
+                await Classes.worker.refresher("Wall");
+            }));
+            msg.Commands.Add(new UICommand("Nope"));
+            msg.ShowAsync();
+        }
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             List<DayOfWeek> days = new List<DayOfWeek>();
@@ -96,7 +128,7 @@ namespace Planel.Views.sframes
 
 
 
-                HobbiesList.current.filler();
+                //HobbiesList.current.filler();
                 Classes.worker.refresher("Add");
             }
             else

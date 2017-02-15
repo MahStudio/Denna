@@ -154,9 +154,6 @@
     <Compile Include="Views\sframes\EditTask.xaml.cs">
       <DependentUpon>EditTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\sframes\HobbiesList.xaml.cs">
-      <DependentUpon>HobbiesList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
@@ -334,10 +331,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\sframes\EditTask.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\sframes\HobbiesList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
