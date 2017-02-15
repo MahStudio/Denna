@@ -9,6 +9,7 @@
 
     <Grid Background="{ThemeResource AppBackgroundColor}">
         <Grid  Margin="0,0,0,48">
+            <ScrollViewer>
             <StackPanel Margin="5,20,5,0" >
                 <TextBox MinWidth="80" MaxWidth="620" BorderThickness="0,0,0,1" x:Name="title" TextAlignment="Justify" PlaceholderText="Title"  Margin="15,10,15,0" Height="40" VerticalAlignment="Top" />
                 <TextBox MinWidth="80" MaxWidth="620" BorderThickness="0,0,0,1" TextWrapping="Wrap" x:Name="describe" TextAlignment="Justify" PlaceholderText="Describtion"  Margin="15,10,15,0" Height="80" VerticalAlignment="Top" />
@@ -23,7 +24,7 @@
                 </StackPanel>
 
         </StackPanel>
-            
+          </ScrollViewer>  
     </Grid>
         <CommandBar  VerticalAlignment="Bottom">
 
@@ -41,7 +42,7 @@
             <AppBarButton Click="AppBarButton_Click" Label="Delete" >
 
                 <AppBarButton.Icon>
-                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;"  Height="49" VerticalAlignment="Top"/>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
                 </AppBarButton.Icon>
             </AppBarButton>
             
