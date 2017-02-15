@@ -24,7 +24,7 @@
     </Page.Resources>
     <Grid Background="{ThemeResource AppBackgroundColor}">
         <Grid>
-            <Image VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h4.png" Stretch="UniformToFill"      />
+            <Image Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h14.png" Stretch="UniformToFill"      />
         </Grid>
         <ScrollViewer>
             
@@ -56,14 +56,10 @@
                     DEVELOPED WITH LOVE IN
                     <LineBreak />
                     MAH STUDIO
-                </TextBlock>
-                <TextBlock Opacity="0.8" Margin="20,10,20,20" LineHeight="22" TextWrapping="Wrap" TextAlignment="Center" >
-                    The production of this app wouldnt be possible with out these cool guys:
                     <LineBreak />
-                    @MohsenS22 , @ArefMAhmadi 
-                    <LineBreak />
-                    And all MAH Studio team members and insiders :)
-                </TextBlock>
+                    
+                    </TextBlock>
+                
                 
             </StackPanel>
         </Grid>

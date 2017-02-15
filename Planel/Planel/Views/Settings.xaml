@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource AppBackgroundColor}">
-        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h4.png" Stretch="UniformToFill"      />
+        <Image  VerticalAlignment="Bottom" Height="210" HorizontalAlignment="Left" Source="/Assets/Headings/h14.png" Stretch="UniformToFill"      />
         <ScrollViewer Margin="0,0,0,49">
         <StackPanel  Margin="0,40,0,0" >
             <Grid>

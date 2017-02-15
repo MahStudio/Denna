@@ -64,12 +64,12 @@ namespace Planel.Views
                 }
                 else
                 {
-                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h4.png"));
+                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
                 }
             }
             else
             {
-                Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h4.png"));
+                Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
             }
         }
         private void coloradjust()

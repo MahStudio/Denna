@@ -168,8 +168,8 @@
   <ItemGroup>
     <Content Include="AlarmToast.xml" />
     <Content Include="Assets\Headings\bgs.png" />
+    <Content Include="Assets\Headings\h14.png" />
     <Content Include="Assets\Headings\h3.png" />
-    <Content Include="Assets\Headings\h4.png" />
     <Content Include="Assets\Headings\s.jpg" />
     <Content Include="Assets\Headings\s2.jpg" />
     <Content Include="Assets\Headings\s3.jpg" />

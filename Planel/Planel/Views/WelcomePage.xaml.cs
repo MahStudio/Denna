@@ -1,8 +1,10 @@
 ﻿using System;
+using Windows.Foundation.Metadata;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -21,9 +23,68 @@ namespace Planel.Views
         {
             this.InitializeComponent();
             Core.Models.Localdb.CreateDatabase();
+            filsupress();
+            coloradjust();
+        }
+        private void coloradjust()
+        {
+            Color a = (Color)Application.Current.Resources["SystemAccentColor"];
+            try
+            {
+                ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                titleBar.BackgroundColor = a;
+                titleBar.ForegroundColor = Colors.White;
+                titleBar.ButtonBackgroundColor = a;
+                titleBar.ButtonForegroundColor = Colors.White;
+                titleBar.InactiveBackgroundColor = a;
+                titleBar.ButtonInactiveBackgroundColor = a;
+                titleBar.InactiveForegroundColor = Colors.White;
+                titleBar.ButtonInactiveForegroundColor = Colors.White;
+                titleBar.ForegroundColor = Colors.White;
+                titleBar.ButtonForegroundColor = Colors.White;
+                titleBar.ButtonForegroundColor = Colors.White;
+                //fuck you asshilism
+
+            }
+            catch
+            {
+
+            }
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                var statusBar = StatusBar.GetForCurrentView();
+                if (statusBar != null)
+                {
+                    statusBar.BackgroundOpacity = 1;
+                    statusBar.BackgroundColor = a;
+                    statusBar.ForegroundColor = Colors.White;
+                }
+            }
+
         }
 
-       
+        private async void filsupress()
+        {
+            //string CountriesFile = @"Assets\Countries.xml";
+            //StorageFolder InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            //StorageFile file = await InstallationFolder.GetFileAsync(CountriesFile);
+            if (Convert.ToBoolean(Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) == false))
+            {
+                if (App.Current.RequestedTheme == ApplicationTheme.Light)
+                {
+                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h3.png"));
+                }
+                else
+                {
+                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
+                }
+            }
+            else
+            {
+                Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
+            }
+        }
+
         #region FlipView
         private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

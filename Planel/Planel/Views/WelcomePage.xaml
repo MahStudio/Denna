@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource SystemControlBackgroundAccentBrush}" >
 
 
-        <Image  VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h3.png" Stretch="UniformToFill"      />
+        <Image Height="240" VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="Superss" Stretch="UniformToFill"      />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,55" Height="45" VerticalAlignment="Bottom" >
             <Button x:Name="b1" Click="b1_Click" Style="{StaticResource dotbut}" />
             <Button x:Name="b2" Click="b2_Click" Style="{StaticResource dotbut}"  />
@@ -75,9 +75,9 @@
                   FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
                         
                     </Grid>
-                    <TextBlock Margin="0,70,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="Let's be familiar" />
+                    <TextBlock Margin="0,70,0,0" TextAlignment="Center" Foreground="White"  FontSize="20" Text="Let's be familiar" />
                     <StackPanel>
-                        <TextBox BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="What's your name?"  Margin="5,10,5,0" Height="40" VerticalAlignment="Top" />
+                        <TextBox RequestedTheme="Dark" TextAlignment="Center" Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400"  PlaceholderText="What's your name?"  Margin="5,15,5,0" Height="40" VerticalAlignment="Top" />
                     </StackPanel>
                 </StackPanel>
             </FlipViewItem>
