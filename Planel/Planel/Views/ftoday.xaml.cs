@@ -3,7 +3,9 @@ using Core.Models;
 using Newtonsoft.Json;
 using Planel.Views.sframes;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Popups;
@@ -22,6 +24,7 @@ namespace Planel.Views
     {
         private static ObservableCollection<Hobby> Hobbiese = new ObservableCollection<Hobby>();
         ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
+        private static ObservableCollection<Hobby> toshow = new ObservableCollection<Hobby>();
         public static ftoday current;
         public ftoday()
         {
@@ -42,9 +45,40 @@ namespace Planel.Views
             todolist = Core.Models.Localdb.getall(now);
             lvTest.ItemsSource = todolist;
             Hobbiese = Core.Models.Localdb.Gethobbies();
-            Hobbies.ItemsSource = Hobbiese;
+            await trim(Hobbiese);
+            Hobbies.ItemsSource = toshow;
         }
+        private static async Task trim (ObservableCollection<Hobby> stuff)
+        {
+            
+            foreach (var item in stuff)
+            {
+                
+                var a = DateTime.Now.DayOfWeek;
+               var x=  JsonConvert.DeserializeObject<List<DayOfWeek>>(item.Days);
+                bool iscontain = _containstoday(x, a);
+                if (iscontain)
+                {
+                    
+                        toshow.Add(item);
+                    
+                }
+               
+                
+            }
+        }
+        private static bool _containstoday(List<DayOfWeek> list, DayOfWeek day)
+        {
+            bool result = false;
 
+            foreach (var item in list)
+            {
+                if (item == day)
+                    result = true;
+            }
+
+            return result;
+        }
         private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
 

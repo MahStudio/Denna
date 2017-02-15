@@ -15,10 +15,19 @@ namespace Planel.Classes
             string json = value.ToString();
             var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
             string Days = "";
-            foreach (var item in toadd)
+            if (toadd.Count == 7)
             {
-                Days += item.ToString() + "  ";
+                Days = "Every Day";
             }
+            else
+            {
+                foreach (var item in toadd)
+                {
+                    Days += item.ToString() + "  ";
+                }
+            }
+            
+            
             return Days;
         }
 
