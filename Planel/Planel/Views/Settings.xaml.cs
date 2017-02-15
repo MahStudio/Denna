@@ -43,7 +43,17 @@ namespace Planel.Views
                 Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
             App_BackRequested;
             todos = Core.Models.Localdb.getlist();
-
+            try
+            {
+                if (Classes.Themesetter.GetApplicationTheme() == "Dark")
+                    ThemeSelector.SelectedIndex = 0;
+                else if (Classes.Themesetter.GetApplicationTheme() == "Light")
+                    ThemeSelector.SelectedIndex = 1;
+                else
+                    ThemeSelector.SelectedIndex = 2;
+            }
+            catch
+            { }
 
         }
         ~Settings()
@@ -381,6 +391,15 @@ namespace Planel.Views
             }
 
 
+        }
+
+        private void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Classes.Themesetter.SetApplicationTheme((ThemeSelector.SelectedItem as ComboBoxItem).Content.ToString());
+            }
+            catch { }
         }
     }
 }

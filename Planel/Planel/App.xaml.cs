@@ -34,9 +34,19 @@ namespace Planel
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             licenseactive = true;
-           // license();
+            // license();
+            if (Classes.Themesetter.GetApplicationTheme() != "System")
+            {
+                if (Classes.Themesetter.GetApplicationTheme() == "Dark")
+                {
+                    App.Current.RequestedTheme = ApplicationTheme.Dark;
+                }
+                else
+                {
+                    App.Current.RequestedTheme = ApplicationTheme.Light;
+                }
+            }
 
-            
             Microsoft.HockeyApp.HockeyClient.Current.Configure("452a83706987457a966d88403a1d770e");
         }
         public static async void license()
