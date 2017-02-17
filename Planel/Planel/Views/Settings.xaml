@@ -8,40 +8,50 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource AppBackgroundColor}">
-        <Image  VerticalAlignment="Bottom" Height="210" HorizontalAlignment="Left" Source="/Assets/Headings/h14.png" Stretch="UniformToFill"      />
         <ScrollViewer Margin="0,0,0,49">
-        <StackPanel  Margin="0,40,0,0" >
-            <Grid>
-                <Ellipse   HorizontalAlignment="Center" Height="100"  Width="100" >
-                    <Ellipse.Fill>
-                        <ImageBrush Stretch="UniformToFill" x:Name="avatar"  />
-                    </Ellipse.Fill>
-                </Ellipse>
-                <Button Click="Button_Click_1" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
+            <StackPanel HorizontalAlignment="Center" MaxWidth="700" MinWidth="20" Margin="0,40,0,0" >
+                <StackPanel  Orientation="Horizontal">
+                    <Grid>
+                        <Ellipse   HorizontalAlignment="Center" Height="100"  Width="100" >
+                            <Ellipse.Fill>
+                                <ImageBrush Stretch="UniformToFill" x:Name="avatar"  />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Button Click="Button_Click_1" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
                   FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
 
-            </Grid>
-                <TextBox Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" TextAlignment="Justify" PlaceholderText="YOUR NAME"  Margin="5,20,5,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
-                <StackPanel  Margin="20" >
-                    <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Backup and reset" />
+                    </Grid>
+                    <TextBox Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="600" TextAlignment="Justify" PlaceholderText="YOUR NAME" MinWidth="230" Margin="5,40,0,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
+                </StackPanel>
+            
+               
+                <StackPanel Margin="0,20,0,10" >
+                    <TextBlock HorizontalAlignment="Left" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Backup and reset" />
                    
                     <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0" Orientation="Horizontal" >
-                        <Button x:Name="saver" Click="saver_Click" Content="Save" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="90" VerticalAlignment="Bottom" Margin="0,0,0,10" />
-                        <Button x:Name="pick" Click="pick_Click" Content="Restore" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="90" VerticalAlignment="Bottom" Margin="5,0,0,10" />
+                        <Button x:Name="saver" BorderThickness="0,0,0,0" Click="saver_Click" Content="Save"  Height="55" HorizontalAlignment="Center" Width="150" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+                        <Button x:Name="pick" BorderThickness="0,0,0,0" Click="pick_Click" Content="Restore" Height="55" HorizontalAlignment="Center" Width="150" VerticalAlignment="Bottom" Margin="5,0,0,10" />
 
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Visibility="Visible">
-                    <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Quick Actions" />
-                    <ToggleSwitch x:Name="swicher" MinWidth="10" Margin="0,10 ,0,0" HorizontalAlignment="Center" Toggled="swicher_Toggled"/>
-             
-                </StackPanel>
-                <ComboBox Margin="20,15,20,0" MaxWidth="400" BorderThickness="1" BorderBrush="Gray"  x:Name="ThemeSelector" Header="Theme" HorizontalAlignment="Stretch" SelectionChanged="ThemeSelector_SelectionChanged">
+                <ComboBox Margin="20,15,20,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="ThemeSelector" Header="Theme" HorizontalAlignment="Left" MinWidth="320" SelectionChanged="ThemeSelector_SelectionChanged">
                     <ComboBoxItem Content="Dark" Tag="Dark"/>
                     <ComboBoxItem  Content="Light" Tag="Light"/>
                     <ComboBoxItem  Content="System" Tag="System"/>
                 </ComboBox>
-                <ToggleSwitch Header="Follow Accent color" MinWidth="10" x:Name="FollowAccent" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" Toggled="FollowAccent_Toggled"/>
+                <StackPanel MinWidth="200" Orientation="Horizontal">
+                    
+                    <TextBlock HorizontalAlignment="Left" Margin="0,20 ,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Quick Actions" />
+                    <ToggleSwitch x:Name="swicher" MinWidth="10" Margin="170,10 ,0,0" HorizontalAlignment="Right" Toggled="swicher_Toggled"/>
+             
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock HorizontalAlignment="Left" Margin="0,20 ,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Quick Actions" />
+                    <ToggleSwitch MinWidth="10" x:Name="FollowAccent" Grid.Column="1" HorizontalAlignment="Center" Margin="170,10,0,0" Toggled="FollowAccent_Toggled"/>
+
+                </StackPanel>
+               
                 <TextBlock Visibility="Collapsed" x:Name="Licencer" HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="SemiBold"
              FontSize="25" Text="Licence : Active IR" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                 <TextBlock MaxWidth="400" TextAlignment="Center" Text="You might need to restart to apply theme changes." />
@@ -62,7 +72,7 @@
         </StackPanel>
         </ScrollViewer>
         
-        <Button x:Name="logout" Click="logout_Click" Content="LOG OUT" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+        <Button x:Name="logout" Click="logout_Click" Content="LOG OUT" Style="{StaticResource logoutstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
         <Grid x:Name="bye" Visibility="Collapsed" Background="{StaticResource SystemControlBackgroundAccentBrush}" >
             <TextBlock FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"
 TextWrapping="Wrap" Foreground="White" Text="Bye Bye :)" />

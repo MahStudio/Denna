@@ -116,6 +116,7 @@ namespace Planel.Views
         
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            
                 var req = await BackgroundExecutionManager.RequestAccessAsync();
                 if (req != BackgroundAccessStatus.DeniedByUser && req != BackgroundAccessStatus.DeniedBySystemPolicy)
                 {
