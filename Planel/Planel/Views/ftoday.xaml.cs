@@ -5,7 +5,6 @@ using Planel.Views.sframes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
@@ -18,143 +17,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Planel.Views
 {
-    public class MessageDataTemplateSelecotr : DataTemplateSelector
-    {
-        public DataTemplate HobbieStyle { get; set; }
-        public DataTemplate TaskStyle { get; set; }
-        protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
-        {
-            var message = item as MessageModel;
-            if (message.MessageType.ToString() == "HobbieStyle")
-                return HobbieStyle;
-            else
-                return TaskStyle;
-        }
-    }
-    public class MessageModel : INotifyPropertyChanged
-    {
-        private Enum _MessageType;
-        private int _id;
-        private string _title;
-        private string _detail;
-        private DateTime _time;
-        private byte _notify;
-        private byte _isdone;
-        private string _weekdays;
-        protected void RaisePropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public Enum MessageType
-        {
-            get
-            {
-                return _MessageType;
-            }
-            set
-            {
-                if (value != _MessageType)
-                {
-                    _MessageType = value;
-                    RaisePropertyChanged("MessageType");
-                }
-            }
-        }
-        public int Id
-        {
-            get { return _id; }
-            set
-            {
-                if (_id != value)
-                {
-                    _id = value;
-                    RaisePropertyChanged("Id");
-                }
-            }
-        }
-        public string title
-        {
-            get { return _title; }
-            set
-            {
-                if (_title != value)
-                {
-                    _title = value;
-                    RaisePropertyChanged("title");
-                }
-            }
-        }
-        public string detail
-        {
-            get { return _detail; }
-            set
-            {
-                if (_detail != value)
-                {
-                    _detail = value;
-                    RaisePropertyChanged("detail");
-                }
-            }
-        }
-        public DateTime time
-        {
-            get { return _time; }
-            set
-            {
-                if (_time != value)
-                {
-                    _time = value;
-                    RaisePropertyChanged("time");
-                }
-            }
-        }
-        
-        //0 stands for no notify, 1 stands for toast notify and 2 stands for alarm
-        public byte notify
-        {
-            get { return _notify; }
-            set
-            {
-                if (_notify != value)
-                {
-                    _notify = value;
-                    RaisePropertyChanged("notify");
-                }
-            }
-        }
-       
-        // 0 stands for undone, 1 stands for suspend(snooze) and 2 stands for done
-        public byte isdone
-        {
-            get { return _isdone; }
-            set
-            {
-                if (_isdone != value)
-                {
-                    _isdone = value;
-                    RaisePropertyChanged("isdone");
-                }
-            }
-        }
-        public string Days
-        {
-            get { return _weekdays; }
-            set
-            {
-                if (_weekdays != value)
-                {
-                    _weekdays = value;
-                    RaisePropertyChanged("Days");
-                }
-            }
-        }
-    }
-
-
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -162,13 +24,8 @@ namespace Planel.Views
     {
         private static ObservableCollection<Hobby> Hobbiese = new ObservableCollection<Hobby>();
         ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
-        ObservableCollection<MessageModel> listViewCollection = new ObservableCollection<MessageModel>();
+        private static ObservableCollection<Hobby> toshow = new ObservableCollection<Hobby>();
         public static ftoday current;
-        private enum _MessageType
-        {
-            TaskStyle,
-            HobbieStyle
-        }
         public ftoday()
         {
             this.InitializeComponent();
@@ -186,13 +43,10 @@ namespace Planel.Views
         {
             DateTime now = DateTime.Now;
             todolist = Core.Models.Localdb.getall(now);
-            
+            lvTest.ItemsSource = todolist;
             Hobbiese = Core.Models.Localdb.Gethobbies();
             await trim(Hobbiese);
-            foreach (var item in Hobbiese)
-            {
-
-            }
+            Hobbies.ItemsSource = toshow;
         }
         private static async Task trim (ObservableCollection<Hobby> stuff)
         {
