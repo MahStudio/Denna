@@ -46,7 +46,7 @@ namespace Planel.Views
             }
             coloradjust();
             filsupress();
-            
+            Frame.BackStack.Clear();
 
 
 
