@@ -40,6 +40,7 @@ namespace Planel.Views
         private DateTime _time;
         private byte _notify;
         private byte _isdone;
+        private TimeSpan _Time;
         private string _weekdays;
         protected void RaisePropertyChanged(string name)
         {
@@ -97,6 +98,18 @@ namespace Planel.Views
                 {
                     _detail = value;
                     RaisePropertyChanged("detail");
+                }
+            }
+        }
+        public TimeSpan Time
+        {
+            get { return _Time; }
+            set
+            {
+                if (_Time != value)
+                {
+                    _Time = value;
+                    RaisePropertyChanged("Time");
                 }
             }
         }
@@ -162,7 +175,7 @@ namespace Planel.Views
     {
         private static ObservableCollection<Hobby> Hobbiese = new ObservableCollection<Hobby>();
         ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
-        ObservableCollection<MessageModel> listViewCollection = new ObservableCollection<MessageModel>();
+        private static ObservableCollection<MessageModel> listViewCollection = new ObservableCollection<MessageModel>();
         public static ftoday current;
         private enum _MessageType
         {
@@ -196,7 +209,7 @@ namespace Planel.Views
         }
         private static async Task trim (ObservableCollection<Hobby> stuff)
         {
-            toshow.Clear();
+            listViewCollection.Clear();
             
             foreach (var item in stuff)
             {
@@ -206,8 +219,13 @@ namespace Planel.Views
                 bool iscontain = _containstoday(x, a);
                 if (iscontain)
                 {
-                    
-                        toshow.Add(item);
+
+                    listViewCollection.Add(new MessageModel() {
+
+                        Days=item.Days , detail=item.detail , Id=item.Id, MessageType=_MessageType.HobbieStyle ,
+                        Time=item.time , title=item.title
+                    }
+                        );
                     
                 }
                
