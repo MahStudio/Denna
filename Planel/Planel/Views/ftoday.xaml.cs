@@ -50,6 +50,7 @@ namespace Planel.Views
         }
         private static async Task trim (ObservableCollection<Hobby> stuff)
         {
+            toshow.Clear();
             
             foreach (var item in stuff)
             {

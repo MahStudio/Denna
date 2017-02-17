@@ -46,7 +46,8 @@ namespace Planel.Views
             }
             coloradjust();
             filsupress();
-            Frame.BackStack.Clear();
+            
+            
 
 
 
@@ -116,8 +117,16 @@ namespace Planel.Views
         
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            
-                var req = await BackgroundExecutionManager.RequestAccessAsync();
+            if (Frame.CanGoBack)
+            {
+                try
+                {
+                    Frame.BackStack.Clear();
+                }
+                catch { }
+            }
+
+            var req = await BackgroundExecutionManager.RequestAccessAsync();
                 if (req != BackgroundAccessStatus.DeniedByUser && req != BackgroundAccessStatus.DeniedBySystemPolicy)
                 {
                     var list = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "NotifierTask");
