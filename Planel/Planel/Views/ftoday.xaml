@@ -9,71 +9,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <local2:JsonToWeekdayConverter x:Key="JsonToWeekdayConverter" />
+        <local2:IntToColorConverter x:Key="IntToColorConverter"/>
+        <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
+        <local2:DateTimeToVisibilityConverter x:Key="DateTimeToVisibilityConverter" />
+        <DataTemplate x:Key="HobbieStyle" >
 
 
-    <Grid Background="Transparent">
-        <ScrollViewer Margin="0,0,0,48" >
-            <StackPanel >
-                <ListView Margin="0,10,0,0" SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="Hobbies" ItemClick="Hobbies_ItemClick">
-                    <ListView.Resources>
-                        <local2:JsonToWeekdayConverter x:Key="JsonToWeekdayConverter" />
-                        <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
+            <Grid MinHeight="70" Margin="48,0,5,0" VerticalAlignment="Top" MaxHeight="120" >
 
-                    </ListView.Resources>
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            <Setter Property="VerticalAlignment" Value="Stretch"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate >
-
-
-                            <Grid MinHeight="70" Margin="48,0,5,0" VerticalAlignment="Top" MaxHeight="120" >
-
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Opacity="0.85" Height="27"  Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title}"  Margin="0,0,95,0"/>
-                                <TextBlock MaxLines="3"  TextWrapping="Wrap" Opacity="0.65"  Grid.Row="2" Text="{Binding detail}" FontSize="15" Margin="0,0,0,0" />
-                                <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time}" HorizontalAlignment="Right" Width="110"/>
-                                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="removehobbie" Click="removehobbie_Click"  Background="Transparent" Tag="{Binding}"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Opacity="0.85" Height="27"  Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title}"  Margin="0,0,95,0"/>
+                <TextBlock MaxLines="3"  TextWrapping="Wrap" Opacity="0.65"  Grid.Row="2" Text="{Binding detail}" FontSize="15" Margin="0,0,0,0" />
+                <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time}" HorizontalAlignment="Right" Width="110"/>
+                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="removehobbie" Click="removehobbie_Click"  Background="Transparent" Tag="{Binding}"
                                 FontFamily="Segoe MDL2 Assets" Grid.RowSpan="2" BorderThickness="0,0,0,0"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,18,0,17" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
-                                </Button>
-                                <StackPanel Height="20" Margin="0,0,0,10" Grid.Row="1" Orientation="Horizontal">
+                </Button>
+                <StackPanel Height="20" Margin="0,0,0,10" Grid.Row="1" Orientation="Horizontal">
 
-                                    <TextBlock MaxLines="1" Margin="0,0,0,0" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding Days, Converter={StaticResource JsonToWeekdayConverter}}" FontSize="12"  />
-                                    <TextBlock Margin="5,0,0,0" FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0"
+                    <TextBlock MaxLines="1" Margin="0,0,0,0" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding Days, Converter={StaticResource JsonToWeekdayConverter}}" FontSize="12"  />
+                    <TextBlock Margin="5,0,0,0" FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0"
            FontSize="17" Text="{Binding notify,Converter={StaticResource ByteToGlyphConverter} , Mode=TwoWay}"  HorizontalAlignment="Left"
           VerticalAlignment="Center" Foreground="Gray" Width="25" Height="17" />
-                                </StackPanel>
-                            </Grid>
+                </StackPanel>
+            </Grid>
 
 
 
 
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Grid >
-                    <ListView Margin="0,10,0,0" SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
-                        <ListView.Resources>
-                            <local2:IntToColorConverter x:Key="IntToColorConverter"/>
-                            <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
-                            <local2:DateTimeToVisibilityConverter x:Key="DateTimeToVisibilityConverter" />
-                        </ListView.Resources>
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                <Setter Property="VerticalAlignment" Value="Stretch"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate>
-                            <DataTemplate >
-                                <controls:SlidableListItem 
+        </DataTemplate>
+        <DataTemplate x:Key="TaskStyle" >
+            <controls:SlidableListItem 
                     HorizontalAlignment="Stretch"
                     LeftIcon="Accept" 
                     RightIcon="Clock" 
@@ -95,67 +66,81 @@
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
                     
                     >
-                                    <Grid MinHeight="70" Margin="5,0" VerticalAlignment="Top" MaxHeight="120" >
+                <Grid MinHeight="70" Margin="5,0" VerticalAlignment="Top" MaxHeight="120" >
 
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="27"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="48"/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="27"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                                        <Grid Visibility="{Binding time , Converter={StaticResource DateTimeToVisibilityConverter}}" Grid.RowSpan="2" HorizontalAlignment="Right" Width="1" Background="{StaticResource AntiForeground}" Opacity="0.4" Margin="0,0,16,0" />
-                                        <Ellipse Fill="{Binding isdone, Converter = {StaticResource IntToColorConverter} , Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,3,6,3" Width="21" />
-                                        <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title , Mode=TwoWay}"  Margin="0,0,95,0"/>
-                                        <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="15" Margin="0,5,38,10" />
-                                        <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="110"/>
-                                        <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more" Click="more_Click"  Background="Transparent" Tag="{Binding}"
+                    <Grid Visibility="{Binding time , Converter={StaticResource DateTimeToVisibilityConverter}}" Grid.RowSpan="2" HorizontalAlignment="Right" Width="1" Background="{StaticResource AntiForeground}" Opacity="0.4" Margin="0,0,16,0" />
+                    <Ellipse Fill="{Binding isdone, Converter = {StaticResource IntToColorConverter} , Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,3,6,3" Width="21" />
+                    <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="17" Text="{Binding title , Mode=TwoWay}"  Margin="0,0,95,0"/>
+                    <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding detail , Mode=TwoWay}" FontSize="15" Margin="0,5,38,10" />
+                    <TextBlock TextAlignment="Center" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding time , Mode=TwoWay}" HorizontalAlignment="Right" Width="110"/>
+                    <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more" Click="more_Click"  Background="Transparent" Tag="{Binding}"
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
-                                            <Button.Flyout>
-                                                <Flyout>
-                                                    <StackPanel Orientation="Vertical" Width="145">
-                                                        <Button x:Name="sharetodo" Tag="{Binding}" Click="sharetodo_Click" Background="Transparent"  HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                                                <TextBlock Width="48" Text="Share" Margin="5,5" ></TextBlock>
-                                                            </StackPanel>
-                                                        </Button>
-                                                        <Button Click="delete_Click" Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                                                <TextBlock  Text="Delete " Margin="5,5"  FontSize="17"></TextBlock>
-                                                            </StackPanel>
-                                                        </Button>
-                                                        <Button Click="edit_Click" Tag="{Binding}" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                                                <TextBlock  Text="Edit " Margin="5,5"  FontSize="17"></TextBlock>
-                                                            </StackPanel>
-                                                        </Button>
-                                                    </StackPanel>
-                                                </Flyout>
-                                            </Button.Flyout>
-                                        </Button>
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.Row="1" FontSize="17" 
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel Orientation="Vertical" Width="145">
+                                    <Button x:Name="sharetodo" Tag="{Binding}" Click="sharetodo_Click" Background="Transparent"  HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                                            <TextBlock Width="48" Text="Share" Margin="5,5" ></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Click="delete_Click" Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                                            <TextBlock  Text="Delete " Margin="5,5"  FontSize="17"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Click="edit_Click" Tag="{Binding}" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                                            <TextBlock  Text="Edit " Margin="5,5"  FontSize="17"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" TextAlignment="Center" Opacity="0.9" Grid.Column="0" Grid.Row="1" FontSize="17" 
                                 Text="{Binding notify,Converter={StaticResource ByteToGlyphConverter} , Mode=TwoWay}" Margin="-3,-10,0,0" HorizontalAlignment="Left"
                                       VerticalAlignment="Center" Foreground="Gray" Width="25"/>
-                                    </Grid>
-
-
-
-
-                                </controls:SlidableListItem>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
                 </Grid>
-            </StackPanel>
-        </ScrollViewer>
 
-        <CommandBar  VerticalAlignment="Bottom">
+
+
+
+            </controls:SlidableListItem>
+        </DataTemplate >
+    </Page.Resources>
+
+    <Grid Background="Transparent">
+
+        <ListView Margin="0,10,0,0" SelectionMode="None" IsItemClickEnabled="True" 
+                  IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" 
+                 ItemsSource="{x:Bind listViewCollection}" ItemClick="lvTest_ItemClick">
+            <ListView.Resources>
+
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            
+        </ListView>
+
+   
+
+    <CommandBar  VerticalAlignment="Bottom">
 
 
 
