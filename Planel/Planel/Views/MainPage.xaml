@@ -10,12 +10,12 @@
     <Page.Resources>
         
         <Storyboard x:Name="opacitySb1">
-            <DoubleAnimation To="1" Duration="00:00:1"
+            <DoubleAnimation  To="1" Duration="00:00:1"
                 Storyboard.TargetName="detstack"
                 Storyboard.TargetProperty="Opacity">
-                <DoubleAnimation.EasingFunction>
+                <!--<DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
-                </DoubleAnimation.EasingFunction>
+                </DoubleAnimation.EasingFunction>-->
             </DoubleAnimation>
         </Storyboard>
         <Storyboard x:Name="opacitySb0">

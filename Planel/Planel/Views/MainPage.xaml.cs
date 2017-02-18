@@ -322,7 +322,7 @@ namespace Planel.Views
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "LET'S SEE !";
+            news.Text = "LET'S DO !";
             FlipView.SelectedIndex = 1;
             if (isopen == true)
                 animate();
@@ -384,8 +384,8 @@ namespace Planel.Views
             // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
             
             if (e.Position.Y < gridMain.MinHeight) return;
-            
-            if (lastPostition.Y < 565 && !isopen)
+
+            if (lastPostition.Y < 565  && !isopen)
             {
                 try
                 {
@@ -395,15 +395,19 @@ namespace Planel.Views
                 }
                 catch { }
             }
-            else if(lastPostition.Y >= 185 && isopen)
+            else if(lastPostition.Y >= 150 && isopen )
             {
-                try
+                if (lastPostition.Y < 400)
                 {
-                    detstack.Opacity += e.Delta.Translation.Y / 100;
-                    myScaleTransform.Y += e.Delta.Translation.Y;
-                    lastPostition.Y += e.Delta.Translation.Y;
+                    try
+                    {
+                        detstack.Opacity += e.Delta.Translation.Y / 100;
+                        myScaleTransform.Y += e.Delta.Translation.Y;
+                        lastPostition.Y += e.Delta.Translation.Y;
+                    }
+                    catch { }
                 }
-                catch { }
+                
             }
             //
         }
@@ -418,9 +422,11 @@ namespace Planel.Views
             {
                 try
                 {
-                    opacitySb1.Begin();
+                    
                     myStoryboard.Begin();
                     rotate.Begin();
+                    opacitySb1.Begin();
+                    
                     await Task.Delay(300);
                     //detstack.Visibility = Visibility.Visible;
                     isopen = !isopen;
