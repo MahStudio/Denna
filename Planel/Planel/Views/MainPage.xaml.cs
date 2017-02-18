@@ -38,7 +38,7 @@ namespace Planel.Views
             this.InitializeComponent();
             current = this;
             int runtime = (int)ApplicationData.Current.LocalSettings.Values["RunTime"];
-            if (runtime <= 6)
+            if (runtime <= 4)
             {
                 mtoday();
                 runtime++;
