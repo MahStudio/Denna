@@ -421,7 +421,7 @@ namespace Planel.Views
                     opacitySb1.Begin();
                     myStoryboard.Begin();
                     rotate.Begin();
-                    await Task.Delay(500);
+                    await Task.Delay(300);
                     //detstack.Visibility = Visibility.Visible;
                     isopen = !isopen;
                 }

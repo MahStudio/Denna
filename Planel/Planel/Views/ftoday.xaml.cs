@@ -86,7 +86,7 @@ namespace Planel.Views
             var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
           
             await Core.Models.Localdb.Suspend(clk);
-            await Classes.worker.refresher("Wall");
+             Classes.worker.refresher("Wall");
 
         }
 
@@ -94,7 +94,7 @@ namespace Planel.Views
         {
             var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             await Core.Models.Localdb.Done(clk);
-            await Classes.worker.refresher("Wall");
+             Classes.worker.refresher("Wall");
 
 
         }
@@ -200,7 +200,7 @@ namespace Planel.Views
                 var clk = ((sender as Button).Tag) as Core.Models.Hobby;
                 await Core.Models.Localdb.DeleteHobby(clk.Id);
                 Hobbiese.Remove(clk);
-                await Classes.worker.refresher("Wall");
+                 Classes.worker.refresher("Wall");
             }));
             msg.Commands.Add(new UICommand("Nope"));
             msg.ShowAsync();

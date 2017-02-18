@@ -47,8 +47,8 @@ namespace Planel.Classes
         }
         public static async void tiler()
         {
-           await Core.Classes.LiveTile.livetile();
-           await Core.Classes.LiveTile.updatebadge();
+            Core.Classes.LiveTile.livetile();
+            Core.Classes.LiveTile.updatebadge();
         }
         public static smartyieval smartie ()
         {
