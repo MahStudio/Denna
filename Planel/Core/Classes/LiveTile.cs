@@ -38,6 +38,7 @@ namespace Core.Classes
             var history = ToastNotificationManager.History.GetHistory();
             if (!history.Any(t => t.Group.Equals(TranslatorGroup)))
                 ToastNotificationManager.CreateToastNotifier().Show(toast);
+            await Task.Delay(1000);
         }
         private static async void Toast_Failed(ToastNotification sender, ToastFailedEventArgs args)
         {
