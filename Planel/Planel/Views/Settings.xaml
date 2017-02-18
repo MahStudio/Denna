@@ -39,24 +39,25 @@
                     <ComboBoxItem  Content="Light" Tag="Light"/>
                     <ComboBoxItem  Content="System" Tag="System"/>
                 </ComboBox>
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock HorizontalAlignment="Left" Margin="0,20 ,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Follow accent color" />
+                    <ToggleSwitch MinWidth="10" x:Name="FollowAccent" Grid.Column="1" HorizontalAlignment="Center" Margin="155,10,0,0" Toggled="FollowAccent_Toggled" OffContent=" " OnContent=" "/>
+
+                </StackPanel>
                 <StackPanel MinWidth="200" Orientation="Horizontal">
                     
                     <TextBlock HorizontalAlignment="Left" Margin="0,20 ,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Quick Actions" />
-                    <ToggleSwitch x:Name="swicher" MinWidth="10" Margin="170,10 ,0,0" HorizontalAlignment="Right" Toggled="swicher_Toggled"/>
+                    <ToggleSwitch  x:Name="swicher" MinWidth="10" Margin="192,10 ,0,0" HorizontalAlignment="Right" Toggled="swicher_Toggled" OffContent="" OnContent=" "/>
              
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-
-                    <TextBlock HorizontalAlignment="Left" Margin="0,20 ,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Quick Actions" />
-                    <ToggleSwitch MinWidth="10" x:Name="FollowAccent" Grid.Column="1" HorizontalAlignment="Center" Margin="170,10,0,0" Toggled="FollowAccent_Toggled"/>
-
-                </StackPanel>
+                
                
                 <TextBlock Visibility="Collapsed" x:Name="Licencer" HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="SemiBold"
              FontSize="25" Text="Licence : Active IR" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                 <TextBlock MaxWidth="400" TextAlignment="Center" Text="You might need to restart to apply theme changes." />
-                <Grid Height="300" >
-                <StackPanel Margin="20,0,20,0" x:Name="declame" Visibility="Collapsed">
+                <Grid Height="300" Visibility="Collapsed" >
+                <StackPanel Margin="20,0,20,0" x:Name="declame" >
                     <HyperlinkButton Click="Buy_Click" x:Name="Buy" Content="Buy from Store" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="25"   Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Margin="0,10,0,0"/>
                     <HyperlinkButton Click="Iran_Click" x:Name="Iran" Content="I'm From IRAN" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="20"   Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Margin="0,0,0,0"/>
                     <TextBlock MaxWidth="720" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="17">
