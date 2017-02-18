@@ -199,8 +199,8 @@ namespace Planel.Views
             msg.Commands.Add(new UICommand("Yes", async delegate {
                 var clk = ((sender as Button).Tag) as Core.Models.Hobby;
                 await Core.Models.Localdb.DeleteHobby(clk.Id);
-                Hobbiese.Remove(clk);
-                 Classes.worker.refresher("Wall");
+                toshow.Remove(clk);
+                 
             }));
             msg.Commands.Add(new UICommand("Nope"));
             msg.ShowAsync();
