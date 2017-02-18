@@ -5,6 +5,7 @@ using Planel.Views.sframes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
@@ -17,10 +18,66 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Planel.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class ftoday : Page
+    public class DennaDataTemplateSelecotr : DataTemplateSelector
+    {
+        public DataTemplate DennaDataTemplate1Template { get; set; }
+        public DataTemplate DennaDataTemplate2Template { get; set; }
+        protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
+        {
+            var message = item as MessageModel;
+            if (message.MessageType.ToString() == "Downloaded")
+                return DennaDataTemplate1Template;
+            else
+                return DennaDataTemplate2Template;
+        }
+    }
+    public class MessageModel : INotifyPropertyChanged
+    {
+        private object rootobj { get; set; }
+        private Enum _MessageType { get; set; }
+        public object RootObject
+        {
+            get
+            {
+                return rootobj;
+            }
+            set
+            {
+                if (value != rootobj)
+                {
+                    rootobj = value;
+                    OnPropertyChanged("RootObject");
+                }
+            }
+        }
+        public Enum MessageType
+        {
+            get
+            {
+                return _MessageType;
+            }
+            set
+            {
+                if (value != _MessageType)
+                {
+                    _MessageType = value;
+                    OnPropertyChanged("MessageType");
+                }
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler == null) return;
+            handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+        /// <summary>
+        /// An empty page that can be used on its own or navigated to within a Frame.
+        /// </summary>
+        public sealed partial class ftoday : Page
     {
         private static ObservableCollection<Hobby> Hobbiese = new ObservableCollection<Hobby>();
         ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
