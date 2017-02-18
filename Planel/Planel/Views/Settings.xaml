@@ -29,16 +29,20 @@
                     <TextBlock HorizontalAlignment="Left" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Backup and reset" />
                    
                     <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0" Orientation="Horizontal" >
-                        <Button x:Name="saver" BorderThickness="0,0,0,0" Click="saver_Click" Content="Save"  Height="55" HorizontalAlignment="Center" Width="150" VerticalAlignment="Bottom" Margin="0,0,0,10" />
-                        <Button x:Name="pick" BorderThickness="0,0,0,0" Click="pick_Click" Content="Restore" Height="55" HorizontalAlignment="Center" Width="150" VerticalAlignment="Bottom" Margin="5,0,0,10" />
+                        <Button FontSize="14" x:Name="saver" BorderThickness="0,0,0,0" Click="saver_Click" Content="Save"  Height="40" HorizontalAlignment="Center" Width="140" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+                        <Button FontSize="14" x:Name="pick" BorderThickness="0,0,0,0" Click="pick_Click" Content="Restore" Height="40" HorizontalAlignment="Center" Width="140" VerticalAlignment="Bottom" Margin="20,0,0,10" />
 
                     </StackPanel>
                 </StackPanel>
-                <ComboBox Margin="20,15,20,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="ThemeSelector" Header="Theme" HorizontalAlignment="Left" MinWidth="310" SelectionChanged="ThemeSelector_SelectionChanged">
-                    <ComboBoxItem Content="Dark" Tag="Dark"/>
-                    <ComboBoxItem  Content="Light" Tag="Light"/>
-                    <ComboBoxItem  Content="System" Tag="System"/>
-                </ComboBox>
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Left" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Theme" />
+                    <ComboBox Margin="20,7,20,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="ThemeSelector"  HorizontalAlignment="Left" MinWidth="310" SelectionChanged="ThemeSelector_SelectionChanged">
+                        <ComboBoxItem Content="Dark" Tag="Dark"/>
+                        <ComboBoxItem  Content="Light" Tag="Light"/>
+                        <ComboBoxItem  Content="System" Tag="System"/>
+                    </ComboBox>
+                </StackPanel>
+                
                 <StackPanel Orientation="Horizontal">
 
                     <TextBlock HorizontalAlignment="Left" Margin="0,20 ,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Text="Follow accent color" />
