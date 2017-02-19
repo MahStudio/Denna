@@ -25,7 +25,7 @@
                 <TextBlock Opacity="0.85" Height="27"  Grid.Column="1" Grid.Row="0" FontSize="16" Text="{Binding RootObject.title}"  Margin="0,0,42,0"/>
                 <TextBlock MaxLines="3"  TextWrapping="Wrap" Opacity="0.65"  Grid.Row="2" Text="{Binding RootObject.detail}" FontSize="14" Margin="0,0,25,0" />
                 <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="11" Text="{Binding RootObject.time}" HorizontalAlignment="Right" Width="110"/>
-                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="removehobbie" Click="removehobbie_Click"  Background="Transparent" Tag="{Binding}"
+                <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="removehobbie" Click="removehobbie_Click"  Background="Transparent" Tag="{Binding RootObject}"
                                 FontFamily="Segoe MDL2 Assets" Grid.RowSpan="3" BorderThickness="0,0,0,0"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,18,0,17" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
                 </Button>
                 <StackPanel Height="20" Margin="0,0,0,10" Grid.Row="1" Orientation="Horizontal">
@@ -55,7 +55,7 @@
                     IsOffsetLimited="True"
                     MouseSlidingEnabled="True"
                     IsPointerReleasedOnSwipingHandled="True"
-                    RightCommandParameter="{Binding}"
+                    RightCommandParameter="{Binding RootObject}"
                     RightCommandRequested="SlidableListItem_RightCommandRequested"
                     
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
@@ -77,24 +77,24 @@
                     <TextBlock Opacity="0.85" Grid.Column="1" Grid.Row="0" FontSize="16" Text="{Binding RootObject.title , Mode=TwoWay}"  Margin="0,9,25,0"/>
                     <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding RootObject.detail , Mode=TwoWay}" FontSize="15" Margin="0,5,38,10" />
                     <TextBlock TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding RootObject.time , Mode=TwoWay}"  Margin="-8,0,0,0" HorizontalAlignment="Right" Width="Auto"/>
-                    <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more" Click="more_Click"  Background="Transparent" Tag="{Binding}"
+                    <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more" Click="more_Click"  Background="Transparent" Tag="{Binding RootObject}"
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
                         <Button.Flyout>
                             <Flyout>
                                 <StackPanel Orientation="Vertical" Width="145">
-                                    <Button x:Name="sharetodo" Tag="{Binding}" Click="sharetodo_Click" Background="Transparent"  HorizontalAlignment="Stretch">
+                                    <Button x:Name="sharetodo" Tag="{Binding RootObject}" Click="sharetodo_Click" Background="Transparent"  HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
                                             <TextBlock Width="48" Text="Share" Margin="5,5" ></TextBlock>
                                         </StackPanel>
                                     </Button>
-                                    <Button Click="delete_Click" Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch">
+                                    <Button Click="delete_Click" Tag="{Binding RootObject}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
                                             <TextBlock  Text="Delete " Margin="5,5"  FontSize="17"></TextBlock>
                                         </StackPanel>
                                     </Button>
-                                    <Button Click="edit_Click" Tag="{Binding}" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
+                                    <Button Click="edit_Click" Tag="{Binding RootObject}" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
                                             <TextBlock  Text="Edit " Margin="5,5"  FontSize="17"></TextBlock>

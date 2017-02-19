@@ -110,13 +110,13 @@ namespace Planel.Views
             //lvTest.ItemsSource = todolist;
             foreach (var item in todolist)
             {
-                myobserv.Add(new MessageModel() { MessageType = MyTemplates.DataTemplate1, RootObject = item });
+                myobserv.Add(new MessageModel() { MessageType = MyTemplates.DataTemplate2, RootObject = item });
             }
             Hobbiese = Core.Models.Localdb.Gethobbies();
             await trim(Hobbiese);
             foreach (var item in Hobbiese)
             {
-                myobserv.Add(new MessageModel() { MessageType = MyTemplates.DataTemplate2, RootObject = item });
+                myobserv.Add(new MessageModel() { MessageType = MyTemplates.DataTemplate1, RootObject = item });
             }
             Hobbies.ItemsSource = myobserv;
         }

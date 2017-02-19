@@ -12,19 +12,26 @@ namespace Planel.Classes
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var inter = (DateTime)value;
-            DateTime now = DateTime.Now;
-            DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-            DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
             Visibility visi = Visibility.Visible;
+            try
+            {
+                var inter = (DateTime)value;
+                DateTime now = DateTime.Now;
+                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
+                
                 if (inter >= starttoday && inter <= endtoday)
-            {
-                visi = Visibility.Visible;
-            }
+                {
+                    visi = Visibility.Visible;
+                }
                 else
-            {
-                visi = Visibility.Collapsed;
+                {
+                    visi = Visibility.Collapsed;
+                }
+
             }
+            catch { }
+            
             return visi;
         }
 
