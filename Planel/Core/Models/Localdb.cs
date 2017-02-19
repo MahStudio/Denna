@@ -635,9 +635,21 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
             {
-                conn.Update(item);
+                conn.Update(new todo() {
+                    Id = item.Id,
+                    isdone = item.isdone,
+                    time = item.time.ToLocalTime(),
+                    detail=item.detail,
+                    notify=item.notify,
+                    title=item.title
+                
+
+
+
+                });
 
             }
+            
             var toastnotifier = ToastNotificationManager.CreateToastNotifier();
 
             foreach (var scheduledToastNotification in toastnotifier.GetScheduledToastNotifications())

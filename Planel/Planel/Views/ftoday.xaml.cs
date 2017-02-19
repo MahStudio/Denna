@@ -272,10 +272,16 @@ namespace Planel.Views
             MessageDialog msg = new MessageDialog("Are you sure?");
             msg.Commands.Add(new UICommand("Yes", async delegate
             {
-                var clk = ((sender as Button).Tag) as Core.Models.Hobby;
-                await Core.Models.Localdb.DeleteHobby(clk.Id);
+                
 
-                myobserv.Remove(new MessageModel() { MessageType = MyTemplates.DataTemplate1, RootObject = clk });
+                var clk = ((sender as Button).Tag) as Core.Models.Hobby;
+                //var test = ((myobserv.FirstOrDefault() as MessageModel));
+                //var test1 = (test.RootObject as Hobby).Id;
+                var res1 = myobserv.Where(x => ((x as MessageModel).RootObject as Hobby).Id == clk.Id);
+                var res = res1.FirstOrDefault();
+                myobserv.Remove(res);
+                
+                await Core.Models.Localdb.DeleteHobby(clk.Id);
 
             }));
             msg.Commands.Add(new UICommand("Nope"));

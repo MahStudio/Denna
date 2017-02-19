@@ -87,7 +87,7 @@ namespace Planel.Views.sframes
                     Frame.GoBack();
 
                 //add to database
-                DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds).ToLocalTime(); ;
+                DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds) ;
                 byte notifymode = 0;
                 if (rbs.IsChecked == true)
                     notifymode = 0;
