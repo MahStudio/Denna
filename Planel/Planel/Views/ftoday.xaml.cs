@@ -18,6 +18,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Planel.Views
 {
+    public enum MyTemplates
+    {
+        DataTemplate1,
+        DataTemplate2
+    }
     public class DennaDataTemplateSelecotr : DataTemplateSelector
     {
         public DataTemplate DennaDataTemplate1Template { get; set; }
@@ -25,12 +30,13 @@ namespace Planel.Views
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
             var message = item as MessageModel;
-            if (message.MessageType.ToString() == "Downloaded")
+            if (message.MessageType.ToString() == "DataTemplate1")
                 return DennaDataTemplate1Template;
             else
                 return DennaDataTemplate2Template;
         }
     }
+
     public class MessageModel : INotifyPropertyChanged
     {
         private object rootobj { get; set; }
@@ -74,10 +80,10 @@ namespace Planel.Views
             handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-        /// <summary>
-        /// An empty page that can be used on its own or navigated to within a Frame.
-        /// </summary>
-        public sealed partial class ftoday : Page
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class ftoday : Page
     {
         private static ObservableCollection<Hobby> Hobbiese = new ObservableCollection<Hobby>();
         ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
@@ -91,7 +97,7 @@ namespace Planel.Views
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+
 
             filllist();
         }
@@ -99,30 +105,39 @@ namespace Planel.Views
         public async Task filllist()
         {
             DateTime now = DateTime.Now;
+            List<object> myobserv = new List<object>();
             todolist = Core.Models.Localdb.getall(now);
-            lvTest.ItemsSource = todolist;
+            //lvTest.ItemsSource = todolist;
+            foreach (var item in todolist)
+            {
+                myobserv.Add(new MessageModel() { MessageType = MyTemplates.DataTemplate1, RootObject = item });
+            }
             Hobbiese = Core.Models.Localdb.Gethobbies();
             await trim(Hobbiese);
-            Hobbies.ItemsSource = toshow;
+            foreach (var item in Hobbiese)
+            {
+                myobserv.Add(new MessageModel() { MessageType = MyTemplates.DataTemplate2, RootObject = item });
+            }
+            Hobbies.ItemsSource = myobserv;
         }
-        private static async Task trim (ObservableCollection<Hobby> stuff)
+        private static async Task trim(ObservableCollection<Hobby> stuff)
         {
             toshow.Clear();
-            
+
             foreach (var item in stuff)
             {
-                
+
                 var a = DateTime.Now.DayOfWeek;
-               var x=  JsonConvert.DeserializeObject<List<DayOfWeek>>(item.Days);
+                var x = JsonConvert.DeserializeObject<List<DayOfWeek>>(item.Days);
                 bool iscontain = _containstoday(x, a);
                 if (iscontain)
                 {
-                    
-                        toshow.Add(item);
-                    
+
+                    toshow.Add(item);
+
                 }
-               
-                
+
+
             }
         }
         private static bool _containstoday(List<DayOfWeek> list, DayOfWeek day)
@@ -141,9 +156,9 @@ namespace Planel.Views
         {
 
             var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
-          
+
             await Core.Models.Localdb.Suspend(clk);
-             Classes.worker.refresher("Wall");
+            Classes.worker.refresher("Wall");
 
         }
 
@@ -151,7 +166,7 @@ namespace Planel.Views
         {
             var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             await Core.Models.Localdb.Done(clk);
-             Classes.worker.refresher("Wall");
+            Classes.worker.refresher("Wall");
 
 
         }
@@ -168,17 +183,17 @@ namespace Planel.Views
 
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
             var clk = e.ClickedItem as Core.Models.todo;
             ContentDialog noWifiDialog = new ContentDialog()
             {
                 Title = clk.title,
-                Content = clk.detail + " at " + clk.time  ,
+                Content = clk.detail + " at " + clk.time,
                 PrimaryButtonText = "Ok"
             };
 
@@ -188,7 +203,8 @@ namespace Planel.Views
         private async void delete_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog msg = new MessageDialog("Are you sure?");
-            msg.Commands.Add(new UICommand("Yes", async delegate {
+            msg.Commands.Add(new UICommand("Yes", async delegate
+            {
                 var clk = ((sender as Button).Tag) as Core.Models.todo;
                 await Core.Models.Localdb.Deletetodo(clk.Id);
                 todolist.Remove(clk);
@@ -217,7 +233,7 @@ namespace Planel.Views
             var dataPackage = new DataPackage();
             dataPackage.SetText(shareuri);
             Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
-            var dialog = new Windows.UI.Popups.MessageDialog( "Sharelink copied in your clip board. ");
+            var dialog = new Windows.UI.Popups.MessageDialog("Sharelink copied in your clip board. ");
             dialog.ShowAsync();
         }
 
@@ -253,11 +269,12 @@ namespace Planel.Views
         private void removehobbie_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog msg = new MessageDialog("Are you sure?");
-            msg.Commands.Add(new UICommand("Yes", async delegate {
+            msg.Commands.Add(new UICommand("Yes", async delegate
+            {
                 var clk = ((sender as Button).Tag) as Core.Models.Hobby;
                 await Core.Models.Localdb.DeleteHobby(clk.Id);
                 toshow.Remove(clk);
-                 
+
             }));
             msg.Commands.Add(new UICommand("Nope"));
             msg.ShowAsync();

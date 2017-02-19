@@ -12,7 +12,7 @@ namespace Planel.Classes
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            DateTime inter = (DateTime)value;
+            var inter = (DateTime)value;
             DateTime now = DateTime.Now;
             DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
             DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
