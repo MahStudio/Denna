@@ -154,8 +154,7 @@ namespace Planel.Views
         }
         private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
-
-            var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            var clk = (todo)((MessageModel)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext).RootObject;
 
             await Core.Models.Localdb.Suspend(clk);
             Classes.worker.refresher("Wall");
@@ -164,7 +163,7 @@ namespace Planel.Views
 
         private async void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
         {
-            var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
+            var clk = (todo)((MessageModel)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext).RootObject;
             await Core.Models.Localdb.Done(clk);
             Classes.worker.refresher("Wall");
 

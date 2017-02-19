@@ -118,7 +118,7 @@
     <EmbeddedResource Include="Properties\Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="SQLite.UWP.2015, Version=3.11.0">
+    <SDKReference Include="SQLite.UWP.2015, Version=3.15.2">
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
   </ItemGroup>
