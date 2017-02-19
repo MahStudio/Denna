@@ -88,6 +88,7 @@ namespace Planel.Views
         private static ObservableCollection<Hobby> Hobbiese = new ObservableCollection<Hobby>();
         ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
         private static ObservableCollection<Hobby> toshow = new ObservableCollection<Hobby>();
+        ObservableCollection<object> myobserv = new ObservableCollection<object>();
         public static ftoday current;
         public ftoday()
         {
@@ -104,10 +105,11 @@ namespace Planel.Views
 
         public async Task filllist()
         {
+            myobserv.Clear();
             DateTime now = DateTime.Now;
-            List<object> myobserv = new List<object>();
+            
             todolist = Core.Models.Localdb.getall(now);
-            //lvTest.ItemsSource = todolist;
+            
             foreach (var item in todolist)
             {
                 myobserv.Add(new MessageModel() { MessageType = MyTemplates.DataTemplate2, RootObject = item });
@@ -272,7 +274,8 @@ namespace Planel.Views
             {
                 var clk = ((sender as Button).Tag) as Core.Models.Hobby;
                 await Core.Models.Localdb.DeleteHobby(clk.Id);
-                toshow.Remove(clk);
+
+                myobserv.Remove(new MessageModel() { MessageType = MyTemplates.DataTemplate1, RootObject = clk });
 
             }));
             msg.Commands.Add(new UICommand("Nope"));
