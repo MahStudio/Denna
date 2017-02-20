@@ -17,13 +17,42 @@ namespace Planel.Classes
             string Days = "";
             if (toadd.Count == 7)
             {
-                Days = "Every Day";
+                Days = MultilingualHelpToolkit.GetString("Everydat", "Text"); ;
             }
             else
             {
                 foreach (var item in toadd)
                 {
-                    Days += item.ToString() + "  ";
+                    string x = null;
+                    if(item== DayOfWeek.Friday)
+                    {
+                       x= MultilingualHelpToolkit.GetString("fri", "Content");
+                    }
+                    if (item == DayOfWeek.Saturday)
+                    {
+                       x= MultilingualHelpToolkit.GetString("sat", "Content");
+                    }
+                    if (item == DayOfWeek.Sunday)
+                    {
+                       x= MultilingualHelpToolkit.GetString("sun", "Content");
+                    }
+                    if (item == DayOfWeek.Monday)
+                    {
+                       x= MultilingualHelpToolkit.GetString("mon", "Content");
+                    }
+                    if (item == DayOfWeek.Tuesday)
+                    {
+                       x= MultilingualHelpToolkit.GetString("tue", "Content");
+                    }
+                    if (item == DayOfWeek.Wednesday)
+                    {
+                       x= MultilingualHelpToolkit.GetString("wed", "Content");
+                    }
+                    if (item == DayOfWeek.Thursday)
+                    {
+                      x=  MultilingualHelpToolkit.GetString("thu", "Content");
+                    }
+                    Days += x+"  ";
                 }
             }
             

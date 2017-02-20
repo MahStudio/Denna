@@ -179,6 +179,9 @@
   <data name="eve.Text" xml:space="preserve">
     <value>عصر بخیر</value>
   </data>
+  <data name="Everydat.Text" xml:space="preserve">
+    <value>هر روز</value>
+  </data>
   <data name="Familiar.Text" xml:space="preserve">
     <value>بیشتر با هم آشنا شیم</value>
   </data>
