@@ -1,4 +1,5 @@
 ﻿using Core;
+using Planel.Classes;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -44,15 +45,15 @@ namespace Planel.Views
             todaypie.Percentage = percentage;
             todaysus.Percentage = 100- percent.firstsuspend ;
             if (percentage == 100)
-                todayword.Text = "Perfect! All done.";
+                todayword.Text = MultilingualHelpToolkit.GetString("Perfect", "Text");
             else if (percentage <= 99 && percentage >= 75)
-                todayword.Text = "Great! Mostly done.";
+                todayword.Text = MultilingualHelpToolkit.GetString("Great", "Text");
             else if (percentage <= 74 && percentage >= 40)
-                todayword.Text = "Do more :)";
+                todayword.Text = MultilingualHelpToolkit.GetString("Do", "Text");
             else if (percentage <= 39 && percentage >= 10)
-                todayword.Text = "You have a lot to do";
+                todayword.Text = MultilingualHelpToolkit.GetString("alot", "Text");
             else if (percentage <= 9 && percentage >= 0)
-                todayword.Text = "Add and DO !";
+                todayword.Text = MultilingualHelpToolkit.GetString("addo", "Text");
 
 
 

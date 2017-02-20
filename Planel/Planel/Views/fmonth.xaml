@@ -48,11 +48,11 @@
                     IsPointerReleasedOnSwipingHandled="True"
                     RightCommandParameter="{Binding}"
                     RightCommandRequested="SlidableListItem_RightCommandRequested"
-                    
+                    FlowDirection="LeftToRight"
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
                     
                     >
-                                <Grid MinHeight="70" VerticalAlignment="Top" MaxHeight="120" >
+                                <Grid x:Uid="Page" MinHeight="70" VerticalAlignment="Top" MaxHeight="120" >
 
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="32"/>

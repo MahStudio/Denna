@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Planel.Views"
+    x:Uid="Page"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -22,9 +23,9 @@
             <FlipViewItem>
                 <StackPanel Margin="0,40,0,0">
                     <Image Source="/Assets/Icons/DeskLamp.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
-                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="WELCOME" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Hey there!" />
-                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                    <TextBlock x:Uid="welcome" FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="WELCOME" />
+                    <TextBlock x:Uid="heyy" Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Hey there!" />
+                    <TextBlock x:Uid="fide" Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
                        Welcome to Denna! Denna will help you to plan your life; Just like successful people.
 
                     </TextBlock>
@@ -33,9 +34,9 @@
             <FlipViewItem>
                 <StackPanel Margin="0,40,0,0">
                     <Image Source="/Assets/Icons/TodoList.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
-                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="PLAN YOUR LIFE" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="What shall I do today?" />
-                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                    <TextBlock x:Uid="Planlife" FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="PLAN YOUR LIFE" />
+                    <TextBlock x:Uid="whattodo" Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="What shall I do today?" />
+                    <TextBlock x:Uid="dailylife" Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
                        Plan your daily tasks. Do, mind, postpone and control your activities. Don't forget to add your hobbies in Denna :) Planning makes everything easier!
 
                     </TextBlock>
@@ -44,9 +45,9 @@
             <FlipViewItem>
                 <StackPanel Margin="0,40,0,0">
                     <Image Source="/Assets/Icons/CalendarDelete.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
-                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="DON'T MISS ANYTHING" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Oh... I don't remember!" />
-                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                    <TextBlock FontWeight="Bold" x:Uid="misser"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="DON'T MISS ANYTHING" />
+                    <TextBlock x:Uid="donotre" Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Oh... I don't remember!" />
+                    <TextBlock x:Uid="forget" Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
                        We won't let you forget your activities in your wounderful day! You can set notifications or alarm for your tasks. Everything will go right on time :)
 
                     </TextBlock>
@@ -55,9 +56,9 @@
             <FlipViewItem  >
                 <StackPanel Margin="0,40,0,0">
                     <Image Source="/Assets/Icons/AreaChart.png" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="50"  Width="50" />
-                    <TextBlock FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="SEE YOUR PERFORMANCE" />
-                    <TextBlock Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Let's improve!" />
-                    <TextBlock Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
+                    <TextBlock x:Uid="prfr" FontWeight="Bold"  Margin="0,10,0,0" Foreground="White" TextAlignment="Center" FontSize="23" Text="SEE YOUR PERFORMANCE" />
+                    <TextBlock x:Uid="omprovr" Margin="0,70,0,0" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" FontSize="18" Text="Let's improve!" />
+                    <TextBlock x:Uid="reportr" Width="300" Margin="0,20,0,0" MaxLines="5" TextWrapping="Wrap" Foreground="White" TextAlignment="Center" FontSize="15" >
                        See your daily, weekly and monthly preformance any time you want! The charts would show you how nicely you've done your activities.
 
                     </TextBlock>
@@ -75,14 +76,14 @@
                   FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
                         
                     </Grid>
-                    <TextBlock Margin="0,70,0,0" TextAlignment="Center" Foreground="White"  FontSize="20" Text="Let's be familiar" />
+                    <TextBlock Margin="0,70,0,0" x:Uid="Familiar" TextAlignment="Center" Foreground="White"  FontSize="20" Text="Let's be familiar" />
                     <StackPanel>
-                        <TextBox RequestedTheme="Dark" TextAlignment="Center" Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400"  PlaceholderText="What's your name?"  Margin="5,15,5,0" Height="40" VerticalAlignment="Top" />
+                        <TextBox RequestedTheme="Dark" TextAlignment="Center" Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="400" x:Uid="wtname" PlaceholderText="What's your name?"  Margin="5,15,5,0" Height="40" VerticalAlignment="Top" />
                     </StackPanel>
                 </StackPanel>
             </FlipViewItem>
         </FlipView>
 
-        <Button x:Name="goit" IsEnabled="False" Click="Button_Click" Content="GO IT!" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+        <Button x:Name="goit" x:Uid="goit" IsEnabled="False" Click="Button_Click" Content="GO IT!" Style="{StaticResource goitstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
     </Grid>
 </Page>

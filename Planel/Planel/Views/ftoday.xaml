@@ -15,7 +15,7 @@
         <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
         <local2:DateTimeToVisibilityConverter x:Key="DateTimeToVisibilityConverter"/>
         <DataTemplate x:Key="DataTemplate1">
-            <Grid Background="Transparent" MinHeight="70" Margin="48,0,5,0" VerticalAlignment="Top" MaxHeight="120" >
+            <Grid x:Uid="Page" Background="Transparent" MinHeight="70" Margin="48,0,5,0" VerticalAlignment="Top" MaxHeight="120" >
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -57,11 +57,11 @@
                     IsPointerReleasedOnSwipingHandled="True"
                     RightCommandParameter="{Binding RootObject}"
                     RightCommandRequested="SlidableListItem_RightCommandRequested"
-                    
+                    FlowDirection="LeftToRight"
                     LeftCommandRequested="SlidableListItem_LeftCommandRequested"
                     
                     >
-                <Grid MinHeight="70" Margin="5,0" VerticalAlignment="Top" MaxHeight="120" >
+                <Grid x:Uid="Page" MinHeight="70" Margin="5,0" VerticalAlignment="Top" MaxHeight="120" >
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="32"/>
@@ -81,23 +81,20 @@
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" >
                         <Button.Flyout>
                             <Flyout>
-                                <StackPanel Orientation="Vertical" Width="145">
+                                <StackPanel Orientation="Vertical" Width="40">
                                     <Button x:Name="sharetodo" Tag="{Binding RootObject}" Click="sharetodo_Click" Background="Transparent"  HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                            <TextBlock Width="48" Text="Share" Margin="5,5" ></TextBlock>
                                         </StackPanel>
                                     </Button>
-                                    <Button Click="delete_Click" Tag="{Binding RootObject}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch">
+                                    <Button  Click="delete_Click" Tag="{Binding RootObject}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                            <TextBlock  Text="Delete " Margin="5,5"  FontSize="17"></TextBlock>
                                         </StackPanel>
                                     </Button>
                                     <Button Click="edit_Click" Tag="{Binding RootObject}" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                            <TextBlock  Text="Edit " Margin="5,5"  FontSize="17"></TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
@@ -138,14 +135,14 @@
 
 
 
-            <AppBarButton Label="Add" Click="AppBarButton_Click"   >
+            <AppBarButton x:Uid="Add" Label="Add" Click="AppBarButton_Click"   >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"  Height="49" VerticalAlignment="Top"/>
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator />
-            <AppBarButton Label="Hobbies" Click="AppBarButton_Click_2"   >
+            <AppBarButton x:Uid="Hobbies" Label="Hobbies" Click="AppBarButton_Click_2"   >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
@@ -154,8 +151,8 @@
 
 
             <CommandBar.SecondaryCommands>
-                <AppBarButton Click="AppBarButton_Click_4" Icon="Like" Label="About"/>
-                <AppBarButton Click="AppBarButton_Click_3" Icon="Setting" Label="Settings"/>
+                <AppBarButton x:Uid="About" Click="AppBarButton_Click_4" Icon="Like" Label="About"/>
+                <AppBarButton x:Uid="Setting" Click="AppBarButton_Click_3" Icon="Setting" Label="Settings"/>
             </CommandBar.SecondaryCommands>
 
 

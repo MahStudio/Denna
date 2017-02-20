@@ -1,6 +1,7 @@
 ﻿using Core;
 using Core.Models;
 using Newtonsoft.Json;
+using Planel.Classes;
 using Planel.Views.sframes;
 using System;
 using System.Collections.Generic;
@@ -203,7 +204,7 @@ namespace Planel.Views
 
         private async void delete_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog("Are you sure?");
+            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
             msg.Commands.Add(new UICommand("Yes", async delegate
             {
                 var clk = ((sender as Button).Tag) as Core.Models.todo;
@@ -211,7 +212,7 @@ namespace Planel.Views
                 todolist.Remove(clk);
                 await Classes.worker.refresher("Wall");
             }));
-            msg.Commands.Add(new UICommand("Nope"));
+            msg.Commands.Add(new UICommand("No"));
             msg.ShowAsync();
         }
 
@@ -234,7 +235,7 @@ namespace Planel.Views
             var dataPackage = new DataPackage();
             dataPackage.SetText(shareuri);
             Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
-            var dialog = new Windows.UI.Popups.MessageDialog("Sharelink copied in your clip board. ");
+            var dialog = new Windows.UI.Popups.MessageDialog(MultilingualHelpToolkit.GetString("CLipB", "Text"));
             dialog.ShowAsync();
         }
 
@@ -269,7 +270,7 @@ namespace Planel.Views
 
         private void removehobbie_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog("Are you sure?");
+            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
             msg.Commands.Add(new UICommand("Yes", async delegate
             {
                 
@@ -284,7 +285,7 @@ namespace Planel.Views
                 await Core.Models.Localdb.DeleteHobby(clk.Id);
 
             }));
-            msg.Commands.Add(new UICommand("Nope"));
+            msg.Commands.Add(new UICommand("No"));
             msg.ShowAsync();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Planel.Classes;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -237,9 +238,9 @@ namespace Planel.Views
 
 
             if (cnt == 1 || cnt == 0)
-                counter.Text = string.Format("You have {0} work to do", cnt.ToString());
+                counter.Text = cnt.ToString()+" "+ MultilingualHelpToolkit.GetString("Work", "Text"); 
             else
-                counter.Text = string.Format("You have {0} works to do", cnt.ToString());
+                counter.Text = cnt.ToString()+  " " +MultilingualHelpToolkit.GetString("worx", "Text"); 
 
         }
         public void ntonavigate(string nav)
@@ -295,14 +296,14 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            string message = "Dear";
+            string message = MultilingualHelpToolkit.GetString("Greet", "Text"); 
             DateTime now = DateTime.Now;
             if (now.Hour >= 20 && now.Hour <= 4)
-                message = "Good Night";
+                message = MultilingualHelpToolkit.GetString("night", "Text"); ;
             if (now.Hour >= 5 && now.Hour <= 9)
-                message = "Good morning";
+                message = MultilingualHelpToolkit.GetString("morning", "Text"); ;
             if (now.Hour >= 13 && now.Hour <= 16)
-                message = "Good Afternoon";
+                message = MultilingualHelpToolkit.GetString("eve", "Text"); ;
 
 
             FlipView.SelectedIndex = 0;
@@ -322,7 +323,7 @@ namespace Planel.Views
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "LET'S DO !";
+            news.Text = MultilingualHelpToolkit.GetString("letsdo", "Text"); ;
             FlipView.SelectedIndex = 1;
             if (isopen == true)
                 animate();
@@ -336,7 +337,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 2);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            news.Text = "ENTIRE MONTH";
+            news.Text = MultilingualHelpToolkit.GetString("Entire", "Text"); ;
             FlipView.SelectedIndex = 2;
             if (isopen == true)
                 animate();
@@ -349,7 +350,7 @@ namespace Planel.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 2);
-            news.Text = "LOOK OVER IT!";
+            news.Text = MultilingualHelpToolkit.GetString("looko", "Text");
             FlipView.SelectedIndex = 3;
             if (isopen == true)
                 animate();

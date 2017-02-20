@@ -18,7 +18,7 @@
             <GridView SelectionMode="None" Width="auto"  HorizontalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" Width="400" Height="500" >
 
-                    <TextBlock Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Last week performance" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                    <TextBlock x:Uid="Laskweek" Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Last week performance" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                     <Grid Width="400" Height="400" Margin="0,7,0,0" >
                         <charting:Chart
                 x:Name="AreaChartWithNoLabels">
@@ -74,7 +74,7 @@
                     </Grid>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" Width="400" Height="500" >
-                    <TextBlock Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Last month performance" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                    <TextBlock x:Uid="Lastmonth" Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Last month performance" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                     <Grid Width="400" Height="400" Margin="0,7,0,0" >
                         <charting:Chart
                 x:Name="AreaChartWithNoLabels2">

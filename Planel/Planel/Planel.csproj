@@ -99,6 +99,8 @@
     <None Include="project.json" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
     <None Include="Service References\ZarinPal\PaymentGatewayImplementationService.wsdl" />
+    <PRIResource Include="Strings\fa\Resources.resw" />
+    <PRIResource Include="Strings\en-us\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -109,6 +111,7 @@
     <Compile Include="Classes\DateTimeToVisibilityConverter.cs" />
     <Compile Include="Classes\IntToColorConverter.cs" />
     <Compile Include="Classes\JsonToWeekdayConverter.cs" />
+    <Compile Include="Classes\MultilingualHelpToolkit.cs" />
     <Compile Include="Classes\Themesetter.cs" />
     <Compile Include="Classes\worker.cs" />
     <Compile Include="NavMenuItem.cs" />

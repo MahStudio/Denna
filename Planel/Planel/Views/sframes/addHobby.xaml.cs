@@ -1,5 +1,6 @@
 ﻿using Core.Models;
 using Newtonsoft.Json;
+using Planel.Classes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -133,7 +134,7 @@ namespace Planel.Views.sframes
             }
             else
             {
-                var messageDialog = new MessageDialog("Fill the title and dayly repeat at least :)");
+                var messageDialog = new MessageDialog(MultilingualHelpToolkit.GetString("uphob", "Text"));
                 messageDialog.ShowAsync();
             }
         }

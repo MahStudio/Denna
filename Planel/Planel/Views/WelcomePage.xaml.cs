@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Planel.Classes;
+using System;
+using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -209,16 +211,17 @@ namespace Planel.Views
     Windows.Storage.ApplicationData.Current.LocalFolder;
           Windows.Storage.StorageFile sampleFile =
               await storageFolder.GetFileAsync("avatar.jpg");
-                    sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete); 
+                    await sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete); 
                     
                 }
                 catch { }
                
-                StorageFile copiedFile = await file.CopyAsync(localFolder,"avatar.jpg");
+                StorageFile copiedFile = await file.CopyAsync(localFolder,"avatar.jpg" );
                 filename = "avatar.jpg"; 
                 StorageFolder storageFolder2 = ApplicationData.Current.LocalFolder;
                 StorageFile sampleFile2 = await storageFolder2.GetFileAsync("avatar.jpg");
-
+                
+                avatar.ImageSource = null;
                 avatar.ImageSource = new BitmapImage(new Uri(sampleFile2.Path));
                 
             }
@@ -243,6 +246,16 @@ namespace Planel.Views
                 
                 if (filename == null)
                 {
+                    try
+                    {
+                        Windows.Storage.StorageFolder storageFolder =
+        Windows.Storage.ApplicationData.Current.LocalFolder;
+                        Windows.Storage.StorageFile sampleFile =
+                            await storageFolder.GetFileAsync("avatar.jpg");
+                        await sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
+
+                    }
+                    catch { }
                     string CountriesFile = @"Assets\Mockops\usrimg.jpg";
                     StorageFolder InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
                     StorageFile file = await InstallationFolder.GetFileAsync(CountriesFile);
@@ -256,7 +269,7 @@ namespace Planel.Views
             }
             else
             {
-                var messageDialog = new MessageDialog("Fill your name and picture and press agian :)");
+                var messageDialog = new MessageDialog(MultilingualHelpToolkit.GetString("Fillalert", "Text"));
                 messageDialog.ShowAsync();
             }
 

@@ -1,4 +1,5 @@
 ﻿using Core;
+using Planel.Classes;
 using Planel.Views.sframes;
 using System;
 using System.Collections.ObjectModel;
@@ -89,7 +90,7 @@ namespace Planel.Views
 
         private async void delete_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog("Are you sure?");
+            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
             msg.Commands.Add(new UICommand("Yes", async delegate {
                 var clk = ((sender as Button).Tag) as Core.Models.todo;
                 await Core.Models.Localdb.Deletetodo(clk.Id);

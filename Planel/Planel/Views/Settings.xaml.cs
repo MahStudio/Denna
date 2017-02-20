@@ -18,6 +18,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Planel.Classes;
 using System.Linq;
+using System.Globalization;
+using Windows.Globalization;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -63,6 +65,14 @@ namespace Planel.Views
             }
             catch
             { }
+            if(MultilingualHelpToolkit.GetString("Language", "Tag") == "fa")
+            {
+                langwich.SelectedIndex = 0;
+            }
+            else if (MultilingualHelpToolkit.GetString("Language", "Tag") == "en-us")
+            {
+                langwich.SelectedIndex = 1;
+            }
 
         }
         ~Settings()
@@ -131,7 +141,7 @@ namespace Planel.Views
                     var toadd = JsonConvert.DeserializeObject<IList<Core.Models.todo>>(json);
                     List<Core.Models.todo> adder = new List<Core.Models.todo>();
                     adder = toadd.ToList();
-                    MessageDialog msg = new MessageDialog("Do you wanna restore this backup ?");
+                    MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Restoree", "Text"));
                     msg.Commands.Add(new UICommand("Yes", async delegate {
                         foreach (var item in toadd)
                         {
@@ -140,7 +150,7 @@ namespace Planel.Views
                         worker.refresher("");
                         ContentDialog noWifiDialog = new ContentDialog()
                         {
-                            Title = "Success!",
+                            Title = "Success! :)",
                             Content = "Backup had been restored.",
                             PrimaryButtonText = "Nice!"
                         };
@@ -258,7 +268,7 @@ namespace Planel.Views
 
         private  async void logout_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog("Are you sure?");
+            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
             msg.Commands.Add(new UICommand("Yes", async delegate
             {
                 bye.Visibility = Visibility.Visible;
@@ -423,6 +433,24 @@ namespace Planel.Views
             catch
             {
 
+            }
+        }
+
+        private void langwich_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (langwich.SelectedIndex == 0)
+            {
+                var culture = new CultureInfo("fa");
+                ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
+                CultureInfo.DefaultThreadCurrentCulture = culture;
+                CultureInfo.DefaultThreadCurrentUICulture = culture;
+            }
+            else if (langwich.SelectedIndex == 1)
+            {
+                var culture = new CultureInfo("en-us");
+                ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
+                CultureInfo.DefaultThreadCurrentCulture = culture;
+                CultureInfo.DefaultThreadCurrentUICulture = culture;
             }
         }
     }

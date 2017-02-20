@@ -6,6 +6,7 @@
     xmlns:local="using:Planel.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Uid="Page"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -198,7 +199,7 @@
 
 
 
-                    <Image x:Name="Superss" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Stretch="UniformToFill" Height="180" Margin="0,-247,-444,0"   />
+                    <Image x:Name="Superss" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Stretch="UniformToFill" Height="160" Margin="0,-247,-444,0"   />
                     <Grid>
                         <StackPanel Margin="0,0,0,0" x:Name="detstack" Opacity="0">
                             <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >

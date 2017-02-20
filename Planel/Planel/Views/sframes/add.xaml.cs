@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Planel.Classes;
 using System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -73,7 +74,7 @@ namespace Planel.Views.sframes
             }
             else
             {
-                var messageDialog = new MessageDialog("Fill the title at least :)");
+                var messageDialog = new MessageDialog(MultilingualHelpToolkit.GetString("uptitler", "Text"));
                 messageDialog.ShowAsync();
             }
             

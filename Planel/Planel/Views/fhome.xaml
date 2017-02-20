@@ -48,7 +48,7 @@
                         </Grid>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" Width="300"  >
-                        <TextBlock Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
+                        <TextBlock x:Uid="yesterday" Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Yesterday" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
                         <Grid Margin="0,7,0,0" >
                             <pieCharts:PieChart  Percentage="100"
                             Radius="100"
@@ -90,7 +90,7 @@
 
 
 
-            <AppBarButton Label="Settings" Click="AppBarButton_Click_1"   >
+            <AppBarButton x:Uid="Setting" Label="Settings" Click="AppBarButton_Click_1"   >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
@@ -98,7 +98,7 @@
             </AppBarButton>
 
             <CommandBar.SecondaryCommands>
-                <AppBarButton Click="AppBarButton_Click" Icon="Like" Label="About"/>
+                <AppBarButton x:Uid="About" Click="AppBarButton_Click" Icon="Like" Label="About"/>
                 
             </CommandBar.SecondaryCommands>
 
