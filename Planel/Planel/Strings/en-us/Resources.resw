@@ -185,7 +185,7 @@ in MAH Studio</value>
     <value>More familiar</value>
   </data>
   <data name="Feedback.Content" xml:space="preserve">
-    <value>FeedBack</value>
+    <value>FEEDBACK</value>
   </data>
   <data name="fide.Text" xml:space="preserve">
     <value>Welcome to Denna! Denna will help you to plan your life; Just like successful people.</value>
@@ -281,7 +281,7 @@ in MAH Studio</value>
     <value>Quick actions</value>
   </data>
   <data name="Rate.Content" xml:space="preserve">
-    <value>Rate and Review</value>
+    <value>RATE AND REVIEW</value>
   </data>
   <data name="repeat.Text" xml:space="preserve">
     <value>Repeat</value>
@@ -314,8 +314,8 @@ in MAH Studio</value>
   <data name="Setting.Label" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="Share.Content" xml:space="preserve">
-    <value>Share</value>
+  <data name="Shaare.Content" xml:space="preserve">
+    <value>SHARE</value>
   </data>
   <data name="share.Text" xml:space="preserve">
     <value>Share</value>
@@ -377,5 +377,11 @@ in MAH Studio</value>
   </data>
   <data name="yesterday.Text" xml:space="preserve">
     <value>Yesterday</value>
+  </data>
+  <data name="SwipeView.LeftLabel" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="SwipeView.RightLabel" xml:space="preserve">
+    <value>Postpone</value>
   </data>
 </root>

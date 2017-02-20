@@ -208,9 +208,12 @@ namespace Planel.Views
             msg.Commands.Add(new UICommand("Yes", async delegate
             {
                 var clk = ((sender as Button).Tag) as Core.Models.todo;
-                await Core.Models.Localdb.Deletetodo(clk.Id);
-                todolist.Remove(clk);
-                await Classes.worker.refresher("Wall");
+                 Core.Models.Localdb.Deletetodo(clk.Id);
+                int a = Hobbies.Items.IndexOf((sender as Button).DataContext);
+
+                if (a != null)
+                    myobserv.RemoveAt(a);
+                 Classes.worker.refresher("Wall");
             }));
             msg.Commands.Add(new UICommand("No"));
             msg.ShowAsync();
@@ -271,18 +274,20 @@ namespace Planel.Views
         private void removehobbie_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
-            msg.Commands.Add(new UICommand("Yes", async delegate
+            msg.Commands.Add(new UICommand("Yes", delegate
             {
                 
 
                 var clk = ((sender as Button).Tag) as Core.Models.Hobby;
-                //var test = ((myobserv.FirstOrDefault() as MessageModel));
-                //var test1 = (test.RootObject as Hobby).Id;
                 var res1 = myobserv.Where(x => ((x as MessageModel).RootObject as Hobby).Id == clk.Id);
-                var res = res1.FirstOrDefault();
-                myobserv.Remove(res);
+
+                int a = Hobbies.Items.IndexOf((sender as Button).DataContext);
+               
+                if (a != null)
+                myobserv.RemoveAt(a);
+                Core.Models.Localdb.DeleteHobby(clk.Id);
+                Classes.worker.refresher("Wall");
                 
-                await Core.Models.Localdb.DeleteHobby(clk.Id);
 
             }));
             msg.Commands.Add(new UICommand("No"));

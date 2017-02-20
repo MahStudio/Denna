@@ -43,6 +43,7 @@
                     HorizontalAlignment="Stretch"
                     LeftIcon="Accept" 
                     RightIcon="Clock" 
+                 x:Uid="SwipeView"
                     LeftLabel="Done" 
                     RightLabel="Postpone"
                     LeftBackground="#20c8a5" 
