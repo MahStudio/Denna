@@ -40,6 +40,7 @@
                     <ComboBox Margin="0,7,0,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="langwich"  HorizontalAlignment="Stretch" MinWidth="310" SelectionChanged="langwich_SelectionChanged">
                         <ComboBoxItem Content="پارسی" Tag="fa"/>
                         <ComboBoxItem  Content="English" Tag="en-us"/>
+                        <ComboBoxItem Content="German" Tag="de-de" />
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Margin="0,15,0,0">

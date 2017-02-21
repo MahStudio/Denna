@@ -99,6 +99,7 @@
     <None Include="project.json" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
     <None Include="Service References\ZarinPal\PaymentGatewayImplementationService.wsdl" />
+    <PRIResource Include="Strings\de-de\Resources.resw" />
     <PRIResource Include="Strings\fa\Resources.resw" />
     <PRIResource Include="Strings\en-us\Resources.resw" />
   </ItemGroup>

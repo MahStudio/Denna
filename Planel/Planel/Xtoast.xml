@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<toast launch='action=openThread&amp;threadId=92187'>
+<toast launch='action=addReminder'>
 
   <visual>
     <binding template='ToastGeneric'>
@@ -31,9 +31,7 @@
       imageUri='Assets/Icons/Plus.png'
       hint-inputId='title'
       activationType='background'
-      arguments='action=reply&amp;threadId=92187'/>
-
-
+      arguments='action=addReminder'/>
   </actions>
   <audio silent = 'true' />
 </toast>

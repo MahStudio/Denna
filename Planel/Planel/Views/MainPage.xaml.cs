@@ -128,27 +128,41 @@ namespace Planel.Views
             }
 
             var req = await BackgroundExecutionManager.RequestAccessAsync();
-                if (req != BackgroundAccessStatus.DeniedByUser && req != BackgroundAccessStatus.DeniedBySystemPolicy)
+            if (req != BackgroundAccessStatus.DeniedByUser && req != BackgroundAccessStatus.DeniedBySystemPolicy)
+            {
+                var list = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "NotifierTask");
+                foreach (var item in list)
                 {
-                    var list = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "NotifierTask");
-                    foreach (var item in list)
-                    {
-                        item.Value.Unregister(false);
-                    }
-                    BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder { Name = "NotifierTask", TaskEntryPoint = "NotifierTask.Notify" };
-                    taskBuilder.SetTrigger(new TimeTrigger(15, false));
-                    
-                    BackgroundTaskBuilder builder = new BackgroundTaskBuilder()
-                    {
-                        Name = "MyToastTask",
-                        TaskEntryPoint = "Toaster.Toaster"
-                    };
+                    item.Value.Unregister(false);
+                }
+                BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder
+                {
+                    Name = "NotifierTask",
+                    TaskEntryPoint = "NotifierTask.Notify",
+                    CancelOnConditionLoss = false
+                };
+                taskBuilder.SetTrigger(new TimeTrigger(15, false));
 
-                    builder.SetTrigger(new ToastNotificationActionTrigger());
-                    BackgroundTaskRegistration registration = builder.Register();
-                    BackgroundTaskRegistration myFirstTask = taskBuilder.Register();
-                
+
+
+                var list2 = BackgroundTaskRegistration.AllTasks.Where(x => x.Value.Name == "MyToastTask");
+                foreach (var item in list2)
+                {
+                    item.Value.Unregister(false);
+                }
+                BackgroundTaskBuilder builder = new BackgroundTaskBuilder()
+                {
+                    Name = "MyToastTask",
+                    TaskEntryPoint = "Toaster.Toaster",
+                    CancelOnConditionLoss = false
+                };
+
+                builder.SetTrigger(new ToastNotificationActionTrigger());
+                BackgroundTaskRegistration registration = builder.Register();
+                BackgroundTaskRegistration myFirstTask = taskBuilder.Register();
+
             }
+
 
             Frame rootFrame = Window.Current.Content as Frame;
 

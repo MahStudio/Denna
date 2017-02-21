@@ -31,7 +31,7 @@ namespace NotifierTask
                 {
                     if ((bool)ApplicationData.Current.LocalSettings.Values["Showtoast"] == true)
                     {
-                        await Core.Classes.LiveTile.GenerateToast();
+                        Core.Classes.LiveTile.GenerateToast();
                     }
                 }
             }

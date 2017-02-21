@@ -19,6 +19,7 @@ namespace Planel.Views
         {
             this.InitializeComponent();
             current = this;
+            
 
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)

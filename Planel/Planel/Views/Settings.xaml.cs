@@ -73,6 +73,12 @@ namespace Planel.Views
             {
                 langwich.SelectedIndex = 1;
             }
+            else if (MultilingualHelpToolkit.GetString("Language", "Tag") == "de-de")
+            {
+                langwich.SelectedIndex =2;
+            }
+
+            
 
         }
         ~Settings()
@@ -401,7 +407,7 @@ namespace Planel.Views
                 if (toggleSwitch.IsOn == true)
                 {
                     ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
-                    await Core.Classes.LiveTile.GenerateToast();
+                     Core.Classes.LiveTile.GenerateToast();
                 }
                 else
                 {
@@ -448,6 +454,13 @@ namespace Planel.Views
             else if (langwich.SelectedIndex == 1)
             {
                 var culture = new CultureInfo("en-us");
+                ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
+                CultureInfo.DefaultThreadCurrentCulture = culture;
+                CultureInfo.DefaultThreadCurrentUICulture = culture;
+            }
+            else if (langwich.SelectedIndex == 2)
+            {
+                var culture = new CultureInfo("de-de");
                 ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;

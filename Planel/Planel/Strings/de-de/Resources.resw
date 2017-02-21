@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About.Label" xml:space="preserve">
+    <value>�ber</value>
+  </data>
+  <data name="accent.Text" xml:space="preserve">
+    <value>Akzentfarbe verwenden</value>
+  </data>
+  <data name="Add.Label" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
+  <data name="addo.Text" xml:space="preserve">
+    <value>Erstellt und Erledigt!</value>
+  </data>
+  <data name="alarm.Content" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="alot.Text" xml:space="preserve">
+    <value>Es gibt eine Menge zu erledigen!</value>
+  </data>
+  <data name="backup.Text" xml:space="preserve">
+    <value>Sicherung</value>
+  </data>
+  <data name="Bye.Text" xml:space="preserve">
+    <value>Auf Wiedersehen!</value>
+  </data>
+  <data name="cancel.Label" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="CLipB.Text" xml:space="preserve">
+    <value>Teilen-Link in Zwischenablage kopiert</value>
+  </data>
+  <data name="dailylife.Text" xml:space="preserve">
+    <value>Plane deine t�glichen Aufgaben. Erledige, verschiebe, kontrolliere und erinnere dich an Aufgaben. Du kannst auch deine Hobby's mit Denna verwalten :) Durch Planung wird vieles einfacher!</value>
+  </data>
+  <data name="Dark.Content" xml:space="preserve">
+    <value>Dunkel</value>
+  </data>
+  <data name="Del.Text" xml:space="preserve">
+    <value>L�schen</value>
+  </data>
+  <data name="describe.PlaceholderText" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Dev.Text" xml:space="preserve">
+    <value>Entwickelt mit liebe
+von MAH Studio</value>
+  </data>
+  <data name="Do.Text" xml:space="preserve">
+    <value>Weiter so :)</value>
+  </data>
+  <data name="donotre.Text" xml:space="preserve">
+    <value>Oh... Ich erinnere mich nicht!</value>
+  </data>
+  <data name="edit.Label" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Entire.Text" xml:space="preserve">
+    <value>�BERSICHT MONAT</value>
+  </data>
+  <data name="eve.Text" xml:space="preserve">
+    <value>GUTEN ABEND</value>
+  </data>
+  <data name="Everydat.Text" xml:space="preserve">
+    <value>Jeden Tag</value>
+  </data>
+  <data name="Familiar.Text" xml:space="preserve">
+    <value>Persönlicher</value>
+  </data>
+  <data name="Feedback.Content" xml:space="preserve">
+    <value>FEEDBACK</value>
+  </data>
+  <data name="fide.Text" xml:space="preserve">
+    <value>Willkommen bei Denna! Denna hilft, dein Leben besser zu planen.</value>
+  </data>
+  <data name="Fillalert.Text" xml:space="preserve">
+    <value>Wie soll ich dich nennen :)</value>
+  </data>
+  <data name="forget.Text" xml:space="preserve">
+    <value>Wir wollen, das du keine Aktivit�ten in deinem Tagesablauf verpasst! Du kannst Benachrichtigungen oder Alarme f�r deine Aufgaben erstellen. Somit klappt alles zu seiner Zeit :)</value>
+  </data>
+  <data name="fri.Content" xml:space="preserve">
+    <value>Fr</value>
+    <comment>Weekday abbreviations</comment>
+  </data>
+  <data name="goit.Content" xml:space="preserve">
+    <value>HABE ICH!</value>
+  </data>
+  <data name="Great.Text" xml:space="preserve">
+    <value>Hey, das meiste ist geschafft.</value>
+  </data>
+  <data name="Greet.Text" xml:space="preserve">
+    <value>HALLO</value>
+  </data>
+  <data name="heyy.Text" xml:space="preserve">
+    <value>Hi!</value>
+  </data>
+  <data name="Hobbies.Label" xml:space="preserve">
+    <value>Hobby's</value>
+  </data>
+  <data name="Info.Text" xml:space="preserve">
+    <value>Diese App wurde entwickelt damit du das Beste aus deiner Zeit machen kannst. 
+ Vergiss nie wieder etwas, gib es einfach in DENNA ein :)</value>
+  </data>
+  <data name="Language.Tag" xml:space="preserve">
+    <value>de-de</value>
+    <comment>language tag (example : fa "Stands for farsi ", en-us " English ")</comment>
+  </data>
+  <data name="Language.Text" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="Laskweek.Text" xml:space="preserve">
+    <value>Letzte Woche</value>
+  </data>
+  <data name="Lastmonth.Text" xml:space="preserve">
+    <value>Letzten Monat</value>
+  </data>
+  <data name="letsdo.Text" xml:space="preserve">
+    <value>DEINE AUFGABEN!</value>
+  </data>
+  <data name="Light.Content" xml:space="preserve">
+    <value>Hell</value>
+  </data>
+  <data name="Logout.Content" xml:space="preserve">
+    <value>Ausloggen</value>
+  </data>
+  <data name="looko.Text" xml:space="preserve">
+    <value>�BERSICHT</value>
+  </data>
+  <data name="misser.Text" xml:space="preserve">
+    <value>VERGISS NIE WIEDER ETWAS</value>
+  </data>
+  <data name="mon.Content" xml:space="preserve">
+    <value>Mo</value>
+    <comment>Weekday abbreviations</comment>
+  </data>
+  <data name="morning.Text" xml:space="preserve">
+    <value>GUTEN MORGEN</value>
+  </data>
+  <data name="night.Text" xml:space="preserve">
+    <value>GUTE NACHT</value>
+    <comment>Please type captal phrases in captal only</comment>
+  </data>
+  <data name="notify.Content" xml:space="preserve">
+    <value>Benachrichtigung</value>
+  </data>
+  <data name="omprovr.Text" xml:space="preserve">
+    <value>Lass uns besser werden!</value>
+  </data>
+  <data name="Page.FlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Page Flow Diection (LeftToRight , RightToLeft)</comment>
+  </data>
+  <data name="Perfect.Text" xml:space="preserve">
+    <value>Super! Alles erledigt!</value>
+  </data>
+  <data name="Planlife.Text" xml:space="preserve">
+    <value>PLANE DEIN LEBEN</value>
+  </data>
+  <data name="prfr.Text" xml:space="preserve">
+    <value>DEINE EFFEKTIV�T</value>
+  </data>
+  <data name="Quick.Text" xml:space="preserve">
+    <value>Schnellzugriff</value>
+  </data>
+  <data name="Rate.Content" xml:space="preserve">
+    <value>BEWERTEN</value>
+  </data>
+  <data name="repeat.Text" xml:space="preserve">
+    <value>Wiederholung</value>
+  </data>
+  <data name="reportr.Text" xml:space="preserve">
+    <value>Schau dir jederzeit deine t�gliche, w�chentliche und monatliche Effektiv�t an! Die Diagramme zeigen dir wie effektiv du deine Aufgaben erledigt hast.</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>Neu starten um �nderungen zu �bernehmen.</value>
+  </data>
+  <data name="Restore.Content" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="Restoree.Text" xml:space="preserve">
+    <value>Diese Datei Wiederherstellen?</value>
+  </data>
+  <data name="sat.Content" xml:space="preserve">
+    <value>Sa</value>
+    <comment>Weekday abbreviations</comment>
+  </data>
+  <data name="Save.Content" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="save.Label" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="Saver.Content" xml:space="preserve">
+    <value>speichern</value>
+  </data>
+  <data name="Setting.Label" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="Shaare.Content" xml:space="preserve">
+    <value>TEILEN</value>
+  </data>
+  <data name="share.Text" xml:space="preserve">
+    <value>Teilen</value>
+  </data>
+  <data name="Shor.Text" xml:space="preserve">
+    <value>Bist Du sicher?</value>
+  </data>
+  <data name="silent.Content" xml:space="preserve">
+    <value>Ruhig</value>
+  </data>
+  <data name="sun.Content" xml:space="preserve">
+    <value>So</value>
+    <comment>Weekday abbreviations</comment>
+  </data>
+  <data name="System.Content" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Thema</value>
+  </data>
+  <data name="thu.Content" xml:space="preserve">
+    <value>Do</value>
+    <comment>Weekday abbreviations</comment>
+  </data>
+  <data name="title.PlaceholderText" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="tue.Content" xml:space="preserve">
+    <value>Di</value>
+    <comment>Weekday abbreviations</comment>
+  </data>
+  <data name="uphob.Text" xml:space="preserve">
+    <value>Gib einen Titel ein und versuche es erneut.</value>
+  </data>
+  <data name="uptitler.Text" xml:space="preserve">
+    <value>Es muss ein Titel angegeben werden.</value>
+  </data>
+  <data name="Urname.PlaceholderText" xml:space="preserve">
+    <value>Dein Name</value>
+  </data>
+  <data name="wed.Content" xml:space="preserve">
+    <value>Mi</value>
+    <comment>Weekday abbreviations</comment>
+  </data>
+  <data name="welcome.Text" xml:space="preserve">
+    <value>WILLKOMMEN</value>
+  </data>
+  <data name="whattodo.Text" xml:space="preserve">
+    <value>Was steht heute an?</value>
+  </data>
+  <data name="Work.Text" xml:space="preserve">
+    <value>Offene Aufgabe.</value>
+  </data>
+  <data name="worx.Text" xml:space="preserve">
+    <value>Offene Aufgaben.</value>
+  </data>
+  <data name="wtname.PlaceholderText" xml:space="preserve">
+    <value>Wie ist dein Name?</value>
+  </data>
+  <data name="yesterday.Text" xml:space="preserve">
+    <value>Gestern</value>
+  </data>
+  <data name="SwipeView.LeftLabel" xml:space="preserve">
+    <value>Erledigt</value>
+  </data>
+  <data name="SwipeView.RightLabel" xml:space="preserve">
+    <value>Verschieben</value>
+  </data>
+</root>

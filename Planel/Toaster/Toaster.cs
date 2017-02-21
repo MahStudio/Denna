@@ -37,7 +37,7 @@ namespace Toaster
                     {
                         now.AddHours(1);
                     }
-                    else if(Time==140)
+                    else if (Time == 140)
                     {
                         now.AddHours(4);
                     }
@@ -50,26 +50,26 @@ namespace Toaster
                     {
                         now.AddDays(1);
                     }
-                    Core.Models.todo task = new Core.Models.todo() {detail=detail , title=title,notify=notify ,time=now.ToLocalTime()};
+                    Core.Models.todo task = new Core.Models.todo() { detail = detail, title = title, notify = notify, time = now.ToLocalTime() };
                     Core.Models.Localdb.Addtodo(task);
                 }
                 catch (Exception ex) { }
                 try
                 {
-                    sthr();
+                     sthr();
                 }
                 catch
                 {
 
                 }
             }
-            
+            _deferal.Complete();
         }
-        private async void sthr()
+        private void sthr()
         {
-            await Core.Classes.LiveTile.livetile();
-           await Core.Classes.LiveTile.GenerateToast();
-        } 
+             Core.Classes.LiveTile.livetile();
+             Core.Classes.LiveTile.GenerateToast();
+        }
         private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
         {
             _deferal.Complete();

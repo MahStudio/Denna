@@ -16,7 +16,7 @@ namespace Core.Classes
     {
       
         const string TranslatorGroup = "Translator";
-        public static async Task GenerateToast()
+        public static async void GenerateToast()
         {
             var toastFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(
                    new Uri("ms-appx:///Xtoast.xml"));
@@ -42,17 +42,17 @@ namespace Core.Classes
         }
         private static async void Toast_Failed(ToastNotification sender, ToastFailedEventArgs args)
         {
-            await GenerateToast();
+             GenerateToast();
         }
 
         private static async void ToastOnActivated(ToastNotification sender, object args)
         {
-            await GenerateToast();
+            GenerateToast();
         }
 
         private static async void Toast_Dismissed(ToastNotification sender, ToastDismissedEventArgs args)
         {
-            await GenerateToast();
+            GenerateToast();
         }
         public static async Task livetile()
         {
