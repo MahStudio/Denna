@@ -188,24 +188,12 @@ namespace Planel.Views
 
         }
 
-        private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-            var clk = e.ClickedItem as Core.Models.todo;
-            ContentDialog noWifiDialog = new ContentDialog()
-            {
-                Title = clk.title,
-                Content = clk.detail + " at " + clk.time,
-                PrimaryButtonText = "Ok"
-            };
-
-            ContentDialogResult result = await noWifiDialog.ShowAsync();
-        }
+      
 
         private async void delete_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
-            msg.Commands.Add(new UICommand("Yes", async delegate
+            msg.Commands.Add(new UICommand("Yes",  delegate
             {
                 var clk = ((sender as Button).Tag) as Core.Models.todo;
                  Core.Models.Localdb.Deletetodo(clk.Id);
@@ -260,15 +248,38 @@ namespace Planel.Views
 
         private async void Hobbies_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var clk = e.ClickedItem as Core.Models.Hobby;
-            ContentDialog noWifiDialog = new ContentDialog()
+            var clk = e.ClickedItem as MessageModel;
+            try
             {
-                Title = clk.title,
-                Content = clk.detail + " at " + clk.time,
-                PrimaryButtonText = "Ok"
-            };
+                var todo = clk.RootObject as todo;
+                ContentDialog noWifiDialog = new ContentDialog()
+                {
+                    Title = todo.title,
+                    Content = todo.detail + " at " + todo.time,
+                    PrimaryButtonText = "Ok"
+                };
+                ContentDialogResult result = await noWifiDialog.ShowAsync();
+            }
+            catch
+            {
+                var todo = clk.RootObject as Hobby;
+                ContentDialog noWifiDialog = new ContentDialog()
+                {
+                    Title = todo.title,
+                    Content = todo.detail + " at " + todo.time,
+                    PrimaryButtonText = "Ok"
+                };
+                ContentDialogResult result = await noWifiDialog.ShowAsync();
+            }
 
-            ContentDialogResult result = await noWifiDialog.ShowAsync();
+            //var clk = e.ClickedItem as Core.Models.Hobby;
+            //ContentDialog noWifiDialog = new ContentDialog()
+            //{
+            //    Title = clk.title,
+            //    Content = clk.detail + " at " + clk.time,
+            //    PrimaryButtonText = "Ok"
+            //};
+            
         }
 
         private void removehobbie_Click(object sender, RoutedEventArgs e)

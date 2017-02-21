@@ -49,8 +49,9 @@
                             <Button x:Uid="Feedback" BorderThickness="0,0,0,0" Click="Button_Click_2" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="FEEDBACK" Width="100"  />
                             <Button x:Uid="Rate" BorderThickness="0,0,0,0" Click="Button_Click_1" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="RATE AND REVIEW" Width="150"  />
                     </StackPanel>
+                        <HyperlinkButton x:Uid="Translate" HorizontalAlignment="Center" Click="HyperlinkButton_Click" Content="Join insider program and translation." />
 
-                </StackPanel>
+                    </StackPanel>
                 </ScrollViewer>
                 <StackPanel VerticalAlignment="Bottom" >
                 <TextBlock x:Uid="Dev" TextAlignment="Center" FontWeight="SemiBold" >

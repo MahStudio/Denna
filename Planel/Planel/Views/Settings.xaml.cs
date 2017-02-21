@@ -68,14 +68,17 @@ namespace Planel.Views
             if(MultilingualHelpToolkit.GetString("Language", "Tag") == "fa")
             {
                 langwich.SelectedIndex = 0;
+                Translator.Text = " ";
             }
             else if (MultilingualHelpToolkit.GetString("Language", "Tag") == "en-us")
             {
                 langwich.SelectedIndex = 1;
+                Translator.Text = " ";
             }
             else if (MultilingualHelpToolkit.GetString("Language", "Tag") == "de-de")
             {
                 langwich.SelectedIndex =2;
+                Translator.Text = "By Lukas Frensel";
             }
 
             
@@ -450,6 +453,7 @@ namespace Planel.Views
                 ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
+                Translator.Text = " ";
             }
             else if (langwich.SelectedIndex == 1)
             {
@@ -457,6 +461,7 @@ namespace Planel.Views
                 ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
+                Translator.Text = " ";
             }
             else if (langwich.SelectedIndex == 2)
             {
@@ -464,6 +469,7 @@ namespace Planel.Views
                 ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
+                Translator.Text = "By Lukas Frensel";
             }
         }
     }

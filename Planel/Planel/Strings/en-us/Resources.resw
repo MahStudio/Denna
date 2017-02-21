@@ -384,4 +384,7 @@ in MAH Studio</value>
   <data name="SwipeView.RightLabel" xml:space="preserve">
     <value>Postpone</value>
   </data>
+  <data name="Translate.Content" xml:space="preserve">
+    <value>Join insider program and translation.</value>
+  </data>
 </root>

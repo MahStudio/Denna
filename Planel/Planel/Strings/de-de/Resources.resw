@@ -384,4 +384,7 @@ von MAH Studio</value>
   <data name="SwipeView.RightLabel" xml:space="preserve">
     <value>Verschieben</value>
   </data>
+  <data name="Translate.Content" xml:space="preserve">
+    <value>Tritt dem Insider-Programm bei und hilf bei der Übersetzung</value>
+  </data>
 </root>

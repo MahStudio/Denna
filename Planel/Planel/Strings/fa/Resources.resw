@@ -377,4 +377,7 @@
   <data name="SwipeView.RightLabel" xml:space="preserve">
     <value>تعویق</value>
   </data>
+  <data name="Translate.Content" xml:space="preserve">
+    <value>به تیم تست و ترجمه ی مه استودیو اضافه شوید!</value>
+  </data>
 </root>

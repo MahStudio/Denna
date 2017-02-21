@@ -133,9 +133,14 @@ namespace Planel.Views
             }
             else
             {
-                await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:mohsens22@outlook.com?subject=DENNA_BETA_FeedBack&cc=ngame1390@live.com"));
+                await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:mohsens22@outlook.com?subject=DENNA_BETA_FeedBack"));
             }
             
+        }
+
+        private async void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:mohsens22@outlook.com?subject=DENNA_BETA_Insider"));
         }
     }
 }

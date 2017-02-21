@@ -42,6 +42,7 @@
                         <ComboBoxItem  Content="English" Tag="en-us"/>
                         <ComboBoxItem Content="German" Tag="de-de" />
                     </ComboBox>
+                    <TextBlock x:Name="Translator" HorizontalAlignment="Left"  />
                 </StackPanel>
                 <StackPanel Margin="0,15,0,0">
                     <TextBlock x:Uid="Theme" HorizontalAlignment="Left" FontWeight="SemiBold"  Text="Theme" />
