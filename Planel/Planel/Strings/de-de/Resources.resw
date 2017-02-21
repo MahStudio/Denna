@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About.Label" xml:space="preserve">
-    <value>�ber</value>
+    <value>Über</value>
   </data>
   <data name="accent.Text" xml:space="preserve">
     <value>Akzentfarbe verwenden</value>
@@ -148,13 +148,13 @@
     <value>Teilen-Link in Zwischenablage kopiert</value>
   </data>
   <data name="dailylife.Text" xml:space="preserve">
-    <value>Plane deine t�glichen Aufgaben. Erledige, verschiebe, kontrolliere und erinnere dich an Aufgaben. Du kannst auch deine Hobby's mit Denna verwalten :) Durch Planung wird vieles einfacher!</value>
+    <value>Plane deine täglichen Aufgaben. Erledige, verschiebe, kontrolliere und erinnere dich an Aufgaben. Du kannst auch deine Hobby's mit Denna verwalten :) Durch Planung wird vieles einfacher!</value>
   </data>
   <data name="Dark.Content" xml:space="preserve">
     <value>Dunkel</value>
   </data>
   <data name="Del.Text" xml:space="preserve">
-    <value>L�schen</value>
+    <value>Löschen</value>
   </data>
   <data name="describe.PlaceholderText" xml:space="preserve">
     <value>Beschreibung</value>
@@ -173,7 +173,7 @@ von MAH Studio</value>
     <value>Bearbeiten</value>
   </data>
   <data name="Entire.Text" xml:space="preserve">
-    <value>�BERSICHT MONAT</value>
+    <value>ÜBERSICHT MONAT</value>
   </data>
   <data name="eve.Text" xml:space="preserve">
     <value>GUTEN ABEND</value>
@@ -194,7 +194,7 @@ von MAH Studio</value>
     <value>Wie soll ich dich nennen :)</value>
   </data>
   <data name="forget.Text" xml:space="preserve">
-    <value>Wir wollen, das du keine Aktivit�ten in deinem Tagesablauf verpasst! Du kannst Benachrichtigungen oder Alarme f�r deine Aufgaben erstellen. Somit klappt alles zu seiner Zeit :)</value>
+    <value>Wir wollen, das du keine Aktivitäten in deinem Tagesablauf verpasst! Du kannst Benachrichtigungen oder Alarme für deine Aufgaben erstellen. Somit klappt alles zu seiner Zeit :)</value>
   </data>
   <data name="fri.Content" xml:space="preserve">
     <value>Fr</value>
@@ -242,7 +242,7 @@ von MAH Studio</value>
     <value>Ausloggen</value>
   </data>
   <data name="looko.Text" xml:space="preserve">
-    <value>�BERSICHT</value>
+    <value>ÜBERSICHT</value>
   </data>
   <data name="misser.Text" xml:space="preserve">
     <value>VERGISS NIE WIEDER ETWAS</value>
@@ -275,7 +275,7 @@ von MAH Studio</value>
     <value>PLANE DEIN LEBEN</value>
   </data>
   <data name="prfr.Text" xml:space="preserve">
-    <value>DEINE EFFEKTIV�T</value>
+    <value>DEINE EFFEKTIVITÄT</value>
   </data>
   <data name="Quick.Text" xml:space="preserve">
     <value>Schnellzugriff</value>
@@ -287,10 +287,10 @@ von MAH Studio</value>
     <value>Wiederholung</value>
   </data>
   <data name="reportr.Text" xml:space="preserve">
-    <value>Schau dir jederzeit deine t�gliche, w�chentliche und monatliche Effektiv�t an! Die Diagramme zeigen dir wie effektiv du deine Aufgaben erledigt hast.</value>
+    <value>Schau dir jederzeit deine tägliche, wöchentliche und monatliche Effektivität an! Die Diagramme zeigen dir wie effektiv du deine Aufgaben erledigt hast.</value>
   </data>
   <data name="Restart.Text" xml:space="preserve">
-    <value>Neu starten um �nderungen zu �bernehmen.</value>
+    <value>Neu starten um Änderungen zu übernehmen.</value>
   </data>
   <data name="Restore.Content" xml:space="preserve">
     <value>Wiederherstellen</value>
