@@ -29,28 +29,35 @@ namespace Toaster
                     var notify = (byte)int.Parse(userInput["notification"].ToString());
                     var Time = int.Parse(userInput["snoozeTime"].ToString());
                     DateTime now = DateTime.Now;
+                    
                     if (Time == 15)
                     {
-                        now.AddMinutes(15);
+                        DateTime nulll = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+                        now = now.AddMinutes(15);
                     }
                     else if (Time == 60)
                     {
+                        DateTime nulll = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
                         now.AddHours(1);
                     }
                     else if (Time == 140)
                     {
+                        DateTime nulll = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
                         now.AddHours(4);
                     }
                     else if (Time == 160)
                     {
+                        DateTime nulll = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
                         now.AddHours(8);
 
                     }
                     else if (Time == 190)
                     {
+                        DateTime nulll = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
                         now.AddDays(1);
                     }
-                    Core.Models.todo task = new Core.Models.todo() { detail = detail, title = title, notify = notify, time = now.ToLocalTime() };
+                    DateTime pocker = new DateTime(now.Year , now.Month,now.Day,now.Hour,now.Minute,now.Second);
+                    Core.Models.todo task = new Core.Models.todo() { detail = detail, title = title, notify = notify, time = pocker };
                     Core.Models.Localdb.Addtodo(task);
                 }
                 catch (Exception ex) { }
