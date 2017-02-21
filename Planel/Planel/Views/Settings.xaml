@@ -53,27 +53,23 @@
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <Grid Width="357" HorizontalAlignment="Stretch">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="283*"/>
-                            <ColumnDefinition Width="74*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="accent" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" Text="Follow accent color" />
-                        <ToggleSwitch  Grid.Column="2" MinWidth="10" x:Name="FollowAccent" HorizontalAlignment="Right" Margin="0,0,0,0" Toggled="FollowAccent_Toggled" OffContent="" OnContent=""/>
-                    </Grid>
+                <StackPanel MinWidth="200" Orientation="Vertical">
+                    <RelativePanel>
+
+                        <TextBlock  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="accent" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" Text="Follow accent color" />
+                        <ToggleSwitch RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Grid.Column="2" MinWidth="10" x:Name="FollowAccent" HorizontalAlignment="Right" Margin="0,0,0,0" Toggled="FollowAccent_Toggled" OffContent="" OnContent=""/>
+                    </RelativePanel>
 
 
                 </StackPanel>
-                <StackPanel MinWidth="200" Orientation="Horizontal">
-                    <Grid Width="357" HorizontalAlignment="Stretch">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="283*"/>
-                            <ColumnDefinition Width="74*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="Quick" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" FontWeight="SemiBold"  Text="Quick Actions" />
-                        <ToggleSwitch Grid.Column="1" x:Name="swicher" MinWidth="10" Margin="0,0 ,0,0" HorizontalAlignment="Right" Toggled="swicher_Toggled" OffContent="" OnContent=""/>
-                    </Grid>
+                <StackPanel MinWidth="200" Orientation="Vertical">
+                    
+                      
+
+                    <RelativePanel>
+                        <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="Quick" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" FontWeight="SemiBold"  Text="Quick Actions" />
+                        <ToggleSwitch RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Grid.Column="1" x:Name="swicher" MinWidth="10" Margin="0,0 ,0,0" HorizontalAlignment="Right" Toggled="swicher_Toggled" OffContent="" OnContent=""/>
+                    </RelativePanel>
                     
 
                 </StackPanel>
