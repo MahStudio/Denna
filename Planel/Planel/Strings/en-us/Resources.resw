@@ -148,7 +148,7 @@
     <value>Share link copied to clipboard</value>
   </data>
   <data name="dailylife.Text" xml:space="preserve">
-    <value>Plan your daily tasks. Do, mind, postpone and control your activities. Don't forget to add your hobbies in Denna :) Planning makes everything easier!</value>
+    <value>Plan your daily tasks. Do, mind, postpone and control your activities. Don't forget to add your habits in Denna :) Planning makes everything easier!</value>
   </data>
   <data name="Dark.Content" xml:space="preserve">
     <value>Dark</value>
@@ -213,7 +213,7 @@ in MAH Studio</value>
     <value>Hey, there !</value>
   </data>
   <data name="Hobbies.Label" xml:space="preserve">
-    <value>Hobbies</value>
+    <value>Habits</value>
   </data>
   <data name="Info.Text" xml:space="preserve">
     <value>This app is dedicated for having the best planning and scheduling experience. 

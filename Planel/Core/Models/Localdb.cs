@@ -55,7 +55,7 @@ namespace Core.Models
 
             List<Tips> tipsl = new List<Tips>();
             tipsl.Add(new Tips() { Title="Rate us!" , detail="Rate and review denna" ,Days=5 });
-            tipsl.Add(new Tips() { Title = "Hobbies!", detail = "Add your hobbies and stuff you do frequently", Days = 2 });
+            tipsl.Add(new Tips() { Title = "Hobbies!", detail = "Add your habits and stuff you do frequently", Days = 2 });
             tipsl.Add(new Tips() { Title = "Add your tasks.", detail = "Add your task and stuff that you are planning to do.", Days = 1 });
             tipsl.Add(new Tips() { Title = "Pin !", detail = "Pin DENNA to your start menu to see more !", Days = 3 });
             tipsl.Add(new Tips() { Title = "Lockscreen", detail = "Add DENNA to your lockscreen.", Days = 4 });
