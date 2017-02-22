@@ -139,7 +139,7 @@
     <value>Sicherung</value>
   </data>
   <data name="Bye.Text" xml:space="preserve">
-    <value>Auf Wiedersehen!</value>
+    <value>Bis Bald!</value>
   </data>
   <data name="cancel.Label" xml:space="preserve">
     <value>Abbrechen</value>
@@ -167,7 +167,7 @@ von MAH Studio</value>
     <value>Weiter so :)</value>
   </data>
   <data name="donotre.Text" xml:space="preserve">
-    <value>Oh... Ich erinnere mich nicht!</value>
+    <value>Oh... Ich habe was vergessen!</value>
   </data>
   <data name="edit.Label" xml:space="preserve">
     <value>Bearbeiten</value>
@@ -182,7 +182,7 @@ von MAH Studio</value>
     <value>Jeden Tag</value>
   </data>
   <data name="Familiar.Text" xml:space="preserve">
-    <value>Persönlicher</value>
+    <value>Lass uns kennenlernen</value>
   </data>
   <data name="Feedback.Content" xml:space="preserve">
     <value>FEEDBACK</value>
@@ -201,7 +201,7 @@ von MAH Studio</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="goit.Content" xml:space="preserve">
-    <value>HABE ICH!</value>
+    <value>LOS GEHTS!</value>
   </data>
   <data name="Great.Text" xml:space="preserve">
     <value>Hey, das meiste ist geschafft.</value>
@@ -213,7 +213,7 @@ von MAH Studio</value>
     <value>Hi!</value>
   </data>
   <data name="Hobbies.Label" xml:space="preserve">
-    <value>Hobby's</value>
+    <value>Hobit's</value>
   </data>
   <data name="Info.Text" xml:space="preserve">
     <value>Diese App wurde entwickelt damit du das Beste aus deiner Zeit machen kannst. 
@@ -262,7 +262,7 @@ von MAH Studio</value>
     <value>Benachrichtigung</value>
   </data>
   <data name="omprovr.Text" xml:space="preserve">
-    <value>Lass uns besser werden!</value>
+    <value>Steigere deine Effizienz!</value>
   </data>
   <data name="Page.FlowDirection" xml:space="preserve">
     <value>LeftToRight</value>
@@ -290,7 +290,7 @@ von MAH Studio</value>
     <value>Schau dir jederzeit deine tägliche, wöchentliche und monatliche Effektivität an! Die Diagramme zeigen dir wie effektiv du deine Aufgaben erledigt hast.</value>
   </data>
   <data name="Restart.Text" xml:space="preserve">
-    <value>Neu starten um Änderungen zu übernehmen.</value>
+    <value>Neu starten, um Änderungen zu übernehmen.</value>
   </data>
   <data name="Restore.Content" xml:space="preserve">
     <value>Wiederherstellen</value>
@@ -309,7 +309,7 @@ von MAH Studio</value>
     <value>Speichern</value>
   </data>
   <data name="Saver.Content" xml:space="preserve">
-    <value>speichern</value>
+    <value>Speichern</value>
   </data>
   <data name="Setting.Label" xml:space="preserve">
     <value>Einstellungen</value>

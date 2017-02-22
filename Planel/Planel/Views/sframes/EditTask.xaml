@@ -18,9 +18,9 @@
                 <DatePicker Width="300" HorizontalAlignment="Center" BorderThickness="1"  x:Name="datepic"  Margin="5,10,5,0" />
                 <TimePicker Width="300" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" />
                 <StackPanel HorizontalAlignment="Center" Margin="0,25,0,0" Orientation="Horizontal" >
-                    <RadioButton x:Uid="silent" MinWidth="0"  Width="70" Opacity="0.85" x:Name="rbs" Content="Silent"  GroupName="not" />
-                    <RadioButton x:Uid="notify" MinWidth="0" Margin="30" Width="70"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
-                    <RadioButton x:Uid="alarm" MinWidth="0"  Width="70" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
+                        <RadioButton x:Uid="silent" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rbs" Content="Silent"  GroupName="not" />
+                        <RadioButton x:Uid="notify" MinWidth="0" Margin="30" Width="Auto"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
+                        <RadioButton x:Uid="alarm" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
                 </StackPanel>
 
             </StackPanel>

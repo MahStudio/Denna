@@ -19,7 +19,7 @@
                             </Ellipse.Fill>
                         </Ellipse>
                         <Button Click="Button_Click_1" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
-                  FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="80" Width="80" HorizontalAlignment="Center" />
+                  FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="80" Width="80" HorizontalAlignment="Center" />
 
                     </Grid>
                     <TextBox RelativePanel.RightOf="Propicc" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="Urname" Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="600" TextAlignment="Justify" PlaceholderText="YOUR NAME" MinWidth="230" Margin="5,10,0,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />

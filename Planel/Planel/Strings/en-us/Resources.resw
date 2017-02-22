@@ -239,7 +239,7 @@ in MAH Studio</value>
     <value>Light</value>
   </data>
   <data name="Logout.Content" xml:space="preserve">
-    <value>Logout</value>
+    <value>LOG OUT</value>
   </data>
   <data name="looko.Text" xml:space="preserve">
     <value>OVER LOOK</value>

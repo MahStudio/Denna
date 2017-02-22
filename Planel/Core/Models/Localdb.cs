@@ -528,36 +528,36 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
                 var query = conn.Table<todo>();
                 foreach (var message in query)
                 {
-                    todos.Add(new todo() { detail = message.detail, isdone = message.isdone, time = message.time, title = message.title, Id = message.Id });
+                    todos.Add(message);
                 }
 
             }
-            DateTime now = DateTime.Now;
-            int done = 0;
-            int alll = todos.Count;
-
-            for (int i = 0; i < 6; i++)
+            DateTime today = DateTime.Now.ToLocalTime();
+            var starttoday = new DateTime(today.Year,today.Month,today.Day,0,0,0);
+            var endtoday = new DateTime(today.Year, today.Month, today.Day, 23, 59, 59);
+            for (int i = 0; i < 7; i++)
             {
-                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
-                starttoday=starttoday.AddDays(-i);
-                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
-                endtoday=endtoday.AddDays(-i);
+                var allitems = 0;
+                var doneitems = 0;
+                var starter = starttoday.AddDays(-i);
+                var ender = endtoday.AddDays(-i);
                 foreach (var item in todos)
                 {
-                    if (item.isdone == 2)
+                    if (item.time<=ender && item.time >= starter)
                     {
-                        done++;
+                        allitems++;
+                        if (item.isdone == 2)
+                        {
+                            doneitems++;
+                        }
                     }
-
                 }
                 int percentCompletee;
-                if (alll != 0)
-                    percentCompletee = (int)Math.Round((double)(100 * done) / alll);
+                if (allitems != 0)
+                    percentCompletee = (int)Math.Round((double)(100 * doneitems) / allitems);
                 else
                     percentCompletee = 0;
                 weeker.Add(new Classes.NameValueItem() { Name = i.ToString(), Value = percentCompletee });
-
-
 
 
             }
@@ -581,32 +581,32 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
                 }
 
             }
-            DateTime now = DateTime.Now;
-            int done = 0;
-            int alll = todos.Count;
-
-            for (int i = 0; i < 6; i++)
+            DateTime today = DateTime.Now.ToLocalTime();
+            var starttoday = new DateTime(today.Year, today.Month, today.Day, 0, 0, 0);
+            var endtoday = new DateTime(today.Year, today.Month, today.Day, 23, 59, 59);
+            for (int i = 0; i < 29; i+=2)
             {
-                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day , 0, 0, 0);
-                starttoday=starttoday.AddDays(-i * 4);
-                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day , 23, 59, 59);
-                endtoday=endtoday.AddDays(-i * 4);
+                var allitems = 0;
+                var doneitems = 0;
+                var starter = starttoday.AddDays(-i);
+                var ender = endtoday.AddDays(-(i-1));
                 foreach (var item in todos)
                 {
-                    if (item.isdone == 2)
+                    if (item.time <= ender && item.time >= starter)
                     {
-                        done++;
+                        allitems++;
+                        if (item.isdone == 2)
+                        {
+                            doneitems++;
+                        }
                     }
-
                 }
                 int percentCompletee;
-                if (alll != 0)
-                    percentCompletee = (int)Math.Round((double)(100 * done) / alll);
+                if (allitems != 0)
+                    percentCompletee = (int)Math.Round((double)(100 * doneitems) / allitems);
                 else
                     percentCompletee = 0;
                 weeker.Add(new Classes.NameValueItem() { Name = i.ToString(), Value = percentCompletee });
-
-
 
 
             }
