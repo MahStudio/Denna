@@ -15,7 +15,7 @@
     <Grid Background="Transparent">
         
         <ScrollViewer>
-            <GridView SelectionMode="None" Width="auto"  HorizontalAlignment="Center">
+            <GridView ScrollViewer.IsVerticalRailEnabled="False" SelectionMode="None" Width="auto"  HorizontalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" Width="400" Height="500" >
 
                     <TextBlock x:Uid="Laskweek" Opacity="0.8" Foreground="{StaticResource AntiForeground}" Text="Last week performance" TextAlignment="Center"  FontSize="23" Margin="0,30,0,0" VerticalAlignment="Top" Height="35" />
