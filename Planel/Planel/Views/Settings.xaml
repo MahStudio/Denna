@@ -10,34 +10,34 @@
 
     <Grid Background="{ThemeResource AppBackgroundColor}">
         <ScrollViewer Margin="0,0,0,49">
-            <StackPanel HorizontalAlignment="Center" MaxWidth="700" MinWidth="20" Margin="0,40,0,0" >
-                <StackPanel  Orientation="Horizontal">
-                    <Grid>
-                        <Ellipse   HorizontalAlignment="Center" Height="100"  Width="100" >
+            <StackPanel Padding="10,0,10,0" HorizontalAlignment="Center" MaxWidth="900" MinWidth="20" Margin="0,40,0,0" >
+                <RelativePanel  >
+                    <Grid x:Name="Propicc" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                        <Ellipse   HorizontalAlignment="Center" Height="80"  Width="80" >
                             <Ellipse.Fill>
                                 <ImageBrush Stretch="UniformToFill" x:Name="avatar"  />
                             </Ellipse.Fill>
                         </Ellipse>
                         <Button Click="Button_Click_1" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
-                  FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="100" Width="100" HorizontalAlignment="Center" />
+                  FontFamily="Segoe MDL2 Assets" FontSize="30" Content="" Style="{StaticResource dotbut}" Height="80" Width="80" HorizontalAlignment="Center" />
 
                     </Grid>
-                    <TextBox x:Uid="Urname" Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="600" TextAlignment="Justify" PlaceholderText="YOUR NAME" MinWidth="230" Margin="5,40,0,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
-                </StackPanel>
+                    <TextBox RelativePanel.RightOf="Propicc" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="Urname" Background="Transparent" BorderThickness="0,0,0,1" x:Name="namebox" MaxWidth="600" TextAlignment="Justify" PlaceholderText="YOUR NAME" MinWidth="230" Margin="5,10,0,0" Height="40" VerticalAlignment="Top" TextChanged="namebox_TextChanged" />
+                </RelativePanel>
 
 
-                <StackPanel Margin="0,20,0,10" >
+                <StackPanel Margin="0,20,0,0" >
                     <TextBlock x:Uid="backup" HorizontalAlignment="Left" FontWeight="SemiBold" Text="Backup and reset" />
 
-                    <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0" Orientation="Horizontal" >
-                        <Button x:Uid="Saver" FontSize="14" x:Name="saver" BorderThickness="0,0,0,0" Click="saver_Click" Content="Save"  Height="40" HorizontalAlignment="Center" Width="165" VerticalAlignment="Bottom" Margin="0,0,0,10" />
-                        <Button x:Uid="Restore" FontSize="14" x:Name="pick" BorderThickness="0,0,0,0" Click="pick_Click" Content="Restore" Height="40" HorizontalAlignment="Center" Width="165" VerticalAlignment="Bottom" Margin="25,0,0,10" />
+                    <StackPanel HorizontalAlignment="Center" Margin="0,15,0,0" Orientation="Horizontal" >
+                        <Button Opacity="0.9" x:Uid="Saver" FontSize="14" x:Name="saver" BorderThickness="0,0,0,0" Click="saver_Click" Content="Save"  Height="40" HorizontalAlignment="Center" Width="165" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+                        <Button Opacity="0.9" x:Uid="Restore" FontSize="14" x:Name="pick" BorderThickness="0,0,0,0" Click="pick_Click" Content="Restore" Height="40" HorizontalAlignment="Center" Width="165" VerticalAlignment="Bottom" Margin="25,0,0,10" />
 
                     </StackPanel>
                 </StackPanel>
-                <StackPanel>
+                <StackPanel Margin="0,15,0,0">
                     <TextBlock x:Uid="Language" HorizontalAlignment="Left" FontWeight="SemiBold"  Text="Language" />
-                    <ComboBox Margin="0,7,0,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="langwich"  HorizontalAlignment="Stretch" MinWidth="310" SelectionChanged="langwich_SelectionChanged">
+                    <ComboBox Margin="0,15,0,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="langwich"  HorizontalAlignment="Stretch" MinWidth="310" SelectionChanged="langwich_SelectionChanged">
                         <ComboBoxItem Content="پارسی" Tag="fa"/>
                         <ComboBoxItem  Content="English" Tag="en-us"/>
                         <ComboBoxItem Content="German" Tag="de-de" />
@@ -46,14 +46,14 @@
                 </StackPanel>
                 <StackPanel Margin="0,15,0,0">
                     <TextBlock x:Uid="Theme" HorizontalAlignment="Left" FontWeight="SemiBold"  Text="Theme" />
-                    <ComboBox Margin="0,7,0,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="ThemeSelector"  HorizontalAlignment="Stretch" MinWidth="310" SelectionChanged="ThemeSelector_SelectionChanged">
+                    <ComboBox Margin="0,15,0,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="ThemeSelector"  HorizontalAlignment="Stretch" MinWidth="310" SelectionChanged="ThemeSelector_SelectionChanged">
                         <ComboBoxItem x:Uid="Dark" Content="Dark" Tag="Dark"/>
                         <ComboBoxItem x:Uid="Light" Content="Light" Tag="Light"/>
                         <ComboBoxItem x:Uid="System" Content="System" Tag="System"/>
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel MinWidth="200" Orientation="Vertical">
+                <StackPanel Margin="0,15,0,0" MinWidth="200" Orientation="Vertical">
                     <RelativePanel>
 
                         <TextBlock  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="accent" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" Text="Follow accent color" />
@@ -62,15 +62,15 @@
 
 
                 </StackPanel>
-                <StackPanel MinWidth="200" Orientation="Vertical">
-                    
-                      
+                <StackPanel Margin="0,15,0,0" MinWidth="200" Orientation="Vertical">
+
+
 
                     <RelativePanel>
                         <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="Quick" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" FontWeight="SemiBold"  Text="Quick Actions" />
                         <ToggleSwitch RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Grid.Column="1" x:Name="swicher" MinWidth="10" Margin="0,0 ,0,0" HorizontalAlignment="Right" Toggled="swicher_Toggled" OffContent="" OnContent=""/>
                     </RelativePanel>
-                    
+
 
                 </StackPanel>
 
@@ -95,7 +95,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Button x:Uid="Logout" x:Name="logout" Click="logout_Click" Content="LOG OUT" Style="{StaticResource logoutstyle}" Height="45" HorizontalAlignment="Center" Width="190" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+        <Button x:Uid="Logout" x:Name="logout" Click="logout_Click" Content="LOG OUT" Style="{StaticResource logoutstyle}" Height="45" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
         <Grid x:Name="bye" Visibility="Collapsed" Background="{StaticResource SystemControlBackgroundAccentBrush}" >
             <TextBlock FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"
 TextWrapping="Wrap" Foreground="White" x:Uid="Bye" Text="Bye Bye :)" />

@@ -290,7 +290,7 @@ in MAH Studio</value>
     <value>See your daily, weekly and monthly preformance any time you want! The charts would show you how nicely you've done your activities.</value>
   </data>
   <data name="Restart.Text" xml:space="preserve">
-    <value>Restart to apply changes.</value>
+    <value>Restart tha app to apply changes.</value>
   </data>
   <data name="Restore.Content" xml:space="preserve">
     <value>Restore</value>
