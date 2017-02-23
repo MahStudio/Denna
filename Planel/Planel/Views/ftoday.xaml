@@ -195,19 +195,19 @@
 
                 </StackPanel>
                 <StackPanel x:Name="destk" Margin="20,15,20,0"  Orientation="Horizontal" >
-                    <TextBlock TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                    <TextBlock TextAlignment="Center" Height="27" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
                     <TextBlock x:Name="stackdetal" Margin="10,0,0,0" FontSize="18" TextWrapping="Wrap" MaxWidth="320" Text="Do some ffdf dfldkfkldfmlkdfmdflkvmfldkmvld stuff on " />
                 </StackPanel>
                     <StackPanel Margin="20,15,20,0" Orientation="Horizontal" >
-                    <TextBlock TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                    <TextBlock TextAlignment="Center" Height="27" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
                         <TextBlock x:Name="stacktime" Margin="10,0,0,0" FontSize="18" Text="10:13" />
                 </StackPanel>
                     <StackPanel x:Name="stackdn" Margin="20,15,20,0" Orientation="Horizontal" >
-                    <TextBlock x:Name="stackglp" TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                    <TextBlock x:Name="stackglp" TextAlignment="Center" Height="27" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
                         <TextBlock x:Name="stackdone" Margin="10,0,0,0" FontSize="18" Text="Done" />
                 </StackPanel>
                     <StackPanel x:Name="stackday" Margin="20,15,20,0" Orientation="Horizontal" >
-                    <TextBlock TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                    <TextBlock TextAlignment="Center" Height="27" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
                         <TextBlock x:Name="stackdays" Margin="10,0,0,0" FontSize="18" Text="Sat,sun,mon , wed , thur,  tue" />
                 </StackPanel>
                 <StackPanel.RenderTransform >
