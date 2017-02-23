@@ -387,4 +387,13 @@ von MAH Studio</value>
   <data name="Translate.Content" xml:space="preserve">
     <value>Tritt dem Insider-Programm bei und hilf bei der Übersetzung</value>
   </data>
+  <data name="Done.Text" xml:space="preserve">
+    <value>Erledigt</value>
+  </data>
+  <data name="Planned.Text" xml:space="preserve">
+    <value>Geplant</value>
+  </data>
+  <data name="Suspended.Text" xml:space="preserve">
+    <value>Verschoben</value>
+  </data>
 </root>

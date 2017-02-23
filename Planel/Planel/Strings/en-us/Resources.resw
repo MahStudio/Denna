@@ -387,4 +387,13 @@ in MAH Studio</value>
   <data name="Translate.Content" xml:space="preserve">
     <value>Join insider program and translation.</value>
   </data>
+  <data name="Done.Text" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="Planned.Text" xml:space="preserve">
+    <value>Planed</value>
+  </data>
+  <data name="Suspended.Text" xml:space="preserve">
+    <value>Postponed</value>
+  </data>
 </root>

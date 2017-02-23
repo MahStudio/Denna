@@ -1,7 +1,10 @@
 ﻿using Core;
+using Core.Models;
+using Newtonsoft.Json;
 using Planel.Classes;
 using Planel.Views.sframes;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
@@ -77,15 +80,113 @@ namespace Planel.Views
         private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            var clk = e.ClickedItem as Core.Models.todo;
-            ContentDialog noWifiDialog = new ContentDialog()
-            {
-                Title = clk.title,
-                Content = clk.detail + " at " + clk.time,
-                PrimaryButtonText = "Ok"
-            };
+            
 
-            ContentDialogResult result = await noWifiDialog.ShowAsync();
+            var clk = e.ClickedItem as todo;
+            try
+            {
+                var todo = clk as todo;
+                title.Text = todo.title;
+                if (todo.detail != "")
+                {
+                    destk.Visibility = Visibility.Visible;
+                    stackdetal.Text = todo.detail;
+                }
+                else
+                {
+                    destk.Visibility = Visibility.Collapsed;
+                }
+
+                stacktime.Text = todo.time.ToString();
+                stackdn.Visibility = Visibility.Visible;
+                stackday.Visibility = Visibility.Collapsed;
+                if (todo.isdone == 0)
+                {
+                    stackglp.Text = "";
+                    stackdone.Text = MultilingualHelpToolkit.GetString("Planned", "Text");
+                }
+                else if (todo.isdone == 1)
+                {
+                    stackglp.Text = "";
+                    stackdone.Text = MultilingualHelpToolkit.GetString("Suspended", "Text");
+                }
+                else if (todo.isdone == 2)
+                {
+                    stackglp.Text = "";
+                    stackdone.Text = MultilingualHelpToolkit.GetString("Done", "Text");
+                }
+            }
+            catch { }
+            
+          
+
+
+            Tododatail.Visibility = Visibility.Visible;
+            await Task.Delay(10);
+            myStoryboard.Begin();
+            opacitySb1.Begin();
+
+
+        }
+
+        public string Convert(object value)
+        {
+            string json = value.ToString();
+            var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
+            string Days = "";
+            if (toadd.Count == 7)
+            {
+                Days = MultilingualHelpToolkit.GetString("Everydat", "Text"); ;
+            }
+            else
+            {
+                foreach (var item in toadd)
+                {
+                    string x = null;
+                    if (item == DayOfWeek.Friday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("fri", "Content");
+                    }
+                    if (item == DayOfWeek.Saturday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("sat", "Content");
+                    }
+                    if (item == DayOfWeek.Sunday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("sun", "Content");
+                    }
+                    if (item == DayOfWeek.Monday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("mon", "Content");
+                    }
+                    if (item == DayOfWeek.Tuesday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("tue", "Content");
+                    }
+                    if (item == DayOfWeek.Wednesday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("wed", "Content");
+                    }
+                    if (item == DayOfWeek.Thursday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("thu", "Content");
+                    }
+                    Days += x + "  ";
+                }
+            }
+
+
+            return Days;
+        }
+
+        private async void Grid_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            opacitySb0.Begin();
+            myStoryboard0.Begin();
+            await Task.Delay(300);
+            Tododatail.Visibility = Visibility.Collapsed;
+
+
         }
 
         private async void delete_Click(object sender, RoutedEventArgs e)

@@ -380,4 +380,13 @@
   <data name="Translate.Content" xml:space="preserve">
     <value>به تیم تست و ترجمه ی مه استودیو اضافه شوید!</value>
   </data>
+  <data name="Done.Text" xml:space="preserve">
+    <value>انجام شده</value>
+  </data>
+  <data name="Planned.Text" xml:space="preserve">
+    <value>زمانبندی شده</value>
+  </data>
+  <data name="Suspended.Text" xml:space="preserve">
+    <value>تعویق افتاده</value>
+  </data>
 </root>

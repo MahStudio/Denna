@@ -10,10 +10,69 @@
     mc:Ignorable="d">
 
     <Page.Resources>
+        <Storyboard x:Name="opacitySb1">
+            <DoubleAnimation  To="0.8" Duration="00:00:0.2"
+                Storyboard.TargetName="detstack"
+                Storyboard.TargetProperty="Opacity">
+                
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="opacitySb0">
+            <DoubleAnimation  To="0" Duration="00:00:0.2"
+                Storyboard.TargetName="detstack"
+                Storyboard.TargetProperty="Opacity">
+
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Name="myStoryboard">
+            <DoubleAnimation From="0.8" To="1" Duration="00:00:0.7" 
+                Storyboard.TargetName="myScaleTransform" 
+                Storyboard.TargetProperty="ScaleX">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="0.4"  To="1" Duration="00:00:0.5"
+                Storyboard.TargetName="strs"
+                Storyboard.TargetProperty="Opacity">
+
+            </DoubleAnimation>
+            <DoubleAnimation From="0.8" To="1" Duration="00:00:0.7" 
+                Storyboard.TargetName="myScaleTransform" 
+                Storyboard.TargetProperty="ScaleY">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="myStoryboard0">
+            <DoubleAnimation From="1" To="0.8" Duration="00:00:0.2" 
+                Storyboard.TargetName="myScaleTransform" 
+                Storyboard.TargetProperty="ScaleX">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="1"  To="0" Duration="00:00:0.2"
+                Storyboard.TargetName="strs"
+                Storyboard.TargetProperty="Opacity">
+
+            </DoubleAnimation>
+            <DoubleAnimation From="1" To="0.8" Duration="00:00:0.2" 
+                Storyboard.TargetName="myScaleTransform" 
+                Storyboard.TargetProperty="ScaleY">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
         <local2:IntToColorConverter x:Key="IntToColorConverter"/>
         <local2:JsonToWeekdayConverter x:Key="JsonToWeekdayConverter"/>
         <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
         <local2:DateTimeToVisibilityConverter x:Key="DateTimeToVisibilityConverter"/>
+        
         <DataTemplate x:Key="DataTemplate1">
             <Grid x:Uid="Page" Background="Transparent" MinHeight="70" Margin="48,0,5,0" VerticalAlignment="Top" MaxHeight="120" >
 
@@ -113,10 +172,11 @@
                                        DennaDataTemplate1Template="{StaticResource DataTemplate1}" 
                                        DennaDataTemplate2Template="{StaticResource DataTemplate2}"/>
     </Page.Resources>
-    <Grid Background="Transparent">
-        <ScrollViewer Margin="0,0,0,48" >
-            <StackPanel >
-                <ListView ItemTemplateSelector="{StaticResource DennaDataTemplateSelecotr}" Margin="0,10,0,0" SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="Hobbies" ItemClick="Hobbies_ItemClick">
+    <Grid   Background="Transparent">
+        
+        
+            
+                <ListView ItemTemplateSelector="{StaticResource DennaDataTemplateSelecotr}" Margin="0,10,0,48" SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="Hobbies" ItemClick="Hobbies_ItemClick">
                     <ListView.Resources>
                     </ListView.Resources>
                     <ListView.ItemContainerStyle>
@@ -126,9 +186,39 @@
                         </Style>
                     </ListView.ItemContainerStyle>
                 </ListView>
-                
+        <Grid Tapped="Grid_Tapped" x:Name="Tododatail" Visibility="Collapsed" Background="Transparent" >
+            <Grid x:Name="detstack" Opacity="0" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" />
+            <ScrollViewer>
+            <StackPanel RenderTransformOrigin="0.5,0.5" x:Name="strs" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Stretch">
+                    <TextBlock  FontSize="25" x:Name="title" TextWrapping="Wrap" Text="Code Denna" />
+
+                </StackPanel>
+                <StackPanel x:Name="destk" Margin="20,15,20,0"  Orientation="Horizontal" >
+                    <TextBlock TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                    <TextBlock x:Name="stackdetal" Margin="10,0,0,0" FontSize="18" TextWrapping="Wrap" MaxWidth="320" Text="Do some ffdf dfldkfkldfmlkdfmdflkvmfldkmvld stuff on " />
+                </StackPanel>
+                    <StackPanel Margin="20,15,20,0" Orientation="Horizontal" >
+                    <TextBlock TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                        <TextBlock x:Name="stacktime" Margin="10,0,0,0" FontSize="18" Text="10:13" />
+                </StackPanel>
+                    <StackPanel x:Name="stackdn" Margin="20,15,20,0" Orientation="Horizontal" >
+                    <TextBlock x:Name="stackglp" TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                        <TextBlock x:Name="stackdone" Margin="10,0,0,0" FontSize="18" Text="Done" />
+                </StackPanel>
+                    <StackPanel x:Name="stackday" Margin="20,15,20,0" Orientation="Horizontal" >
+                    <TextBlock TextAlignment="Center" Height="25" FontFamily="Segoe MDL2 Assets" FontSize="25" Text="" />
+                        <TextBlock x:Name="stackdays" Margin="10,0,0,0" FontSize="18" Text="Sat,sun,mon , wed , thur,  tue" />
+                </StackPanel>
+                <StackPanel.RenderTransform >
+                    <ScaleTransform  CenterX="0.5" CenterY="0.5" x:Name="myScaleTransform" />
+                </StackPanel.RenderTransform>
             </StackPanel>
-        </ScrollViewer>
+            </ScrollViewer>
+
+        </Grid>
+
+
 
         <CommandBar  VerticalAlignment="Bottom">
 

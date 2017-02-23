@@ -245,6 +245,28 @@ namespace Planel.Views
         {
             MainPage.current.ntonavigate("about");
         }
+        private void removehobbie_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
+            msg.Commands.Add(new UICommand("Yes", delegate
+            {
+
+
+                var clk = ((sender as Button).Tag) as Core.Models.Hobby;
+                var res1 = myobserv.Where(x => ((x as MessageModel).RootObject as Hobby).Id == clk.Id);
+
+                int a = Hobbies.Items.IndexOf((sender as Button).DataContext);
+
+                if (a != null)
+                    myobserv.RemoveAt(a);
+                Core.Models.Localdb.DeleteHobby(clk.Id);
+                Classes.worker.refresher("Wall");
+
+
+            }));
+            msg.Commands.Add(new UICommand("No"));
+            msg.ShowAsync();
+        }
 
         private async void Hobbies_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -252,57 +274,124 @@ namespace Planel.Views
             try
             {
                 var todo = clk.RootObject as todo;
-                ContentDialog noWifiDialog = new ContentDialog()
+                title.Text = todo.title;
+                if(todo.detail!= "")
                 {
-                    Title = todo.title,
-                    Content = todo.detail + " at " + todo.time,
-                    PrimaryButtonText = "Ok"
-                };
-                ContentDialogResult result = await noWifiDialog.ShowAsync();
+                    destk.Visibility = Visibility.Visible;
+                    stackdetal.Text = todo.detail;
+                }
+                else
+                {
+                    destk.Visibility = Visibility.Collapsed;
+                }
+                
+                stacktime.Text = todo.time.ToString();
+                stackdn.Visibility = Visibility.Visible;
+                stackday.Visibility = Visibility.Collapsed;
+                if (todo.isdone == 0)
+                {
+                    stackglp.Text = "";
+                    stackdone.Text =  MultilingualHelpToolkit.GetString("Planned", "Text") ;
+                }
+                else if (todo.isdone == 1)
+                {
+                    stackglp.Text = "";
+                    stackdone.Text = MultilingualHelpToolkit.GetString("Suspended", "Text");
+                }
+                else if (todo.isdone == 2)
+                {
+                    stackglp.Text = "";
+                    stackdone.Text = MultilingualHelpToolkit.GetString("Done", "Text");
+                }
             }
             catch
             {
                 var todo = clk.RootObject as Hobby;
-                ContentDialog noWifiDialog = new ContentDialog()
+                title.Text = todo.title;
+                if (todo.detail != "")
                 {
-                    Title = todo.title,
-                    Content = todo.detail + " at " + todo.time,
-                    PrimaryButtonText = "Ok"
-                };
-                ContentDialogResult result = await noWifiDialog.ShowAsync();
+                    destk.Visibility = Visibility.Visible;
+                    stackdetal.Text = todo.detail;
+                }
+                else
+                {
+                    destk.Visibility = Visibility.Collapsed;
+                }
+                stacktime.Text = todo.time.ToString();
+                stackdn.Visibility = Visibility.Collapsed;
+                stackday.Visibility = Visibility.Visible;
+                stackdays.Text = Convert(todo.Days);
+                
+
             }
 
-            //var clk = e.ClickedItem as Core.Models.Hobby;
-            //ContentDialog noWifiDialog = new ContentDialog()
-            //{
-            //    Title = clk.title,
-            //    Content = clk.detail + " at " + clk.time,
-            //    PrimaryButtonText = "Ok"
-            //};
-            
+
+            Tododatail.Visibility = Visibility.Visible;
+            await Task.Delay(10);
+            myStoryboard.Begin();
+            opacitySb1.Begin();
+
+
         }
 
-        private void removehobbie_Click(object sender, RoutedEventArgs e)
+        public string Convert(object value)
         {
-            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
-            msg.Commands.Add(new UICommand("Yes", delegate
+            string json = value.ToString();
+            var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
+            string Days = "";
+            if (toadd.Count == 7)
             {
-                
+                Days = MultilingualHelpToolkit.GetString("Everydat", "Text"); ;
+            }
+            else
+            {
+                foreach (var item in toadd)
+                {
+                    string x = null;
+                    if (item == DayOfWeek.Friday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("fri", "Content");
+                    }
+                    if (item == DayOfWeek.Saturday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("sat", "Content");
+                    }
+                    if (item == DayOfWeek.Sunday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("sun", "Content");
+                    }
+                    if (item == DayOfWeek.Monday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("mon", "Content");
+                    }
+                    if (item == DayOfWeek.Tuesday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("tue", "Content");
+                    }
+                    if (item == DayOfWeek.Wednesday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("wed", "Content");
+                    }
+                    if (item == DayOfWeek.Thursday)
+                    {
+                        x = MultilingualHelpToolkit.GetString("thu", "Content");
+                    }
+                    Days += x + "  ";
+                }
+            }
 
-                var clk = ((sender as Button).Tag) as Core.Models.Hobby;
-                var res1 = myobserv.Where(x => ((x as MessageModel).RootObject as Hobby).Id == clk.Id);
 
-                int a = Hobbies.Items.IndexOf((sender as Button).DataContext);
-               
-                if (a != null)
-                myobserv.RemoveAt(a);
-                Core.Models.Localdb.DeleteHobby(clk.Id);
-                Classes.worker.refresher("Wall");
-                
+            return Days;
+        }
 
-            }));
-            msg.Commands.Add(new UICommand("No"));
-            msg.ShowAsync();
+        private async void Grid_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            opacitySb0.Begin();
+            myStoryboard0.Begin();
+            await Task.Delay(300);
+            Tododatail.Visibility = Visibility.Collapsed;
+
+
         }
     }
 }
