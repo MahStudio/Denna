@@ -26,19 +26,19 @@
         </Storyboard>
 
         <Storyboard x:Name="myStoryboard">
-            <DoubleAnimation From="0" To="1" Duration="00:00:0.7" 
+            <DoubleAnimation From="1.5" To="1" Duration="00:00:0.7" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="ScaleX">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <DoubleAnimation From="0.4"  To="1" Duration="00:00:0.5"
+            <DoubleAnimation From="0.4"  To="1" Duration="00:00:0.3"
                 Storyboard.TargetName="strs"
                 Storyboard.TargetProperty="Opacity">
 
             </DoubleAnimation>
-            <DoubleAnimation From="0" To="1" Duration="00:00:0.7" 
+            <DoubleAnimation From="1.5" To="1" Duration="00:00:0.7" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="ScaleY">
                 <DoubleAnimation.EasingFunction>
