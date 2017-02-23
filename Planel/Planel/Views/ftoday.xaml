@@ -26,7 +26,7 @@
         </Storyboard>
 
         <Storyboard x:Name="myStoryboard">
-            <DoubleAnimation From="0.8" To="1" Duration="00:00:0.7" 
+            <DoubleAnimation From="0" To="1" Duration="00:00:0.7" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="ScaleX">
                 <DoubleAnimation.EasingFunction>
@@ -38,7 +38,7 @@
                 Storyboard.TargetProperty="Opacity">
 
             </DoubleAnimation>
-            <DoubleAnimation From="0.8" To="1" Duration="00:00:0.7" 
+            <DoubleAnimation From="0" To="1" Duration="00:00:0.7" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="ScaleY">
                 <DoubleAnimation.EasingFunction>
