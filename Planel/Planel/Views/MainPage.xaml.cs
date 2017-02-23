@@ -8,6 +8,7 @@ using Windows.Foundation;
 using Windows.Foundation.Metadata;
 using Windows.Phone.UI.Input;
 using Windows.Storage;
+using Windows.Storage.FileProperties;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
@@ -192,8 +193,20 @@ namespace Planel.Views
             fpref.Navigate(typeof(fpref));
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
+            const uint size = 150; //Send your required size
+            using (StorageItemThumbnail thumbnail = await sampleFile.GetThumbnailAsync(ThumbnailMode.SingleItem, size))
+            {
+                if (thumbnail != null)
+                {
+                    //Prepare thumbnail to display
+                    BitmapImage bitmapImage = new BitmapImage();
 
-            avatar.ImageSource = new BitmapImage(new Uri(sampleFile.Path));
+                    bitmapImage.SetSource(thumbnail);
+                    avatar.ImageSource= bitmapImage;
+
+                    
+                }
+            }
             DateTime thisday = DateTime.Today;
             todate.Text = thisday.ToString("D");
             counterr(Core.Models.Localdb.counter());

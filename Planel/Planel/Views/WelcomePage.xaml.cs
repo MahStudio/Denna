@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
 using Windows.Storage;
+using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 using Windows.UI;
 using Windows.UI.Popups;
@@ -67,25 +68,12 @@ namespace Planel.Views
 
         private async void filsupress()
         {
-            //string CountriesFile = @"Assets\Countries.xml";
-            //StorageFolder InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            //StorageFile file = await InstallationFolder.GetFileAsync(CountriesFile);
-            if (Convert.ToBoolean(Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) == false))
-            {
-                if (App.Current.RequestedTheme == ApplicationTheme.Light)
-                {
-                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h3.png"));
-                }
-                else
-                {
+            
+            
+               
                     Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
-                }
-            }
-            else
-            {
-                Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
-            }
-        }
+         }
+               
 
         #region FlipView
         private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -222,8 +210,21 @@ namespace Planel.Views
                 StorageFile sampleFile2 = await storageFolder2.GetFileAsync("avatar.jpg");
                 
                 avatar.ImageSource = null;
-                avatar.ImageSource = new BitmapImage(new Uri(sampleFile2.Path));
-                
+                const uint size = 150; //Send your required size
+                using (StorageItemThumbnail thumbnail = await sampleFile2.GetThumbnailAsync(ThumbnailMode.SingleItem, size))
+                {
+                    if (thumbnail != null)
+                    {
+                        //Prepare thumbnail to display
+                        BitmapImage bitmapImage = new BitmapImage();
+
+                        bitmapImage.SetSource(thumbnail);
+                        avatar.ImageSource = bitmapImage;
+
+
+                    }
+                }
+
             }
         }
         private async void Button_Click(object sender, RoutedEventArgs e)

@@ -20,6 +20,7 @@ using Planel.Classes;
 using System.Linq;
 using System.Globalization;
 using Windows.Globalization;
+using Windows.Storage.FileProperties;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -263,7 +264,21 @@ namespace Planel.Views
                 
 
                 avatar.ImageSource = null;
-                avatar.ImageSource = new BitmapImage(new Uri(copiedFile.Path));
+
+                const uint size = 150; //Send your required size
+                using (StorageItemThumbnail thumbnail = await copiedFile.GetThumbnailAsync(ThumbnailMode.SingleItem, size))
+                {
+                    if (thumbnail != null)
+                    {
+                        //Prepare thumbnail to display
+                        BitmapImage bitmapImage = new BitmapImage();
+
+                        bitmapImage.SetSource(thumbnail);
+                        avatar.ImageSource = bitmapImage;
+
+
+                    }
+                }
                 var messageDialog = new MessageDialog("Your picture had been saved successfuly.");
                 messageDialog.ShowAsync();
 
