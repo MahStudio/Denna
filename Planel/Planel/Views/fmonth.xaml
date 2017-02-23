@@ -90,6 +90,7 @@
                         <DataTemplate >
                             <controls:SlidableListItem 
                     HorizontalAlignment="Stretch"
+                                 x:Uid="SwipeView"
                     LeftIcon="Accept" 
                     RightIcon="Clock" 
                     LeftLabel="Done" 
