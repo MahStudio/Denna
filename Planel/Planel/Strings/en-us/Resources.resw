@@ -201,7 +201,7 @@ in MAH Studio</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="goit.Content" xml:space="preserve">
-    <value>GO IT!</value>
+    <value>GOT IT!</value>
   </data>
   <data name="Great.Text" xml:space="preserve">
     <value>Nice, mostly done.</value>
@@ -391,7 +391,7 @@ in MAH Studio</value>
     <value>Done</value>
   </data>
   <data name="Planned.Text" xml:space="preserve">
-    <value>Planed</value>
+    <value>Planned</value>
   </data>
   <data name="Suspended.Text" xml:space="preserve">
     <value>Postponed</value>

@@ -220,6 +220,7 @@ namespace Planel.Views
 
                         bitmapImage.SetSource(thumbnail);
                         avatar.ImageSource = bitmapImage;
+                        butt1.Content = "";
 
 
                     }

@@ -1413,8 +1413,8 @@
 
 
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
         <Setter Property="BorderBrush" Value="White" />
         <Setter Property="BorderThickness" Value="0,0,0,0" />
         <Setter Property="UseSystemFocusVisuals" Value="True"/>

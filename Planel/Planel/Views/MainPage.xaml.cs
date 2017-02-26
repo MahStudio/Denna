@@ -325,11 +325,11 @@ namespace Planel.Views
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             string message = MultilingualHelpToolkit.GetString("Greet", "Text"); 
             DateTime now = DateTime.Now;
-            if (now.Hour >= 20 && now.Hour <= 4)
+            if (now.Hour >= 21 && now.Hour <= 4)
                 message = MultilingualHelpToolkit.GetString("night", "Text"); ;
-            if (now.Hour >= 5 && now.Hour <= 9)
+            if (now.Hour >= 5 && now.Hour <= 10)
                 message = MultilingualHelpToolkit.GetString("morning", "Text"); ;
-            if (now.Hour >= 13 && now.Hour <= 16)
+            if (now.Hour >= 16 && now.Hour <= 18)
                 message = MultilingualHelpToolkit.GetString("eve", "Text"); ;
 
 
