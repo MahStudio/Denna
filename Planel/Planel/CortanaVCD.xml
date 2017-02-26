@@ -57,7 +57,7 @@
     </Command>
     <Command Name="getperformance">
       <Example>What's my performance?</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">what's my performance</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">get my performance</ListenFor>
       <ListenFor RequireAppName="BeforeOrAfterPhrase">How good where I</ListenFor>
       <Feedback>Collecting information</Feedback>
       <VoiceCommandService Target="Bgcommand" />

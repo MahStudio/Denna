@@ -202,7 +202,9 @@ namespace Planel.BackgroundAPIs
                 var userMessage = new VoiceCommandUserMessage();
                 userMessage.DisplayMessage = "You have "+ x +" tasks"+" on Denna";
                 userMessage.SpokenMessage = "You have " + x + " tasks";
-                
+                response =
+                 VoiceCommandResponse.CreateResponse(userMessage);
+
             }
 
 
