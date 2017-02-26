@@ -60,7 +60,7 @@ namespace Core.Models
             tipsl.Add(new Tips() { Title = "Pin !", detail = "Pin DENNA to your start menu to see more !", Days = 3 });
             tipsl.Add(new Tips() { Title = "Lockscreen", detail = "Add DENNA to your lockscreen.", Days = 4 });
             tipsl.Add(new Tips() { Title = "Cortana", detail = "DENNA and Cortana are friends. simply say 'hay,what to do today?' ", Days =6 });
-            tipsl.Add(new Tips() { Title = "Quick Actions", detail = "DENNA can be on your action center! Go to settings and enble this feature.", Days = 7 });
+            tipsl.Add(new Tips() { Title = "Quick Actions", detail = "DENNA can be on your action center! Go to settings and enable this feature and see more personalization settings.", Days = 7 });
             tipsl.Add(new Tips() { Title = "Feedback", detail = "Please tell us your ideas about DENNA in feedback hub", Days = 17 });
 
             string xml = @"<toast>
