@@ -15,18 +15,18 @@
       <VoiceCommandService Target="Bgcommand" />
     </Command>
     <Command Name="HobbyFetcher">
-      <Example>What are my hobbies ?</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">What are my hobbies</ListenFor>
-      <ListenFor >What are my hobbies</ListenFor>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">What is my hobby</ListenFor>
-      <Feedback>Fetching your hobbies</Feedback>
+      <Example>What are my habits ?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">What are my habits</ListenFor>
+      <ListenFor >What are my habits</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">What is my Habit</ListenFor>
+      <Feedback>Fetching your habits</Feedback>
       <VoiceCommandService Target="Bgcommand" />
     </Command>
     <Command Name="HobbyCounter">
-      <Example>How much hobbies do I have?</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much hobbies do I have</ListenFor>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">Count my hobbies</ListenFor>
-      <Feedback>Fetching your hobbies</Feedback>
+      <Example>How much habits do I have?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much habits do I have</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Count my habits</ListenFor>
+      <Feedback>Fetching your habits</Feedback>
       <VoiceCommandService Target="Bgcommand" />
     </Command>
     <Command Name="TodoCounter">
@@ -49,9 +49,9 @@
       <VoiceCommandService Target="Bgcommand" />
     </Command>
     <Command Name="addhobby">
-      <Example>Add a hobbby?</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">Add a hobby</ListenFor>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">Create a hobby</ListenFor>
+      <Example>Add a Habit.</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Add a habit</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Create a habit</ListenFor>
       <Feedback>openning the app</Feedback>
       <VoiceCommandService Target="Bgcommand" />
     </Command>

@@ -155,8 +155,8 @@ namespace Planel.BackgroundAPIs
             if (mycol.Count == 0)
             {
                 var userMessage = new VoiceCommandUserMessage();
-                userMessage.DisplayMessage = "No hobbies on Denna";
-                userMessage.SpokenMessage = "You have no hobbies ! Add one";
+                userMessage.DisplayMessage = "No habits on Denna";
+                userMessage.SpokenMessage = "You have no habits ! Add one";
                 response =
                  VoiceCommandResponse.CreateResponse(userMessage);
             }
@@ -164,8 +164,8 @@ namespace Planel.BackgroundAPIs
             {
                 var userMessage = new VoiceCommandUserMessage();
                 var x = mycol.Count;
-                userMessage.DisplayMessage = "You have " + x + " hobbies" + " on Denna";
-                userMessage.SpokenMessage = "You have " + x + " hobbbies";
+                userMessage.DisplayMessage = "You have " + x + " habits" + " on Denna";
+                userMessage.SpokenMessage = "You have " + x + " habits";
 
             }
 
@@ -251,16 +251,16 @@ namespace Planel.BackgroundAPIs
             if (mycol.Count == 0)
             {
                 var userMessage = new VoiceCommandUserMessage();
-                userMessage.DisplayMessage = "No hobbies on Denna";
-                userMessage.SpokenMessage = "You have no hobbies ! Add one";
+                userMessage.DisplayMessage = "No habits on Denna";
+                userMessage.SpokenMessage = "You have no habits ! Add one";
                 response =
                  VoiceCommandResponse.CreateResponse( userMessage);
             }
             else
             {
                 var userMessage = new VoiceCommandUserMessage();
-                userMessage.DisplayMessage = "Here's your hobbbies on Denna";
-                userMessage.SpokenMessage = "Here's your hobbies";
+                userMessage.DisplayMessage = "Here's your habits on Denna";
+                userMessage.SpokenMessage = "Here's your habits";
                 foreach (var item in mycol)
                 {
                     var destinationTile = new VoiceCommandContentTile();
