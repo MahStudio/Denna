@@ -32,7 +32,7 @@
                     <RadioButton MinWidth="0" Margin="30" Width="70"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
                     <RadioButton MinWidth="0"  Width="70" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
                 </StackPanel>
-                <ListView Margin="0,10,0,0" SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
+                    <ListView ScrollViewer.IsVerticalRailEnabled="False" Margin="0,10,0,0" SelectionMode="None" IsItemClickEnabled="True" IsMultiSelectCheckBoxEnabled="False"  Name="lvTest" ItemClick="lvTest_ItemClick">
                     <ListView.Resources>
                         <local2:JsonToWeekdayConverter x:Key="JsonToWeekdayConverter" />
                         <local2:ByteToGlyphConverter x:Key="ByteToGlyphConverter" />
