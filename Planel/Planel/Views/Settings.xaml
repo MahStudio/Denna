@@ -41,6 +41,7 @@
                         <ComboBoxItem Content="پارسی" Tag="fa"/>
                         <ComboBoxItem  Content="English" Tag="en-us"/>
                         <ComboBoxItem Content="German" Tag="de-de" />
+                        <ComboBoxItem Content="Dutch" Tag="nl-nl" />
                     </ComboBox>
                     <TextBlock x:Name="Translator" HorizontalAlignment="Left"  />
                 </StackPanel>

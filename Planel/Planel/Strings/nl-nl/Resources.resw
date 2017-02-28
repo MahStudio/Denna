@@ -118,294 +118,283 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About.Label" xml:space="preserve">
-    <value>About</value>
+    <value>Info</value>
   </data>
   <data name="accent.Text" xml:space="preserve">
-    <value>Follow accent color</value>
+    <value>Gebruik accentkleur</value>
   </data>
   <data name="Add.Label" xml:space="preserve">
-    <value>Add</value>
+    <value>Toevoegen</value>
   </data>
   <data name="addo.Text" xml:space="preserve">
-    <value>Add and start!</value>
+    <value>Voeg iets toe en begin!</value>
   </data>
   <data name="alarm.Content" xml:space="preserve">
     <value>Alarm</value>
   </data>
   <data name="alot.Text" xml:space="preserve">
-    <value>Still a lot to do!</value>
-    <comment>WWW</comment>
+    <value>Nog veel te doen!</value>
   </data>
   <data name="backup.Text" xml:space="preserve">
-    <value>Backup </value>
+    <value>Back-up </value>
   </data>
   <data name="Bye.Text" xml:space="preserve">
-    <value>Bye Bye!</value>
+    <value>Tot ziens!</value>
   </data>
   <data name="cancel.Label" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Annuleren</value>
   </data>
   <data name="CLipB.Text" xml:space="preserve">
-    <value>Share link copied to clipboard</value>
+    <value>Deel-link gekopieerd naar het klembord</value>
   </data>
   <data name="dailylife.Text" xml:space="preserve">
-    <value>Plan your daily tasks. Do, check, postpone and control your activities. Don't forget to add your habits in Denna :) Planning makes everything easier!</value>
-    <comment>WWW</comment>
+    <value>Plan jouw dagelijkse taken. Doe activiteiten on stel ze uit. Jij bepaald wat je wanneer doet. Vergeet niet jouw gewoontes in Denna te zetten. :) Plannen maakt alles makkelijker!</value>
   </data>
   <data name="Dark.Content" xml:space="preserve">
-    <value>Dark</value>
+    <value>Donker</value>
   </data>
   <data name="Del.Text" xml:space="preserve">
-    <value>Delete</value>
+    <value>Verwijderen</value>
   </data>
   <data name="describe.PlaceholderText" xml:space="preserve">
-    <value>Description</value>
+    <value>Omschrijving</value>
   </data>
   <data name="Dev.Text" xml:space="preserve">
-    <value>Developed with love
+    <value>Ontwikkeld met liefde
 in MAH Studio</value>
   </data>
   <data name="Do.Text" xml:space="preserve">
-    <value>Try more :)</value>
+    <value>Probeer meer :)</value>
   </data>
   <data name="donotre.Text" xml:space="preserve">
-    <value>Oh... I don't remember!</value>
+    <value>Oeps... Ik kan het mij niet herinneren!</value>
   </data>
   <data name="edit.Label" xml:space="preserve">
-    <value>Edit</value>
+    <value>Wijzigingen opslaan</value>
+    <comment>Save changes</comment>
   </data>
   <data name="Entire.Text" xml:space="preserve">
-    <value>ENTIRE MONTH</value>
+    <value>GEHELE MAAND</value>
   </data>
   <data name="eve.Text" xml:space="preserve">
-    <value>GOOD EVENING</value>
+    <value>GOEDEAVOND</value>
   </data>
   <data name="Everydat.Text" xml:space="preserve">
-    <value>Every day</value>
+    <value>Elke dag</value>
   </data>
   <data name="Familiar.Text" xml:space="preserve">
-    <value>More familiar</value>
+    <value>Vergelijkbaar</value>
   </data>
   <data name="Feedback.Content" xml:space="preserve">
     <value>FEEDBACK</value>
   </data>
   <data name="fide.Text" xml:space="preserve">
-    <value>Welcome to Denna! Denna will help you to plan your life; Just like successful people.</value>
+    <value>Welkom bij Denna! Denna helpt je met plannen; net zoals succesvolle mensen!</value>
   </data>
   <data name="Fillalert.Text" xml:space="preserve">
-    <value>Enter your name :)</value>
+    <value>Voer jouw naam in :)</value>
   </data>
   <data name="forget.Text" xml:space="preserve">
-    <value>We won't let you forget your activities in your wounderful day! You can set notifications or alarm for your tasks. Everything will go off right on time :)</value>
-    <comment>WWW</comment>
+    <value>Wij helpen jou met het onthouden van jouw taken tijdens de dag. Je kan notificaties en alarmen instellen voor de dingen die je moet doen.</value>
   </data>
   <data name="fri.Content" xml:space="preserve">
-    <value>fri</value>
+    <value>vrij</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="goit.Content" xml:space="preserve">
-    <value>GOT IT!</value>
-    <comment>WWW</comment>
+    <value>BEGREPEN!</value>
   </data>
   <data name="Great.Text" xml:space="preserve">
-    <value>Nice, almost done.</value>
-    <comment>WWW</comment>
+    <value>Netjes! Bijna klaar...</value>
   </data>
   <data name="Greet.Text" xml:space="preserve">
-    <value>DEAR</value>
+    <value>BESTE</value>
   </data>
   <data name="heyy.Text" xml:space="preserve">
-    <value>Hey, there!</value>
-    <comment>WWW</comment>
+    <value>Hallo daar!</value>
   </data>
   <data name="Hobbies.Label" xml:space="preserve">
-    <value>Habits</value>
+    <value>Gewoontes</value>
   </data>
   <data name="Info.Text" xml:space="preserve">
-    <value>This app is dedicated for having the best planning and scheduling experience. 
- Do not miss any thing, just type it in DENNA :)</value>
+    <value>Deze app is gemaakt om jou de beste planbelevenis te bieden. 
+Mis niets meer, typ het gewoon in DENNA :)</value>
   </data>
   <data name="Language.Tag" xml:space="preserve">
-    <value>en-us</value>
+    <value>nl-nl</value>
     <comment>language tag (example : fa "Stands for farsi ", en-us " English ")</comment>
   </data>
   <data name="Language.Text" xml:space="preserve">
-    <value>Language</value>
+    <value>Taal</value>
   </data>
   <data name="Laskweek.Text" xml:space="preserve">
-    <value>Last week</value>
+    <value>Afgelopen week</value>
   </data>
   <data name="Lastmonth.Text" xml:space="preserve">
-    <value>Last month</value>
+    <value>Afgelopen maand</value>
   </data>
   <data name="letsdo.Text" xml:space="preserve">
-    <value>LET'S START!</value>
-    <comment>WWW</comment>
+    <value>AAN DE SLAG</value>
   </data>
   <data name="Light.Content" xml:space="preserve">
-    <value>Light</value>
+    <value>Licht</value>
   </data>
   <data name="Logout.Content" xml:space="preserve">
-    <value>LOG OUT</value>
+    <value>UITLOGGEN</value>
   </data>
   <data name="looko.Text" xml:space="preserve">
-    <value>OVERVIEW</value>
-    <comment>WWW</comment>
+    <value>OVERZICHT</value>
   </data>
   <data name="misser.Text" xml:space="preserve">
-    <value>DON'T MISS ANYTHING</value>
+    <value>MIS NIETS</value>
   </data>
   <data name="mon.Content" xml:space="preserve">
-    <value>mon</value>
+    <value>maa</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="morning.Text" xml:space="preserve">
-    <value>GOOD MORNING</value>
+    <value>GOEDEMORGEN</value>
   </data>
   <data name="night.Text" xml:space="preserve">
-    <value>GOOD NIGHT</value>
+    <value>GOEDENACHT</value>
     <comment>Please type captal phrases in captal only</comment>
   </data>
   <data name="notify.Content" xml:space="preserve">
-    <value>Notify</value>
+    <value>Notificeer</value>
   </data>
   <data name="omprovr.Text" xml:space="preserve">
-    <value>Let's improve!</value>
+    <value>Tijd voor verbetering!</value>
   </data>
   <data name="Page.FlowDirection" xml:space="preserve">
     <value>LeftToRight</value>
     <comment>Page Flow Diection (LeftToRight , RightToLeft)</comment>
   </data>
   <data name="Perfect.Text" xml:space="preserve">
-    <value>Cool! All done.</value>
+    <value>Top! Helemaal klaar.</value>
   </data>
   <data name="Planlife.Text" xml:space="preserve">
-    <value>PLAN YOUR LIFE</value>
+    <value>PLAN JOUW LEVEN</value>
   </data>
   <data name="prfr.Text" xml:space="preserve">
-    <value>SEE YOUR PERFORMANCE</value>
+    <value>BEKIJK JOUW PRESTATIES</value>
   </data>
   <data name="Quick.Text" xml:space="preserve">
-    <value>Quick actions</value>
+    <value>Snelle acties</value>
   </data>
   <data name="Rate.Content" xml:space="preserve">
-    <value>RATE AND REVIEW</value>
+    <value>BEOORDEEL ONS!</value>
   </data>
   <data name="repeat.Text" xml:space="preserve">
-    <value>Repeat</value>
+    <value>Herhalen</value>
   </data>
   <data name="reportr.Text" xml:space="preserve">
-    <value>See your daily, weekly and monthly performance any time you want! The charts will show you how well you've done your activities.</value>
-    <comment>WWW</comment>
+    <value>Bekijk jouw dagelijkse, wekelijkse en maandelijkse presaties wanner jou dat uitkomt! De grafieken tonen jou hoe goed jij jouw taken hebt gedaan.</value>
   </data>
   <data name="Restart.Text" xml:space="preserve">
-    <value>Restart the app to apply changes.</value>
+    <value>Herstart de app om de wijzigingen te zien</value>
   </data>
   <data name="Restore.Content" xml:space="preserve">
     <value>Restore</value>
   </data>
   <data name="Restoree.Text" xml:space="preserve">
-    <value>Would you like to restore this file?</value>
-    <comment>WWW</comment>
+    <value>Wil je dit bestand terugzetten?</value>
   </data>
   <data name="sat.Content" xml:space="preserve">
-    <value>sat</value>
+    <value>zat</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="Save.Content" xml:space="preserve">
-    <value>Save</value>
+    <value>Opslaan</value>
   </data>
   <data name="save.Label" xml:space="preserve">
-    <value>Save</value>
+    <value>Opslaan</value>
   </data>
   <data name="Saver.Content" xml:space="preserve">
-    <value>save</value>
+    <value>opslaan</value>
   </data>
   <data name="Setting.Label" xml:space="preserve">
-    <value>Settings</value>
+    <value>Instellingen</value>
   </data>
   <data name="Shaare.Content" xml:space="preserve">
-    <value>SHARE</value>
+    <value>DELEN</value>
   </data>
   <data name="share.Text" xml:space="preserve">
-    <value>Share</value>
+    <value>Delen</value>
   </data>
   <data name="Shor.Text" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>Weet je het zeker?</value>
   </data>
   <data name="silent.Content" xml:space="preserve">
-    <value>Silent</value>
+    <value>Stil</value>
   </data>
   <data name="sun.Content" xml:space="preserve">
-    <value>sun</value>
+    <value>zon</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="System.Content" xml:space="preserve">
-    <value>System</value>
+    <value>Systeem</value>
   </data>
   <data name="Theme.Text" xml:space="preserve">
-    <value>Theme</value>
+    <value>Thema</value>
   </data>
   <data name="thu.Content" xml:space="preserve">
-    <value>thu</value>
+    <value>don</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="title.PlaceholderText" xml:space="preserve">
-    <value>Title</value>
+    <value>Titel</value>
   </data>
   <data name="tue.Content" xml:space="preserve">
-    <value>tue</value>
+    <value>din</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="uphob.Text" xml:space="preserve">
-    <value>Please fill in a title and repeat-sections.</value>
-    <comment>WWW</comment>
+    <value>Vul op zijn minst de titel en de herhaal-opties in.</value>
   </data>
   <data name="uptitler.Text" xml:space="preserve">
-    <value>Please fill in a title.</value>
-    <comment>WWW</comment>
+    <value>Vul op zijn minst de titel in.</value>
   </data>
   <data name="Urname.PlaceholderText" xml:space="preserve">
-    <value>Your name</value>
+    <value>Jouw naam</value>
   </data>
   <data name="wed.Content" xml:space="preserve">
-    <value>wed</value>
+    <value>woe</value>
     <comment>Weekday abbreviations</comment>
   </data>
   <data name="welcome.Text" xml:space="preserve">
-    <value>WELCOME</value>
+    <value>WELKOM</value>
   </data>
   <data name="whattodo.Text" xml:space="preserve">
-    <value>What shall I do today?</value>
+    <value>Wat kan ik vandaag doen?</value>
   </data>
   <data name="Work.Text" xml:space="preserve">
-    <value>Task to do.</value>
+    <value>Nog te doen</value>
   </data>
   <data name="worx.Text" xml:space="preserve">
-    <value>Tasks to do.</value>
+    <value>Nog te doen</value>
   </data>
   <data name="wtname.PlaceholderText" xml:space="preserve">
-    <value>What's your name?</value>
+    <value>Wat is jouw naam?</value>
   </data>
   <data name="yesterday.Text" xml:space="preserve">
-    <value>Yesterday</value>
+    <value>Gisteren</value>
   </data>
   <data name="SwipeView.LeftLabel" xml:space="preserve">
-    <value>Done</value>
+    <value>Klaar</value>
   </data>
   <data name="SwipeView.RightLabel" xml:space="preserve">
-    <value>Postpone</value>
+    <value>Uitstellen</value>
   </data>
   <data name="Translate.Content" xml:space="preserve">
-    <value>Join the insider program and help translate the app!</value>
+    <value>Word lid van het insider-programma en help mee met vertalen!</value>
   </data>
   <data name="Done.Text" xml:space="preserve">
-    <value>Done</value>
+    <value>Klaar</value>
   </data>
   <data name="Planned.Text" xml:space="preserve">
-    <value>Planned</value>
+    <value>Gepland</value>
   </data>
   <data name="Suspended.Text" xml:space="preserve">
-    <value>Postponed</value>
+    <value>Uitgesteld</value>
   </data>
 </root>

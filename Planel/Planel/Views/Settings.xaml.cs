@@ -81,8 +81,13 @@ namespace Planel.Views
                 langwich.SelectedIndex =2;
                 Translator.Text = "By Lukas Frensel";
             }
+            else if (MultilingualHelpToolkit.GetString("Language", "Tag") == "nl-nl")
+            {
+                langwich.SelectedIndex = 3;
+                Translator.Text = "By Rick Drijvers";
+            }
 
-            
+
 
         }
         ~Settings()
@@ -485,6 +490,14 @@ namespace Planel.Views
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
                 Translator.Text = "By Lukas Frensel";
+            }
+            else if (langwich.SelectedIndex == 3)
+            {
+                var culture = new CultureInfo("nl-nl");
+                ApplicationLanguages.PrimaryLanguageOverride = culture.Name;
+                CultureInfo.DefaultThreadCurrentCulture = culture;
+                CultureInfo.DefaultThreadCurrentUICulture = culture;
+                Translator.Text = "By Rick Drijvers";
             }
         }
     }
