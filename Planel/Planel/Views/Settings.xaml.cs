@@ -445,7 +445,7 @@ namespace Planel.Views
         {
             try
             {
-                Classes.Themesetter.SetApplicationTheme((ThemeSelector.SelectedItem as ComboBoxItem).Content.ToString());
+                Classes.Themesetter.SetApplicationTheme((ThemeSelector.SelectedItem as ComboBoxItem).Tag.ToString());
             }
             catch { }
         }
