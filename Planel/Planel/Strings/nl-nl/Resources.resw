@@ -148,7 +148,7 @@
     <value>Deel-link gekopieerd naar het klembord</value>
   </data>
   <data name="dailylife.Text" xml:space="preserve">
-    <value>Plan jouw dagelijkse taken. Doe activiteiten on stel ze uit. Jij bepaald wat je wanneer doet. Vergeet niet jouw gewoontes in Denna te zetten. :) Plannen maakt alles makkelijker!</value>
+    <value>Plan jouw dagelijkse taken. Doe activiteiten of stel ze uit. Jij bepaald wanneer je wat doet. Vergeet niet jouw gewoontes in Denna te zetten. :) Plannen maakt alles makkelijker!</value>
   </data>
   <data name="Dark.Content" xml:space="preserve">
     <value>Donker</value>
@@ -183,7 +183,7 @@ in MAH Studio</value>
     <value>Elke dag</value>
   </data>
   <data name="Familiar.Text" xml:space="preserve">
-    <value>Vergelijkbaar</value>
+    <value>Maak Denna persoonlijker</value>
   </data>
   <data name="Feedback.Content" xml:space="preserve">
     <value>FEEDBACK</value>
@@ -195,7 +195,7 @@ in MAH Studio</value>
     <value>Voer jouw naam in :)</value>
   </data>
   <data name="forget.Text" xml:space="preserve">
-    <value>Wij helpen jou met het onthouden van jouw taken tijdens de dag. Je kan notificaties en alarmen instellen voor de dingen die je moet doen.</value>
+    <value>Wij helpen jou met het onthouden van jouw taken tijdens de dag. Je kan ook notificaties en alarmen instellen voor de dingen die je moet doen.</value>
   </data>
   <data name="fri.Content" xml:space="preserve">
     <value>vrij</value>
@@ -288,7 +288,7 @@ Mis niets meer, typ het gewoon in DENNA :)</value>
     <value>Herhalen</value>
   </data>
   <data name="reportr.Text" xml:space="preserve">
-    <value>Bekijk jouw dagelijkse, wekelijkse en maandelijkse presaties wanner jou dat uitkomt! De grafieken tonen jou hoe goed jij jouw taken hebt gedaan.</value>
+    <value>Bekijk jouw dagelijkse, wekelijkse en maandelijkse presaties wanneer jou dat uitkomt! De grafieken tonen jou hoe goed jij jouw taken hebt gedaan.</value>
   </data>
   <data name="Restart.Text" xml:space="preserve">
     <value>Herstart de app om de wijzigingen te zien</value>
@@ -368,10 +368,10 @@ Mis niets meer, typ het gewoon in DENNA :)</value>
     <value>Wat kan ik vandaag doen?</value>
   </data>
   <data name="Work.Text" xml:space="preserve">
-    <value>Nog te doen</value>
+    <value>taak</value>
   </data>
   <data name="worx.Text" xml:space="preserve">
-    <value>Nog te doen</value>
+    <value>taken</value>
   </data>
   <data name="wtname.PlaceholderText" xml:space="preserve">
     <value>Wat is jouw naam?</value>
