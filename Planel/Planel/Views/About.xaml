@@ -12,6 +12,7 @@
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
                     <Style x:Key="WikiSedaIcon" TargetType="Image">
+                        
                         <Setter Property="Source" Value="/Assets/Icons/Denna logo Dark.png"/>
                     </Style>
                 </ResourceDictionary>
