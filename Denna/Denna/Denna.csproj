@@ -107,6 +107,71 @@
     <None Include="Denna_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Headings\bgs.png" />
+    <Content Include="Assets\Headings\h14.png" />
+    <Content Include="Assets\Headings\h3.png" />
+    <Content Include="Assets\Headings\s.jpg" />
+    <Content Include="Assets\Headings\s2.jpg" />
+    <Content Include="Assets\Headings\s3.jpg" />
+    <Content Include="Assets\Icons\AreaChart.png" />
+    <Content Include="Assets\Icons\CalendarDelete.png" />
+    <Content Include="Assets\Icons\Denna logo Dark.png" />
+    <Content Include="Assets\Icons\Denna logo Green.png" />
+    <Content Include="Assets\Icons\Denna logo White.png" />
+    <Content Include="Assets\Icons\DeskLamp.png" />
+    <Content Include="Assets\Icons\Plus.png" />
+    <Content Include="Assets\Icons\TodoList.png" />
+    <Content Include="Assets\Mockups\usrimg.jpg" />
+    <Content Include="Assets\PackageImages\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\PackageImages\BadgeLogo.scale-125.png" />
+    <Content Include="Assets\PackageImages\BadgeLogo.scale-150.png" />
+    <Content Include="Assets\PackageImages\BadgeLogo.scale-200.png" />
+    <Content Include="Assets\PackageImages\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\PackageImages\LargeTile.scale-100.png" />
+    <Content Include="Assets\PackageImages\LargeTile.scale-125.png" />
+    <Content Include="Assets\PackageImages\LargeTile.scale-150.png" />
+    <Content Include="Assets\PackageImages\LargeTile.scale-200.png" />
+    <Content Include="Assets\PackageImages\LargeTile.scale-400.png" />
+    <Content Include="Assets\PackageImages\SmallTile.scale-100.png" />
+    <Content Include="Assets\PackageImages\SmallTile.scale-125.png" />
+    <Content Include="Assets\PackageImages\SmallTile.scale-150.png" />
+    <Content Include="Assets\PackageImages\SmallTile.scale-200.png" />
+    <Content Include="Assets\PackageImages\SmallTile.scale-400.png" />
+    <Content Include="Assets\PackageImages\SplashScreen.scale-100.png" />
+    <Content Include="Assets\PackageImages\SplashScreen.scale-125.png" />
+    <Content Include="Assets\PackageImages\SplashScreen.scale-150.png" />
+    <Content Include="Assets\PackageImages\SplashScreen.scale-200.png" />
+    <Content Include="Assets\PackageImages\SplashScreen.scale-400.png" />
+    <Content Include="Assets\PackageImages\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\PackageImages\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\PackageImages\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\PackageImages\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\PackageImages\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-100.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-125.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-150.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-200.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-400.png" />
+    <Content Include="Assets\PackageImages\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\PackageImages\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\PackageImages\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\PackageImages\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\PackageImages\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -124,9 +189,7 @@
       <Version>5.2.3</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
