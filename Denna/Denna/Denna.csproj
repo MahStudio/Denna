@@ -124,6 +124,7 @@
     <Content Include="Assets\Icons\Plus.png" />
     <Content Include="Assets\Icons\TodoList.png" />
     <Content Include="Assets\Mockups\usrimg.jpg" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\PackageImages\BadgeLogo.scale-100.png" />
     <Content Include="Assets\PackageImages\BadgeLogo.scale-125.png" />
     <Content Include="Assets\PackageImages\BadgeLogo.scale-150.png" />
@@ -164,17 +165,11 @@
     <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-256.png" />
     <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-32.png" />
     <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-48.png" />
-    <Content Include="Assets\PackageImages\StoreLogo.scale-100.png" />
-    <Content Include="Assets\PackageImages\StoreLogo.scale-125.png" />
-    <Content Include="Assets\PackageImages\StoreLogo.scale-150.png" />
-    <Content Include="Assets\PackageImages\StoreLogo.scale-200.png" />
-    <Content Include="Assets\PackageImages\StoreLogo.scale-400.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-400.png" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
