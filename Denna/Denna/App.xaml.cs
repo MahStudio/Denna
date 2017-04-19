@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +31,34 @@ namespace Denna
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            Themesetter();
+            
+        }
+        private void stuff()
+        {
+            try
+            {
+                if (ApplicationData.Current.LocalSettings.Values["FollowAccent"] == null)
+                    ApplicationData.Current.LocalSettings.Values["FollowAccent"] = false;
+                if (Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) != true)
+                    App.Current.Resources["SystemAccentColor"] = Windows.UI.Color.FromArgb(255, 32, 200, 165);
+            }
+            catch
+            { }
+        }
+        void Themesetter()
+        {
+            if (Planel.Classes.Themesetter.GetApplicationTheme() != "System")
+            {
+                if (Planel.Classes.Themesetter.GetApplicationTheme() == "Dark")
+                {
+                    App.Current.RequestedTheme = ApplicationTheme.Dark;
+                }
+                else
+                {
+                    App.Current.RequestedTheme = ApplicationTheme.Light;
+                }
+            }
         }
 
         /// <summary>
@@ -39,6 +68,7 @@ namespace Denna
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            stuff();
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -66,7 +96,15 @@ namespace Denna
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                    {
+                        rootFrame.Navigate(typeof(Views.PageMaster), e.Arguments);
+                        
+                    }
+
+                    else
+                        rootFrame.Navigate(typeof(Views.PageMaster), e.Arguments);
+
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
