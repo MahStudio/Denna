@@ -99,6 +99,9 @@
     <Compile Include="Classes\Themesetter.cs" />
     <Compile Include="Controls\DChart.cs" />
     <Compile Include="Controls\PieChart.cs" />
+    <Compile Include="Controls\SwipeListItem.xaml.cs">
+      <DependentUpon>SwipeListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SwipePanel.xaml.cs">
       <DependentUpon>SwipePanel.xaml</DependentUpon>
     </Compile>
@@ -194,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\SwipeListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SwipePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
