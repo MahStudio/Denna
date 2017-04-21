@@ -9,7 +9,19 @@
     d:DesignHeight="60"
     d:DesignWidth="500"
     >
+   
+    <UserControl.Resources>
+        <Storyboard x:Name="urStoryboard">
 
+            <DoubleAnimation To="0" Duration="00:00:00.8" 
+                Storyboard.TargetName="myScaleTransform" 
+                Storyboard.TargetProperty="X">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
     <Grid>
         <Grid >
             <Grid.ColumnDefinitions>
@@ -21,7 +33,10 @@
                 <ColumnDefinition Width="60"/>
 
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Background="Blue" />
+            <Grid Grid.Column="0"  >
+                <Button Background="{x:Bind LeftFirstColor}" Foreground="{x:Bind LeftFirstForeground}" Content="3:90" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+
+            </Grid>
             <Grid Grid.Column="2" Background="Red" />
             <Grid Grid.Column="3" Background="Yellow" />
             <Grid Grid.Column="4" Background="Green" />

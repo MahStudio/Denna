@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +27,35 @@ namespace Denna.Controls
             this.InitializeComponent();
         }
 
+
+
+        public SolidColorBrush LeftFirstColor
+        {
+            get { return (SolidColorBrush)GetValue(LeftFirstColorProperty); }
+            set { SetValue(LeftFirstColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for LeftFirstColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LeftFirstColorProperty =
+            DependencyProperty.Register(nameof(LeftFirstColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public SolidColorBrush LeftFirstForeground
+        {
+            get { return (SolidColorBrush)GetValue(LeftFirstForegroundProperty); }
+            set { SetValue(LeftFirstForegroundProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for LeftFirstForeground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LeftFirstForegroundProperty =
+            DependencyProperty.Register(nameof(LeftFirstForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+
+
+        #region Manipulations
         private void MainGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             if (myScaleTransform.X >= 60 && e.Delta.Translation.X >1) return;
@@ -37,7 +67,9 @@ namespace Denna.Controls
 
         private void MainGrid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-           
+            if (myScaleTransform.X <= -170 ) return;
+            urStoryboard.Begin();
+
         }
 
         private void MainGrid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
@@ -46,4 +78,5 @@ namespace Denna.Controls
             lastPostition = e.Position;
         }
     }
+    #endregion
 }

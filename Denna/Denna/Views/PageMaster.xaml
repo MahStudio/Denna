@@ -12,7 +12,7 @@
    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <controls:SwipeListItem Height="60" VerticalAlignment="Center" />
+            <controls:SwipeListItem Height="60" LeftFirstForeground="White" LeftFirstColor="Black" VerticalAlignment="Center" />
             <controls:SwipeListItem Height="60" VerticalAlignment="Center" />
             <controls:SwipeListItem Height="60" VerticalAlignment="Center" />
             <controls:SwipeListItem Height="60" VerticalAlignment="Center" />
