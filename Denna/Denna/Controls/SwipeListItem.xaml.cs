@@ -53,6 +53,120 @@ namespace Denna.Controls
 
 
 
+        public string LeftFirstContent
+        {
+            get { return (string)GetValue(LeftFirstContentProperty); }
+            set { SetValue(LeftFirstContentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for LeftFirstContent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LeftFirstContentProperty =
+            DependencyProperty.Register(nameof(LeftFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+        public SolidColorBrush RightFirstColor
+        {
+            get { return (SolidColorBrush)GetValue(RightFirstColorProperty); }
+            set { SetValue(RightFirstColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightFirstColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightFirstColorProperty =
+            DependencyProperty.Register(nameof(RightFirstColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public SolidColorBrush RightFirstForeground
+        {
+            get { return (SolidColorBrush)GetValue(RightFirstForegroundProperty); }
+            set { SetValue(RightFirstForegroundProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightFirstForeground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightFirstForegroundProperty =
+            DependencyProperty.Register(nameof(RightFirstForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public string RightFirstContent
+        {
+            get { return (string)GetValue(RightFirstContentProperty); }
+            set { SetValue(RightFirstContentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightFirstContent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightFirstContentProperty =
+            DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
+        public SolidColorBrush RightSecondColor
+        {
+            get { return (SolidColorBrush)GetValue(RightSecondColorProperty); }
+            set { SetValue(RightSecondColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightSecondColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightSecondColorProperty =
+            DependencyProperty.Register(nameof(RightSecondColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public SolidColorBrush RightSecondForeground
+        {
+            get { return (SolidColorBrush)GetValue(RightSecondForegroundProperty); }
+            set { SetValue(RightSecondForegroundProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightSecondForeground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightSecondForegroundProperty =
+            DependencyProperty.Register(nameof(RightSecondForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public string RightSecondContent
+        {
+            get { return (string)GetValue(RightSecondContentProperty); }
+            set { SetValue(RightSecondContentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightSecondContent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightSecondContentProperty =
+            DependencyProperty.Register(nameof(RightSecondContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+        public SolidColorBrush RightThirdColor
+        {
+            get { return (SolidColorBrush)GetValue(RightThirdColorProperty); }
+            set { SetValue(RightThirdColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightThirdColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightThirdColorProperty =
+            DependencyProperty.Register(nameof(RightThirdColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public SolidColorBrush RightThirdForeground
+        {
+            get { return (SolidColorBrush)GetValue(RightThirdForegroundProperty); }
+            set { SetValue(RightThirdForegroundProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightThirdForeground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightThirdForegroundProperty =
+            DependencyProperty.Register(nameof(RightThirdForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public string RightThirdContent
+        {
+            get { return (string)GetValue(RightThirdContentProperty); }
+            set { SetValue(RightThirdContentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightThirdContent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightThirdContentProperty =
+            DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
 
 
         #region Manipulations
