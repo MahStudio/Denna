@@ -25,9 +25,22 @@ namespace Denna.Controls
         public SwipeListItem()
         {
             this.InitializeComponent();
+            _r1 = R1;
+            _r2 = R2;
+            _r3 = R3;
+            _r1.Click += (s, e) => RightFirstClicked?.Invoke(s, e);
+            _r2.Click += (s, e) => RightSecondClicked?.Invoke(s, e);
+            _r3.Click += (s, e) => RightThirdClicked?.Invoke(s, e);
         }
 
+        Button _r1;
+        Button _r2;
+        Button _r3;
+        public event EventHandler<RoutedEventArgs> RightFirstClicked;
+        public event EventHandler<RoutedEventArgs> RightSecondClicked;
+        public event EventHandler<RoutedEventArgs> RightThirdClicked;
 
+        #region props
 
         public SolidColorBrush LeftFirstColor
         {
@@ -166,7 +179,7 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightThirdContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightThirdContentProperty =
             DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
-
+#endregion
 
 
         #region Manipulations

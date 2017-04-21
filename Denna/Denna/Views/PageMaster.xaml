@@ -1,5 +1,4 @@
 ﻿<Page
-    x:Class="Denna.Views.PageMaster"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Denna.Views"
@@ -7,62 +6,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converter ="using:Denna.Converters"
+    xmlns:behaviors="using:Denna.Behaviors"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="Denna.Views.PageMaster"
     mc:Ignorable="d">
-   
-   
+
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <controls:SwipeListItem Height="60" 
              LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
-            <controls:SwipeListItem Height="60" 
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
-            <controls:SwipeListItem Height="60" 
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
-            <controls:SwipeListItem Height="60" 
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
-            <controls:SwipeListItem Height="60" 
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
-            <controls:SwipeListItem Height="60" 
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
-            <controls:SwipeListItem Height="60" 
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
-            <controls:SwipeListItem Height="60" 
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
-             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent=""   
-                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent=""
-                                    RightThirdColor="Green" RightThirdContent="" RightThirdForeground="White"
-                                    VerticalAlignment="Center" />
+             RightFirstColor="Red" RightFirstForeground="White" RightFirstContent="&#xE70F;"   
+                                    RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent="&#xE8FB;"
+                                    RightThirdColor="Green" RightThirdContent="&#xE894;" RightThirdForeground="White"
+                                    VerticalAlignment="Center" 
+                                   RightFirstClicked="SwipeListItem_RightFirstClicked" RightSecondClicked="SwipeListItem_RightSecondClicked" RightThirdClicked="SwipeListItem_RightThirdClicked"
+                                    />
+            
 
+            <controls:PieChart Percentage="34" Segment360Color="Transparent" SegmentColor="Black" >
+                <interactivity:Interaction.Behaviors>
+                    <behaviors:InternalAnimation/>
+                </interactivity:Interaction.Behaviors>
+            </controls:PieChart>
         </StackPanel>
-      
 
+       
     </Grid>
 </Page>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,21 @@ namespace Denna.Views
         public PageMaster()
         {
             this.InitializeComponent();
+        }
+
+        private async void SwipeListItem_RightFirstClicked(object sender, RoutedEventArgs e)
+        {
+            await new MessageDialog("Fist Clicked").ShowAsync();
+        }
+
+        private async void SwipeListItem_RightSecondClicked(object sender, RoutedEventArgs e)
+        {
+            await new MessageDialog("Second Clicked").ShowAsync();
+        }
+
+        private async void SwipeListItem_RightThirdClicked(object sender, RoutedEventArgs e)
+        {
+            await new MessageDialog("Third Clicked").ShowAsync();
         }
     }
 }

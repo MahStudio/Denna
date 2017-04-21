@@ -21,7 +21,9 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
+       
     </UserControl.Resources>
+    
     <Grid>
         <Grid >
             <Grid.ColumnDefinitions>
@@ -35,31 +37,31 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0"  >
                 <Button Background="{x:Bind LeftFirstColor}" Foreground="{x:Bind LeftFirstForeground}"
-                Content="{x:Bind LeftFirstContent}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                Content="{x:Bind LeftFirstContent}" Style="{StaticResource infoButton}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
 
             </Grid>
             <Grid Grid.Column="2"  >
-                <Button Background="{x:Bind RightFirstColor}" Foreground="{x:Bind RightFirstForeground}"
-                Content="{x:Bind RightFirstContent}" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <Button x:Name="R1" Background="{x:Bind RightFirstColor}" Foreground="{x:Bind RightFirstForeground}"
+                Content="{x:Bind RightFirstContent}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}"  />
 
 
             </Grid>
             <Grid Grid.Column="3"  >
-                <Button Background="{x:Bind RightSecondColor}" Foreground="{x:Bind RightSecondForeground}"
-                Content="{x:Bind RightSecondContent}" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <Button x:Name="R2" Background="{x:Bind RightSecondColor}" Foreground="{x:Bind RightSecondForeground}"
+                Content="{x:Bind RightSecondContent}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
             </Grid>
             <Grid Grid.Column="4"  >
-                <Button Background="{x:Bind RightThirdColor}" Foreground="{x:Bind RightThirdForeground}"
-                Content="{x:Bind RightThirdContent}" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <Button x:Name="R3" Background="{x:Bind RightThirdColor}" Foreground="{x:Bind RightThirdForeground}"
+                Content="{x:Bind RightThirdContent}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
             </Grid>
         </Grid>
         <Grid x:Name="MainGrid" Opacity="1" Background="Azure"
          ManipulationMode="TranslateX" ManipulationDelta="MainGrid_ManipulationDelta" ManipulationCompleted="MainGrid_ManipulationCompleted"
          ManipulationStarted="MainGrid_ManipulationStarted"
-            
+          
          >
-            
-            
+
+           
             <Grid.RenderTransform >
 
                 <TranslateTransform  x:Name="myScaleTransform" />
