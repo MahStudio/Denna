@@ -11,7 +11,7 @@
    
    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-       
-       
+
+        <controls:SwipePanel VerticalAlignment="Top" />
     </Grid>
 </Page>
