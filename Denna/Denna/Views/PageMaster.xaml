@@ -13,9 +13,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <RelativePanel>
-            <controls:SwipePanel x:Name="Panel"   VerticalAlignment="Top" 
-          RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"   RelativePanel.AlignTopWithPanel="True"                   />
-            <Pivot  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
+               <Pivot x:Name="Pivot" SelectionChanged="Pivot_SelectionChanged" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Panel">
                 <Pivot.Resources>
 
@@ -679,30 +677,33 @@
 
                 <PivotItem Margin="0,0,0,0" >
 
-                    <Frame >
+                    <Frame x:Name="Home" />
 
-                        
 
-                    </Frame>
+
+
 
                 </PivotItem>
 
                 <PivotItem Margin="0,0,0,0" >
 
-                    <Grid Background="#FF0CA215" />
+                    <Frame x:Name="TimeLine" />
 
                 </PivotItem>
                 <PivotItem Margin="0,0,0,0" >
 
-                    <Grid Background="#FF0CA215" />
+                    <Frame x:Name="CalView" />
 
                 </PivotItem>
                 <PivotItem Margin="0,0,0,0" >
 
-                    <Grid Background="#FF0CA215" />
+                    <Frame x:Name="Chats" />
 
                 </PivotItem>
             </Pivot>
+            <controls:SwipePanel x:Name="Panel"   VerticalAlignment="Top" 
+          RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"   RelativePanel.AlignTopWithPanel="True"                   />
+
         </RelativePanel>
         <Button Height="30" VerticalAlignment="Bottom" Width="200"  Content="Goto unit tests" >
             <Interactivity:Interaction.Behaviors>
@@ -711,6 +712,14 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
+        <Grid ManipulationMode="None" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}"  Width="48" Height="48" />
+                <Button Click="btoday_Click" x:Name="btoday" Content="&#xE1EF;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                <Button Click="bpref_Click" x:Name="bpref" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+            </StackPanel>
+        </Grid>
     </Grid>
 
 </Page>
