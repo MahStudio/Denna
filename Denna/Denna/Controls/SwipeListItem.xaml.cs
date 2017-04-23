@@ -194,6 +194,7 @@ namespace Denna.Controls
         #region Manipulations
         private void MainGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
+           
             if (myScaleTransform.X >= 60 && e.Delta.Translation.X >1) return;
             if (myScaleTransform.X <= -180 && e.Delta.Translation.X < 1) return;
             myScaleTransform.X += e.Delta.Translation.X;

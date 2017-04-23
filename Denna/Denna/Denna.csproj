@@ -144,6 +144,9 @@
     <Compile Include="Views\SubSettings\Support.xaml.cs">
       <DependentUpon>Support.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UnitTests.xaml.cs">
+      <DependentUpon>UnitTests.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
@@ -284,6 +287,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UnitTests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -302,6 +309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Strings\" />
+    <Folder Include="Views\SubMaster\" />
     <Folder Include="XMLs\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
