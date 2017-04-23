@@ -18,7 +18,7 @@
             <TextBlock Margin="0,20,0,10" x:Name="Name" FontSize="20" FontWeight="Bold" Text="SETTINGS" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
             <ListView x:Name="ArtistsList" ItemsSource="{Binding MenuList}" ItemTemplate="{StaticResource SettingsListItem}"
                   SelectionMode="None" IsItemClickEnabled="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Name"
+                  RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Name" ItemClick="ArtistsList_ItemClick"
                   Background="Transparent">
             <ListView.ItemContainerTransitions>
                 <TransitionCollection>
@@ -34,12 +34,12 @@
                         <AdaptiveTrigger MinWindowWidth="900" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="Name.Margin" Value="0,90,0,10" />
+                        <Setter Target="Name.Margin" Value="0,60,0,20" />
                         <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
                         <Setter Target="ArtistsList.ItemsPanel">
                             <Setter.Value>
                                 <ItemsPanelTemplate>
-                                    <ItemsWrapGrid HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" MaximumRowsOrColumns="50"/>
+                                    <ItemsWrapGrid Margin="30,0,30,0" HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" MaximumRowsOrColumns="50"/>
 
                                 </ItemsPanelTemplate>
                             </Setter.Value>
@@ -51,7 +51,7 @@
                         <AdaptiveTrigger MinWindowWidth="600" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="Name.Margin" Value="0,60,0,10" />
+                        <Setter Target="Name.Margin" Value="0,40,0,10" />
                         <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
                         <Setter Target="ArtistsList.ItemsPanel">
                             <Setter.Value>
