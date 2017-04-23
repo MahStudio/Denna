@@ -39,7 +39,7 @@
                            Segment360Color="Transparent"
                             StrokeThickness="19" >
                 <Interactivity:Interaction.Behaviors>
-                    <be:InternalAnimation IntendedValue="{x:Bind Percentage1}" />
+                    <be:InternalAnimation IntendedValue="{x:Bind Percentage2}" />
                 </Interactivity:Interaction.Behaviors>
             </local2:PieChart>
 

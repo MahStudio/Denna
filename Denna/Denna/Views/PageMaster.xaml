@@ -12,12 +12,13 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <RelativePanel>
-        <controls:SwipePanel   VerticalAlignment="Top" 
-          RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"                     />
-        <Pivot>
+        <controls:SwipePanel x:Name="Panel"   VerticalAlignment="Top" 
+          RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"   RelativePanel.AlignTopWithPanel="True"                   />
+        <Pivot RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="Panel">
             
         </Pivot>
         </RelativePanel>
+        <Button Height="30" VerticalAlignment="Bottom" Width="200" Click="Button_Click" Content="Goto unit tests" />
     </Grid>
 
 </Page>
