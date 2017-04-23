@@ -26,5 +26,14 @@ namespace Denna.Views.SubMaster
         {
             this.InitializeComponent();
         }
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {  
+            
+            PageMaster.current.NavigateToUnitTests();
+        }
+        private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            PageMaster.current.NavigateToSettings();
+        }
     }
 }

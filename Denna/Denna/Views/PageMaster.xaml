@@ -11,11 +11,11 @@
     x:Class="Denna.Views.PageMaster"
     mc:Ignorable="d">
 
-
+    <Interactivity:Interaction.Behaviors>
+        <behavior:HeadPainter Brush="{ThemeResource AppSuspressBrush}" Foreground="White" />
+    </Interactivity:Interaction.Behaviors>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
-        <Interactivity:Interaction.Behaviors>
-            <behavior:HeadPainter Brush="{ThemeResource AppSuspressBrush}" Foreground="White" />
-        </Interactivity:Interaction.Behaviors>
+        
         <RelativePanel>
                <Pivot x:Name="Pivot" SelectionChanged="Pivot_SelectionChanged" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Panel">
@@ -709,13 +709,13 @@
           RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"   RelativePanel.AlignTopWithPanel="True"                   />
 
         </RelativePanel>
-        <Button Height="30" VerticalAlignment="Bottom" Width="200"  Content="Goto unit tests" >
+        <!--<Button Height="30" VerticalAlignment="Bottom" Width="200"  Content="Goto unit tests" >
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior  EventName="Click">
                     <Core:NavigateToPageAction  TargetPage="Denna.Views.UnitTests" Parameter="behavior"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
-        </Button>
+        </Button>-->
         <Grid ManipulationMode="None" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}"  Width="48" Height="48" />

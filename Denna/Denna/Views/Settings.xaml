@@ -6,14 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:behavior="using:Denna.Behaviors"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:vm="using:Denna.ViewModels"
     >
+    <Interactivity:Interaction.Behaviors>
+        <behavior:HeadPainter Brush="{ThemeResource ApplicationPageBackgroundThemeBrush}" Foreground="White" />
+    </Interactivity:Interaction.Behaviors>
     <Page.DataContext>
         <vm:SettingsPageViewModel />
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-       
         
+
         <RelativePanel>
             <TextBlock Margin="0,20,0,10" x:Name="Name" FontSize="20" FontWeight="Bold" Text="SETTINGS" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
             <ListView x:Name="ArtistsList" ItemsSource="{Binding MenuList}" ItemTemplate="{StaticResource SettingsListItem}"

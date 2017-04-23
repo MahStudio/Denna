@@ -24,11 +24,21 @@ namespace Denna.Views
     /// </summary>
     public sealed partial class PageMaster : Page
     {
+
+        public static PageMaster current;
         public PageMaster()
         {
             this.InitializeComponent();
+            current = this;
         }
-
+        public void NavigateToUnitTests()
+        {
+            Frame.Navigate(typeof(UnitTests));
+        }
+        public void NavigateToSettings()
+        {
+            Frame.Navigate(typeof(Settings));
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 #region navigations
@@ -40,6 +50,7 @@ namespace Denna.Views
 
         }
 
+#region Pivot
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            // await Task.Delay(20);
@@ -126,5 +137,6 @@ namespace Denna.Views
         {
             mpref();
         }
+#endregion
     }
 }

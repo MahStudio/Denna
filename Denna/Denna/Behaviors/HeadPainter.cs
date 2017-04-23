@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Denna.Behaviors
 {
-    class HeadPainter : Behavior<Grid>
+    class HeadPainter : Behavior<Page>
     {
 
 
