@@ -58,10 +58,10 @@
         <Grid x:Name="MainGrid" Opacity="1" Background="Azure"
          ManipulationMode="TranslateX" ManipulationDelta="MainGrid_ManipulationDelta" ManipulationCompleted="MainGrid_ManipulationCompleted"
          ManipulationStarted="MainGrid_ManipulationStarted"
-          
+         
          >
+            <Page />
 
-           
             <Grid.RenderTransform >
 
                 <TranslateTransform  x:Name="myScaleTransform" />

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converter ="using:Denna.Converters"
     xmlns:behaviors="using:Denna.Behaviors"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Denna.Views.PageMaster"
     mc:Ignorable="d">
@@ -22,14 +22,15 @@
                                     RightThirdColor="Green" RightThirdContent="&#xE894;" RightThirdForeground="White"
                                     VerticalAlignment="Center" 
                                    RightFirstClicked="SwipeListItem_RightFirstClicked" RightSecondClicked="SwipeListItem_RightSecondClicked" RightThirdClicked="SwipeListItem_RightThirdClicked"
-                                    />
-            
+                                   >
 
-            <controls:PieChart Percentage="34" Segment360Color="Transparent" SegmentColor="Black" >
-                <interactivity:Interaction.Behaviors>
-                    <behaviors:InternalAnimation/>
-                </interactivity:Interaction.Behaviors>
-            </controls:PieChart>
+
+
+            </controls:SwipeListItem>
+
+
+           
+            <controls:DoublePi SegmentColor1="Green" SegmentColor2="Red" Percentage1="50" Percentage2="20"  />
         </StackPanel>
 
        

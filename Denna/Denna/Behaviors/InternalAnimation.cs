@@ -12,22 +12,61 @@ namespace Denna.Behaviors
 {
     class InternalAnimation : Behavior<Controls.PieChart>
     {
+        //public int IntendedValue
+        //{
+        //    get { return (int)GetValue(IntendedValueProperty); }
+        //    set { SetValue(IntendedValueProperty, value); }
+        //}
+
+        //// Using a DependencyProperty as the backing store for IntendedValue.  This enables animation, styling, binding, etc...
+        //public static readonly DependencyProperty IntendedValueProperty =
+        //    DependencyProperty.Register(nameof(IntendedValue), typeof(int),
+        //        typeof(InternalAnimation), new PropertyMetadata(0, IntendedValuePropertyChangedCallback));
+
+
+        public Double IntendedValue
+        {
+            get { return (Double)GetValue(IntendedValueProperty); }
+            set { SetValue(IntendedValueProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IntendedValue.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IntendedValueProperty =
+            DependencyProperty.Register("IntendedValue", typeof(Double), typeof(InternalAnimation), new PropertyMetadata(null, IntendedValuePropertyChangedCallback));
+
+
+
+        private static void IntendedValuePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var IncrementBehavior = d as InternalAnimation;
+            if (IncrementBehavior == null) return;
+            var value = (Double)e.NewValue;
+            if (value < 0)
+                IncrementBehavior.IntendedValue = 0;
+            else if (value > 100)
+                IncrementBehavior.IntendedValue = 100;
+            else
+                IncrementBehavior.IntendedValue = value;
+        }
+
         protected override void OnAttached()
         {
-            AssociatedObject.Loaded += Myer ;
+            AssociatedObject.Loaded += Myer;
         }
 
         private void Myer(object sender, RoutedEventArgs e)
         {
-            var x = AssociatedObject.Percentage;
             Storyboard myboard = new Storyboard();
-            DoubleAnimation Addvalues = new DoubleAnimation();
-            Addvalues.To = x;
-            Addvalues.From = 0;
-            Addvalues.Duration = new Duration(TimeSpan.FromMilliseconds(1500));
-            Storyboard.SetTarget(Addvalues, AssociatedObject);
-            Storyboard.SetTargetProperty(Addvalues, "Percentage");
-            myboard.Children.Add(Addvalues);
+            DoubleAnimation AddValueDoubleAnimation = new DoubleAnimation();
+
+            AddValueDoubleAnimation.To = IntendedValue;
+            AddValueDoubleAnimation.From = 0;
+            AddValueDoubleAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(700));
+            
+            AddValueDoubleAnimation.EnableDependentAnimation = true;
+            Storyboard.SetTarget(AddValueDoubleAnimation, AssociatedObject);
+            Storyboard.SetTargetProperty(AddValueDoubleAnimation, "Percentage");
+            myboard.Children.Add(AddValueDoubleAnimation);
             myboard.Begin();
         }
 
@@ -35,6 +74,6 @@ namespace Denna.Behaviors
         {
             AssociatedObject.Loaded -= Myer;
         }
-        
+
     }
 }
