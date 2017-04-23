@@ -9,7 +9,7 @@
     d:DesignHeight="60"
     d:DesignWidth="500"
     >
-   
+
     <UserControl.Resources>
         <Storyboard x:Name="urStoryboard">
 
@@ -21,15 +21,16 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
-       
+
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid >
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="129*"/>
+                <ColumnDefinition Width="131*"/>
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="60"/>
@@ -40,22 +41,24 @@
                 Content="{x:Bind LeftFirstContent}" Style="{StaticResource infoButton}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
 
             </Grid>
-            <Grid Grid.Column="2"  >
+            <Grid Grid.Column="3"  >
                 <Button x:Name="R1" Background="{x:Bind RightFirstColor}" Foreground="{x:Bind RightFirstForeground}"
                 Content="{x:Bind RightFirstContent}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}"  />
 
 
             </Grid>
-            <Grid Grid.Column="3"  >
+            <Grid Grid.Column="4"  >
                 <Button x:Name="R2" Background="{x:Bind RightSecondColor}" Foreground="{x:Bind RightSecondForeground}"
                 Content="{x:Bind RightSecondContent}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
             </Grid>
-            <Grid Grid.Column="4"  >
+            <Grid Grid.Column="5"  >
                 <Button x:Name="R3" Background="{x:Bind RightThirdColor}" Foreground="{x:Bind RightThirdForeground}"
                 Content="{x:Bind RightThirdContent}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
             </Grid>
+            <Grid Grid.Column="1" Background="{x:Bind LeftFirstColor}" />
+            <Grid Grid.Column="2" Background="{x:Bind RightFirstColor}" />
         </Grid>
-        <Grid x:Name="MainGrid" Opacity="1" Background="YellowGreen"
+        <Grid x:Name="MainGrid"  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
          ManipulationMode="TranslateX" ManipulationDelta="MainGrid_ManipulationDelta" ManipulationCompleted="MainGrid_ManipulationCompleted"
          ManipulationStarted="MainGrid_ManipulationStarted" 
          
