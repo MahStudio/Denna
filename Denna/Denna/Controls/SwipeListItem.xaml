@@ -55,12 +55,12 @@
                 Content="{x:Bind RightThirdContent}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
             </Grid>
         </Grid>
-        <Grid x:Name="MainGrid" Opacity="1" Background="Azure"
+        <Grid x:Name="MainGrid" Opacity="1" Background="YellowGreen"
          ManipulationMode="TranslateX" ManipulationDelta="MainGrid_ManipulationDelta" ManipulationCompleted="MainGrid_ManipulationCompleted"
-         ManipulationStarted="MainGrid_ManipulationStarted"
+         ManipulationStarted="MainGrid_ManipulationStarted" 
          
          >
-            <Page />
+            <ContentControl  Content="{x:Bind TheGrid}"/>
 
             <Grid.RenderTransform >
 

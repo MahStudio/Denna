@@ -98,12 +98,12 @@ namespace Denna
                     // parameter
                     if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
                     {
-                        rootFrame.Navigate(typeof(Views.Settings), e.Arguments);
+                        rootFrame.Navigate(typeof(Views.PageMaster), e.Arguments);
                         
                     }
 
                     else
-                        rootFrame.Navigate(typeof(Views.Settings), e.Arguments);
+                        rootFrame.Navigate(typeof(Views.PageMaster), e.Arguments);
 
                 }
                 // Ensure the current window is active

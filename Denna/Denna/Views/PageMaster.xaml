@@ -24,6 +24,14 @@
                                    RightFirstClicked="SwipeListItem_RightFirstClicked" RightSecondClicked="SwipeListItem_RightSecondClicked" RightThirdClicked="SwipeListItem_RightThirdClicked"
                                    >
 
+                <controls:SwipeListItem.TheGrid>
+                    <ContentControl>
+                        <Grid >
+                            <TextBlock Text="Yooo hoooo"/>
+                        </Grid>
+                    </ContentControl>
+                    
+                </controls:SwipeListItem.TheGrid>
 
 
             </controls:SwipeListItem>

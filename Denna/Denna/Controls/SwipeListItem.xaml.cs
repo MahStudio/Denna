@@ -41,6 +41,15 @@ namespace Denna.Controls
         public event EventHandler<RoutedEventArgs> RightThirdClicked;
 
         #region props
+        public ContentControl TheGrid
+        {
+            get { return (ContentControl)GetValue(TheGridProperty); }
+            set { SetValue(TheGridProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TheGrid.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TheGridProperty =
+            DependencyProperty.Register("TheGrid", typeof(ContentControl), typeof(SwipeListItem), new PropertyMetadata(null));
 
         public SolidColorBrush LeftFirstColor
         {
