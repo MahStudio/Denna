@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converter ="using:Denna.Converters"
+    xmlns:behavior="using:Denna.Behaviors"
     xmlns:controls="using:Denna.Controls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Denna.Views.PageMaster"
@@ -12,6 +13,9 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Interactivity:Interaction.Behaviors>
+            <behavior:HeadPainter Brush="{ThemeResource AppSuspressBrush}" Foreground="White" />
+        </Interactivity:Interaction.Behaviors>
         <RelativePanel>
                <Pivot x:Name="Pivot" SelectionChanged="Pivot_SelectionChanged" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Panel">
