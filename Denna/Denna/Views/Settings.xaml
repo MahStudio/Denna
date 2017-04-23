@@ -5,9 +5,70 @@
     xmlns:local="using:Denna.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
+    mc:Ignorable="d"
+    xmlns:vm="using:Denna.ViewModels"
+    >
+    <Page.DataContext>
+        <vm:SettingsPageViewModel />
+    </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+       
+        
+        <RelativePanel>
+            <TextBlock Margin="0,20,0,10" x:Name="Name" FontSize="20" FontWeight="Bold" Text="SETTINGS" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
+            <ListView x:Name="ArtistsList" ItemsSource="{Binding MenuList}" ItemTemplate="{StaticResource SettingsListItem}"
+                  SelectionMode="None" IsItemClickEnabled="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Name"
+                  Background="Transparent">
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EdgeUIThemeTransition/>
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+        </ListView>
+        </RelativePanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Name.Margin" Value="0,90,0,10" />
+                        <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
+                        <Setter Target="ArtistsList.ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" MaximumRowsOrColumns="50"/>
 
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide2State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Name.Margin" Value="0,60,0,10" />
+                        <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
+                        <Setter Target="ArtistsList.ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid  HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" MaximumRowsOrColumns="10"/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
