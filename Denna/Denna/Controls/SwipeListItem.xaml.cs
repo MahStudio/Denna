@@ -188,15 +188,22 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightThirdContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightThirdContentProperty =
             DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
-#endregion
+        #endregion
 
 
         #region Manipulations
         private void MainGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-           
-            if (myScaleTransform.X >= 60 && e.Delta.Translation.X >1) return;
-            if (myScaleTransform.X <= -180 && e.Delta.Translation.X < 1) return;
+            if (myScaleTransform.X >= 60 && e.Delta.Translation.X > 1)
+            {
+                myScaleTransform.X = 60;
+                return;
+            }
+            if (myScaleTransform.X <= -180 && e.Delta.Translation.X < 1)
+            {
+                myScaleTransform.X = -180;
+                return;
+            }
             myScaleTransform.X += e.Delta.Translation.X;
             lastPostition.X += e.Delta.Translation.X;
            
