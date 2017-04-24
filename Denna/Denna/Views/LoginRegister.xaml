@@ -5,9 +5,16 @@
     xmlns:local="using:Denna.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Button Content="Go to hell" Click="Button_Click" Height="50" Width="100" >
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior  EventName="Click">
+                    <Core:NavigateToPageAction  TargetPage="Denna.Views.PageMaster" Parameter="behavior"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
     </Grid>
 </Page>

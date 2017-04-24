@@ -26,5 +26,7 @@ namespace Denna.Views
         {
             this.InitializeComponent();
         }
+
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -61,8 +62,15 @@ namespace Denna.Views
         }
         void DismissExtendedSplash()
         {
-            // Navigate to mainpage
-            rootFrame.Navigate(typeof(PageMaster));
+            if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+            {
+                rootFrame.Navigate(typeof(PageMaster));
+                
+            }
+            else
+                rootFrame.Navigate(typeof(Welcome));
+           
+            
             // Place the frame in the current Window
             Window.Current.Content = rootFrame;
         }
