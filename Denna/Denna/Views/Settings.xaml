@@ -39,6 +39,10 @@
                         <AdaptiveTrigger MinWindowWidth="900" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+
+                        <Setter Target="ArtistsList.HorizontalAlignment" Value="Center" />
+                        <Setter Target="ArtistsList.VerticalAlignment" Value="Center" />
+
                         <Setter Target="Name.Margin" Value="0,60,0,20" />
                         <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
                         <Setter Target="ArtistsList.ItemsPanel">
@@ -56,6 +60,9 @@
                         <AdaptiveTrigger MinWindowWidth="600" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+                        <Setter Target="ArtistsList.HorizontalAlignment" Value="Center" />
+                        <Setter Target="ArtistsList.VerticalAlignment" Value="Center" />
+
                         <Setter Target="Name.Margin" Value="0,40,0,10" />
                         <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
                         <Setter Target="ArtistsList.ItemsPanel">
