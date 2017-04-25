@@ -54,7 +54,8 @@
                         <Setter Target="ArtistsList.ItemsPanel">
                             <Setter.Value>
                                 <ItemsPanelTemplate>
-                                    <ItemsWrapGrid Margin="30,0,30,0" HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" MaximumRowsOrColumns="50"/>
+                                    <ItemsWrapGrid  HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" MaximumRowsOrColumns="10"/>
+
 
                                 </ItemsPanelTemplate>
                             </Setter.Value>
