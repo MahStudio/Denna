@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,7 +27,83 @@ namespace Denna.Views
         {
             this.InitializeComponent();
         }
+        #region FlipView
+        private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (flipwel.SelectedIndex == 0)
+            {
+                m1();
+            }
+            if (flipwel.SelectedIndex == 1)
+            {
+                m2();
+            }
+            if (flipwel.SelectedIndex == 2)
+            {
+                m3();
+            }
+            if (flipwel.SelectedIndex == 3)
+            {
+                m4();
+            }
+           
+        }
+        private void b1_Click(object sender, RoutedEventArgs e)
+        {
+            m1();
+        }
 
+        private void b2_Click(object sender, RoutedEventArgs e)
+        {
+            m2();
+        }
+
+        private void b3_Click(object sender, RoutedEventArgs e)
+        {
+            m3();
+        }
+
+        private void b4_Click(object sender, RoutedEventArgs e)
+        {
+            m4();
+        }
         
+        private void m1()
+        {
+            b1.Background = new SolidColorBrush(Colors.Gray);
+            b2.Background = new SolidColorBrush(Colors.White);
+            b3.Background = new SolidColorBrush(Colors.White);
+            b4.Background = new SolidColorBrush(Colors.White);
+            flipwel.SelectedIndex = 0;
+        }
+        private void m2()
+        {
+            b1.Background = new SolidColorBrush(Colors.White);
+            b2.Background = new SolidColorBrush(Colors.Gray);
+            b3.Background = new SolidColorBrush(Colors.White);
+            b4.Background = new SolidColorBrush(Colors.White);
+            flipwel.SelectedIndex = 1;
+        }
+        private void m3()
+        {
+            b1.Background = new SolidColorBrush(Colors.White);
+            b2.Background = new SolidColorBrush(Colors.White);
+            b3.Background = new SolidColorBrush(Colors.Gray);
+            b4.Background = new SolidColorBrush(Colors.White);
+            flipwel.SelectedIndex = 2;
+        }
+        private void m4()
+        {
+            b1.Background = new SolidColorBrush(Colors.White);
+            b2.Background = new SolidColorBrush(Colors.White);
+            b3.Background = new SolidColorBrush(Colors.White);
+            b4.Background = new SolidColorBrush(Colors.Gray);
+            flipwel.SelectedIndex = 3;
+        }
+      
+
+
+        #endregion
+
     }
 }

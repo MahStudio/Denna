@@ -9,6 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource AppBackgroundColor}">
+        <ScrollViewer>
         <StackPanel>
             <controls:SwipeListItem Height="60" 
              LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
@@ -77,5 +78,6 @@
             <controls:DoublePi SegmentColor1="Green" SegmentColor2="Red" Percentage1="50" Percentage2="20"  />
             <controls:Calendar Height="300" />
         </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
