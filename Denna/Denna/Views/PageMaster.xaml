@@ -14,7 +14,7 @@
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppSuspressBrush}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+    <Grid Background="{ThemeResource AppBackgroundColor}" >
         
         <RelativePanel>
                <Pivot x:Name="Pivot" SelectionChanged="Pivot_SelectionChanged" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"

@@ -59,6 +59,7 @@ namespace Denna.Behaviors
                 titleBar.ButtonInactiveForegroundColor = Foreground.Color;
                 titleBar.ForegroundColor = Foreground.Color;
                 titleBar.ButtonForegroundColor = Foreground.Color;
+                
 
                 //fuck you asshilism
 

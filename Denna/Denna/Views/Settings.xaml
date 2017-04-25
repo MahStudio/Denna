@@ -11,12 +11,12 @@
     xmlns:vm="using:Denna.ViewModels"
     >
     <Interactivity:Interaction.Behaviors>
-        <behavior:HeadPainter Brush="{ThemeResource ApplicationPageBackgroundThemeBrush}" Foreground="White" />
+        <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
     <Page.DataContext>
         <vm:SettingsPageViewModel />
     </Page.DataContext>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
         
 
         <RelativePanel>

@@ -72,11 +72,11 @@
             <SolidColorBrush x:Key="WikisedaBoxBorderBrush" Color="#101010"/>
             <SolidColorBrush x:Key="WikisedaTransparentBoxBorderBrush" Color="#AA101010"/>
             <SolidColorBrush x:Key="AppBarBackgroundThemeBrush" Color="#242424"/>
-            <SolidColorBrush  x:Key="SystemControlForegroundChromeMediumBrush" Color="#191919"/>
+            <SolidColorBrush  x:Key="SystemControlForegroundChromeMediumBrush" Color="#141414"/>
             <SolidColorBrush x:Key="AppBackgroundColor" Color="#191919"></SolidColorBrush>
             <SolidColorBrush x:Key="AntiForeground" Color="White"></SolidColorBrush>
             <SolidColorBrush x:Key="AppBackgroundBrush" Color="{ThemeResource AppBackgroundColor}" />
-            <SolidColorBrush x:Key="AppSuspressBrush" Color="Black" />
+            <SolidColorBrush x:Key="AppSuspressBrush" Color="#2B2B2B" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrastBlack">
             
@@ -108,7 +108,7 @@
             <SolidColorBrush x:Key="AppBackgroundColor" Color="#000000"></SolidColorBrush>
             <SolidColorBrush x:Key="AntiForeground" Color="White"></SolidColorBrush>
             <SolidColorBrush x:Key="AppBackgroundBrush" Color="{ThemeResource AppBackgroundColor}" />
-            <SolidColorBrush x:Key="AppSuspressBrush" Color="Black" />
+            <SolidColorBrush x:Key="AppSuspressBrush" Color="#2B2B2B" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrastWhite">
           
@@ -140,7 +140,7 @@
             <SolidColorBrush x:Key="AppBackgroundColor" Color="#FFFFFF"></SolidColorBrush>
             <SolidColorBrush x:Key="AntiForeground" Color="Black"></SolidColorBrush>
             <SolidColorBrush x:Key="AppBackgroundBrush" Color="{ThemeResource AppBackgroundColor}" />
-            <SolidColorBrush x:Key="AppSuspressBrush" Color="Black" />
+            <SolidColorBrush x:Key="AppSuspressBrush" Color="#2B2B2B" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
     <ResourceDictionary x:Key="Default">
@@ -161,6 +161,6 @@
         <SolidColorBrush x:Key="SystemControlHyperlinkTextBrush" Color="{ThemeResource SystemAccentColor}" />
         <SolidColorBrush x:Key="ContentDialogBorderThemeBrush" Color="{ThemeResource SystemAccentColor}" />
         <SolidColorBrush x:Key="JumpListDefaultEnabledBackground" Color="{ThemeResource SystemAccentColor}" />
-        <SolidColorBrush x:Key="AppSuspressBrush" Color="Black" />
+        <SolidColorBrush x:Key="AppSuspressBrush" Color="#2B2B2B" />
     </ResourceDictionary>
 </ResourceDictionary>

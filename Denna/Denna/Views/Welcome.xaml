@@ -9,7 +9,7 @@
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
         <Button Height="50" Width="100" >
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior  EventName="Click">
