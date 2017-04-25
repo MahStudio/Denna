@@ -1681,6 +1681,7 @@
         <Setter Property="HoverBorderBrush" Value="Transparent"/>
         <Setter Property="PressedBorderBrush" Value="Transparent"/>
         <Setter Property="TodayForeground" Value="{ThemeResource CalendarViewTodayForeground}"/>
+        <Setter Property="IsTodayHighlighted" Value="True" />
         <Setter Property="BlackoutForeground" Value="{ThemeResource CalendarViewBlackoutForeground}"/>
         <Setter Property="SelectedForeground" Value="White"/>
         <Setter Property="PressedForeground" Value="{ThemeResource CalendarViewPressedForeground}"/>
@@ -1730,9 +1731,7 @@
                                                                 <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Text">
                                                                     <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarViewNavigationButtonForegroundPointerOver}"/>
                                                                 </ObjectAnimationUsingKeyFrames>
-                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderThickness" Storyboard.TargetName="Button">
-                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,0"/>
-                                                                </ObjectAnimationUsingKeyFrames>
+                                                                
                                                             </Storyboard>
                                                         </VisualState>
                                                         <VisualState x:Name="Pressed">

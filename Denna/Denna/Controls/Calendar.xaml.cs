@@ -22,7 +22,9 @@ namespace Denna.Controls
         public Calendar()
         {
             this.InitializeComponent();
+            
         }
+       
         private void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
             if (args.AddedDates != null)
@@ -57,7 +59,7 @@ namespace Denna.Controls
                     }
                     else if ((child as CalendarViewDayItem).Date.Date == DateTime.Today)
                     {
-                        // VisualStateManager.GoToState((child as CalendarViewDayItem), "Hover", true);
+                       // VisualStateManager.GoToState((child as CalendarViewDayItem), "Hover", true);
                         //styles for today's date
                     }
                     else
@@ -74,6 +76,7 @@ namespace Denna.Controls
             }
             return null;
         }
+
        
     }
 }
