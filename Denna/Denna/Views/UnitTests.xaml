@@ -75,6 +75,7 @@
             <controls:PieChart  Radius="90" Percentage="40" />
 
             <controls:DoublePi SegmentColor1="Green" SegmentColor2="Red" Percentage1="50" Percentage2="20"  />
+            <controls:Calendar Height="300" />
         </StackPanel>
     </Grid>
 </Page>

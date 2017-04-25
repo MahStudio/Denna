@@ -2,6 +2,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
    >
+    <Style x:Key="CalendarViewDayItemStyle1" TargetType="CalendarViewDayItem">
+        <Setter Property="MinWidth" Value="40"/>
+        <Setter Property="MinHeight" Value="40"/>
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="Padding" Value="0, 0, 0, 4"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CalendarViewDayItem">
+                    <Grid Height="50" Width="50" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CustomStates">
+                                <VisualState x:Name="Hover">
+                                    <VisualState.Setters>
+                                        <Setter Target="ContentPresenter.(Border.Background)" Value="{StaticResource SystemControlBackgroundAccentBrush}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Target="ContentPresenter.(Border.Background)" Value="Transparent"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="ContentPresenter" PointerPressed="border_PointerPressed"  PointerEntered="border_PointerEntered" BorderBrush="Transparent" PointerExited="border_PointerExited" PointerMoved="border_PointerMoved" BorderThickness="0" CornerRadius="50" >
+
+                        </Border>
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="SexyButton" TargetType="Button">
         <Setter Property="Background" Value="{ThemeResource ButtonBackground}"/>
         <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}"/>
@@ -1640,14 +1675,14 @@
    
     <Style x:Key="Mahcalenderstyle" TargetType="CalendarView">
         <Setter Property="FocusBorderBrush" Value="{ThemeResource CalendarViewFocusBorderBrush}"/>
-        <Setter Property="SelectedHoverBorderBrush" Value="{ThemeResource CalendarViewSelectedHoverBorderBrush}"/>
-        <Setter Property="SelectedPressedBorderBrush" Value="{ThemeResource CalendarViewSelectedPressedBorderBrush}"/>
-        <Setter Property="SelectedBorderBrush" Value="{ThemeResource CalendarViewSelectedBorderBrush}"/>
-        <Setter Property="HoverBorderBrush" Value="{ThemeResource CalendarViewHoverBorderBrush}"/>
-        <Setter Property="PressedBorderBrush" Value="{ThemeResource CalendarViewPressedBorderBrush}"/>
+        <Setter Property="SelectedHoverBorderBrush" Value="Transparent"/>
+        <Setter Property="SelectedPressedBorderBrush" Value="Transparent"/>
+        <Setter Property="SelectedBorderBrush" Value="Transparent"/>
+        <Setter Property="HoverBorderBrush" Value="Transparent"/>
+        <Setter Property="PressedBorderBrush" Value="Transparent"/>
         <Setter Property="TodayForeground" Value="{ThemeResource CalendarViewTodayForeground}"/>
         <Setter Property="BlackoutForeground" Value="{ThemeResource CalendarViewBlackoutForeground}"/>
-        <Setter Property="SelectedForeground" Value="{ThemeResource CalendarViewSelectedForeground}"/>
+        <Setter Property="SelectedForeground" Value="White"/>
         <Setter Property="PressedForeground" Value="{ThemeResource CalendarViewPressedForeground}"/>
         <Setter Property="OutOfScopeForeground" Value="{ThemeResource CalendarViewOutOfScopeForeground}"/>
         <Setter Property="CalendarItemForeground" Value="{ThemeResource CalendarViewCalendarItemForeground}"/>
@@ -1694,6 +1729,9 @@
                                                             <Storyboard>
                                                                 <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Text">
                                                                     <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarViewNavigationButtonForegroundPointerOver}"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderThickness" Storyboard.TargetName="Button">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,0"/>
                                                                 </ObjectAnimationUsingKeyFrames>
                                                             </Storyboard>
                                                         </VisualState>
