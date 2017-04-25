@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -41,7 +42,30 @@ namespace Denna.Views
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-#region navigations
+            #region Back handle
+            if (Frame.CanGoBack)
+            {
+                try
+                {
+                    Frame.BackStack.Clear();
+                    
+                }
+                catch { }
+            }
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+
+
+
+
+
+
+
+
+
+
+
+            #endregion
+            #region navigations
             Home.Navigate(typeof(Home));
             TimeLine.Navigate(typeof(TimeLine));
             CalView.Navigate(typeof(Calendar));
