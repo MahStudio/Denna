@@ -10,6 +10,16 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:vm="using:Denna.ViewModels"
     >
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <DrillInNavigationTransitionInfo />
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
@@ -25,11 +35,7 @@
                   SelectionMode="None" IsItemClickEnabled="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Name" ItemClick="ArtistsList_ItemClick"
                   Background="Transparent">
-            <ListView.ItemContainerTransitions>
-                <TransitionCollection>
-                    <EdgeUIThemeTransition/>
-                </TransitionCollection>
-            </ListView.ItemContainerTransitions>
+            
         </ListView>
         </RelativePanel>
         <VisualStateManager.VisualStateGroups>
