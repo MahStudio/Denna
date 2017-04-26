@@ -8,10 +8,17 @@
     mc:Ignorable="d"
     xmlns:controls="using:Denna.Controls">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel Background="White">
         <controls:TemplatedTextBox Margin="10,40,10,0" Height="35" Glyph="" PlaceHolder="Username" />
-        <controls:TemplatedTextBox Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Password" />
-        <Button HorizontalAlignment="Stretch" Content="LOGIN" Margin="10,20,10,0" Height="35" Style="{StaticResource goitstyle}"/>
+        <controls:TemplatedTextBox Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Email" />
+        <controls:TemplatedTextBox Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="First name" />
+        <controls:TemplatedTextBox Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Last name" />
+
+        <controls:TemplatedPasswordBox
+                PlaceHolder="Password" Glyph="" Margin="10,10,10,0" Height="35"  />
+        <controls:TemplatedPasswordBox
+                PlaceHolder="Retype password" Glyph="" Margin="10,10,10,0" Height="35"  />
+        <Button HorizontalAlignment="Stretch" Content="LOGIN" Margin="40,20,40,0" Height="35" Style="{StaticResource goitstyle}"/>
         <HyperlinkButton Margin="10,30,10,0" HorizontalAlignment="Stretch" Content="Do not have an account? SIGN UP" />
     </StackPanel>
 </Page>

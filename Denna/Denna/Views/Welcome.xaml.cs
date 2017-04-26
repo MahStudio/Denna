@@ -23,10 +23,17 @@ namespace Denna.Views
     /// </summary>
     public sealed partial class Welcome : Page
     {
+        public static Welcome current;
         public Welcome()
         {
             this.InitializeComponent();
             Logger.Navigate(typeof(Sign.In));
+            Signerup.Navigate(typeof(Sign.Up));
+            current = this;
+        }
+        public void NavigateToPage()
+        {
+            Frame.Navigate(typeof(PageMaster));
         }
         #region FlipView
         private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)

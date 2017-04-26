@@ -99,6 +99,7 @@
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Behaviors\InternalAnimation.cs" />
     <Compile Include="Classes\ItemHolder.cs" />
+    <Compile Include="Classes\MyCommand.cs" />
     <Compile Include="Classes\Themesetter.cs" />
     <Compile Include="Controls\Calendar.xaml.cs">
       <DependentUpon>Calendar.xaml</DependentUpon>
@@ -124,6 +125,7 @@
     <Compile Include="Converters\IntToTaskCounterConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="ViewModels\SwipePanelViewModel.cs" />
     <Compile Include="Views\ExtendedSplash.xaml.cs">
       <DependentUpon>ExtendedSplash.xaml</DependentUpon>

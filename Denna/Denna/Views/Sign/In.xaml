@@ -6,12 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Denna.Controls"
+    xmlns:vm ="using:Denna.ViewModels"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <vm:SignInViewModel />
+    </Page.DataContext>
     <StackPanel Background="Transparent">
-        <controls:TemplatedTextBox Margin="10,40,10,0" Height="35" Glyph="" PlaceHolder="Username" />
-        <controls:TemplatedPasswordBox  Margin="10,10,10,0" Height="35"  />
-        <Button HorizontalAlignment="Stretch" Content="LOGIN" Margin="40,20,40,0" Height="35" Style="{StaticResource goitstyle}"/>
-        <HyperlinkButton Margin="10,30,10,0" HorizontalAlignment="Stretch" Content="Do not have an account? SIGN UP" />
+        <controls:TemplatedTextBox Text="{Binding UserName,Mode=TwoWay}" Margin="10,40,10,0" Height="35" Glyph="" PlaceHolder="Username" />
+        <controls:TemplatedPasswordBox Text="{Binding Password,Mode=TwoWay}" PlaceHolder="Password" Glyph="" Margin="10,10,10,0" Height="35"  />
+        <Button Command="{Binding SignInCommand}" HorizontalAlignment="Stretch" Content="LOGIN" Margin="40,20,40,0" Height="35" Style="{StaticResource goitstyle}"/>
+        <HyperlinkButton Command="{Binding SignUpCommand}" Margin="10,30,10,0" HorizontalAlignment="Stretch" Content="Do not have an account? SIGN UP" />
     </StackPanel>
 
     
