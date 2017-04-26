@@ -26,6 +26,7 @@ namespace Denna.Views
         public Welcome()
         {
             this.InitializeComponent();
+            Logger.Navigate(typeof(Sign.In));
         }
         #region FlipView
         private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -70,34 +71,34 @@ namespace Denna.Views
         
         private void m1()
         {
-            b1.Background = new SolidColorBrush(Colors.Gray);
-            b2.Background = new SolidColorBrush(Colors.White);
-            b3.Background = new SolidColorBrush(Colors.White);
-            b4.Background = new SolidColorBrush(Colors.White);
+            b1.Opacity = 1;
+            b2.Opacity = 0.5;
+            b3.Opacity = 0.5;
+            b4.Opacity = 0.5;
             flipwel.SelectedIndex = 0;
         }
         private void m2()
         {
-            b1.Background = new SolidColorBrush(Colors.White);
-            b2.Background = new SolidColorBrush(Colors.Gray);
-            b3.Background = new SolidColorBrush(Colors.White);
-            b4.Background = new SolidColorBrush(Colors.White);
+            b1.Opacity = 0.5;
+            b2.Opacity = 1;
+            b3.Opacity = 0.5;
+            b4.Opacity = 0.5;
             flipwel.SelectedIndex = 1;
         }
         private void m3()
         {
-            b1.Background = new SolidColorBrush(Colors.White);
-            b2.Background = new SolidColorBrush(Colors.White);
-            b3.Background = new SolidColorBrush(Colors.Gray);
-            b4.Background = new SolidColorBrush(Colors.White);
+            b1.Opacity = 0.5;
+            b2.Opacity = 0.5;
+            b3.Opacity = 1;
+            b4.Opacity = 0.5;
             flipwel.SelectedIndex = 2;
         }
         private void m4()
         {
-            b1.Background = new SolidColorBrush(Colors.White);
-            b2.Background = new SolidColorBrush(Colors.White);
-            b3.Background = new SolidColorBrush(Colors.White);
-            b4.Background = new SolidColorBrush(Colors.Gray);
+            b1.Opacity = 0.5;
+            b2.Opacity = 0.5;
+            b3.Opacity = 0.5;
+            b4.Opacity = 1;
             flipwel.SelectedIndex = 3;
         }
       

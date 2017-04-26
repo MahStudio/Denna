@@ -75,7 +75,8 @@
             <Grid  ManipulationMode="TranslateY"
               ManipulationDelta="gridMain_ManipulationDelta"
               ManipulationCompleted="gridMain_ManipulationCompleted"
-              Height="400" Margin="0,-240,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource AppSuspressBrush}" ManipulationStarted="gridMain_ManipulationStarted"  >
+              Height="400" Margin="0,-240,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" 
+                   RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource AppSuspressBrush}" ManipulationStarted="gridMain_ManipulationStarted"  >
 
 
 

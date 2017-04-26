@@ -1565,12 +1565,14 @@
 
 
 
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Background" Value="White" />
-        <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
-        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Background" Value="{StaticResource AppSuspressBrush}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0,0,0,0" />
         <Setter Property="UseSystemFocusVisuals" Value="True"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
 
 
     </Style>

@@ -7,21 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity">
-
-    <Grid Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-        <!--<Button Height="50" Width="100" >
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior  EventName="Click">
-                    <Core:NavigateToPageAction  TargetPage="Denna.Views.PageMaster" Parameter="behavior"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>-->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,330,0,0" Height="45" VerticalAlignment="Top" >
-            <Button x:Name="b1" Click="b1_Click" Style="{StaticResource dotbut}" />
-            <Button x:Name="b2" Click="b2_Click" Style="{StaticResource dotbut}"  />
-            <Button x:Name="b3" Click="b3_Click" Style="{StaticResource dotbut}"  />
-            <Button x:Name="b4" Click="b4_Click" Style="{StaticResource dotbut}"  />
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behavior="using:Denna.Behaviors">
+    <Interactivity:Interaction.Behaviors>
+        <behavior:HeadPainter Brush="{ThemeResource AppSuspressBrush}" Foreground="White" />
+    </Interactivity:Interaction.Behaviors>
+    <Grid Background="{ThemeResource AppSuspressBrush}">
+        <RelativePanel>
+            <Grid x:Name="Intro" RelativePanel.AlignLeftWithPanel="True"
+               RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"   >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,330,0,0" Height="45" VerticalAlignment="Top" >
+            <Button x:Name="b1" Click="b1_Click" Opacity="0.5" Style="{StaticResource dotbut}" />
+                    <Button x:Name="b2" Click="b2_Click" Opacity="0.5" Style="{StaticResource dotbut}"  />
+                    <Button x:Name="b3" Click="b3_Click" Opacity="0.5" Style="{StaticResource dotbut}"  />
+                    <Button x:Name="b4" Click="b4_Click" Opacity="0.5" Style="{StaticResource dotbut}"  />
             
         </StackPanel>
         <FlipView x:Name="flipwel" SelectionChanged="flipwel_SelectionChanged" Background="Transparent" Height="330" VerticalAlignment="Top" >
@@ -70,7 +69,21 @@
                 </StackPanel>
             </FlipViewItem>
             
+            
         </FlipView>
+            
+            </Grid>
+            <Grid RelativePanel.Below="Intro" RelativePanel.AlignBottomWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+
+                <Grid MaxHeight="300" MaxWidth="500"
+                    CornerRadius="5" Background="{StaticResource AppBackgroundColor}" Margin="30,40">
+
+                    <Frame x:Name="Logger" />
+                </Grid>
+            </Grid>
+       
+        </RelativePanel>
 
     </Grid>
 </Page>
