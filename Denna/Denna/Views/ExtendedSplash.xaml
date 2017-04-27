@@ -10,7 +10,7 @@
     <Grid Background="#464646">
         <Grid>
             <Image  Source="ms-appx:///Assets/PackageImages/SplashScreen.png" />
-            <Button Height="50" Width="100" Click="Button_Click" />
+            <Button Height="50" Width="100" Content="Click here" Click="Button_Click" />
         </Grid>
     </Grid>
 </Page>

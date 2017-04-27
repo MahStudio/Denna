@@ -68,7 +68,7 @@ namespace Denna.Views
                 
             }
             else
-                rootFrame.Navigate(typeof(Welcome));
+                rootFrame.Navigate(typeof(PageMaster));
            
             
             // Place the frame in the current Window
