@@ -4,10 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Denna.Views" 
     xmlns:controls="using:Denna.Controls"
+    xmlns:vm="using:Denna.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <vm:UnitTestViewModel />
+    </Page.DataContext>
     <Grid Background="{ThemeResource AppBackgroundColor}">
         <ScrollViewer>
         <StackPanel>
@@ -73,11 +76,10 @@
 
             </controls:SwipeListItem>
 
-            <controls:PieChart  Radius="90" Percentage="40" />
 
-            <controls:DoublePi SegmentColor1="Green" SegmentColor2="Red" Percentage1="50" Percentage2="20"  />
-            <controls:Calendar Height="300" />
-                <controls:TemplatedChart />
+                <controls:TemplatedChart Percent1="{Binding Per}" Percent2="20" SegmentColor="Red" DoneTasks="3" 
+                   PostponedTasks="{Binding Value}" PendingTasks="4" GlyphBrush="Red"   Margin="0,40,0,0"     HorizontalAlignment="Center"              />
+                <Button Width="344" Height="50" Content="{Binding Value}" Command="{Binding Click}" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
