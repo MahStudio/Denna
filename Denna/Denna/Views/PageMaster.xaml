@@ -719,7 +719,7 @@
         <Grid ManipulationMode="None" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}"  Width="48" Height="48" />
-                <Button Click="btoday_Click" x:Name="btoday" Content="&#xE1EF;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
+                <Button Click="btoday_Click" x:Name="btoday" Content="" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
                 <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
                 <Button Click="bpref_Click" x:Name="bpref" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
             </StackPanel>

@@ -107,12 +107,18 @@
     <Compile Include="Controls\DoublePi.xaml.cs">
       <DependentUpon>DoublePi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\IconItem.xaml.cs">
+      <DependentUpon>IconItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PieChart.cs" />
     <Compile Include="Controls\SwipeListItem.xaml.cs">
       <DependentUpon>SwipeListItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SwipePanel.xaml.cs">
       <DependentUpon>SwipePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TemplatedChart.xaml.cs">
+      <DependentUpon>TemplatedChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TemplatedPasswordBox.xaml.cs">
       <DependentUpon>TemplatedPasswordBox.xaml</DependentUpon>
@@ -122,6 +128,9 @@
     </Compile>
     <Compile Include="Converters\DoubleToStringConverter.cs" />
     <Compile Include="Converters\InputScopeConverter.cs" />
+    <Compile Include="Converters\IntToDoneConverter.cs" />
+    <Compile Include="Converters\IntToPendingConverter.cs" />
+    <Compile Include="Converters\IntToPostponeConverter.cs" />
     <Compile Include="Converters\IntToTaskCounterConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
@@ -270,11 +279,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\IconItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SwipeListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SwipePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TemplatedChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
