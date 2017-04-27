@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <TextBlock VerticalAlignment="Center" Grid.Column="0" Foreground="{x:Bind Brush}" HorizontalAlignment="Center" Text="{x:Bind Glyph}" FontSize="{x:Bind FontSizeGlyph}" FontFamily="Segoe MDL2 Assets" />

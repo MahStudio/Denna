@@ -20,7 +20,7 @@
 
 
             <local2:PieChart x:Name="todaysus"
-                            Radius="80"
+                            Radius="60"
                             Segment360Color="Transparent"         
                             BackgroundColor="Transparent"
                             SegmentColor="{x:Bind SegmentColor1}"
@@ -32,7 +32,7 @@
             </local2:PieChart>
 
             <local2:PieChart  x:Name="todaypie"
-                            Radius="55"
+                            Radius="35"
                                           Percentage="{x:Bind Percentage2}"
                             SegmentColor="{x:Bind SegmentColor2}"
                             BackgroundColor="Transparent"
@@ -50,7 +50,7 @@
                                    Foreground="{x:Bind SegmentColor1}"
                                   Text="{x:Bind Percentage1 , Converter={StaticResource DoubleToStringConverter}}"
                                    
-                       FontSize="30"
+                       FontSize="20"
                         />
 
         </Grid>

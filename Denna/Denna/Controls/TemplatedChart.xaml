@@ -7,8 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:coverter="using:Denna.Converters"
-    d:DesignHeight="300"
-    d:DesignWidth="800">
+   >
     <UserControl.Resources>
         <coverter:IntToPendingConverter x:Key="IntToPendingConverter" />
         <coverter:IntToDoneConverter x:Key="IntToDoneConverter" />
@@ -21,7 +20,7 @@
         <local:DoublePi x:Name="Nc" SegmentColor1="#20C8A5" SegmentColor2="{x:Bind SegmentColor}" HorizontalAlignment="Left" Percentage1="{x:Bind Percent1}" Percentage2="{x:Bind Percent2}" 
                 RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"        />
         <Grid RelativePanel.RightOf="Nc" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <StackPanel VerticalAlignment="Center" Margin="20">
+            <StackPanel VerticalAlignment="Center" Margin="0">
                 <local:IconItem Height="50" FontSizeGlyph="23" Glyph="" Brush="{StaticResource GreenBrush }" Text="{x:Bind DoneTasks,Converter={StaticResource IntToDoneConverter}}" />
                 <local:IconItem Height="50" FontSizeGlyph="27" Glyph="" Brush="{StaticResource YellowBrush}" Text="{x:Bind PostponedTasks ,Converter={StaticResource IntToPostponeConverter}}" />
 
