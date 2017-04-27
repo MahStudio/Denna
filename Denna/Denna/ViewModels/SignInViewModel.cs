@@ -34,11 +34,12 @@ namespace Denna.ViewModels
 
         private void SignUp(object obj)
         {
-            
+            Welcome.current.opensignup();
         }
         private void SignIn(object obj)
         {
-            Welcome.current.NavigateToPage();
+            
+            Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
         private string _username;
         private string _password;

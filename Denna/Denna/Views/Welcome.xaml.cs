@@ -30,11 +30,19 @@ namespace Denna.Views
             Logger.Navigate(typeof(Sign.In));
             Signerup.Navigate(typeof(Sign.Up));
             current = this;
+            
         }
-        public void NavigateToPage()
+        public void opensignup()
         {
-            Frame.Navigate(typeof(PageMaster));
+            Sign.Visibility = Visibility.Collapsed;
+            SignUp.Visibility = Visibility.Visible;
         }
+        public void opensignin()
+        {
+            Sign.Visibility = Visibility.Visible;
+            SignUp.Visibility = Visibility.Collapsed;
+        }
+
         #region FlipView
         private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
