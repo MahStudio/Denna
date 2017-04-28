@@ -38,7 +38,7 @@
             </ScrollViewer>
 
         </Grid>
-        <CommandBar  VerticalAlignment="Bottom">
+        <CommandBar   VerticalAlignment="Bottom">
 
 
 
@@ -75,6 +75,7 @@
                             <Setter Target="yesterday.(RelativePanel.AlignLeftWithPanel)" Value="False"/>
                            
                         <Setter Target="week.(RelativePanel.Below)" Value="today" />
+                        <Setter Target="week.HorizontalAlignment" Value="Left" />
                     </VisualState.Setters>
                 </VisualState>
                 
