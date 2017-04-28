@@ -21,7 +21,7 @@
     </Page.Transitions>
 
     <Interactivity:Interaction.Behaviors>
-        <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
+        <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="{ThemeResource AntiForeground}" />
     </Interactivity:Interaction.Behaviors>
     <Page.DataContext>
         <vm:SettingsPageViewModel />

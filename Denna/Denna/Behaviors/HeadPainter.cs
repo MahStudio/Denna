@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xaml.Interactivity;
 using System;
+using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -43,7 +44,7 @@ namespace Denna.Behaviors
             AssociatedObject.Loaded += Myer;
         }
 
-        private void Myer(object sender, RoutedEventArgs e)
+        private async void Myer(object sender, RoutedEventArgs e)
         {
             SolidColorBrush a = Brush;
             try
