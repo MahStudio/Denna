@@ -75,6 +75,7 @@
 
 
             </controls:SwipeListItem>
+                <controls:PieChart Segment360Color="Transparent" SegmentColor="Black" Percentage="{Binding Per}" Radius="100" />
 
 
                 <controls:TemplatedChart Percent1="{Binding Per}" Percent2="20" SegmentColor="Red" DoneTasks="3" 

@@ -24,11 +24,12 @@
                             Segment360Color="Transparent"         
                             BackgroundColor="Transparent"
                             SegmentColor="{x:Bind SegmentColor1,Mode=OneWay}"
-                                          
+                                          Percentage="{x:Bind Percentage1,Mode=OneWay}"
                             StrokeThickness="19" >
                 <Interactivity:Interaction.Behaviors>
                     <be:InternalAnimation IntendedValue="{x:Bind Percentage1,Mode=OneWay}" />
                 </Interactivity:Interaction.Behaviors>
+
             </local2:PieChart>
 
             <local2:PieChart  x:Name="todaypie"
@@ -37,10 +38,12 @@
                             SegmentColor="{x:Bind SegmentColor2,Mode=OneWay}"
                             BackgroundColor="Transparent"
                            Segment360Color="Transparent"
-                            StrokeThickness="19" >
+                            StrokeThickness="19"
+                              >
                 <Interactivity:Interaction.Behaviors>
                     <be:InternalAnimation IntendedValue="{x:Bind Percentage2,Mode=OneWay}" />
                 </Interactivity:Interaction.Behaviors>
+
             </local2:PieChart>
 
             <TextBlock x:Name="todayper" 
