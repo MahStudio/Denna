@@ -218,6 +218,8 @@
     <Content Include="Assets\Icons\DeskLamp.png" />
     <Content Include="Assets\Icons\Plus.png" />
     <Content Include="Assets\Icons\TodoList.png" />
+    <Content Include="Assets\Mockups\Comp.mp4" />
+    <Content Include="Assets\Mockups\Pure.png" />
     <Content Include="Assets\Mockups\usrimg.jpg" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\PackageImages\BadgeLogo.scale-100.png" />

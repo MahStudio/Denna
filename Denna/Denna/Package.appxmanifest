@@ -19,7 +19,7 @@
         <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\PackageImages\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\PackageImages\Wide310x150Logo.png" Square310x310Logo="Assets\PackageImages\LargeTile.png" Square71x71Logo="Assets\PackageImages\SmallTile.png">
         </uap:DefaultTile>
-        <uap:SplashScreen Image="Assets\PackageImages\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\PackageImages\SplashScreen.png" BackgroundColor="black" />
       </uap:VisualElements>
     </Application>
   </Applications>

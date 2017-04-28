@@ -5,12 +5,18 @@
     xmlns:local="using:Denna.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:behavior="using:Denna.Behaviors"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
+    <Interactivity:Interaction.Behaviors>
+        <behavior:HeadPainter Brush="Black" Foreground="White" />
+    </Interactivity:Interaction.Behaviors>
 
-    <Grid Background="#464646">
-        <Grid>
-            <Image  Source="ms-appx:///Assets/PackageImages/SplashScreen.png" />
-            <Button Height="50" Width="100" Content="Click here" Click="Button_Click" />
+
+    <Grid x:Name="LoadGrid" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Background="Black" Opacity="1" Visibility="Visible">
+               
+            <MediaElement x:Name="Media" AutoPlay="True" Source="/Assets/Mockups/Comp.mp4" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" MediaEnded="Media_MediaEnded"/>
+         
         </Grid>
-    </Grid>
+        
 </Page>

@@ -83,9 +83,12 @@ namespace Denna.Views
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+
+        private void Media_MediaEnded(object sender, RoutedEventArgs e)
         {
             DismissExtendedSplash();
+
         }
     }
 }
