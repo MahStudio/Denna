@@ -23,23 +23,23 @@
                             Radius="60"
                             Segment360Color="Transparent"         
                             BackgroundColor="Transparent"
-                            SegmentColor="{x:Bind SegmentColor1}"
+                            SegmentColor="{x:Bind SegmentColor1,Mode=OneWay}"
                                           
                             StrokeThickness="19" >
                 <Interactivity:Interaction.Behaviors>
-                    <be:InternalAnimation IntendedValue="{x:Bind Percentage1}" />
+                    <be:InternalAnimation IntendedValue="{x:Bind Percentage1,Mode=OneWay}" />
                 </Interactivity:Interaction.Behaviors>
             </local2:PieChart>
 
             <local2:PieChart  x:Name="todaypie"
                             Radius="35"
-                                          Percentage="{x:Bind Percentage2}"
-                            SegmentColor="{x:Bind SegmentColor2}"
+                                          Percentage="{x:Bind Percentage2,Mode=OneWay}"
+                            SegmentColor="{x:Bind SegmentColor2,Mode=OneWay}"
                             BackgroundColor="Transparent"
                            Segment360Color="Transparent"
                             StrokeThickness="19" >
                 <Interactivity:Interaction.Behaviors>
-                    <be:InternalAnimation IntendedValue="{x:Bind Percentage2}" />
+                    <be:InternalAnimation IntendedValue="{x:Bind Percentage2,Mode=OneWay}" />
                 </Interactivity:Interaction.Behaviors>
             </local2:PieChart>
 
@@ -47,8 +47,8 @@
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                                      FontWeight="SemiBold"  
-                                   Foreground="{x:Bind SegmentColor1}"
-                                  Text="{x:Bind Percentage1 , Converter={StaticResource DoubleToStringConverter}}"
+                                   Foreground="{x:Bind SegmentColor1,Mode=OneWay}"
+                                  Text="{x:Bind Percentage1,Mode=OneWay , Converter={StaticResource DoubleToStringConverter}}"
                                    
                        FontSize="20"
                         />
