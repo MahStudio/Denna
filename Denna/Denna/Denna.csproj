@@ -117,6 +117,9 @@
     <Compile Include="Controls\SwipePanel.xaml.cs">
       <DependentUpon>SwipePanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TaskList.xaml.cs">
+      <DependentUpon>TaskList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TemplatedChart.xaml.cs">
       <DependentUpon>TemplatedChart.xaml</DependentUpon>
     </Compile>
@@ -291,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SwipePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TaskList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
