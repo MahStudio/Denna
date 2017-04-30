@@ -7,6 +7,23 @@
     <SolidColorBrush x:Key="BlueBrush" Color="#42C3E9" />
     <SolidColorBrush x:Key="PurpleBrush" Color="#6B5CF8" />
     <SolidColorBrush x:Key="GrayBrush" Color="#BCBCBC" />
+    <Style TargetType="ContentControl">
+        <Setter Property="Foreground" Value="#FF000000"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <ContentPresenter
+                      Content="{TemplateBinding Content}"
+                      Margin="{TemplateBinding Padding}"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!-- Default style for Windows.UI.Xaml.Controls.Primitives.HyperlinkButton -->
     <Style x:Key="MyButtonhyper" TargetType="HyperlinkButton">
         <Setter Property="Foreground" Value="{ThemeResource SystemControlHyperlinkTextBrush}" />
