@@ -14,6 +14,7 @@ namespace Denna.ViewModels
         
         public TimeLineViewModel()
         {
+            TodayList = new ObservableCollection<TaskItem>();
             for (int i = 0; i < 10; i++)
             {
                 TodayList.Add(new TaskItem() { ID = i, Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i, Subject = "This is Title of " + i
@@ -22,8 +23,8 @@ namespace Denna.ViewModels
 
             }
         }
-        ObservableCollection<TaskItem> TodayList = new ObservableCollection<TaskItem>();
 
+        public ObservableCollection<TaskItem> TodayList { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

@@ -12,6 +12,6 @@
         <VM:TimeLineViewModel />
     </Page.DataContext>
     <Grid Background="{ThemeResource AppBackgroundColor}">
-        <Controls:TaskList TaskLists="{Binding TodayList ,Mode=TwoWay}" />
+        <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
     </Grid>
 </Page>
