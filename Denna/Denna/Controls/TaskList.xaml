@@ -16,6 +16,7 @@
             <ListView.Resources>
                 <Converters:IsdoneToColorConverter x:Key="IsdoneToColorConverter" />
                 <Converters:IsdoneToGlyphConverter x:Key="IsdoneToGlyphConverter" />
+                <Converters:TextToHashtagConverter x:Key="TextToHashtagConverter" />
             </ListView.Resources>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -41,12 +42,12 @@
                                 Text="{Binding Isdone,Converter={StaticResource IsdoneToGlyphConverter}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Isdone,Converter={StaticResource IsdoneToColorConverter}}" Width="25" Margin="7,7,0,6"
                                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                                    />
-                                    <TextBlock RelativePanel.RightOf="title" RelativePanel.AlignRightWithPanel="True"  TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10" Text="This time"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>
+                                        <TextBlock Foreground="{ThemeResource AntiForeground }" RelativePanel.RightOf="title" RelativePanel.AlignRightWithPanel="True"  TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10" Text="This time"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>
 
                                     <TextBlock x:Name="title" FontWeight="SemiBold"  Grid.Column="1" Grid.Row="0"
-                                    FontSize="15" Text="{Binding Subject}"  Margin="7,5,0,0"
+                                    FontSize="15" Text="{Binding Subject}"  Margin="7,5,0,0" Foreground="{ThemeResource AntiForeground }"
                                RelativePanel.RightOf="Glyph"    />
-                                    <TextBlock MaxLines="3" TextWrapping="Wrap" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding Detail}" FontSize="14"
+                                        <TextBlock MaxLines="3" TextWrapping="Wrap" Foreground="{ThemeResource AntiForeground }" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding Detail}" FontSize="14"
                         Margin="7,0,0,0" RelativePanel.Below="title" RelativePanel.RightOf="Glyph" RelativePanel.LeftOf="more"  x:Name="Title"      />
 
                                     <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more"  Background="Transparent" Tag="WOW"
@@ -77,17 +78,25 @@
                                             </Flyout>
                                         </Button.Flyout>
                                     </Button>
-                                        <GridView RelativePanel.LeftOf="more" ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="40" Margin="7,-10,0,0"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                                  RelativePanel.Below="Title" RelativePanel.RightOf="Glyph" Style="{StaticResource GridViewStyle1}" >
-                                        <TextBlock Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="#NAmr" />
-                                        <TextBlock Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="#NAmr" />
+                                        <GridView ItemsSource="{Binding Tags}" RelativePanel.LeftOf="more" ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="25" Margin="7,0,0,0"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                  RelativePanel.Below="Title" RelativePanel.RightOf="Glyph" Style="{StaticResource GridViewStyle1}"
+                                                 >
+                                            <GridView.ItemTemplate>
+                                            <DataTemplate>
+                                                    <TextBlock Tag="{Binding}" Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="{Binding Converter={StaticResource TextToHashtagConverter}}" />
 
-                                        <TextBlock Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="#NAmr" />
+                                            </DataTemplate>
 
-                                        <TextBlock Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="#NAmr" />
+                                            </GridView.ItemTemplate>
+                                            <GridView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <VariableSizedWrapGrid MaximumRowsOrColumns="8" Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </GridView.ItemsPanel>
 
 
-                                    </GridView>
+
+                                        </GridView>
 
                                 </RelativePanel>
                                 </Grid>

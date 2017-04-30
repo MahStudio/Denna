@@ -2277,6 +2277,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <!-- Style for Windows.UI.Xaml.Controls.GridViewItem -->
     <Style TargetType="GridViewItem" x:Key="GridViewItemExpanded">
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
@@ -2292,6 +2293,8 @@
         <Setter Property="Margin" Value="0,0,3,0"/>
         <Setter Property="MinWidth" Value="0"/>
         <Setter Property="MinHeight" Value="0"/>
+        <Setter Property="MaxWidth" Value="1000"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="GridViewItem">
@@ -2617,12 +2620,13 @@
                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.DragItemsCount}"
                       Foreground="{ThemeResource ListViewItemDragForegroundThemeBrush}"
                       FontFamily="{ThemeResource ContentControlThemeFontFamily}"
-                      FontSize="26.667"
+                      FontSize="14"
                       IsHitTestVisible="False"
                       Opacity="0"
                       TextWrapping="Wrap"
+                                   MaxWidth="200"
                       TextTrimming="WordEllipsis"
-                      Margin="18,9,0,0"
+                      Margin="0,0,0,0"
                       AutomationProperties.AccessibilityView="Raw"
                       Grid.ColumnSpan="2"/>
                     </Grid>
