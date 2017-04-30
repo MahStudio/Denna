@@ -135,6 +135,8 @@
     <Compile Include="Converters\IntToPendingConverter.cs" />
     <Compile Include="Converters\IntToPostponeConverter.cs" />
     <Compile Include="Converters\IntToTaskCounterConverter.cs" />
+    <Compile Include="Converters\IsdoneToColorConverter.cs" />
+    <Compile Include="Converters\IsdoneToGlyphConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />

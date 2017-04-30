@@ -24,8 +24,8 @@
 
     </UserControl.Resources>
 
-    <Grid>
-        <Grid >
+    <Grid HorizontalAlignment="Stretch" >
+        <Grid HorizontalAlignment="Stretch"  >
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="60"/>

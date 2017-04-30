@@ -7,14 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Denna.Controls"
     mc:Ignorable="d"
-    
+    xmlns:Converters="using:Denna.Converters"
     d:DesignWidth="400">
 
     <Grid>
         <ListView ItemsSource="{x:Bind TaskLists}"
          SelectionMode="None" IsMultiSelectCheckBoxEnabled="False"  Name="ListofTasks" >
             <ListView.Resources>
-                
+                <Converters:IsdoneToColorConverter x:Key="IsdoneToColorConverter" />
+                <Converters:IsdoneToGlyphConverter x:Key="IsdoneToGlyphConverter" />
             </ListView.Resources>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -25,7 +26,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate >
                     <controls:SwipeListItem  
-             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="{StaticResource BlueBrush}"
+             LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="{Binding Isdone,Converter={StaticResource IsdoneToColorConverter}}"
              RightFirstColor="{StaticResource GrayBrush}" RightFirstForeground="White" RightFirstContent=""   
                                     RightSecondColor="{StaticResource GreenBrush}" RightSecondForeground="White" RightSecondContent=""
                                     RightThirdColor="{StaticResource YellowBrush}" RightThirdContent="" RightThirdForeground="White"
@@ -37,7 +38,7 @@
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                 <RelativePanel>
                                     <TextBlock x:Name="Glyph" FontFamily="Segoe MDL2 Assets" TextAlignment="Center"  Grid.Column="0" Grid.Row="0" FontSize="17" 
-                                Text=""  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource BlueBrush}" Width="25" Margin="7,7,0,6"
+                                Text="{Binding Isdone,Converter={StaticResource IsdoneToGlyphConverter}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Isdone,Converter={StaticResource IsdoneToColorConverter}}" Width="25" Margin="7,7,0,6"
                                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                                    />
                                     <TextBlock RelativePanel.RightOf="title" RelativePanel.AlignRightWithPanel="True"  TextAlignment="Right" Opacity="0.7" Grid.Column="1" Grid.Row="0" FontSize="10" Text="This time"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>

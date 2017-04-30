@@ -15,6 +15,30 @@ namespace Denna.ViewModels
         public TimeLineViewModel()
         {
             TodayList = new ObservableCollection<TaskItem>();
+            TodayList.Add(new TaskItem()
+            {
+                ID = 33,
+                Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 33,
+                Subject = "This is Title of " + 33
+                   ,
+                Imprtance = 1,
+                Isdone = 0,
+                Notify = 1,
+                StartTime = DateTime.Now.AddHours(2),
+                Tags = new ObservableCollection<string>() { "Tagone", "tagtwo", "tagThree", "TagFour" }
+            });
+            TodayList.Add(new TaskItem()
+            {
+                ID = 66,
+                Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 66,
+                Subject = "This is Title of " + 66
+                   ,
+                Imprtance = 1,
+                Isdone = 1,
+                Notify = 1,
+                StartTime = DateTime.Now.AddHours(2),
+                Tags = new ObservableCollection<string>() { "Tagone", "tagtwo", "tagThree", "TagFour" }
+            });
             for (int i = 0; i < 10; i++)
             {
                 TodayList.Add(new TaskItem() { ID = i, Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i, Subject = "This is Title of " + i
