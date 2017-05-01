@@ -129,6 +129,7 @@
     <Compile Include="Controls\TemplatedTextBox.xaml.cs">
       <DependentUpon>TemplatedTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateTimeToTimeStringConverter.cs" />
     <Compile Include="Converters\DoubleToStringConverter.cs" />
     <Compile Include="Converters\InputScopeConverter.cs" />
     <Compile Include="Converters\IntToDoneConverter.cs" />
@@ -214,6 +215,7 @@
     <Content Include="Assets\Headings\bgs.png" />
     <Content Include="Assets\Headings\h14.png" />
     <Content Include="Assets\Headings\h3.png" />
+    <Content Include="Assets\Headings\h31.png" />
     <Content Include="Assets\Headings\s.jpg" />
     <Content Include="Assets\Headings\s2.jpg" />
     <Content Include="Assets\Headings\s3.jpg" />

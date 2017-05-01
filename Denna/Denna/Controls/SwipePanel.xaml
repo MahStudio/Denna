@@ -80,7 +80,7 @@
 
 
 
-        <Image Source="ms-appx:///Assets/Headings/h14.png" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Stretch="UniformToFill" Height="160" Margin="0,-247,-444,0"   />
+        <Image Opacity="0.15" Source="ms-appx:///Assets/Headings/h31.png" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Stretch="UniformToFill" Height="180" Margin="0,-247,-444,0"   />
         <Grid>
             <StackPanel Margin="0,0,0,0" x:Name="detstack" Opacity="0">
                 <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >

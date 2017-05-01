@@ -20,7 +20,7 @@ namespace Denna.Converters
             {
                 case 0:
                     {
-                       x= (SolidColorBrush)Application.Current.Resources["GrayBrush"];
+                       x= (SolidColorBrush)Application.Current.Resources["BlueBrush"];
                         break; 
                     }
                 case 1:
