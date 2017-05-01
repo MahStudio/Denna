@@ -64,11 +64,11 @@ namespace Denna.Views
         {
             if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
             {
-                rootFrame.Navigate(typeof(PageMaster));
+                rootFrame.Navigate(typeof(Welcome));
                 
             }
             else
-                rootFrame.Navigate(typeof(PageMaster));
+                rootFrame.Navigate(typeof(Welcome));
            
             
             // Place the frame in the current Window

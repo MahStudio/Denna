@@ -19,6 +19,9 @@
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>Denna_StoreKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>8A0513E82097873AAC6772B26558F0A541A10167</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -271,6 +274,11 @@
     <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-256.png" />
     <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-32.png" />
     <Content Include="Assets\PackageImages\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-100.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-125.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-150.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-200.png" />
+    <Content Include="Assets\PackageImages\StoreLogo.scale-400.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-150.png" />
