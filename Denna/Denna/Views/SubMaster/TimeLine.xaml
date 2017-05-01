@@ -12,6 +12,14 @@
         <VM:TimeLineViewModel />
     </Page.DataContext>
     <Grid Background="{ThemeResource AppBackgroundColor}">
-        <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel  >
+                    <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.8" Margin="20,0,0,0" Text="Today" />
+                    <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        
     </Grid>
 </Page>
