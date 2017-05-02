@@ -5,15 +5,21 @@
     xmlns:local="using:Denna.Views.SubMaster"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Controls="using:Denna.Controls"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource AppBackgroundColor}">
+    mc:Ignorable="d"
+    xmlns:VM="using:Denna.ViewModels"
+    >
+    <Page.DataContext>
+        <VM:CalendarViewModel />
+    </Page.DataContext>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel>
             <CalendarView MinHeight="250" MaxHeight="500" MaxWidth="720"  SelectionMode="Single" FontWeight="Normal" 
-             DayItemFontWeight="Light" Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
+             DayItemFontWeight="Light" MinWidth="100"
+                          Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
              HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" Margin="9,25,9,0"
              VerticalAlignment="Top" SelectedDatesChanged="CalendarView_SelectedDatesChanged"
              CalendarViewDayItemStyle="{StaticResource CalendarViewDayItemStyle1}"
@@ -50,11 +56,14 @@
 
                             
                         </Grid>
-                        <Grid Height="400" Background="Red"
+                        <StackPanel Height="400" Background="{ThemeResource AppBackgroundColor}"
                             RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                             >
-                            
-                        </Grid>
+                            <Controls:TemplatedChart Percent1="100" Percent2="20" SegmentColor="Red" DoneTasks="3" 
+                             PostponedTasks="4" PendingTasks="4" GlyphBrush="Red"   HorizontalAlignment="Center"   VerticalAlignment="Top"              />
+                            <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
+
+                        </StackPanel>
                     </RelativePanel>
                 </ScrollViewer>
 

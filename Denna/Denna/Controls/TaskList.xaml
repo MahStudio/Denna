@@ -83,7 +83,7 @@
                                     </Button>
                                         <GridView x:Name="Grid" ItemsSource="{Binding Tags}" RelativePanel.LeftOf="more" ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="25" Margin="7,2,0,0" 
                                   RelativePanel.Below="Title" RelativePanel.RightOf="Glyph" Style="{StaticResource GridViewStyle1}"
-                                              ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.IsVerticalRailEnabled="False"   >
+                                              ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.IsVerticalRailEnabled="False" HorizontalAlignment="Left"  >
                                             <GridView.ItemTemplate>
                                             <DataTemplate>
                                                     <TextBlock Tag="{Binding}" Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="{Binding Converter={StaticResource TextToHashtagConverter}}" />

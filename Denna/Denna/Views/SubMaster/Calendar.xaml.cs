@@ -60,7 +60,7 @@ namespace Denna.Views.SubMaster
                     }
                     else if ((child as CalendarViewDayItem).Date.Date == DateTime.Today)
                     {
-                        // VisualStateManager.GoToState((child as CalendarViewDayItem), "Hover", true);
+                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Normal", true);
                         //styles for today's date
                     }
                     else

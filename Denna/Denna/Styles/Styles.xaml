@@ -1839,8 +1839,9 @@
         <Setter Property="SelectedBorderBrush" Value="Transparent"/>
         <Setter Property="HoverBorderBrush" Value="Transparent"/>
         <Setter Property="PressedBorderBrush" Value="Transparent"/>
-        <Setter Property="TodayForeground" Value="{ThemeResource CalendarViewTodayForeground}"/>
-        <Setter Property="IsTodayHighlighted" Value="True" />
+        <Setter Property="TodayForeground" Value="{StaticResource BlueBrush}"/>
+        
+        <Setter Property="IsTodayHighlighted" Value="False" />
         <Setter Property="BlackoutForeground" Value="{ThemeResource CalendarViewBlackoutForeground}"/>
         <Setter Property="SelectedForeground" Value="White"/>
         <Setter Property="PressedForeground" Value="{ThemeResource CalendarViewPressedForeground}"/>
