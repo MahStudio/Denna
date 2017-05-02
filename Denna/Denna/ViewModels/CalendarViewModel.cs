@@ -11,10 +11,34 @@ namespace Denna.ViewModels
 {
     class CalendarViewModel : INotifyPropertyChanged
     {
+        private DateTimeOffset _selecteddate;
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<TaskItem> TodayList { get; set; }
+        public DateTimeOffset SelectedDate
+        {
+            get
+            {
+                return _selecteddate;
+
+            }
+            set
+            {
+
+                if (_selecteddate != value)
+                {
+                    _selecteddate = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this,
+                            new PropertyChangedEventArgs("SelectedDate"));
+                    }
+                }
+            }
+        }
         public CalendarViewModel()
         {
+
+            SelectedDate = DateTimeOffset.Now;
             TodayList = new ObservableCollection<TaskItem>();
             TodayList.Add(new TaskItem()
             {

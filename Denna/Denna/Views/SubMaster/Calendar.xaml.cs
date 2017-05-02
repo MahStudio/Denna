@@ -25,6 +25,7 @@ namespace Denna.Views.SubMaster
         public Calendar()
         {
             this.InitializeComponent();
+            
         }
         private void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {

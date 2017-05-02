@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Behaviors\InternalAnimation.cs" />
+    <Compile Include="Classes\CalendarViewHelper.cs" />
     <Compile Include="Classes\ItemHolder.cs" />
     <Compile Include="Classes\MyCommand.cs" />
     <Compile Include="Classes\Themesetter.cs" />
