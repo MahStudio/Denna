@@ -80,7 +80,7 @@
                   MaxHeight="500" MinHeight="350">
 
                 <Grid MaxHeight="300" MaxWidth="500"
-                    CornerRadius="5" Background="{StaticResource AppBackgroundColor}" Margin="30,40">
+                    CornerRadius="5" Background="{StaticResource AppBackgroundColor}" Margin="30,20">
 
                     <Frame x:Name="Logger" />
                 </Grid>
