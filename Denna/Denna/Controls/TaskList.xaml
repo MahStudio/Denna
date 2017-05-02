@@ -12,7 +12,7 @@
 
     <Grid>
         <ListView ItemsSource="{x:Bind TaskLists}" ScrollViewer.IsHorizontalRailEnabled="False"
-                  ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                  ScrollViewer.IsVerticalRailEnabled="False"
          SelectionMode="None" IsMultiSelectCheckBoxEnabled="False"  Name="ListofTasks" >
             <ListView.Resources>
                 <Converters:IsdoneToColorConverter x:Key="IsdoneToColorConverter" />
@@ -81,7 +81,7 @@
                                             </Flyout>
                                         </Button.Flyout>
                                     </Button>
-                                        <GridView x:Name="Grid" ItemsSource="{Binding Tags}" RelativePanel.LeftOf="more" ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="25" Margin="7,2,0,0"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                        <GridView x:Name="Grid" ItemsSource="{Binding Tags}" RelativePanel.LeftOf="more" ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="25" Margin="7,2,0,0" 
                                   RelativePanel.Below="Title" RelativePanel.RightOf="Glyph" Style="{StaticResource GridViewStyle1}"
                                               ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.IsVerticalRailEnabled="False"   >
                                             <GridView.ItemTemplate>
@@ -93,7 +93,7 @@
                                             </GridView.ItemTemplate>
                                             <GridView.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <VariableSizedWrapGrid MaximumRowsOrColumns="8" Orientation="Horizontal" />
+                                                    <VariableSizedWrapGrid MaximumRowsOrColumns="8" MaxWidth="500" Orientation="Horizontal" />
                                                 </ItemsPanelTemplate>
                                             </GridView.ItemsPanel>
 
