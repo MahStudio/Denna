@@ -3,11 +3,63 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Denna.Views.SubMaster"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Blue">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
+        <RelativePanel>
+            <CalendarView MinHeight="250" MaxHeight="500" MaxWidth="720"  SelectionMode="Single" FontWeight="Normal" 
+             DayItemFontWeight="Light" Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
+             HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" Margin="9,25,9,0"
+             VerticalAlignment="Top" SelectedDatesChanged="CalendarView_SelectedDatesChanged"
+             CalendarViewDayItemStyle="{StaticResource CalendarViewDayItemStyle1}"
+             RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+             RelativePanel.AlignRightWithPanel="True"
+                          />
+            <Grid
+                  RelativePanel.Below="MyCalendarView" RelativePanel.AlignLeftWithPanel="True"
+             RelativePanel.AlignRightWithPanel="True"
+                >
+                <ScrollViewer Margin="0,0,0,0">
+                    <RelativePanel Margin="0,0,0,0">
+                        <Grid x:Name="EmptyGrid" Height="1" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True"  />
+                        <Grid RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
+                            
+                                <controls:DropShadowPanel BlurRadius="10"
+                                  ShadowOpacity="0.5"
+                                  OffsetX="0"
+                                  OffsetY="-10"
+                                  Color="Black"
+                                
+                                              VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                              Margin="-10,0,-10,0"
+                                     >
 
+
+                                    <Rectangle HorizontalAlignment="Stretch" Width="2000" Height="20"
+               Fill="Black"/>
+
+
+                                </controls:DropShadowPanel>
+
+                            
+                        </Grid>
+                        <Grid Height="400" Background="Red"
+                            RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                            >
+                            
+                        </Grid>
+                    </RelativePanel>
+                </ScrollViewer>
+
+            </Grid>
+            
+        </RelativePanel>
     </Grid>
 </Page>

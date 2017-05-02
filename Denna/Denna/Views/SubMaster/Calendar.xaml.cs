@@ -26,5 +26,56 @@ namespace Denna.Views.SubMaster
         {
             this.InitializeComponent();
         }
+        private void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        {
+            if (args.AddedDates != null)
+            {
+                foreach (var item in args.AddedDates)
+                {
+                    var selected = FindElementInVisualTree<CalendarViewDayItem>(sender, item);
+                }
+            }
+            if (args.RemovedDates != null)
+            {
+                foreach (var item in args.RemovedDates)
+                {
+
+                }
+            }
+        }
+        public static T FindElementInVisualTree<T>(DependencyObject parentElement, DateTimeOffset selectedDate) where T : DependencyObject
+        {
+            var count = VisualTreeHelper.GetChildrenCount(parentElement);
+            if (count == 0) return null;
+
+            for (int i = 0; i < count; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parentElement, i);
+
+                if (child != null && child is CalendarViewDayItem)
+                {
+                    if ((child as CalendarViewDayItem).Date == selectedDate.DateTime)
+                    {
+                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Hover", true);
+                    }
+                    else if ((child as CalendarViewDayItem).Date.Date == DateTime.Today)
+                    {
+                        // VisualStateManager.GoToState((child as CalendarViewDayItem), "Hover", true);
+                        //styles for today's date
+                    }
+                    else
+                    {
+                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Normal", true);
+                    }
+                }
+                else
+                {
+                    var result = FindElementInVisualTree<T>(child, selectedDate);
+                    if (result != null)
+                        return result;
+                }
+            }
+            return null;
+        }
     }
 }
