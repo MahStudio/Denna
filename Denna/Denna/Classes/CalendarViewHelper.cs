@@ -10,30 +10,25 @@ namespace Denna.Classes
 {
     public static class CalendarViewHelper
     {
-        public static IList<DateTimeOffset> GetSelectedDates(DependencyObject obj)
+        public static DateTimeOffset GetSelectedDate(DependencyObject obj)
         {
-            return (IList<DateTimeOffset>)obj.GetValue(SelectedDatesProperty);
+            return (DateTimeOffset)obj.GetValue(SelectedDateProperty);
         }
 
-        public static void SetSelectedDates(DependencyObject obj, IList<DateTimeOffset> value)
+        public static void SetSelectedDate(DependencyObject obj, DateTimeOffset value)
         {
-            obj.SetValue(SelectedDatesProperty, value);
+            obj.SetValue(SelectedDateProperty, value);
         }
 
-        public static readonly DependencyProperty SelectedDatesProperty =
-            DependencyProperty.RegisterAttached("SelectedDates", typeof(IList<DateTimeOffset>), typeof(CalendarView),
+        public static readonly DependencyProperty SelectedDateProperty =
+            DependencyProperty.RegisterAttached("SelectedDate", typeof(DateTimeOffset), typeof(CalendarView),
                 new PropertyMetadata(null, (d, e) =>
                 {
-                    var cv = d as CalendarView;
-                    var dates = e.NewValue as IList<DateTimeOffset>;
+                    var cv = (CalendarView)d;
+                    var date = (DateTimeOffset)e.NewValue;
 
-                    if (cv != null && dates != null)
-                    {
-                        foreach (var date in dates)
-                        {
-                            cv.SelectedDates.Add(date);
-                        }
-                    }
+                    cv.SelectedDates.Clear();
+                    cv.SelectedDates.Add(date);
                 }));
 
     }

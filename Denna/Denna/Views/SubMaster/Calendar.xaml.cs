@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Denna.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,11 +23,21 @@ namespace Denna.Views.SubMaster
     /// </summary>
     public sealed partial class Calendar : Page
     {
+        public CalendarViewModel ViewModel { get; set; }
         public Calendar()
         {
             this.InitializeComponent();
-            
+            MyProperty = new DateTimeOffset(DateTime.Now);
+
+
+            DataContextChanged += (s, e) =>
+            {
+                ViewModel = DataContext as CalendarViewModel;
+            };
+
+
         }
+        public DateTimeOffset MyProperty { get; set; }
         private void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
             if (args.AddedDates != null)

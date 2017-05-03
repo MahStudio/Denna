@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Denna.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,15 @@ namespace Denna.Views.SubMaster
     /// </summary>
     public sealed partial class TimeLine : Page
     {
+        public TimeLineViewModel VM { get; set; }
         public TimeLine()
         {
+            
             this.InitializeComponent();
+            DataContextChanged += (s, e) =>
+            {
+                VM = DataContext as TimeLineViewModel;
+            };
         }
     }
 }

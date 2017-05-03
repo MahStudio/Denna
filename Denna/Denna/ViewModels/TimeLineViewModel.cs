@@ -9,7 +9,7 @@ using Core.Types;
 
 namespace Denna.ViewModels
 {
-    class TimeLineViewModel:INotifyPropertyChanged
+    public class TimeLineViewModel:INotifyPropertyChanged
     {
         
         public TimeLineViewModel()

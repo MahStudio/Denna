@@ -18,7 +18,7 @@
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel>
-            <CalendarView  MinHeight="250" MaxHeight="500" MaxWidth="720" Height="300"  FontWeight="Normal" 
+            <CalendarView classes:CalendarViewHelper.SelectedDate="{x:Bind ViewModel.SelectedDate, Mode=OneWay}"  MinHeight="250" MaxHeight="500" MaxWidth="720" Height="300"  FontWeight="Normal" 
              DayItemFontWeight="Light" MinWidth="100"
                           SelectionMode="Single" 
                           Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
@@ -28,12 +28,13 @@
              RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
              RelativePanel.AlignRightWithPanel="True"
                           />
-            <Grid
-                  RelativePanel.Below="MyCalendarView" RelativePanel.AlignLeftWithPanel="True"
+            <Grid RelativePanel.Below="MyCalendarView"
+                  RelativePanel.AlignLeftWithPanel="True"
              RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                 >
                 <ScrollViewer Margin="0,0,0,0">
                     <RelativePanel Margin="0,0,0,0">
+                        
                         <Grid x:Name="EmptyGrid" Height="350" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"  />
                         <Grid RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
@@ -63,7 +64,7 @@
                             >
                             <Controls:TemplatedChart Percent1="100" Percent2="20" SegmentColor="Red" DoneTasks="3" 
                              PostponedTasks="4" PendingTasks="4" GlyphBrush="Red"   HorizontalAlignment="Center"   VerticalAlignment="Top"              />
-                            <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
+                            <Controls:TaskList TaskLists="{x:Bind ViewModel.TodayList,Mode=TwoWay}" />
 
                         </StackPanel>
                     </RelativePanel>

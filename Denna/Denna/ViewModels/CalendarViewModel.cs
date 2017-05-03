@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Denna.ViewModels
 {
-    class CalendarViewModel : INotifyPropertyChanged
+    public class CalendarViewModel : INotifyPropertyChanged
     {
         private DateTimeOffset _selecteddate;
         public event PropertyChangedEventHandler PropertyChanged;
