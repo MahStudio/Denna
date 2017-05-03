@@ -102,6 +102,7 @@
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Behaviors\InternalAnimation.cs" />
     <Compile Include="Classes\CalendarViewHelper.cs" />
+    <Compile Include="Classes\DelegateCommand.cs" />
     <Compile Include="Classes\ItemHolder.cs" />
     <Compile Include="Classes\MyCommand.cs" />
     <Compile Include="Classes\Themesetter.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Controls\TemplatedTextBox.xaml.cs">
       <DependentUpon>TemplatedTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\AutoSuggestQueryParameterConverter.cs" />
     <Compile Include="Converters\DateTimeToTimeStringConverter.cs" />
     <Compile Include="Converters\DoubleToStringConverter.cs" />
     <Compile Include="Converters\InputScopeConverter.cs" />
