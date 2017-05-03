@@ -20,7 +20,7 @@
         <RelativePanel>
             <CalendarView  MinHeight="250" MaxHeight="500" MaxWidth="720"   FontWeight="Normal" 
              DayItemFontWeight="Light" MinWidth="100"
-                          SelectionMode="Single"
+                          SelectionMode="Single" 
                           Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
              HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" Margin="9,25,9,0"
              VerticalAlignment="Top" SelectedDatesChanged="CalendarView_SelectedDatesChanged"
@@ -30,11 +30,11 @@
                           />
             <Grid
                   RelativePanel.Below="MyCalendarView" RelativePanel.AlignLeftWithPanel="True"
-             RelativePanel.AlignRightWithPanel="True"
+             RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                 >
                 <ScrollViewer Margin="0,0,0,0">
                     <RelativePanel Margin="0,0,0,0">
-                        <Grid x:Name="EmptyGrid" Height="1" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                        <Grid x:Name="EmptyGrid" Height="470" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"  />
                         <Grid RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
                             
@@ -58,7 +58,7 @@
 
                             
                         </Grid>
-                        <StackPanel Height="400" Background="{ThemeResource AppBackgroundColor}"
+                        <StackPanel  Background="{ThemeResource AppBackgroundColor}"
                             RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                             >
                             <Controls:TemplatedChart Percent1="100" Percent2="20" SegmentColor="Red" DoneTasks="3" 
