@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -30,8 +31,8 @@ namespace Denna.Views
             Logger.Navigate(typeof(Sign.In));
             Signerup.Navigate(typeof(Sign.Up));
             current = this;
-            
         }
+
         public void opensignup()
         {
             Sign.Visibility = Visibility.Collapsed;

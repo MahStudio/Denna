@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Storage;
@@ -42,7 +43,15 @@ namespace Denna.Views
 
             // Create a Frame to act as the navigation context
             rootFrame = new Frame();
-            
+
+            Diss();
+
+        }
+
+        private async void Diss()
+        {
+            await Task.Delay(2200);
+            DismissExtendedSplash();
         }
 
         private void ExtendedSplash_OnResize(object sender, WindowSizeChangedEventArgs e)
@@ -87,7 +96,7 @@ namespace Denna.Views
 
         private void Media_MediaEnded(object sender, RoutedEventArgs e)
         {
-            DismissExtendedSplash();
+           
 
         }
     }

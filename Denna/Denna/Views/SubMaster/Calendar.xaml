@@ -18,7 +18,7 @@
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel>
-            <CalendarView  MinHeight="250" MaxHeight="500" MaxWidth="720"   FontWeight="Normal" 
+            <CalendarView  MinHeight="250" MaxHeight="500" MaxWidth="720" Height="300"  FontWeight="Normal" 
              DayItemFontWeight="Light" MinWidth="100"
                           SelectionMode="Single" 
                           Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
@@ -34,14 +34,14 @@
                 >
                 <ScrollViewer Margin="0,0,0,0">
                     <RelativePanel Margin="0,0,0,0">
-                        <Grid x:Name="EmptyGrid" Height="470" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                        <Grid x:Name="EmptyGrid" Height="350" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"  />
                         <Grid RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
                             
                                 <controls:DropShadowPanel BlurRadius="10"
-                                  ShadowOpacity="0.5"
+                                  ShadowOpacity="0.35"
                                   OffsetX="0"
-                                  OffsetY="-10"
+                                  OffsetY="-7"
                                   Color="Black"
                                 
                                               VerticalAlignment="Center"

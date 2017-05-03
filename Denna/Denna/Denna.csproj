@@ -105,9 +105,6 @@
     <Compile Include="Classes\ItemHolder.cs" />
     <Compile Include="Classes\MyCommand.cs" />
     <Compile Include="Classes\Themesetter.cs" />
-    <Compile Include="Controls\Calendar.xaml.cs">
-      <DependentUpon>Calendar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\DoublePi.xaml.cs">
       <DependentUpon>DoublePi.xaml</DependentUpon>
     </Compile>
@@ -293,10 +290,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\Calendar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\DoublePi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
