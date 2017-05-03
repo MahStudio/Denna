@@ -10,6 +10,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:an="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:classes="using:Denna.Classes"
     xmlns:VM="using:Denna.ViewModels"
     >
@@ -18,9 +19,18 @@
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel>
-            <CalendarView classes:CalendarViewHelper.SelectedDate="{x:Bind ViewModel.SelectedDate, Mode=OneWay}"  MinHeight="250" MaxHeight="500" MaxWidth="720" Height="300"  FontWeight="Normal" 
+            
+            <Grid
+                  RelativePanel.AlignLeftWithPanel="True"
+             RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
+                >
+                <ScrollViewer Margin="0,0,0,0">
+                    <RelativePanel Margin="0,0,0,0">
+
+                        <CalendarView classes:CalendarViewHelper.SelectedDate="{x:Bind ViewModel.SelectedDate, Mode=OneWay}"  MinHeight="250" MaxHeight="500" MaxWidth="720" Height="300"  FontWeight="Normal" 
              DayItemFontWeight="Light" MinWidth="100"
                           SelectionMode="Single" 
+                                      an:ParallaxService.VerticalMultiplier="-1"
                           Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
              HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" Margin="9,25,9,0"
              VerticalAlignment="Top" SelectedDatesChanged="CalendarView_SelectedDatesChanged"
@@ -28,16 +38,7 @@
              RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
              RelativePanel.AlignRightWithPanel="True"
                           />
-            <Grid RelativePanel.Below="MyCalendarView"
-                  RelativePanel.AlignLeftWithPanel="True"
-             RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
-                >
-                <ScrollViewer Margin="0,0,0,0">
-                    <RelativePanel Margin="0,0,0,0">
-                        
-                        <Grid x:Name="EmptyGrid" Height="350" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                             RelativePanel.AlignTopWithPanel="True"  />
-                        <Grid RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
+                        <Grid RelativePanel.Below="MyCalendarView" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
                             
                                 <controls:DropShadowPanel BlurRadius="10"
                                   ShadowOpacity="0.35"
@@ -52,15 +53,16 @@
 
 
                                     <Rectangle HorizontalAlignment="Stretch" Width="2000" Height="20"
-               Fill="Black"/>
+               
+                                               Fill="Black"/>
 
 
                                 </controls:DropShadowPanel>
 
                             
                         </Grid>
-                        <StackPanel  Background="{ThemeResource AppBackgroundColor}"
-                            RelativePanel.Below="EmptyGrid" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                        <StackPanel RelativePanel.Below="MyCalendarView" Background="{ThemeResource AppBackgroundColor}"
+                             RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                             >
                             <Controls:TemplatedChart Percent1="100" Percent2="20" SegmentColor="Red" DoneTasks="3" 
                              PostponedTasks="4" PendingTasks="4" GlyphBrush="Red"   HorizontalAlignment="Center"   VerticalAlignment="Top"              />
