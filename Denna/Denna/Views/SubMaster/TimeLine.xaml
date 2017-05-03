@@ -11,15 +11,26 @@
     <Page.DataContext>
         <VM:TimeLineViewModel />
     </Page.DataContext>
-    <Grid Background="{ThemeResource AppBackgroundColor}">
-        <ScrollViewer>
+    <StackPanel Background="{ThemeResource AppBackgroundColor}">
+        <Border Margin="20,10,20,0" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" >
+        <AutoSuggestBox  Margin="2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
+                TextChanged="AutoSuggestBox_TextChanged"
+                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
+                SuggestionChosen="AutoSuggestBox_SuggestionChosen" Style="{StaticResource Box1}"/>
+        </Border>
+            <ScrollViewer Margin="0,10,0,0">
             <StackPanel>
+                
                 <StackPanel  >
-                    <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.8" Margin="20,0,0,0" Text="Today" />
-                    <Controls:TaskList TaskLists="{x:Bind VM.TodayList,Mode=TwoWay}" />
+                    <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Today" />
+                    <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
+                </StackPanel>
+                <StackPanel Margin="0,30,0,0" >
+                    <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Need attention" />
+                    <Controls:TaskList TaskLists="{Binding Attention,Mode=TwoWay}" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
         
-    </Grid>
+    </StackPanel>
 </Page>
