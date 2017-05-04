@@ -11,20 +11,24 @@
     >
     <UserControl.Resources>
         <converter:IntToDoneConverter x:Key="IntToDoneConverter" />
-        <converter:IntToPendingConverter x:Key="IntToPendingConverter" />
+        <converter:IntToNotdoneConverter x:Key="IntToNotdoneConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
+        <Grid>
+            <TextBlock Text="{x:Bind Header}" FontSize="18" Opacity="0.6" FontWeight="SemiBold" VerticalAlignment="Center" />
+        </Grid>
         <charting:Chart
             
                 x:Name="LineChart2"
                                 
             
 
-                 Style="{StaticResource ChartStyle1}">
+                 Style="{StaticResource ChartStyle1}" Grid.Row="1">
             <charting:LineSeries
                 
                     IndependentValueBinding="{Binding Name , Mode=OneWay}"
@@ -62,11 +66,11 @@
                 </charting:LineSeries.DataPointStyle>
             </charting:LineSeries>
         </charting:Chart>
-        <StackPanel Margin="20,0,0,0" Grid.Row="1">
-           
+        <StackPanel Margin="20,0,0,0" Grid.Row="2">
+
             <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource GreenBrush}" Text="{x:Bind Done, Converter={StaticResource IntToDoneConverter}}" Glyph=""  />
 
-            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToPendingConverter}}" Glyph=""  />
+            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToNotdoneConverter}}" Glyph=""  />
         </StackPanel>
 
     </Grid>

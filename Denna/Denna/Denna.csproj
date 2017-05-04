@@ -139,6 +139,7 @@
     <Compile Include="Converters\DoubleToStringConverter.cs" />
     <Compile Include="Converters\InputScopeConverter.cs" />
     <Compile Include="Converters\IntToDoneConverter.cs" />
+    <Compile Include="Converters\IntToNotdoneConverter.cs" />
     <Compile Include="Converters\IntToPendingConverter.cs" />
     <Compile Include="Converters\IntToPostponeConverter.cs" />
     <Compile Include="Converters\IntToTaskCounterConverter.cs" />

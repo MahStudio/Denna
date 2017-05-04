@@ -14,10 +14,15 @@ namespace Denna.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         private Random _random = new Random();
         public ObservableCollection<NameValueItem> items { get; set; }
+        public ObservableCollection<NameValueItem> week { get; set; }
         public GraphViewModel()
         {
             items = new ObservableCollection<NameValueItem>();
-
+            week = new ObservableCollection<NameValueItem>();
+            for (int i = 0; i < 7; i++)
+            {
+                week.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
+            }
             for (int i = 0; i < 30; i++)
             {
                 items.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });

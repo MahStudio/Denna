@@ -11,7 +11,44 @@
     <Page.DataContext>
         <VM:GraphViewModel />
     </Page.DataContext>
-    <Grid Background="White">
-        <Controls:GraphControl  Items="{x:Bind VM.items}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"  />
-    </Grid>
+    <ScrollViewer>
+    <RelativePanel Background="Transparent">
+            <Controls:GraphControl x:Name="Fist" Margin="20,10,20,0" Height="360" MaxWidth="500" Header="Last Week" Items="{x:Bind VM.week}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+                RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
+                               
+                               />
+            <Controls:GraphControl x:Name="Sec" Margin="20,10,20,0" Height="360" MaxWidth="500" Header="Last Month"
+                Items="{x:Bind VM.items}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+                 RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
+                               RelativePanel.Below="Fist"
+                               />
+        </RelativePanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Sec.(RelativePanel.LightOf)" Value="Fist" />
+                        <Setter Target="Fist.(RelativePanel.AlignRightWithPanel)" Value="False" />
+                        <Setter Target="Sec.(RelativePanel.AlignLeftWithPanel)" Value="False" />
+                        <Setter Target="Sec.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                       
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        
+
+                    </VisualState.Setters>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </ScrollViewer>
 </Page>
