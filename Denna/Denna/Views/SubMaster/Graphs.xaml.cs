@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Denna.Classes;
+using Denna.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,52 +26,25 @@ namespace Denna.Views.SubMaster
     /// </summary>
     public sealed partial class Graphs : Page
     {
-        private Random _random = new Random();
+        public GraphViewModel VM { get; set; }
+
         public Graphs()
         {
             this.InitializeComponent();
-            List<NameValueItem> items = new List<NameValueItem>();
-            items.Add(new NameValueItem { Name = "Test1", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test2", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test3", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test4", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test5", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test6", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test7", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test8", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test9", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test10", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test11", Value = _random.Next(10, 100) });
-            items.Add(new NameValueItem { Name = "Test12", Value = _random.Next(10, 100) });
-            ((LineSeries)this.LineChart2.Series[0]).ItemsSource = items;
-            var series = (LineSeries)this.LineChart2.Series[0];
-            series.ItemsSource = items;
-            ((LineSeries)this.LineChart2.Series[0]).DependentRangeAxis = new LinearAxis
 
+
+
+            DataContextChanged += (s, e) =>
             {
-                Minimum = 0,
-                Maximum = 100,
-                Orientation = AxisOrientation.Y,
-                Interval = 20,
-                ShowGridLines = false,
-                Width = 0
+                VM = DataContext as GraphViewModel;
             };
-            series.IndependentAxis =
-                            new CategoryAxis
-                            {
-                                Orientation = AxisOrientation.X,
-                                Height = 0
-                            };
-            
+
+
 
 
 
 
         }
     }
-    public class NameValueItem
-    {
-        public string Name { get; set; }
-        public int Value { get; set; }
-    }
+    
 }

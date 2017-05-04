@@ -33,7 +33,8 @@ namespace Denna.Controls
         public ObservableCollection<TaskItem> TaskLists
         {
             get { return (ObservableCollection<TaskItem>)GetValue(TaskListsProperty); }
-            set { SetValue(TaskListsProperty, value); }
+            set { SetValue(TaskListsProperty, value);
+            }
         }
 
         // Using a DependencyProperty as the backing store for TaskLists.  This enables animation, styling, binding, etc...

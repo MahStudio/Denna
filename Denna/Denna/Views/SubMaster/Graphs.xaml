@@ -5,22 +5,13 @@
     xmlns:local="using:Denna.Views.SubMaster"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+    xmlns:Controls="using:Denna.Controls"
+    xmlns:VM="using:Denna.ViewModels"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <VM:GraphViewModel />
+    </Page.DataContext>
     <Grid Background="White">
-        <charting:Chart
-            
-                x:Name="LineChart2"
-                
-                Margin="0,0" Style="{StaticResource ChartStyle1}">
-            <charting:LineSeries
-                    
-                    IndependentValueBinding="{Binding Name}"
-                    DependentValueBinding="{Binding Value}"
-                    IsSelectionEnabled="True">
-
-            </charting:LineSeries>
-        </charting:Chart>
+        <Controls:GraphControl Items="{x:Bind VM.items}"  />
     </Grid>
 </Page>

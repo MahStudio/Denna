@@ -105,9 +105,13 @@
     <Compile Include="Classes\DelegateCommand.cs" />
     <Compile Include="Classes\ItemHolder.cs" />
     <Compile Include="Classes\MyCommand.cs" />
+    <Compile Include="Classes\NameValueItem.cs" />
     <Compile Include="Classes\Themesetter.cs" />
     <Compile Include="Controls\DoublePi.xaml.cs">
       <DependentUpon>DoublePi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GraphControl.xaml.cs">
+      <DependentUpon>GraphControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\IconItem.xaml.cs">
       <DependentUpon>IconItem.xaml</DependentUpon>
@@ -143,6 +147,7 @@
     <Compile Include="Converters\TextToHashtagConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\GraphViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="ViewModels\SignUpViewModel.cs" />
@@ -292,6 +297,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\DoublePi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GraphControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
