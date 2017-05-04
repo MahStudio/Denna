@@ -41,6 +41,29 @@ namespace Denna.Views.SubMaster
             items.Add(new NameValueItem { Name = "Test11", Value = _random.Next(10, 100) });
             items.Add(new NameValueItem { Name = "Test12", Value = _random.Next(10, 100) });
             ((LineSeries)this.LineChart2.Series[0]).ItemsSource = items;
+            var series = (LineSeries)this.LineChart2.Series[0];
+            series.ItemsSource = items;
+            ((LineSeries)this.LineChart2.Series[0]).DependentRangeAxis = new LinearAxis
+
+            {
+                Minimum = 0,
+                Maximum = 100,
+                Orientation = AxisOrientation.Y,
+                Interval = 20,
+                ShowGridLines = false,
+                Width = 0
+            };
+            series.IndependentAxis =
+                            new CategoryAxis
+                            {
+                                Orientation = AxisOrientation.X,
+                                Height = 0
+                            };
+            
+
+
+
+
         }
     }
     public class NameValueItem
