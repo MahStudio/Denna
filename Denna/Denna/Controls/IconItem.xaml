@@ -15,7 +15,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <TextBlock VerticalAlignment="Center" Grid.Column="0" Foreground="{x:Bind Brush,Mode=OneWay}" HorizontalAlignment="Center" Text="{x:Bind Glyph,Mode=OneWay}" FontSize="{x:Bind FontSizeGlyph,Mode=OneWay}" FontFamily="Segoe MDL2 Assets" />
-        <TextBlock VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Text="{x:Bind Text,Mode=OneWay}" FontSize="15" Opacity="0.8" />
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Text="{x:Bind Text,Mode=OneWay}" FontSize="15" Opacity="0.7" />
 
 
     </Grid>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -78,6 +79,7 @@ namespace Denna.Controls
                     ShowGridLines = false,
                     Width = 0
                 };
+                series.Foreground = new SolidColorBrush( Colors.Red);
                 series.IndependentAxis =
                                 new CategoryAxis
                                 {

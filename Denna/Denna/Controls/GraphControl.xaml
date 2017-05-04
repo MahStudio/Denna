@@ -16,26 +16,57 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <charting:Chart
             
                 x:Name="LineChart2"
-                
+                                
+            
+
                  Style="{StaticResource ChartStyle1}">
             <charting:LineSeries
-                Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                
                     IndependentValueBinding="{Binding Name , Mode=OneWay}"
                     DependentValueBinding="{Binding Value,Mode=OneWay}"
                     IsSelectionEnabled="True" >
-
+                <charting:LineSeries.DataPointStyle>
+                    <Style
+                        
+                            TargetType="charting:LineDataPoint">
+                        <Setter Property="Background" Value="{StaticResource SystemControlBackgroundAccentBrush}" />
+                        <Setter
+                                Property="BorderThickness"
+                                Value="0" />
+                        <Setter
+                                Property="IsTabStop"
+                                Value="False" />
+                        <Setter
+                                Property="Width"
+                                Value="0" />
+                        <Setter
+                                Property="Height"
+                                Value="0" />
+                        <Setter
+                                Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate
+                                        TargetType="charting:LineDataPoint">
+                                    <Grid
+                                            x:Name="Root"
+                                            Opacity="0" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </charting:LineSeries.DataPointStyle>
             </charting:LineSeries>
         </charting:Chart>
         <StackPanel Margin="20,0,0,0" Grid.Row="1">
            
-            <local:IconItem Height="50" FontSizeGlyph="20" Brush="{StaticResource GreenBrush}" Text="{x:Bind Done, Converter={StaticResource IntToDoneConverter}}" Glyph=""  />
+            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource GreenBrush}" Text="{x:Bind Done, Converter={StaticResource IntToDoneConverter}}" Glyph=""  />
 
-            <local:IconItem Height="50" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToPendingConverter}}" Glyph=""  />
+            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToPendingConverter}}" Glyph=""  />
         </StackPanel>
 
     </Grid>

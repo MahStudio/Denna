@@ -2878,7 +2878,129 @@
     </Style>
 
 
-
+    <Style x:Key="SEXieLine"
+        TargetType="Charting:LineDataPoint">
+        <Setter
+            Property="Background"
+            Value="Red" />
+        <Setter
+            Property="BorderBrush"
+            Value="White" />
+        <Setter
+            Property="BorderThickness"
+            Value="1" />
+        <Setter
+            Property="IsTabStop"
+            Value="False" />
+        <Setter
+            Property="Width"
+            Value="8" />
+        <Setter
+            Property="Height"
+            Value="8" />
+        <Setter
+            Property="Template">
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="Charting:LineDataPoint">
+                    <Grid
+                        x:Name="Root"
+                        Opacity="0">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup
+                                x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition
+                                        GeneratedDuration="0:0:0.1" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState
+                                    x:Name="Normal" />
+                                <VisualState
+                                    x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames
+                                            BeginTime="00:00:00"
+                                            Duration="00:00:00.0010000"
+                                            Storyboard.TargetName="MouseOverHighlight"
+                                            Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame
+                                                KeyTime="00:00:00"
+                                                Value="0.24" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup
+                                x:Name="SelectionStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition
+                                        GeneratedDuration="0:0:0.1" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState
+                                    x:Name="Unselected" />
+                                <VisualState
+                                    x:Name="Selected">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames
+                                            BeginTime="00:00:00"
+                                            Duration="00:00:00.0010000"
+                                            Storyboard.TargetName="SelectionHighlight"
+                                            Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame
+                                                KeyTime="00:00:00"
+                                                Value="0.18" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup
+                                x:Name="RevealStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition
+                                        GeneratedDuration="0:0:0.001" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState
+                                    x:Name="Shown">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Duration="0"
+                                            Storyboard.TargetName="Root"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState
+                                    x:Name="Hidden">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Duration="0"
+                                            Storyboard.TargetName="Root"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ToolTipService.ToolTip>
+                            <ContentControl
+                                Content="{TemplateBinding FormattedDependentValue}" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse
+                            Stroke="{TemplateBinding BorderBrush}"
+                            Fill="{TemplateBinding Background}" />
+                        <Ellipse
+                            x:Name="SelectionHighlight"
+                            Opacity="0"
+                            Fill="Red" />
+                        <Ellipse
+                            x:Name="MouseOverHighlight"
+                            Opacity="0"
+                            Fill="White" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <!--  Chart  -->
     <Style x:Key="ChartStyle1" TargetType="Charting:Chart">
