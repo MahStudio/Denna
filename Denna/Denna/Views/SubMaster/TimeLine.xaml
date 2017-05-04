@@ -21,11 +21,7 @@
                 TextChanged="AutoSuggestBox_TextChanged"
                 QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                 SuggestionChosen="AutoSuggestBox_SuggestionChosen" Style="{StaticResource Box1}"/>
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="QuerySubmitted">
-                    <Core:InvokeCommandAction  />
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
+           
 
 
 
