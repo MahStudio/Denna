@@ -36,6 +36,31 @@ namespace Denna.Controls
 
 
 
+
+        public int Done
+        {
+            get { return (int)GetValue(DoneProperty); }
+            set { SetValue(DoneProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Done.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DoneProperty =
+            DependencyProperty.Register("Done", typeof(int), typeof(GraphControl), new PropertyMetadata(0));
+
+
+
+        public int Pending
+        {
+            get { return (int)GetValue(PendingProperty); }
+            set { SetValue(PendingProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Pending.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PendingProperty =
+            DependencyProperty.Register("Pending", typeof(int), typeof(GraphControl), new PropertyMetadata(0));
+
+
+
         public ObservableCollection<NameValueItem> Items
         {
             get { return (ObservableCollection<NameValueItem>)GetValue(ItemsProperty); }

@@ -12,6 +12,6 @@
         <VM:GraphViewModel />
     </Page.DataContext>
     <Grid Background="White">
-        <Controls:GraphControl Items="{x:Bind VM.items}"  />
+        <Controls:GraphControl Items="{x:Bind VM.items}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"  />
     </Grid>
 </Page>

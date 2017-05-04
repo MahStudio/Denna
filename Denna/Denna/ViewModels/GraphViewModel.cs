@@ -18,9 +18,55 @@ namespace Denna.ViewModels
         {
             items = new ObservableCollection<NameValueItem>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
                 items.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
+            }
+            Pending = 3;
+            Done = 4;
+        }
+        private int _done;
+        public int Done
+        {
+            get
+            {
+                return _done;
+
+            }
+            set
+            {
+
+                if (_done != value)
+                {
+                    _done = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this,
+                            new PropertyChangedEventArgs("Done"));
+                    }
+                }
+            }
+        }
+        private int _pending;
+        public int Pending
+        {
+            get
+            {
+                return _pending;
+
+            }
+            set
+            {
+
+                if (_pending != value)
+                {
+                    _pending = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this,
+                            new PropertyChangedEventArgs("Pending"));
+                    }
+                }
             }
         }
     }

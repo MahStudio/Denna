@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting" xmlns:DataVisualization="using:WinRTXamlToolkit.Controls.DataVisualization" xmlns:Primitives="using:WinRTXamlToolkit.Controls.DataVisualization.Charting.Primitives"
    >
+
+    <SolidColorBrush x:Key="RedBrush" Color="#FF3A3A" />
     <SolidColorBrush x:Key="YellowBrush" Color="#FAD616" />
     <SolidColorBrush x:Key="GreenBrush" Color="#20C8A5" />
     <SolidColorBrush x:Key="BlueBrush" Color="#42C3E9" />

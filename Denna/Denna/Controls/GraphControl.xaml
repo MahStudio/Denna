@@ -7,20 +7,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     mc:Ignorable="d"
+    xmlns:converter="using:Denna.Converters"
     >
-
+    <UserControl.Resources>
+        <converter:IntToDoneConverter x:Key="IntToDoneConverter" />
+        <converter:IntToPendingConverter x:Key="IntToPendingConverter" />
+    </UserControl.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
         <charting:Chart
             
                 x:Name="LineChart2"
                 
-                Margin="0,0" Style="{StaticResource ChartStyle1}">
+                 Style="{StaticResource ChartStyle1}">
             <charting:LineSeries
+                Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
                     IndependentValueBinding="{Binding Name , Mode=OneWay}"
                     DependentValueBinding="{Binding Value,Mode=OneWay}"
-                    IsSelectionEnabled="True">
+                    IsSelectionEnabled="True" >
 
             </charting:LineSeries>
         </charting:Chart>
+        <StackPanel Margin="20,0,0,0" Grid.Row="1">
+           
+            <local:IconItem Height="50" FontSizeGlyph="20" Brush="{StaticResource GreenBrush}" Text="{x:Bind Done, Converter={StaticResource IntToDoneConverter}}" Glyph=""  />
+
+            <local:IconItem Height="50" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToPendingConverter}}" Glyph=""  />
+        </StackPanel>
+
     </Grid>
 </UserControl>
