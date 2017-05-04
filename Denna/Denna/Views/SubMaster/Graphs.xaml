@@ -13,14 +13,14 @@
     </Page.DataContext>
     <ScrollViewer>
     <RelativePanel HorizontalAlignment="Center" Background="Transparent">
-            <Controls:GraphControl x:Name="Fist" Margin="20,10,20,0" Height="360" MaxWidth="500" Header="Last Week" Items="{x:Bind VM.week}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
-                Width="400" RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"
+            <Controls:GraphControl x:Name="Fist" Margin="10,10,0,0" Height="360" MaxWidth="600" Header="Last Week" Items="{x:Bind VM.week}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+                Width="450" RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"
                                 RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="Sec"
                                RelativePanel.AlignHorizontalCenterWithPanel="True"
                                />
-            <Controls:GraphControl x:Name="Sec" Margin="20,10,20,0" Height="360" MaxWidth="500" Header="Last Month"
+            <Controls:GraphControl x:Name="Sec" Margin="10,10,0,0" Height="360" MaxWidth="600" Header="Last Month"
                 Items="{x:Bind VM.items}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
-                 RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False" Width="400"
+                 RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False" Width="450"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                />
         </RelativePanel>
