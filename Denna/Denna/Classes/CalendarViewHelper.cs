@@ -26,9 +26,9 @@ namespace Denna.Classes
                 {
                     var cv = (CalendarView)d;
                     var date = (DateTimeOffset)e.NewValue;
-
                     cv.SelectedDates.Clear();
                     cv.SelectedDates.Add(date);
+                    
                 }));
 
     }

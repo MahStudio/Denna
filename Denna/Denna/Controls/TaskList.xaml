@@ -101,7 +101,7 @@
 
                                         </GridView>
                                         <Rectangle RelativePanel.Below="Grid" RelativePanel.AlignLeftWithPanel="True"
-                                                RelativePanel.AlignRightWithPanel="True" Fill="{ThemeResource AntiForeground}" Opacity="0.1"  Height="1" HorizontalAlignment="Stretch" />
+                                                RelativePanel.AlignRightWithPanel="True" Fill="{ThemeResource AntiForeground}" Opacity="0.08"  Height="1" HorizontalAlignment="Stretch" />
 
                                     </RelativePanel>
                                 </Grid>

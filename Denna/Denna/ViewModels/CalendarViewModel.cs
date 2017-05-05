@@ -38,7 +38,7 @@ namespace Denna.ViewModels
         public CalendarViewModel()
         {
 
-            SelectedDate = DateTimeOffset.Now;
+            SelectedDate = DateTime.Today;
             TodayList = new ObservableCollection<TaskItem>();
             TodayList.Add(new TaskItem()
             {

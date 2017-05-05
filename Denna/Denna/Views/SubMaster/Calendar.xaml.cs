@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,10 +25,10 @@ namespace Denna.Views.SubMaster
     public sealed partial class Calendar : Page
     {
         public CalendarViewModel ViewModel { get; set; }
+        public bool LoadTime = false;
         public Calendar()
         {
             this.InitializeComponent();
-            MyProperty = new DateTimeOffset(DateTime.Now);
 
 
             DataContextChanged += (s, e) =>
@@ -37,16 +38,28 @@ namespace Denna.Views.SubMaster
 
 
         }
-        public DateTimeOffset MyProperty { get; set; }
-        private void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        private async void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
+
+            Doer(sender, args);
+           
+        }
+        async void Doer(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        {
+            
             if (args.AddedDates != null)
             {
+
                 foreach (var item in args.AddedDates)
                 {
-                    var selected = FindElementInVisualTree<CalendarViewDayItem>(sender, item);
+
+                    var selected = FindElementInVisualTree<CalendarViewDayItem>(MyCalendarView, item);
                 }
+
+                
+
             }
+            
             if (args.RemovedDates != null)
             {
                 foreach (var item in args.RemovedDates)
@@ -54,6 +67,8 @@ namespace Denna.Views.SubMaster
 
                 }
             }
+            
+            
         }
         public static T FindElementInVisualTree<T>(DependencyObject parentElement, DateTimeOffset selectedDate) where T : DependencyObject
         {
