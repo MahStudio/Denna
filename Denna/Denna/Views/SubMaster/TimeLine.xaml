@@ -9,6 +9,7 @@
     xmlns:VM="using:Denna.ViewModels"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
     <Page.DataContext>
         <VM:TimeLineViewModel />

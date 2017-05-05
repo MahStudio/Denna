@@ -8,6 +8,7 @@
     mc:Ignorable="d"
     d:DesignHeight="60"
     d:DesignWidth="500"
+    
     >
 
     <UserControl.Resources>
