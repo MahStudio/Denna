@@ -75,5 +75,15 @@ namespace Denna.Views.SubMaster
                 // Use args.QueryText to determine what to do.
             }
         }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Add.Hobby));
+        }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Add.Task));
+        }
     }
 }

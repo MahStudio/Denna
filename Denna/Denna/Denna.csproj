@@ -170,6 +170,12 @@
     <Compile Include="Views\Sign\Up.xaml.cs">
       <DependentUpon>Up.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubMaster\Add\Hobby.xaml.cs">
+      <DependentUpon>Hobby.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubMaster\Add\Task.xaml.cs">
+      <DependentUpon>Task.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubMaster\Calendar.xaml.cs">
       <DependentUpon>Calendar.xaml</DependentUpon>
     </Compile>
@@ -358,6 +364,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Sign\Up.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubMaster\Add\Hobby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubMaster\Add\Task.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

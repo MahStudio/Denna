@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="Denna.Views.SubMaster.Add.Task"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Denna.Views.SubMaster.Add"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Blue">
+        
+        <CommandBar   VerticalAlignment="Bottom">
+
+
+
+
+            <AppBarButton Width="Auto" MinWidth="70" Label="Cancel" Click="AppBarButton_Click" >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            
+            <AppBarButton Width="Auto" MinWidth="70"  Label="Save"    >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+
+
+
+
+
+        </CommandBar>
+    </Grid>
+</Page>

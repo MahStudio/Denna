@@ -13,7 +13,8 @@
     <Page.DataContext>
         <VM:TimeLineViewModel />
     </Page.DataContext>
-    <RelativePanel Background="{ThemeResource AppBackgroundColor}">
+    <Grid>
+    <RelativePanel Background="{ThemeResource AppBackgroundColor}" Margin="0,0,0,48">
         <Grid x:Name="Search" Margin="20,10,20,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" >
             <Grid CornerRadius="3" Opacity="0.2" BorderBrush="Gray" BorderThickness="1"  />
             <Grid Background="Gray" Opacity="0.05"  />
@@ -44,4 +45,30 @@
         </ScrollViewer>
         
     </RelativePanel>
+        <CommandBar   VerticalAlignment="Bottom">
+
+
+
+
+            <AppBarButton Width="Auto" MinWidth="70" Label="Add hobby" Click="AppBarButton_Click"   >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarSeparator />
+            <AppBarButton Width="Auto" MinWidth="70"  Label="Add task" Click="AppBarButton_Click_1"   >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+
+
+
+
+
+        </CommandBar>
+    </Grid>
 </Page>
