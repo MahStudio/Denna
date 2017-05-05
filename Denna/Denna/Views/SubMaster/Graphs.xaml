@@ -14,12 +14,12 @@
     </Page.DataContext>
     <ScrollViewer>
     <RelativePanel HorizontalAlignment="Center" Background="Transparent">
-            <Controls:GraphControl x:Name="Fist" Margin="10,20,0,0" Height="360" MaxWidth="600" Header="Last Week" Items="{x:Bind VM.week}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+            <Controls:GraphControl x:Name="Fist" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Week" Items="{x:Bind VM.week}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
                  RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"
                                 
                                
                                />
-            <Controls:GraphControl x:Name="Sec" Margin="10,20,0,0" Height="360" MaxWidth="600" Header="Last Month"
+            <Controls:GraphControl x:Name="Sec" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Month"
                 Items="{x:Bind VM.items}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
                  RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False" 
                                />
