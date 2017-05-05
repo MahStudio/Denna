@@ -28,19 +28,19 @@
                 <ScrollViewer Margin="0,0,0,0">
                     <RelativePanel Margin="0,0,0,0">
 
-                        <CalendarView  MinHeight="250" MaxHeight="500" MaxWidth="720" Height="310"  FontWeight="Normal" 
-             DayItemFontWeight="Light" MinWidth="100"
+                        <CalendarView MinWidth="30"  MinHeight="250" MaxHeight="500" MaxWidth="720" Height="310"  FontWeight="Normal" 
+             DayItemFontWeight="Light"
                           SelectionMode="Single" 
                                       an:ParallaxService.VerticalMultiplier="-0.8"
                           Style="{StaticResource Mahcalenderstyle}" Visibility="Visible" 
-             HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" Margin="9,25,9,0"
+             HorizontalAlignment="Stretch" x:Name="MyCalendarView" DisplayMode="Month" 
              VerticalAlignment="Top" SelectedDatesChanged="CalendarView_SelectedDatesChanged"
              CalendarViewDayItemStyle="{StaticResource CalendarViewDayItemStyle1}"
              RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
              RelativePanel.AlignRightWithPanel="True"
                                        classes:CalendarViewHelper.SelectedDate="{x:Bind ViewModel.SelectedDate, Mode=OneWay}" 
                           />
-                        <Grid RelativePanel.Below="MyCalendarView" Margin="0,10,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
+                        <Grid RelativePanel.Below="MyCalendarView" Margin="0,5,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
                             
                                 <controls:DropShadowPanel BlurRadius="70"
                                   ShadowOpacity="0.25"
@@ -63,7 +63,7 @@
 
                             
                         </Grid>
-                        <StackPanel RelativePanel.Below="MyCalendarView" Margin="0,10,0,0" Background="{ThemeResource AppBackgroundColor}"
+                        <StackPanel RelativePanel.Below="MyCalendarView" Margin="0,5,0,0" Background="{ThemeResource AppBackgroundColor}"
                              RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                             >
                             <Controls:TemplatedChart Percent1="100" Percent2="20" Margin="0,20,0,0" SegmentColor="Red" DoneTasks="3" 
