@@ -5,7 +5,14 @@
     xmlns:local="using:Denna.Views.SubMaster.Add"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Denna.Controls"
+    xmlns:Converters="using:Denna.Converters"
+    xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
+    <Page.Resources>
+
+        <Converters:TextToHashtagConverter x:Key="TextToHashtagConverter" />
+    </Page.Resources>
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
@@ -15,8 +22,67 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
-    <Grid Background="Blue">
-        
+    <Grid Background="White">
+        <Grid Margin="0,0,0,48">
+            <ScrollViewer>
+            <StackPanel>
+               
+
+                <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
+                <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Details" />
+                <Controls:Expander x:Name="Expander3" VerticalAlignment="Top" Margin="0,20,0,10" 
+                               Header="Date and Time"
+                               IsExpanded="False">
+                    <StackPanel>
+                    <DatePicker Width="300" HorizontalAlignment="Center" BorderBrush="Transparent" BorderThickness="0"  x:Name="datepic"  Margin="5,10,5,0" Style="{StaticResource DatePickerStyle}" />
+                    <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
+
+                        <StackPanel HorizontalAlignment="Center" Margin="0,5,0,0" Orientation="Horizontal" >
+                            <RadioButton x:Uid="silent" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rbs" Content="Silent" IsChecked="True" GroupName="not" />
+                            <RadioButton x:Uid="notify" MinWidth="0" Margin="30" Width="Auto"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
+                            <RadioButton x:Uid="alarm" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
+                        </StackPanel>
+                    </StackPanel>
+                </Controls:Expander>
+                <Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,0,0,10" 
+                               Header="End time"
+                               IsExpanded="False">
+                    <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic2" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
+
+
+                </Controls:Expander>
+                <Controls:Expander x:Name="Expander2" VerticalAlignment="Top" Margin="0,0,0,10" 
+                               Header="Tags"
+                               IsExpanded="False">
+                    <StackPanel>
+                        <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" HorizontalAlignment="Stretch" Glyph="" PlaceHolder="Tags" />
+                        <GridView x:Name="Grid"   ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="25" Margin="7,2,0,0" 
+                                  RelativePanel.Below="Title" RelativePanel.RightOf="Glyph" Style="{StaticResource GridViewStyle1}"
+                                              ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.IsVerticalRailEnabled="False" HorizontalAlignment="Left"  >
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Tag="{Binding}" Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="{Binding Converter={StaticResource TextToHashtagConverter}}" />
+
+                                </DataTemplate>
+
+                            </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VariableSizedWrapGrid MaximumRowsOrColumns="8" MaxWidth="500" Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>
+
+
+
+                        </GridView>
+                    </StackPanel>
+                </Controls:Expander>
+
+            </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+
         <CommandBar   VerticalAlignment="Bottom">
 
 
