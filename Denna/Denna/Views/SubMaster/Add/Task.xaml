@@ -22,13 +22,13 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
-    <Grid Background="White">
+    <Grid Background="Transparent">
         <Grid Margin="0,0,0,48">
             <ScrollViewer>
-            <StackPanel>
+            <StackPanel x:Name="Damn">
                
 
-                <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
+                <controls:TemplatedTextBox Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
                 <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Details" />
                 <Controls:Expander x:Name="Expander3" VerticalAlignment="Top" Margin="0,20,0,10" 
                                Header="Date and Time" 
@@ -44,14 +44,14 @@
                         </StackPanel>
                     </StackPanel>
                 </Controls:Expander>
-                <Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,0,0,10" 
+                <Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,10,0,10" 
                                Header="End time"
                                IsExpanded="False">
                     <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic2" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
 
 
                 </Controls:Expander>
-                <Controls:Expander x:Name="Expander2" VerticalAlignment="Top" Margin="0,0,0,10" 
+                <Controls:Expander x:Name="Expander2" VerticalAlignment="Top" Margin="0,10,0,10" 
                                Header="Tags"
                                IsExpanded="False">
                     <StackPanel>
@@ -108,5 +108,40 @@
 
 
         </CommandBar>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="700" />
+
+
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide2State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="500" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
