@@ -40,7 +40,7 @@
              RelativePanel.AlignRightWithPanel="True"
                                        classes:CalendarViewHelper.SelectedDate="{x:Bind ViewModel.SelectedDate, Mode=OneWay}" 
                           />
-                        <Grid RelativePanel.Below="MyCalendarView" Margin="0,5,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
+                        <Grid RelativePanel.Below="MyCalendarView" Margin="0,0,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" >
                             
                                 <controls:DropShadowPanel BlurRadius="70"
                                   ShadowOpacity="0.25"
@@ -63,7 +63,7 @@
 
                             
                         </Grid>
-                        <StackPanel RelativePanel.Below="MyCalendarView" Margin="0,5,0,0" Background="{ThemeResource AppBackgroundColor}"
+                        <StackPanel RelativePanel.Below="MyCalendarView" Margin="0,0,0,0" Background="{ThemeResource AppBackgroundColor}"
                              RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                             >
                             <Controls:TemplatedChart Percent1="100" Percent2="20" Margin="0,20,0,0" SegmentColor="Red" DoneTasks="3" 
