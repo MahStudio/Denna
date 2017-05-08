@@ -10,8 +10,8 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:be="using:Denna.Behaviors"
     xmlns:local2="using:Denna.Controls"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="200"
+    d:DesignWidth="200">
     <UserControl.Resources>
         <converter:DoubleToStringConverter x:Key="DoubleToStringConverter" />
     </UserControl.Resources>

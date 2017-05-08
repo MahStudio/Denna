@@ -14,7 +14,8 @@
     <Grid Background="{ThemeResource AppBackgroundColor}">
         <ScrollViewer>
         <StackPanel>
-            <controls:SwipeListItem Height="60" 
+                <Button Click="Button_Click" Width="300" Content="Wheal Cum" Height="40" />
+                <controls:SwipeListItem Height="60" 
              LeftFirstContent="34:43" LeftFirstForeground="White" LeftFirstColor="Black"
              RightFirstColor="Red" RightFirstForeground="White" RightFirstContent="&#xE70F;"   
                                     RightSecondColor="Brown" RightSecondForeground="White" RightSecondContent="&#xE8FB;"

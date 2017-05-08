@@ -106,5 +106,10 @@ namespace Denna.Views
         {
             await new MessageDialog("Third Clicked").ShowAsync();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Welcome));
+        }
     }
 }
