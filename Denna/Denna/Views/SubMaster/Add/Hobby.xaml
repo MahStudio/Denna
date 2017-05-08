@@ -22,7 +22,7 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
-    <Grid Background="White">
+    <Grid Background="Transparent">
         <Grid Margin="0,0,0,48">
             <ScrollViewer>
                 <StackPanel x:Name="Damn">
