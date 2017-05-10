@@ -30,7 +30,7 @@ namespace Denna.ViewModels
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
-                            new PropertyChangedEventArgs("counter"));
+                            new PropertyChangedEventArgs("Counter"));
                     }
                 }
 
@@ -52,7 +52,7 @@ namespace Denna.ViewModels
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
-                            new PropertyChangedEventArgs("avatar"));
+                            new PropertyChangedEventArgs("Picture"));
                     }
                 }
 
@@ -73,7 +73,7 @@ namespace Denna.ViewModels
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
-                            new PropertyChangedEventArgs("news"));
+                            new PropertyChangedEventArgs("Greet"));
                     }
                 }
 
@@ -95,7 +95,7 @@ namespace Denna.ViewModels
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
-                            new PropertyChangedEventArgs("todate"));
+                            new PropertyChangedEventArgs("Todate"));
                     }
                 }
 
