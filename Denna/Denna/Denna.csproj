@@ -433,9 +433,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Couchbase.Lite.Support.UWP">
-      <Version>2.0.0-db004</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.2.3</Version>
     </PackageReference>
@@ -444,9 +441,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="MvvmLight">
-      <Version>5.3.0</Version>
     </PackageReference>
     <PackageReference Include="WinRTXamlToolkit.Controls.DataVisualization.UWP">
       <Version>2.3.0</Version>

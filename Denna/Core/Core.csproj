@@ -113,10 +113,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Couchbase.Lite">
-      <Version>2.0.0-db004</Version>
+      <Version>2.0.0-db005</Version>
     </PackageReference>
     <PackageReference Include="Couchbase.Lite.Support.UWP">
-      <Version>2.0.0-db004</Version>
+      <Version>2.0.0-db005</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.2.3</Version>
