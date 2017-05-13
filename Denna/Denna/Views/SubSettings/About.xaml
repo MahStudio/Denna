@@ -21,7 +21,75 @@
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <Style x:Key="WikiSedaIcon" TargetType="Image">
+                        <Setter Property="Source" Value="/Assets/Icons/Denna logo Dark.png"/>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <Style x:Key="WikiSedaIcon" TargetType="Image">
+                        <Setter Property="Source" Value="/Assets/Icons/Denna logo Green.png"/>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource AppBackgroundColor}">
+        <Grid>
+            <Image Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h14.png" Stretch="UniformToFill"      />
+        </Grid>
+        <ScrollViewer>
 
+            <Grid>
+
+                <ScrollViewer Margin="0,0,0,180">
+                    <StackPanel >
+                        <Image Style="{StaticResource WikiSedaIcon}" Height="200" Width="200"  />
+                        <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                            <TextBlock FontWeight="Bold" FontSize="40" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
+                            <TextBlock x:Name="ApplicationVersion" Margin="3,0,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 2 Preview" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
+                        </StackPanel>
+                        <TextBlock x:Uid="Info" TextAlignment="Center" Margin="20,20,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8" FontSize="15" >
+                    This app is dedicated for having the best planning and scheduling experience.
+                    <LineBreak />
+                        Do not miss any thing, just type it in DENNA :)
+
+                        </TextBlock>
+                        <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                            <Button x:Uid="Shaare" BorderThickness="0,0,0,0"  Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="SHARE" Width="70"  />
+                            <Button x:Uid="Rate" BorderThickness="0,0,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="RATE AND REVIEW" Width="150"  />
+                        </StackPanel>
+
+                    </StackPanel>
+                </ScrollViewer>
+                <StackPanel VerticalAlignment="Bottom" >
+                    <TextBlock x:Uid="Dev" TextAlignment="Center" FontWeight="SemiBold" >
+                    DEVELOPED WITH LOVE 
+                    
+
+                    </TextBlock>
+                    <StackPanel HorizontalAlignment="Center" >
+                        <TextBlock TextAlignment="Center">
+                            MAH Studio
+                            <LineBreak />
+                            Mohsen Seifi
+                            <LineBreak />
+                            Lukas Frensel
+                            <LineBreak/>
+                            Mohammad Alidoost
+                            <LineBreak />
+                            Aref M. Ahmadi
+                            <LineBreak />
+                            And all insiders...
+                        </TextBlock>
+                    </StackPanel>
+
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
