@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core;
 using Windows.Storage;
 using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
@@ -261,6 +262,7 @@ namespace Denna.ViewModels
         }
         private void SignUp(object obj)
         {
+            Core.Models.UserModel.CreateUser(UserName, Email, Name, Family, Password);
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
 

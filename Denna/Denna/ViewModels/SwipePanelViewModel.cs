@@ -4,16 +4,20 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Core;
 namespace Denna.ViewModels
 {
     class SwipePanelViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private string _greet="Dear MVVM";
+        private string _greet;
         private string _todate = DateTime.Now.ToLocalTime().ToString("D");
         private string _picture= "ms-appx:///Assets/Mockups/usrimg.jpg";
         private int _counter = 2;
+        public SwipePanelViewModel()
+        {
+            Greet = "Dear Insider"; /*+ Core.Models.DBH.Query();*/
+        }
         public int Counter
         {
             get

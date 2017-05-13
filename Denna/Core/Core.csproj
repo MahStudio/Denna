@@ -106,7 +106,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Models\TasksModel.cs" />
+    <Compile Include="Models\DBH.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\TaskItem.cs" />
     <EmbeddedResource Include="Properties\Core.rd.xml" />
