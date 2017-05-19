@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PubSub;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace Denna.Views.SubSettings
         public Notifications()
         {
             this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            this.Publish(new Classes.SetttingsHeader("Notification"));
         }
     }
 }

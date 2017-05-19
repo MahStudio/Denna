@@ -1,4 +1,5 @@
 ﻿using Denna.Views.SubSettings;
+using PubSub;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +35,10 @@ namespace Denna.Views
             else
                 Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
             App_BackRequested;
+            this.Subscribe<Classes.SetttingsHeader>(Text =>
+            {
+                Name.Text = Text.Text;
+            });
         }
         ~Settings()
         {

@@ -1,4 +1,5 @@
 ﻿using Denna.Views.SubSettings;
+using PubSub;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,11 +32,11 @@ namespace Denna.Views.SubSettings
             this.InitializeComponent();
            
         }
-       
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            
+            this.Publish(new Classes.SetttingsHeader("Settings"));
         }
         private void ArtistsList_ItemClick(object sender, ItemClickEventArgs e)
         {

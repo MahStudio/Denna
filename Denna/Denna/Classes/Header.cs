@@ -12,7 +12,7 @@ namespace Denna.Classes
 
         public Header(string text)
         {
-            Text = text;
+            Text = text.ToUpper();
         }
     }
 }

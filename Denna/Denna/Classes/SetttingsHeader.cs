@@ -13,7 +13,7 @@ namespace Denna.Classes
 
         public SetttingsHeader(string text)
         {
-            Text = text;
+            Text = text.ToUpper();
         }
 
     }

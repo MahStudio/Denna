@@ -49,6 +49,12 @@
                         <Button x:Name="butt1" Command="{Binding Picture}" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
                   FontFamily="Segoe MDL2 Assets" FontSize="25"  Style="{StaticResource dotbut}"  Height="80" Width="80" HorizontalAlignment="Center" />
 
+                        <Grid Width="35" Height="35"  Margin="55,0,0,0" VerticalAlignment="Bottom">
+                            <Grid CornerRadius="40" Opacity="0.6" Background="Black" />
+                            <TextBlock Text="" Foreground="White" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+
+                        </Grid>
                     </Grid>
                     <controls:TemplatedTextBox Text="{Binding UserName,Mode=TwoWay}" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Username" />
                     <controls:TemplatedTextBox Margin="10,10,10,0" Text="{Binding Email,Mode=TwoWay}" Height="35" Glyph="" PlaceHolder="Email" />
