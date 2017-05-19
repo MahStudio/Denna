@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" xmlns:behavior="using:Denna.Behaviors"
+    xmlns:vm="using:Denna.ViewModels"
+    xmlns:controls="using:Denna.Controls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity">
     <Page.Transitions>
         <TransitionCollection>
@@ -17,11 +19,80 @@
         </TransitionCollection>
     </Page.Transitions>
 
+    <Page.DataContext>
+        <vm:SettingsAccountViewModel />
+    </Page.DataContext>
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Margin="0,0,0,0" Grid.Row="0">
+            <StackPanel Padding="5,0,5,0" HorizontalAlignment="Center" MaxWidth="900" MinWidth="320" Margin="0,40,0,0" >
+                <StackPanel >
+                    <Grid Margin="10,20,10,0">
+                        <Ellipse   HorizontalAlignment="Center" Height="80"  Width="80" >
+                            <Ellipse.Fill>
+                                <SolidColorBrush Color="Black" Opacity="0.1" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse   HorizontalAlignment="Center" Height="80"  Width="80" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="ms-appx:///Assets/Mockups/usrimg.jpg" Stretch="UniformToFill" x:Name="avatar"  />
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <Button x:Name="butt1" Command="{Binding Picture}" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
+                  FontFamily="Segoe MDL2 Assets" FontSize="25"  Style="{StaticResource dotbut}"  Height="80" Width="80" HorizontalAlignment="Center" />
+
+                    </Grid>
+                    <controls:TemplatedTextBox Text="{Binding UserName,Mode=TwoWay}" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Username" />
+                    <controls:TemplatedTextBox Margin="10,10,10,0" Text="{Binding Email,Mode=TwoWay}" Height="35" Glyph="" PlaceHolder="Email" />
+                    <controls:TemplatedTextBox Margin="10,10,10,0" Text="{Binding Name,Mode=TwoWay}" Height="35" Glyph="" PlaceHolder="First name" />
+                    <controls:TemplatedTextBox Margin="10,10,10,0" Text="{Binding Family,Mode=TwoWay}" Height="35" Glyph="" PlaceHolder="Last name" />
+
+                    <controls:TemplatedPasswordBox Text="{Binding Password,Mode=TwoWay}"
+                PlaceHolder="Password" Glyph="" Margin="10,10,10,0" Height="35"  />
+                    
+
+
+                </StackPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
+              Width="160"  Content="SAVE"  Height="45" Style="{StaticResource goitstyle}"  />
+
+            <Button HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Column="1"  VerticalAlignment="Center" Background="{StaticResource RedBrush}"
+              Width="160"  Content="LOG OUT"  Height="45" Style="{StaticResource goitstyle}"  />
+
+        </Grid>
+
 
     </Grid>
 </Page>
