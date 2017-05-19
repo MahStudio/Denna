@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core;
+using PubSub;
+
 namespace Denna.ViewModels
 {
     class SwipePanelViewModel : INotifyPropertyChanged
@@ -16,7 +18,11 @@ namespace Denna.ViewModels
         private int _counter = 2;
         public SwipePanelViewModel()
         {
-            Greet = "Dear Insider"; /*+ Core.Models.DBH.Query();*/
+            this.Subscribe<Classes.Header>(Text =>
+            {
+                Greet = Text.Text;
+            });
+
         }
         public int Counter
         {

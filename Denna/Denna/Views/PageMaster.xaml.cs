@@ -1,4 +1,5 @@
 ﻿using Denna.Views.SubMaster;
+using PubSub;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -107,7 +108,7 @@ namespace Denna.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-
+            this.Publish(new Classes.Header("Dear Insider"));
 
 
             Pivot.SelectedIndex = 0;
@@ -122,6 +123,7 @@ namespace Denna.Views
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             Pivot.SelectedIndex = 1;
+            this.Publish(new Classes.Header("Timeline"));
 
 
         }
@@ -132,7 +134,7 @@ namespace Denna.Views
             bmonth.BorderThickness = new Thickness(0, 0, 0, 2);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             Pivot.SelectedIndex = 2;
-
+            this.Publish(new Classes.Header("Entire month"));
         }
         private void mpref()
         {
@@ -140,6 +142,7 @@ namespace Denna.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 2);
+            this.Publish(new Classes.Header("Performance"));
             Pivot.SelectedIndex = 3;
             
         }
