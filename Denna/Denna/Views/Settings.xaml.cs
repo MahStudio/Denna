@@ -52,30 +52,44 @@ namespace Denna.Views
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
 
-           
-            if (Frame == null)
+
+            if (SFrame == null)
                 return;
 
             // Navigate back if possible, and if the event has not 
             // already been handled .
-            if (Frame.CanGoBack && e.Handled == false)
+            if (SFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                SFrame.GoBack();
+                return;
+            }
+            else if (!SFrame.CanGoBack && e.Handled == false)
             {
                 e.Handled = true;
                 Frame.GoBack();
             }
-           
+
 
         }
 
         private void App_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            if (Frame == null)
+            if (SFrame == null || Frame == null || e.Handled)
                 return;
+            
 
             // Navigate back if possible, and if the event has not 
             // already been handled .
-            if (Frame.CanGoBack && e.Handled == false)
+            if (SFrame.CanGoBack )
             {
+                e.Handled = true;
+                SFrame.GoBack();
+                return;
+            }
+            else if (!SFrame.CanGoBack)
+            {
+
                 e.Handled = true;
                 Frame.GoBack();
             }
