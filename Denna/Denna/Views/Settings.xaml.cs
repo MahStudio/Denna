@@ -29,7 +29,6 @@ namespace Denna.Views
         public Settings()
         {
             this.InitializeComponent();
-
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
                 HardwareButtons.BackPressed += HardwareButtons_BackPressed;
             else
@@ -47,23 +46,7 @@ namespace Denna.Views
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
-            
-            if (Frame == null)
-                return;
 
-            // Navigate back if possible, and if the event has not 
-            // already been handled .
-            if (Frame.CanGoBack && e.Handled == false)
-            {
-
-                e.Handled = true;
-                Frame.GoBack();
-            }
-
-        }
-
-        private void App_BackRequested(object sender, BackRequestedEventArgs e)
-        {
            
             if (Frame == null)
                 return;
@@ -75,11 +58,30 @@ namespace Denna.Views
                 e.Handled = true;
                 Frame.GoBack();
             }
+           
+
+        }
+
+        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (Frame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (Frame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                Frame.GoBack();
+            }
+
 
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            SFrame.Navigate(typeof(Setting));
+           
             if (Frame.CanGoBack)
             {
                 // Show UI in title bar if opted-in and in-app backstack is not empty.
@@ -92,55 +94,7 @@ namespace Denna.Views
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                     AppViewBackButtonVisibility.Collapsed;
             }
-        }
-        private void ArtistsList_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var clk = e.ClickedItem as Classes.ItemHolder;
-            switch (clk.ID)
-            {
-                case 1 :
-                    {
-                        Frame.Navigate(typeof(Account));
-                        break;
-                    }
-                case 2:
-                    {
-                        Frame.Navigate(typeof(Privacy));
-                        break;
-                    }
-                case 3:
-                    {
-                        Frame.Navigate(typeof(Notifications));
-                        break;
-                    }
-                case 4:
-                    {
-                        Frame.Navigate(typeof(QuickActions));
-                        break;
-                    }
-                case 5:
-                    {
-                        Frame.Navigate(typeof(Personalization));
-                        break;
-                    }
-                case 6:
-                    {
-                        Frame.Navigate(typeof(Language));
-                        break;
-                    }
-                case 7:
-                    {
-                        Frame.Navigate(typeof(Support));
-                        break;
-                    }
-                case 8:
-                    {
-                        Frame.Navigate(typeof(About));
-                        break;
-                    }
-                default:
-                    break;
-            }
+
         }
     }
 }

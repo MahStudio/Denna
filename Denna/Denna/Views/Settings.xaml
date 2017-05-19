@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     xmlns:behavior="using:Denna.Behaviors"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:vm="using:Denna.ViewModels"
+    
     >
     <Page.Transitions>
         <TransitionCollection>
@@ -23,20 +23,16 @@
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="{ThemeResource AntiForeground}" />
     </Interactivity:Interaction.Behaviors>
-    <Page.DataContext>
-        <vm:SettingsPageViewModel />
-    </Page.DataContext>
+   
     <Grid Background="{ThemeResource AppBackgroundColor}">
         
 
         <RelativePanel>
             <TextBlock Margin="0,20,0,10" x:Name="Name" FontSize="20" FontWeight="Bold" Text="SETTINGS" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
-            <ListView x:Name="ArtistsList" ItemsSource="{Binding MenuList}" ItemTemplate="{StaticResource SettingsListItem}"
-                  SelectionMode="None" IsItemClickEnabled="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Name" ItemClick="ArtistsList_ItemClick"
-                  Background="Transparent">
-            
-        </ListView>
+            <Frame x:Name="SFrame" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Name" 
+                  Background="Transparent"/>
+
         </RelativePanel>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowStates">
@@ -46,20 +42,11 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
 
-                        <Setter Target="ArtistsList.HorizontalAlignment" Value="Center" />
-                        <Setter Target="ArtistsList.VerticalAlignment" Value="Center" />
+                        
 
                         <Setter Target="Name.Margin" Value="0,60,0,20" />
-                        <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
-                        <Setter Target="ArtistsList.ItemsPanel">
-                            <Setter.Value>
-                                <ItemsPanelTemplate>
-                                    <ItemsWrapGrid  MaximumRowsOrColumns="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" />
-
-
-                                </ItemsPanelTemplate>
-                            </Setter.Value>
-                        </Setter>
+                        
+                        
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Wide2State">
@@ -67,18 +54,9 @@
                         <AdaptiveTrigger MinWindowWidth="600" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ArtistsList.HorizontalAlignment" Value="Center" />
-                        <Setter Target="ArtistsList.VerticalAlignment" Value="Center" />
-
+                       
                         <Setter Target="Name.Margin" Value="0,40,0,10" />
-                        <Setter Target="ArtistsList.ItemTemplate" Value="{StaticResource SettingsGridItem}"/>
-                        <Setter Target="ArtistsList.ItemsPanel">
-                            <Setter.Value>
-                                <ItemsPanelTemplate>
-                                    <ItemsWrapGrid MaximumRowsOrColumns="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" />
-                                </ItemsPanelTemplate>
-                            </Setter.Value>
-                        </Setter>
+                        
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="NarrowState">

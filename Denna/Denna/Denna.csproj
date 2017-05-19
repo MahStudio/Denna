@@ -211,6 +211,9 @@
     <Compile Include="Views\SubSettings\QuickActions.xaml.cs">
       <DependentUpon>QuickActions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubSettings\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubSettings\Support.xaml.cs">
       <DependentUpon>Support.xaml</DependentUpon>
     </Compile>
@@ -418,6 +421,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubSettings\QuickActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubSettings\Setting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
