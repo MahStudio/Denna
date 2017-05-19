@@ -1,0 +1,61 @@
+﻿<UserControl
+    x:Class="Denna.Controls.DoublePi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Denna.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:converter="using:Denna.Converters"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:be="using:Denna.Behaviors"
+    xmlns:local2="using:Denna.Controls"
+    d:DesignHeight="200"
+    d:DesignWidth="200">
+    <UserControl.Resources>
+        <converter:DoubleToStringConverter x:Key="DoubleToStringConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid >
+
+
+            <local2:PieChart x:Name="todaysus"
+                            Radius="60"
+                            Segment360Color="Transparent"         
+                            BackgroundColor="Transparent"
+                            SegmentColor="{x:Bind SegmentColor1,Mode=OneWay}"
+                                          Percentage="{x:Bind Percentage1,Mode=OneWay}"
+                            StrokeThickness="19" >
+                <Interactivity:Interaction.Behaviors>
+                    <be:InternalAnimation IntendedValue="{x:Bind Percentage1,Mode=OneWay}" />
+                </Interactivity:Interaction.Behaviors>
+
+            </local2:PieChart>
+
+            <local2:PieChart  x:Name="todaypie"
+                            Radius="35"
+                                          Percentage="{x:Bind Percentage2,Mode=OneWay}"
+                            SegmentColor="{x:Bind SegmentColor2,Mode=OneWay}"
+                            BackgroundColor="Transparent"
+                           Segment360Color="Transparent"
+                            StrokeThickness="19"
+                              >
+                <Interactivity:Interaction.Behaviors>
+                    <be:InternalAnimation IntendedValue="{x:Bind Percentage2,Mode=OneWay}" />
+                </Interactivity:Interaction.Behaviors>
+
+            </local2:PieChart>
+
+            <TextBlock x:Name="todayper" 
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                                     FontWeight="SemiBold"  
+                                   Foreground="{x:Bind SegmentColor1,Mode=OneWay}"
+                                  Text="{x:Bind Percentage1,Mode=OneWay , Converter={StaticResource DoubleToStringConverter}}"
+                                   
+                       FontSize="20"
+                        />
+
+        </Grid>
+    </Grid>
+</UserControl>

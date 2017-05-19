@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Denna.Views.ExtendedSplash"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Denna.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:behavior="using:Denna.Behaviors"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d">
+    <Interactivity:Interaction.Behaviors>
+        <behavior:HeadPainter Brush="Black" Foreground="White" />
+    </Interactivity:Interaction.Behaviors>
+
+
+    <Grid x:Name="LoadGrid" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Background="Black" Opacity="1" Visibility="Visible">
+               
+            <MediaElement x:Name="Media" AutoPlay="True" Source="/Assets/Mockups/Comp.mp4" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" MediaEnded="Media_MediaEnded"/>
+         
+        </Grid>
+        
+</Page>

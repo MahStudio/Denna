@@ -1,0 +1,121 @@
+﻿<Page
+    x:Class="Denna.Views.SubMaster.Add.Hobby"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Denna.Views.SubMaster.Add"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:controls="using:Denna.Controls"
+    xmlns:Converters="using:Denna.Converters"
+    xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+    <Page.Resources>
+
+        <Converters:TextToHashtagConverter x:Key="TextToHashtagConverter" />
+    </Page.Resources>
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <DrillInNavigationTransitionInfo />
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid Background="Transparent">
+        <Grid Margin="0,0,0,48">
+            <ScrollViewer>
+                <StackPanel x:Name="Damn">
+
+
+                    <controls:TemplatedTextBox Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
+                    <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Details" />
+                    
+                        <StackPanel>
+                            <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic" Margin="5,20,5,0" Style="{StaticResource TimePickerStyle}" />
+
+                            <StackPanel HorizontalAlignment="Center" Margin="0,5,0,0" Orientation="Horizontal" >
+                                <RadioButton x:Uid="silent" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rbs" Content="Silent" IsChecked="True" GroupName="not" />
+                                <RadioButton x:Uid="notify" MinWidth="0" Margin="30" Width="Auto"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
+                                <RadioButton x:Uid="alarm" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
+                            </StackPanel>
+                        </StackPanel>
+                    <TextBlock x:Uid="repeat" Text="Frequency" HorizontalAlignment="Center" Opacity="0.8" Margin="7,10" />
+                    <GridView Margin="5,10,5,0" SelectionMode="None" Width="auto" HorizontalAlignment="Center">
+                        <CheckBox x:Uid="sat" x:Name="sat"  Content="Sat"/>
+                        <CheckBox x:Uid="sun" x:Name="sun"  Content="Sun"/>
+                        <CheckBox x:Uid="mon" x:Name="mon"  Content="Mon"/>
+                        <CheckBox x:Uid="tue" x:Name="tue"  Content="Tue"/>
+                        <CheckBox x:Uid="wed" x:Name="wed"  Content="Wed"/>
+                        <CheckBox x:Uid="thu" x:Name="thu"  Content="Thu"/>
+                        <CheckBox x:Uid="fri" x:Name="fri"  Content="Fri"/>
+                    </GridView>
+
+
+                  
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+        <CommandBar   VerticalAlignment="Bottom">
+
+
+
+
+            <AppBarButton Width="Auto" MinWidth="70" Label="Cancel" Click="AppBarButton_Click" >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+            <AppBarButton Width="Auto" MinWidth="70"  Label="Save"    >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+
+
+
+
+
+        </CommandBar>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="700" />
+
+
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide2State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="500" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

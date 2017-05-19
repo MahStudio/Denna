@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="Denna.Controls.GraphControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Denna.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+    mc:Ignorable="d"
+    xmlns:converter="using:Denna.Converters"
+    >
+    <UserControl.Resources>
+        <converter:IntToDoneConverter x:Key="IntToDoneConverter" />
+        <converter:IntToNotdoneConverter x:Key="IntToNotdoneConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <TextBlock Text="{x:Bind Header}" FontSize="18" Opacity="0.6" FontWeight="SemiBold" VerticalAlignment="Center" />
+        </Grid>
+        <charting:Chart
+            
+                x:Name="LineChart2"
+                                
+            
+
+                 Style="{StaticResource ChartStyle1}" Grid.Row="1">
+            <charting:LineSeries
+                
+                    IndependentValueBinding="{Binding Name , Mode=OneWay}"
+                    DependentValueBinding="{Binding Value,Mode=OneWay}"
+                    IsSelectionEnabled="True" >
+                <charting:LineSeries.DataPointStyle>
+                    <Style
+                        
+                            TargetType="charting:LineDataPoint">
+                        <Setter Property="Background" Value="{StaticResource SystemControlBackgroundAccentBrush}" />
+                        <Setter
+                                Property="BorderThickness"
+                                Value="0" />
+                        <Setter
+                                Property="IsTabStop"
+                                Value="False" />
+                        <Setter
+                                Property="Width"
+                                Value="0" />
+                        <Setter
+                                Property="Height"
+                                Value="0" />
+                        <Setter
+                                Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate
+                                        TargetType="charting:LineDataPoint">
+                                    <Grid
+                                            x:Name="Root"
+                                            Opacity="0" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </charting:LineSeries.DataPointStyle>
+            </charting:LineSeries>
+        </charting:Chart>
+        <StackPanel Margin="20,0,0,0" Grid.Row="2">
+
+            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource GreenBrush}" Text="{x:Bind Done, Converter={StaticResource IntToDoneConverter}}" Glyph=""  />
+
+            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToNotdoneConverter}}" Glyph=""  />
+        </StackPanel>
+
+    </Grid>
+</UserControl>

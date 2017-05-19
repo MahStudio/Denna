@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="Denna.Views.SubMaster.Graphs"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Denna.Views.SubMaster"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="using:Denna.Controls"
+    xmlns:VM="using:Denna.ViewModels"
+    NavigationCacheMode="Required"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <VM:GraphViewModel />
+    </Page.DataContext>
+    <ScrollViewer>
+    <RelativePanel HorizontalAlignment="Center" Background="Transparent">
+            <Controls:GraphControl x:Name="Fist" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Week" Items="{x:Bind VM.week}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+                 RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"
+                                MinWidth="300"
+                               
+                               />
+            <Controls:GraphControl x:Name="Sec" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Month"
+                Items="{x:Bind VM.items}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+                 RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"  MinWidth="300"
+                               />
+        </RelativePanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="Fist.(RelativePanel.RightOf)" Value="Sec" />
+                        <Setter Target="Fist.Width" Value="450" />
+                        <Setter Target="Sec.Width" Value="450" />
+                        <Setter Target="Fist.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True" />
+                        <Setter Target="Fist.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True" />
+                        <Setter Target="Sec.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True" />
+                        
+
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Sec.(RelativePanel.Below)" Value="Fist" />
+                        <Setter Target="Sec.(RelativePanel.AlignVerticalCenterWithPanel)" Value="False" />
+                        <Setter Target="Fist.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="Fist.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="Sec.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="Sec.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                       
+
+                    </VisualState.Setters>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </ScrollViewer>
+</Page>
