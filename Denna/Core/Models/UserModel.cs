@@ -21,7 +21,7 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
             Windows.Graphics.Imaging.BitmapDecoder decoder = await Windows.Graphics.Imaging.BitmapDecoder.CreateAsync(random);
             Windows.Graphics.Imaging.PixelDataProvider pixelData = await decoder.GetPixelDataAsync();
             byte[] bytes = pixelData.DetachPixelData();
-            var blob = BlobFactory.Create("image/jpg", bytes);
+            var blob = new Blob("image/jpg", bytes);
             Dictionary<string, object> mydic = new Dictionary<string, object>
             {
                 ["Type"] = "user",

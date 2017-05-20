@@ -102,13 +102,11 @@
                 </ScrollViewer>
                 <StackPanel VerticalAlignment="Bottom" >
                     <TextBlock x:Uid="Dev" TextAlignment="Center" FontWeight="SemiBold" >
-                    DEVELOPED WITH LOVE 
+                    POWERED BY : MAH STUDIO 
                     
 
                     </TextBlock>
-                    <StackPanel HorizontalAlignment="Center" >
-                        
-                    </StackPanel>
+                    
 
 
                 </StackPanel>
