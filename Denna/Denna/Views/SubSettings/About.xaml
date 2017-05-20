@@ -38,19 +38,17 @@
         </ResourceDictionary>
     </Page.Resources>
     <Grid Background="{ThemeResource AppBackgroundColor}">
-        <Grid>
-            <Image Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h14.png" Stretch="UniformToFill"      />
-        </Grid>
+        
         <ScrollViewer>
 
             <Grid>
 
                 <ScrollViewer Margin="0,0,0,180">
                     <StackPanel >
-                        <Image Style="{StaticResource WikiSedaIcon}" Height="200" Width="200"  />
+                        <Image Style="{StaticResource WikiSedaIcon}" Height="130" Width="130"  />
                         <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
-                            <TextBlock FontWeight="Bold" FontSize="40" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
-                            <TextBlock x:Name="ApplicationVersion" Margin="3,0,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 2 Preview" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
+                            <TextBlock FontWeight="Bold" FontSize="23" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
+                            <TextBlock x:Name="ApplicationVersion" Margin="5,6,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 2 Preview" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                         </StackPanel>
                         <TextBlock x:Uid="Info" TextAlignment="Center" Margin="20,20,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8" FontSize="15" >
                     This app is dedicated for having the best planning and scheduling experience.
@@ -58,10 +56,47 @@
                         Do not miss any thing, just type it in DENNA :)
 
                         </TextBlock>
-                        <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
-                            <Button x:Uid="Shaare" BorderThickness="0,0,0,0"  Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="SHARE" Width="70"  />
-                            <Button x:Uid="Rate" BorderThickness="0,0,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="RATE AND REVIEW" Width="150"  />
+                        <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
+                        <StackPanel   Orientation="Horizontal" >
+                            <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
+              Width="100"  Content="SHARE"  Height="35" Style="{StaticResource goitstyle}"  />
+                            <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
+              Width="100"  Content="FEEDBACK"  Height="35" Style="{StaticResource goitstyle}"  />
+                                <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
+              Width="100"  Content="Credits"  Height="35" Style="{StaticResource goitstyle}"  >
+
+
+                                    <Button.Flyout>
+                                        <Flyout>
+                                            <StackPanel MaxWidth="300">
+                                                <TextBlock>
+                                                    The production of these app wouldn't be possible without these guys:
+                                                    <LineBreak />
+                                                    Mohsen Seifi (@Mohsens22)
+                                                    <LineBreak />
+                                                    Aref M. Ahmadi
+                                                    <LineBreak />
+                                                    Mohammad R. Alidoost
+                                                    <LineBreak/>
+                                                    Lukas Frensel(@Eweol)
+                                                    <LineBreak /> 
+                                                    MAH Studio Team 
+                                                    <LineBreak />
+                                                    And all iniders ...
+
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Flyout>
+                                    </Button.Flyout>
+                                </Button>
+
+
+
+                            </StackPanel>
+                            <Button HorizontalAlignment="Right" Margin="0,10,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
+              Width="310"  Content="RATE"  Height="35" Style="{StaticResource goitstyle}"  />
                         </StackPanel>
+                        <HyperlinkButton Margin="0,20,0,0" HorizontalAlignment="Center" Content="Join insider program if you can help us in any way" />
 
                     </StackPanel>
                 </ScrollViewer>
@@ -72,19 +107,7 @@
 
                     </TextBlock>
                     <StackPanel HorizontalAlignment="Center" >
-                        <TextBlock TextAlignment="Center">
-                            MAH Studio
-                            <LineBreak />
-                            Mohsen Seifi
-                            <LineBreak />
-                            Lukas Frensel
-                            <LineBreak/>
-                            Mohammad Alidoost
-                            <LineBreak />
-                            Aref M. Ahmadi
-                            <LineBreak />
-                            And all insiders...
-                        </TextBlock>
+                        
                     </StackPanel>
 
 
