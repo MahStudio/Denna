@@ -38,12 +38,16 @@
         </ResourceDictionary>
     </Page.Resources>
     <Grid Background="{ThemeResource AppBackgroundColor}">
-        
+
         <ScrollViewer>
 
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
 
-                <ScrollViewer Margin="0,0,0,180">
+                <ScrollViewer Margin="0,0,0,0">
                     <StackPanel >
                         <Image Style="{StaticResource WikiSedaIcon}" Height="130" Width="130"  />
                         <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
@@ -57,10 +61,10 @@
 
                         </TextBlock>
                         <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
-                        <StackPanel   Orientation="Horizontal" >
-                            <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
+                            <StackPanel   Orientation="Horizontal" >
+                                <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
               Width="100"  Content="SHARE"  Height="35" Style="{StaticResource goitstyle}"  />
-                            <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
+                                <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
               Width="100"  Content="FEEDBACK"  Height="35" Style="{StaticResource goitstyle}"  />
                                 <Button HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="0"  VerticalAlignment="Center" Background="{StaticResource GreenBrush}"
               Width="100"  Content="Credits"  Height="35" Style="{StaticResource goitstyle}"  >
@@ -69,7 +73,7 @@
                                     <Button.Flyout>
                                         <Flyout>
                                             <StackPanel MaxWidth="300">
-                                                <TextBlock>
+                                                <TextBlock TextWrapping="Wrap">
                                                     The production of these app wouldn't be possible without these guys:
                                                     <LineBreak />
                                                     Mohsen Seifi (@Mohsens22)
@@ -82,7 +86,7 @@
                                                     <LineBreak /> 
                                                     MAH Studio Team 
                                                     <LineBreak />
-                                                    And all iniders ...
+                                                    And all insiders ...
 
                                                 </TextBlock>
                                             </StackPanel>
@@ -100,13 +104,13 @@
 
                     </StackPanel>
                 </ScrollViewer>
-                <StackPanel VerticalAlignment="Bottom" >
+                <StackPanel VerticalAlignment="Center" Grid.Row="1" >
                     <TextBlock x:Uid="Dev" TextAlignment="Center" FontWeight="SemiBold" >
-                    POWERED BY : MAH STUDIO 
-                    
+                    POWERED BY : MAH STUDIO
+
 
                     </TextBlock>
-                    
+
 
 
                 </StackPanel>

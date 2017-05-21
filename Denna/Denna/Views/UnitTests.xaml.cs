@@ -92,24 +92,21 @@ namespace Denna.Views
                     AppViewBackButtonVisibility.Collapsed;
             }
         }
-        private async void SwipeListItem_RightFirstClicked(object sender, RoutedEventArgs e)
-        {
-            await new MessageDialog("Fist Clicked").ShowAsync();
-        }
-
-        private async void SwipeListItem_RightSecondClicked(object sender, RoutedEventArgs e)
-        {
-            await new MessageDialog("Second Clicked").ShowAsync();
-        }
-
-        private async void SwipeListItem_RightThirdClicked(object sender, RoutedEventArgs e)
-        {
-            await new MessageDialog("Third Clicked").ShowAsync();
-        }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Welcome));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Core.Models.UserModel.CreateUser("mohsens22", "Mohsens2@outlook.com", "Mohsen", "Seifi", "SomePAss");
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+           var a= Core.Models.UserModel.GetName();
         }
     }
 }

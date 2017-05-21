@@ -10,42 +10,40 @@ namespace Core.Models
 {
     public static class DBH
     {
-        
+        static Database DB;
         public static void CreateDB()
         {
             Couchbase.Lite.Support.UWP.Activate();
             DatabaseOptions options = new DatabaseOptions();
-            Windows.Storage.StorageFolder storageFolder =
-            Windows.Storage.ApplicationData.Current.LocalFolder;
-            var database = new Database("Xugros", options);
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             options.Directory = storageFolder.Path;
 
-            
-            
+            var database = new Database("Xugros", options);
+            DB = database;
+
+
+
         }
 
         public static void MakeDoc(Dictionary<string,object> Dic)
         {
-            Couchbase.Lite.Support.UWP.Activate();
-            var database = new Database("Xugros");
-           // var doc = database.CreateDocument();
-            //doc.Properties = Dic;
-            //doc.Save();
+            CreateDB();
+            var _doc = new Document(Dic);
+            DB.Save(_doc);
 
         }
         public static string Query()
         {
-            //    Couchbase.Lite.Support.UWP.Activate();
-            //    var database = DatabaseFactory.Create("Xugros");
 
-            //    var query = QueryFactory.Select()
-            //.From(DataSourceFactory.Database(database))
-            //.Where(
-            //    ExpressionFactory.Property("Type").EqualTo("user")
-            //);
+            CreateDB();
+            var query = QueryFactory.Select()
+        .From(DataSourceFactory.Database(DB))
+        .Where(
+            ExpressionFactory.Property("Type").EqualTo("user")
+        );
 
-            //    var rows = query.Run();
-            return "";
+            var rows = query.Run();
+            return rows.FirstOrDefault().ToString();
         }
 
         

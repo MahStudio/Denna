@@ -114,14 +114,19 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Couchbase.Lite">
-      <Version>2.0.0-db007</Version>
+      <Version>2.0.0-b0082</Version>
     </PackageReference>
     <PackageReference Include="Couchbase.Lite.Support.UWP">
-      <Version>2.0.0-db007</Version>
+      <Version>2.0.0-b0082</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.2.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

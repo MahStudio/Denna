@@ -43,7 +43,7 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
         public static string GetName()
         {
            
-            return "c";
+            return DBH.Query();
         }
     }
 }
