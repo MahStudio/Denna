@@ -32,22 +32,22 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <ScrollViewer Margin="0,0,0,0" Grid.Row="0">
-            <StackPanel Padding="5,0,5,0" HorizontalAlignment="Center" MaxWidth="900" MinWidth="320" Margin="0,40,0,0" >
+            <StackPanel  x:Name="Damn" Padding="5,0,5,0" HorizontalAlignment="Center" MaxWidth="900" MinWidth="320" Margin="0,40,0,0" >
                 <StackPanel >
                     <Grid Margin="10,20,10,0">
-                        <Ellipse   HorizontalAlignment="Center" Height="80"  Width="80" >
+                        <Ellipse   HorizontalAlignment="Center" Height="110"  Width="110" >
                             <Ellipse.Fill>
                                 <SolidColorBrush Color="Black" Opacity="0.1" />
                             </Ellipse.Fill>
                         </Ellipse>
-                        <Ellipse   HorizontalAlignment="Center" Height="80"  Width="80" >
+                        <Ellipse   HorizontalAlignment="Center" Height="110"  Width="110" >
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="ms-appx:///Assets/Mockups/usrimg.jpg" Stretch="UniformToFill" x:Name="avatar"  />
                             </Ellipse.Fill>
                         </Ellipse>
 
                         <Button x:Name="butt1" Command="{Binding Picture}" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
-                  FontFamily="Segoe MDL2 Assets" FontSize="25"  Style="{StaticResource dotbut}"  Height="80" Width="80" HorizontalAlignment="Center" />
+                  FontFamily="Segoe MDL2 Assets" FontSize="25"  Style="{StaticResource dotbut}"  Height="110" Width="110" HorizontalAlignment="Center" />
 
                         <Grid Width="35" Height="35"  Margin="55,0,0,0" VerticalAlignment="Bottom">
                             <Grid CornerRadius="40" Opacity="0.6" Background="Black" />
@@ -100,5 +100,40 @@
         </Grid>
 
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="700" />
+
+
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide2State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="500" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

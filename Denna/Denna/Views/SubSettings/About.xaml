@@ -48,12 +48,15 @@
                 </Grid.RowDefinitions>
 
                 <ScrollViewer Margin="0,0,0,0">
-                    <StackPanel >
+                    <RelativePanel HorizontalAlignment="Center"  >
+                        <StackPanel x:Name="Sec" >
                         <Image Style="{StaticResource WikiSedaIcon}" Height="130" Width="130"  />
                         <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
                             <TextBlock FontWeight="Bold" FontSize="23" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                             <TextBlock x:Name="ApplicationVersion" Margin="5,6,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 2 Preview" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                         </StackPanel>
+                        </StackPanel>
+                        <StackPanel x:Name="Fist">
                         <TextBlock x:Uid="Info" TextAlignment="Center" Margin="20,20,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8" FontSize="15" >
                     This app is dedicated for having the best planning and scheduling experience.
                     <LineBreak />
@@ -101,8 +104,8 @@
               Width="310"  Content="RATE"  Height="35" Style="{StaticResource goitstyle}"  />
                         </StackPanel>
                         <HyperlinkButton Margin="0,20,0,0" HorizontalAlignment="Center" Content="Join insider program if you can help us in any way" />
-
-                    </StackPanel>
+                        </StackPanel>
+                    </RelativePanel>
                 </ScrollViewer>
                 <StackPanel VerticalAlignment="Center" Grid.Row="1" >
                     <TextBlock x:Uid="Dev" TextAlignment="Center" FontWeight="SemiBold" >
@@ -116,5 +119,42 @@
                 </StackPanel>
             </Grid>
         </ScrollViewer>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="Fist.(RelativePanel.RightOf)" Value="Sec" />
+                        
+                        <Setter Target="Fist.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True" />
+                        <Setter Target="Fist.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True" />
+                        <Setter Target="Sec.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True" />
+
+
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Fist.(RelativePanel.Below)" Value="Sec" />
+                        <Setter Target="Sec.(RelativePanel.AlignVerticalCenterWithPanel)" Value="False" />
+                        <Setter Target="Fist.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="Fist.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="Sec.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="Sec.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+
+                    </VisualState.Setters>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
