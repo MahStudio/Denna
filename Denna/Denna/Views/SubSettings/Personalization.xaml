@@ -23,5 +23,85 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <StackPanel Margin="15,10,15,0" x:Name="Damn">
+            <TextBlock Text="Colors" FontWeight="SemiBold" />
+            <RelativePanel Margin="0,10,0,0">
+
+                <TextBlock  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="accent" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" Text="Follow accent color" />
+                <ToggleSwitch RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Grid.Column="2" MinWidth="10" x:Name="FollowAccent" HorizontalAlignment="Right" Margin="0,0,0,0" Toggled="FollowAccent_Toggled" OffContent="" OnContent=""/>
+            </RelativePanel>
+            <GridView  HorizontalAlignment="Center" >
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+
+                <Rectangle Fill="#fad616" Height="49" Width="49" />
+                <Rectangle Fill="#f3d741" Height="49" Width="49" />
+                <Rectangle Fill="#20c8a5" Height="49" Width="49" />
+                <Rectangle Fill="#12a889" Height="49" Width="49" />
+                <Rectangle Fill="#50b9ff" Height="49" Width="49" />
+                <Rectangle Fill="#379fe5" Height="49" Width="49" />
+                <Rectangle Fill="#505cff" Height="49" Width="49" />
+                <Rectangle Fill="#505cff" Height="49" Width="49" />
+                <Rectangle Fill="#f85ca0" Height="49" Width="49" />
+                <Rectangle Fill="#ff2e7d" Height="49" Width="49" />
+                <Rectangle Fill="#ff2e7d" Height="49" Width="49" />
+                <Rectangle Fill="#ff2451" Height="49" Width="49" />
+
+
+            </GridView>
+            <Rectangle RelativePanel.Below="Grid" Margin="0,10,0,0" RelativePanel.AlignLeftWithPanel="True"
+                                                RelativePanel.AlignRightWithPanel="True" Fill="{ThemeResource AntiForeground}" Opacity="0.08"  Height="1" HorizontalAlignment="Stretch" />
+
+            <TextBlock Text="Theme" Margin="0,10,0,0" FontWeight="SemiBold" />
+            <ComboBox Margin="5,15,5,0" MaxWidth="700"   x:Name="ThemeSelector"  HorizontalAlignment="Stretch" MinWidth="310" SelectionChanged="ThemeSelector_SelectionChanged" Style="{StaticResource ComboBoxStyle1}">
+                <ComboBoxItem x:Uid="Dark" Content="Dark" Tag="Dark"/>
+                <ComboBoxItem x:Uid="Light" Content="Light" Tag="Light"/>
+                <ComboBoxItem x:Uid="System" Content="System" Tag="System"/>
+            </ComboBox>
+            <TextBlock x:Uid="Restart" Margin="0,10,0,0" FontSize="12" MaxWidth="400" TextAlignment="Center" Text="You might need to restart to apply theme changes." />
+
+
+
+
+        </StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="Wide3State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="700" />
+
+
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide2State">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Damn.HorizontalAlignment" Value="Center" />
+                        <Setter Target="Damn.VerticalAlignment" Value="Center" />
+                        <Setter Target="Damn.MinWidth" Value="500" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
+    
 </Page>

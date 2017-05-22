@@ -1,4 +1,6 @@
-﻿using PubSub;
+﻿
+using Denna.Classes;
+using PubSub;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,6 +34,51 @@ namespace Denna.Views.SubSettings
         {
             base.OnNavigatedTo(e);
             this.Publish(new Classes.SetttingsHeader("Personalization"));
+            try
+            {
+                if (Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) == true)
+                    FollowAccent.IsOn = true;
+                else
+                    FollowAccent.IsOn = false;
+            }
+            catch
+            { }
+            try
+            {
+                if (Themesetter.GetApplicationTheme() == "Dark")
+                    ThemeSelector.SelectedIndex = 0;
+                else if (Themesetter.GetApplicationTheme() == "Light")
+                    ThemeSelector.SelectedIndex = 1;
+                else
+                    ThemeSelector.SelectedIndex = 2;
+            }
+            catch { }
+        }
+
+
+        private void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Classes.Themesetter.SetApplicationTheme((ThemeSelector.SelectedItem as ComboBoxItem).Tag.ToString());
+            }
+            catch { }
+        }
+
+        private void FollowAccent_Toggled(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (FollowAccent.IsOn)
+                    ApplicationData.Current.LocalSettings.Values["FollowAccent"] = true;
+                else
+                    ApplicationData.Current.LocalSettings.Values["FollowAccent"] = false;
+            }
+            catch
+            {
+
+            }
+
         }
     }
 }

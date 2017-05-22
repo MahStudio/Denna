@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace Planel.Classes
+namespace Denna.Classes
 {
     class Themesetter
     {

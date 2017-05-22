@@ -10,7 +10,7 @@
     <Page.DataContext>
         <vm:SettingsPageViewModel />
     </Page.DataContext>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
 
 
         <ListView x:Name="ArtistsList" ItemsSource="{Binding MenuList}" ItemTemplate="{StaticResource SettingsListItem}"

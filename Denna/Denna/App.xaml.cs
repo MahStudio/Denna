@@ -49,9 +49,9 @@ namespace Denna
         }
         void Themesetter()
         {
-            if (Planel.Classes.Themesetter.GetApplicationTheme() != "System")
+            if (Classes.Themesetter.GetApplicationTheme() != "System")
             {
-                if (Planel.Classes.Themesetter.GetApplicationTheme() == "Dark")
+                if (Classes.Themesetter.GetApplicationTheme() == "Dark")
                 {
                     App.Current.RequestedTheme = ApplicationTheme.Dark;
                 }
