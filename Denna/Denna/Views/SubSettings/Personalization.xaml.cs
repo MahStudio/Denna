@@ -37,9 +37,16 @@ namespace Denna.Views.SubSettings
             try
             {
                 if (Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) == true)
+                {
+                    ThemeSelection.Visibility = Visibility.Collapsed;
                     FollowAccent.IsOn = true;
-                else
+                }
+                   
+                else{
                     FollowAccent.IsOn = false;
+                    ThemeSelection.Visibility = Visibility.Visible;
+                }
+                    
             }
             catch
             { }
@@ -70,9 +77,16 @@ namespace Denna.Views.SubSettings
             try
             {
                 if (FollowAccent.IsOn)
+                {
                     ApplicationData.Current.LocalSettings.Values["FollowAccent"] = true;
+                    ThemeSelection.Visibility = Visibility.Collapsed;
+                }
+
                 else
+                {
                     ApplicationData.Current.LocalSettings.Values["FollowAccent"] = false;
+                    ThemeSelection.Visibility = Visibility.Visible;
+                }
             }
             catch
             {

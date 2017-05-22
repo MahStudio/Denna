@@ -49,7 +49,7 @@ namespace Denna.Views
                 try
                 {
                     Frame.BackStack.Clear();
-                    
+
                 }
                 catch { }
             }

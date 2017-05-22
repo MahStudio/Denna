@@ -21,7 +21,7 @@
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
 
         <StackPanel Margin="15,10,15,0" x:Name="Damn">
             <TextBlock Text="Colors" FontWeight="SemiBold" />
@@ -30,7 +30,7 @@
                 <TextBlock  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="accent" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" Text="Follow accent color" />
                 <ToggleSwitch RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Grid.Column="2" MinWidth="10" x:Name="FollowAccent" HorizontalAlignment="Right" Margin="0,0,0,0" Toggled="FollowAccent_Toggled" OffContent="" OnContent=""/>
             </RelativePanel>
-            <GridView  HorizontalAlignment="Center" >
+            <GridView x:Name="ThemeSelection" HorizontalAlignment="Center" >
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
