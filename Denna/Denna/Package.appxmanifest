@@ -4,7 +4,7 @@
   <mp:PhoneIdentity PhoneProductId="b22bfa73-2f3b-423f-9dc9-1150326cf941" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Denna</DisplayName>
-    <PublisherDisplayName>MAH Studio</PublisherDisplayName>
+    <PublisherDisplayName>Mohsens22</PublisherDisplayName>
     <Logo>Assets\PackageImages\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Denna.App">
-      <uap:VisualElements DisplayName="Denna" Square150x150Logo="Assets\PackageImages\Square150x150Logo.png" Square44x44Logo="Assets\PackageImages\Square44x44Logo.png" Description="Denna" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Denna Preview" Square150x150Logo="Assets\PackageImages\Square150x150Logo.png" Square44x44Logo="Assets\PackageImages\Square44x44Logo.png" Description="Denna" BackgroundColor="transparent">
         <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\PackageImages\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\PackageImages\Wide310x150Logo.png" Square310x310Logo="Assets\PackageImages\LargeTile.png" Square71x71Logo="Assets\PackageImages\SmallTile.png">
         </uap:DefaultTile>
