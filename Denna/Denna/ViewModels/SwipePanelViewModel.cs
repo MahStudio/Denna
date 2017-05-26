@@ -22,6 +22,7 @@ namespace Denna.ViewModels
             {
                 Greet = Text.Text;
             });
+            
 
         }
         public int Counter

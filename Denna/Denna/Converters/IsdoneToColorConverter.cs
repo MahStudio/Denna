@@ -14,7 +14,7 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            int a = (int)value;
+            Int64 a = (Int64)value;
             SolidColorBrush x = new SolidColorBrush(Colors.Red);
             switch (a)
             {

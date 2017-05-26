@@ -45,18 +45,6 @@ namespace Core.Models
             }
             ;
             var mydic = dds.ToDictionary();
-            //Dictionary<string, object> mydic = new Dictionary<string, object>
-            //{
-            //    ["Type"] = "user",
-            //    ["ID"] = ID,
-            //    ["Email"] = email,
-            //    ["FirstName"] =Name ,
-            //    ["LastName"] = Family,
-            //    ["PassHash"] = pass,
-            //    ["Created"] = DateTimeOffset.UtcNow,
-            //    ["SchemaVers"] = 1
-            //}
-            //;
             IDictionary<string, object> an = mydic;
               DBH.MakeDoc(an);
 

@@ -9,15 +9,15 @@ namespace Core.Types
 {
     public class TaskItem
     {
-        public int ID { get; set; }
+
+        public string Type { get; set; }
         public string Subject { get; set; }
         public string Detail { get; set; }
-        public int Notify { get; set; }
-        public int Isdone { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public int Imprtance { get; set; }
-        public ObservableCollection<string> Tags { get; set; }
+        public Int64 Notify { get; set; }
+        public Int64 Isdone { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        //public List<string> Tags { get; set; }
 
     }
 }

@@ -28,8 +28,8 @@
             <StackPanel x:Name="Damn">
                
 
-                <controls:TemplatedTextBox Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
-                <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Details" />
+                <controls:TemplatedTextBox x:Name="Sub" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
+                <controls:TemplatedTextBox x:Name="Det" Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Details" />
                 <Controls:Expander x:Name="Expander3" VerticalAlignment="Top" Margin="0,20,0,10" 
                                Header="Date and Time" 
                                IsExpanded="False">
@@ -96,7 +96,7 @@
                 </AppBarButton.Icon>
             </AppBarButton>
             
-            <AppBarButton Width="Auto" MinWidth="70"  Label="Save"    >
+            <AppBarButton Click="AppBarButton_Click_1" Width="Auto" MinWidth="70"  Label="Save"    >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>

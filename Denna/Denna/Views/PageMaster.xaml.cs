@@ -108,7 +108,7 @@ namespace Denna.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            this.Publish(new Classes.Header("Dear Insider"));
+            this.Publish(new Classes.Header("Dear " + Core.Models.UserModel.GetName()));
 
 
             Pivot.SelectedIndex = 0;

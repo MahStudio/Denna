@@ -1,4 +1,5 @@
-﻿using Couchbase.Lite;
+﻿using Core.Types;
+using Couchbase.Lite;
 using Couchbase.Lite.Query;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,35 @@ namespace Core.Models
             DB.Save(_doc);
 
         }
+        public static List<TaskItem> QueryW()
+        {
+
+            CreateDB();
+
+           
+
+
+            var query = QueryFactory.Select()
+        .From(DataSourceFactory.Database(DB))
+        .Where(
+            ExpressionFactory.Property("Type").EqualTo("Task")
+        );
+
+            var rows = query.Run();
+            var sdsd = new List<TaskItem>();
+            foreach (var row in rows)
+            {
+                var ab = row.Document;
+                var sx = ab.ToDictionary();
+                var test = GetObject<Types.TaskItem>((Dictionary<string, object>)sx);
+                sdsd.Add(test);
+            }
+            
+            
+            return sdsd;
+
+        }
+
         public static string Query()
         {
 
@@ -54,7 +84,7 @@ namespace Core.Models
             var ab = a.Document;
             var sx = ab.ToDictionary();
             var test = GetObject<Types.Person>((Dictionary<string,object>)sx);
-            return test.LastName;
+            return test.FirstName;
 
         }
         static T GetObject<T>(Dictionary<string, object> dict)
