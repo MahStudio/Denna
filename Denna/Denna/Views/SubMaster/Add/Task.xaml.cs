@@ -32,9 +32,9 @@ namespace Denna.Views.SubMaster.Add
             Frame.GoBack();
         }
 
-        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
-            Core.Models.TasksModel.create(Sub.Text, Det.Text, null, null, 0);
+            await Core.Models.TasksModel.create(Sub.Text, Det.Text, null, null, 0);
             Frame.GoBack();
         }
     }

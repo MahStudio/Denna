@@ -9,7 +9,7 @@ namespace Core.Models
 {
     public class TasksModel
     {
-        public static void create(string subject, string detail, DateTime? start, DateTime? end,int notify)
+        public static async Task create(string subject, string detail, DateTime? start, DateTime? end,int notify)
         {
             //isdone=0
             var task = new TaskItem

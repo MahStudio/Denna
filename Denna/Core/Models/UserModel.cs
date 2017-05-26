@@ -27,8 +27,9 @@ namespace Core.Models
     }
     public class UserModel
     {
+        
 
-       public static async void CreateUser(string ID, string email, string Name, string Family, string pass)
+       public static async Task CreateUser(string ID, string email, string Name, string Family, string pass)
         {
             var dds = new Types.Person
             {
@@ -49,7 +50,7 @@ namespace Core.Models
               DBH.MakeDoc(an);
 
         }
-
+        
 
         public static string GetName()
         {
