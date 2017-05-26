@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Core.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -107,6 +108,7 @@ namespace Denna.Views
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
            string a= Core.Models.UserModel.GetName();
+           
 
             Read.Content = a;
         }
