@@ -38,11 +38,23 @@ namespace Core.Models
 
             CreateDB();
 
-            var a = DB.GetDocument("-QmBJfl3Stk-ZYbINAux-vg");
-            var x =a.ToDictionary();
-            var test = GetObject<Types.Person>((Dictionary<string,object>)x);
+            //var a = DB.GetDocument("-QmBJfl3Stk-ZYbINAux-vg");
+            //var x =a.ToDictionary();
+            //var test = GetObject<Types.Person>((Dictionary<string,object>)x);
 
-            return test.FirstName;
+
+            var query = QueryFactory.Select()
+        .From(DataSourceFactory.Database(DB))
+        .Where(
+            ExpressionFactory.Property("Type").EqualTo("User")
+        );
+
+            var rows = query.Run();
+            var a = rows.FirstOrDefault();
+            var ab = a.Document;
+            var sx = ab.ToDictionary();
+            var test = GetObject<Types.Person>((Dictionary<string,object>)sx);
+            return test.LastName;
 
         }
         static T GetObject<T>(Dictionary<string, object> dict)
