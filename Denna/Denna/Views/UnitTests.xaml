@@ -16,7 +16,10 @@
             <StackPanel>
                 <Button Click="Button_Click" Width="300" Content="Wheal Cum" Height="40" />
                 <Button Click="Button_Click_1" Width="300" Content="Create doc" Height="40" />
-                <Button Click="Button_Click_2" Width="300" Content="Read doc" Height="40" />
+                <Button x:Name="Read" Click="Button_Click_2" Width="300" Content="Read doc" Height="40" />
+                
+
+
 
             </StackPanel>
         </ScrollViewer>

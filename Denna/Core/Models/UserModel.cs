@@ -12,16 +12,8 @@ namespace Core.Models
     {
        public static async void CreateUser(string ID, string email, string Name, string Family, string pass)
         {
-
-            Windows.Storage.StorageFolder storageFolder =
-Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile =
-                await storageFolder.GetFileAsync("avatar.jpg");
-            Windows.Storage.Streams.IRandomAccessStream random = await Windows.Storage.Streams.RandomAccessStreamReference.CreateFromFile(sampleFile).OpenReadAsync();
-            Windows.Graphics.Imaging.BitmapDecoder decoder = await Windows.Graphics.Imaging.BitmapDecoder.CreateAsync(random);
-            Windows.Graphics.Imaging.PixelDataProvider pixelData = await decoder.GetPixelDataAsync();
-            byte[] bytes = pixelData.DetachPixelData();
-            var blob = new Blob("image/jpg", bytes);
+            
+            
             Dictionary<string, object> mydic = new Dictionary<string, object>
             {
                 ["Type"] = "user",
@@ -30,12 +22,12 @@ Windows.Storage.ApplicationData.Current.LocalFolder;
                 ["FirstName"] =Name ,
                 ["LastName"] = Family,
                 ["PassHash"] = pass,
-                ["Avatar"] = blob,
                 ["Created"] = DateTimeOffset.UtcNow,
                 ["SchemaVers"] = 1
             }
             ;
-            DBH.MakeDoc(mydic);
+            IDictionary<string, object> an = mydic;
+              DBH.MakeDoc(an);
 
         }
 

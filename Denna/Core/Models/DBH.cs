@@ -25,7 +25,7 @@ namespace Core.Models
 
         }
 
-        public static void MakeDoc(Dictionary<string,object> Dic)
+        public static void MakeDoc(IDictionary<string,object> Dic)
         {
             CreateDB();
             var _doc = new Document(Dic);
@@ -36,14 +36,12 @@ namespace Core.Models
         {
 
             CreateDB();
-            var query = QueryFactory.Select()
-        .From(DataSourceFactory.Database(DB))
-        .Where(
-            ExpressionFactory.Property("Type").EqualTo("user")
-        );
 
-            var rows = query.Run();
-            return rows.FirstOrDefault().ToString();
+            var a = DB.GetDocument("-UHbc-Y_ty0ugUnpQeFGNSA");
+            var x =a.ToDictionary();
+
+            return (string)x["FirstName"];
+
         }
 
         

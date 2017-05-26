@@ -106,7 +106,9 @@ namespace Denna.Views
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           var a= Core.Models.UserModel.GetName();
+           string a= Core.Models.UserModel.GetName();
+
+            Read.Content = a;
         }
     }
 }
