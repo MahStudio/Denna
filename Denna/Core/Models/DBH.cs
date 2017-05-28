@@ -80,11 +80,23 @@ namespace Core.Models
         );
 
             var rows = query.Run();
-            var a = rows.FirstOrDefault();
-            var ab = a.Document;
-            var sx = ab.ToDictionary();
-            var test = GetObject<Types.Person>((Dictionary<string,object>)sx);
-            return test.FirstName;
+            string name = "";
+            try
+            {
+
+ 
+                var test = GetObject<Person>(
+                  (Dictionary<string,object>)(rows.FirstOrDefault().Document
+                    ).ToDictionary()
+                    );
+                name = test.FirstName;
+            }
+            catch
+            {
+                name = "Unidentified";
+            }
+
+            return name;
 
         }
         static T GetObject<T>(Dictionary<string, object> dict)

@@ -1,5 +1,7 @@
 ﻿using Denna.Views;
 using System;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -69,6 +71,7 @@ namespace Denna
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
+            MobileCenter.Start("41895791-821f-4acb-a46a-cf38e64cb833", typeof(Analytics));
             stuff();
             if (args.PreviousExecutionState != ApplicationExecutionState.Running)
             {
