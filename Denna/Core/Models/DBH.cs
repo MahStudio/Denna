@@ -16,11 +16,9 @@ namespace Core.Models
         public static void CreateDB()
         {
             Couchbase.Lite.Support.UWP.Activate();
-            DatabaseOptions options = new DatabaseOptions();
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            options.Directory = storageFolder.Path;
+           
 
-            var database = new Database("Xugros", options);
+            var database = new Database("Xugros");
             DB = database;
 
 

@@ -40,7 +40,7 @@ namespace Core.Models
                 FirstName = Name,
                 LastName = Family,
                 Password = pass,
-                CreatedAt = DateTime.UtcNow.ToString(),
+                CreatedAt = DateTime.UtcNow,
                 Schema = 1
             
             }

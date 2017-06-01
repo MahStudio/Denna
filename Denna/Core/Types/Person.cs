@@ -19,7 +19,7 @@ namespace Core.Types
         public string FirstName { get; set; }
         public string Password { get; set; }
 
-        public string CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
         public Int64 Schema { get; set; }
 
 
