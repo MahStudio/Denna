@@ -11,7 +11,7 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value == "")
+            if (value == "" || value ==null)
                 return "";
             DateTime Value = (DateTime)value;
             string Hour = Value.Hour.ToString();
