@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Denna", "Denna\Denna.csproj", "{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Background Tasks", "Background Tasks", "{867533D6-40AA-4B0A-9731-5FEFB105186A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{10BA8BB2-60F4-414A-ABBC-6063DE8D60D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Denna.Core", "Denna.Core\Denna.Core.csproj", "{C5767D1C-80CE-4965-9C6A-1652461729F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,30 @@ Global
 		{10BA8BB2-60F4-414A-ABBC-6063DE8D60D6}.Release|x64.Build.0 = Release|x64
 		{10BA8BB2-60F4-414A-ABBC-6063DE8D60D6}.Release|x86.ActiveCfg = Release|x86
 		{10BA8BB2-60F4-414A-ABBC-6063DE8D60D6}.Release|x86.Build.0 = Release|x86
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|ARM.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|x64.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Debug|x86.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|Any CPU.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|ARM.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|ARM.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|x64.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|x64.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|x86.ActiveCfg = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Packaging|x86.Build.0 = Debug|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|ARM.Build.0 = Release|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|x64.ActiveCfg = Release|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|x64.Build.0 = Release|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|x86.ActiveCfg = Release|Any CPU
+		{C5767D1C-80CE-4965-9C6A-1652461729F6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
