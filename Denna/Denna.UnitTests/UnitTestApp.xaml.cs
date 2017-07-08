@@ -30,6 +30,7 @@ namespace Denna.UnitTests
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            Couchbase.Lite.Support.UWP.Activate();
         }
 
         /// <summary>

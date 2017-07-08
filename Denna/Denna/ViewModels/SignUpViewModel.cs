@@ -1,4 +1,5 @@
-﻿using Denna.Classes;
+﻿
+using Denna.Classes;
 using Denna.Views;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Denna.ViewModels
 {
     class SignUpViewModel : INotifyPropertyChanged
     {
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         private string _username;
