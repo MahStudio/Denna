@@ -5,6 +5,7 @@ Denna is a fully featured and productive To-Do list for Windows 10 devices. [Get
 
 Denna's idea came from my own needs. I'm not ponctual at all, so I needed a tool to make me care more about the time I have.
 So with the help of the whole team in MahStudio we came acoss with a project named *Project Plannel* which then became **Denna**. 
+
 **Denna** is a name of a mountian in Iran. The idea of *Denna* came from where I failed my test due to not making time for studies and the answer of that missed question was Denna.
 
 Then with the help of the team and the community we developed and release a lovely tool named **Denna**.
@@ -16,12 +17,12 @@ The aim of Denna is to help people to care more about the time they have. Cuz ti
 
 Denna got a really good attention from users and some of the news websites. You can read some of Denna's reviews down below:
 
--[Windows Central](https://www.windowscentral.com/denna-windows-10-do-list-improving-productivity)
--[On MSFT](https://www.onmsft.com/news/denna-is-a-well-rounded-universal-task-management-app-for-windows-10)
--[All about windows phone](http://allaboutwindowsphone.com/flow/item/22075_Denna_UWP.php)
--[MS Power User](https://mspoweruser.com/developer-submission-denna-uwp-todo-list-app/)
--[The win central](https://thewincentral.com/denna-windows-phone-goes-free-myappfree-app-day/)
--[Windows phone arena](http://www.windowsphonearea.com/3-new-windows-10-apps-march-2017/)
+- [Windows Central](https://www.windowscentral.com/denna-windows-10-do-list-improving-productivity)
+- [On MSFT](https://www.onmsft.com/news/denna-is-a-well-rounded-universal-task-management-app-for-windows-10)
+- [All about windows phone](http://allaboutwindowsphone.com/flow/item/22075_Denna_UWP.php)
+- [MS Power User](https://mspoweruser.com/developer-submission-denna-uwp-todo-list-app/)
+- [The win central](https://thewincentral.com/denna-windows-phone-goes-free-myappfree-app-day/)
+- [Windows phone arena](http://www.windowsphonearea.com/3-new-windows-10-apps-march-2017/)
 
 And so on ...
 
