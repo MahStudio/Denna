@@ -51,7 +51,7 @@
 
 
         <Storyboard x:Name="myStoryboard">
-            <DoubleAnimation To="200" Duration="00:00:1" 
+            <DoubleAnimation To="100" Duration="00:00:1" 
                 Storyboard.TargetName="myScaleTransform" 
                 Storyboard.TargetProperty="Y">
                 <DoubleAnimation.EasingFunction>
@@ -76,7 +76,7 @@
             <Grid  ManipulationMode="TranslateY"
               ManipulationDelta="gridMain_ManipulationDelta"
               ManipulationCompleted="gridMain_ManipulationCompleted"
-              Height="400" Margin="0,-240,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" 
+              Height="280" Margin="0,-120,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" 
                    RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource AppSuspressBrush}" ManipulationStarted="gridMain_ManipulationStarted"  >
 
 
@@ -84,12 +84,8 @@
         <Image Opacity="0.15" Source="ms-appx:///Assets/Headings/h31.png" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Stretch="UniformToFill" Height="180" Margin="0,-247,-444,0"   />
         <Grid>
             <StackPanel Margin="0,0,0,0" x:Name="detstack" Opacity="0">
-                <Ellipse Margin="0,120,0,0"  HorizontalAlignment="Center" Height="100"  Width="100" >
-                    <Ellipse.Fill>
-                        <ImageBrush Stretch="UniformToFill" x:Name="avatar" ImageSource="{Binding Picture}" />
-                    </Ellipse.Fill>
-                </Ellipse>
-                <TextBlock x:Name="todate" Margin="0,15,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="{Binding Todate}" />
+                
+                <TextBlock x:Name="todate" Margin="0,120,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="{Binding Todate}" />
                 <TextBlock x:Name="counter" Text="{Binding Counter , Converter={StaticResource IntToTaskCounterConverter}}" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
                                 
 

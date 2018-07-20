@@ -33,9 +33,9 @@ namespace Denna.Controls
             // ManipulationDelta hamzaman ba tagheire positione angosht ya mouse emal mishe
             // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
 
-            if (e.Position.Y < gridMain.MinHeight) return;
+            if (e.Position.Y < 150) return;
 
-            if (lastPostition.Y < 565 && !isopen)
+            if (lastPostition.Y < 300 && !isopen)
             {
                 try
                 {
