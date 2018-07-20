@@ -27,7 +27,7 @@ namespace Denna.ViewModels
                     Subject = "This is POSTPONED of " + i
                     ,
                     Imprtance = Importance.High,
-                    Isdone = 1,
+                    Status = Status.Suspended,
                     Notify = 1,
                     StartTime = DateTime.Now.AddHours(2)
                 });

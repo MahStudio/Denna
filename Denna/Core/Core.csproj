@@ -112,7 +112,13 @@
     <Compile Include="Data\IGenericRepository.cs" />
     <Compile Include="Domain\BaseModel.cs" />
     <Compile Include="Domain\Importance.cs" />
+    <Compile Include="Domain\Status.cs" />
     <Compile Include="Infrastructure\DI.cs" />
+    <Compile Include="Migrations\20180720162909_first.cs" />
+    <Compile Include="Migrations\20180720162909_first.designer.cs">
+      <DependentUpon>20180720162909_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Todo.cs" />
     <Compile Include="Service\Todos\TodoService.cs" />

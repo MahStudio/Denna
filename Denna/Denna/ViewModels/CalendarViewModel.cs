@@ -47,7 +47,7 @@ namespace Denna.ViewModels
                 Subject = "This is Title of " + 33
                    ,
                 Imprtance = Importance.High,
-                Isdone = 0,
+                Status=Status.notDone,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2),
 
@@ -59,7 +59,7 @@ namespace Denna.ViewModels
                 Subject = "This is Title of " + 66
                    ,
                 Imprtance = Importance.Low,
-                Isdone = 1,
+                Status = Status.Done,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2)
             });
@@ -72,7 +72,7 @@ namespace Denna.ViewModels
                     Subject = "This is Title of " + i
                     ,
                     Imprtance = Importance.Medium,
-                    Isdone = 2,
+                    Status = Status.Suspended,
                     Notify = 1,
                     StartTime = DateTime.Now.AddHours(2)
                 });

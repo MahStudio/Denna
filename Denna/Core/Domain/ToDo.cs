@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Core.Domain
 {
-    public class Todo:BaseModel
+    public class Todo : BaseModel
     {
         public string Subject { get; set; }
         public string Detail { get; set; }
         public int Notify { get; set; }
-        public int Isdone { get; set; }
+        public Status Status { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public Importance Imprtance { get; set; }
