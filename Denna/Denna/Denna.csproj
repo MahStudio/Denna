@@ -101,12 +101,15 @@
     </Compile>
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Behaviors\InternalAnimation.cs" />
+    <Compile Include="Classes\BindingHelper.cs" />
     <Compile Include="Classes\CalendarViewHelper.cs" />
     <Compile Include="Classes\DelegateCommand.cs" />
+    <Compile Include="Classes\Extentions.cs" />
     <Compile Include="Classes\Header.cs" />
     <Compile Include="Classes\ItemHolder.cs" />
     <Compile Include="Classes\MyCommand.cs" />
     <Compile Include="Classes\NameValueItem.cs" />
+    <Compile Include="Classes\PassageHelper.cs" />
     <Compile Include="Classes\SetttingsHeader.cs" />
     <Compile Include="Classes\Themesetter.cs" />
     <Compile Include="Controls\DoublePi.xaml.cs">

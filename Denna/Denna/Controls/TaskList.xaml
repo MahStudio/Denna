@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Denna.Controls"
+    xmlns:classes="using:Denna.Classes"
     mc:Ignorable="d"
     xmlns:Converters="using:Denna.Converters"
     d:DesignWidth="400">
@@ -50,8 +51,9 @@
                                     <TextBlock x:Name="title" FontWeight="SemiBold"  Grid.Column="1" Grid.Row="0"
                                     FontSize="14" Text="{Binding Subject}"  Margin="7,5,0,0" Foreground="{ThemeResource AntiForeground }"
                                RelativePanel.RightOf="Glyph"    />
-                                        <TextBlock MaxLines="3" TextWrapping="Wrap" Foreground="{ThemeResource AntiForeground }" Opacity="0.65" Grid.Column="1" Grid.Row="1" Text="{Binding Detail}" FontSize="13"
-                        Margin="7,2,0,0" RelativePanel.Below="title" RelativePanel.RightOf="Glyph" RelativePanel.LeftOf="more"  x:Name="Title"      />
+                                        <RichTextBlock classes:BindingHelper.Text="{Binding Detail}"  MaxLines="3" TextWrapping="Wrap" Foreground="{ThemeResource AntiForeground }" Opacity="0.65" Grid.Column="1" Grid.Row="1"  FontSize="13"
+                        Margin="7,2,0,0" RelativePanel.Below="title" RelativePanel.RightOf="Glyph" RelativePanel.LeftOf="more"  x:Name="Title"   
+                                                       IsTextSelectionEnabled="False"/>
 
                                     <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more"  Background="Transparent" Tag="WOW"
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" Grid.Row="1" 
@@ -82,7 +84,7 @@
                                         </Button.Flyout>
                                     </Button>
 
-                                        <Rectangle RelativePanel.Below="Title" RelativePanel.AlignLeftWithPanel="True" Margin="0,10,0,0"
+                                        <Rectangle RelativePanel.Below="Title" RelativePanel.AlignLeftWithPanel="True" Margin="0,15,0,0"
                                                 RelativePanel.AlignRightWithPanel="True" Fill="{ThemeResource AntiForeground}" Opacity="0.08"  Height="1" HorizontalAlignment="Stretch" />
 
                                     </RelativePanel>
