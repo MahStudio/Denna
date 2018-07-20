@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Types
+namespace Core.Domain
 {
     public class TaskItem
     {
@@ -16,7 +16,7 @@ namespace Core.Types
         public int Isdone { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public int Imprtance { get; set; }
+        public Importance Imprtance { get; set; }
         public ObservableCollection<string> Tags { get; set; }
 
     }

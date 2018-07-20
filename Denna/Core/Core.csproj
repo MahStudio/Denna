@@ -11,7 +11,7 @@
     <AssemblyName>Core</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -106,19 +106,11 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Models\DBH.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\TaskItem.cs" />
+    <Compile Include="Domain\TaskItem.cs" />
     <EmbeddedResource Include="Properties\Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Couchbase.Lite">
-      <Version>2.0.0-db005</Version>
-    </PackageReference>
-    <PackageReference Include="Couchbase.Lite.Support.UWP">
-      <Version>2.0.0-db005</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.2.3</Version>
     </PackageReference>
