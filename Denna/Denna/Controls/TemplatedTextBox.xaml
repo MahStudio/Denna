@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Column="0" Opacity="0.5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="Segoe MDL2 Assets" Text="{x:Bind Glyph,Mode=OneWay}" />
-        <TextBox Grid.Column="1" Background="Transparent" PlaceholderText="{x:Bind PlaceHolder  ,Mode=OneWay}"  BorderBrush="Transparent" BorderThickness="0" Text="{x:Bind Text , Mode=TwoWay}" Style="{StaticResource TextboxTemplated}"   />
+        <TextBox TextWrapping="Wrap" Grid.Column="1" Background="Transparent" PlaceholderText="{x:Bind PlaceHolder  ,Mode=OneWay}"  BorderBrush="Transparent" BorderThickness="0" Text="{x:Bind Text , Mode=TwoWay}" Style="{StaticResource TextboxTemplated}"   />
 
     </Grid>
 </UserControl>

@@ -29,7 +29,7 @@
                
 
                 <controls:TemplatedTextBox Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
-                <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Details" />
+                <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Glyph="" PlaceHolder="Details" />
                 <Controls:Expander x:Name="Expander3" VerticalAlignment="Top" Margin="0,20,0,10" 
                                Header="Date and Time" 
                                IsExpanded="False">
