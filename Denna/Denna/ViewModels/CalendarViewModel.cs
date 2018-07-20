@@ -1,4 +1,4 @@
-﻿using Core.Types;
+﻿using Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,7 +46,7 @@ namespace Denna.ViewModels
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 33,
                 Subject = "This is Title of " + 33
                    ,
-                Imprtance = 1,
+                Imprtance = Importance.High,
                 Isdone = 0,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2),
@@ -58,7 +58,7 @@ namespace Denna.ViewModels
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 66,
                 Subject = "This is Title of " + 66
                    ,
-                Imprtance = 1,
+                Imprtance = Importance.Low,
                 Isdone = 1,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2),
@@ -72,7 +72,7 @@ namespace Denna.ViewModels
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
                     Subject = "This is Title of " + i
                     ,
-                    Imprtance = 1,
+                    Imprtance = Importance.Medium,
                     Isdone = 2,
                     Notify = 1,
                     StartTime = DateTime.Now.AddHours(2),

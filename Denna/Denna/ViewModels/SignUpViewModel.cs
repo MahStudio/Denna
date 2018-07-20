@@ -262,7 +262,7 @@ namespace Denna.ViewModels
         }
         private void SignUp(object obj)
         {
-            Core.Models.UserModel.CreateUser(UserName, Email, Name, Family, Password);
+            //Core.Models.UserModel.CreateUser(UserName, Email, Name, Family, Password);
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
 
