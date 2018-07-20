@@ -3,10 +3,10 @@ Denna is a fully featured and productive To-Do list for Windows 10 devices. [Get
 
 ## Story
 
-Denna's idea came from my own needs. I'm not ponctual at all, so I needed a tool to make me care more about the time I have.
-So with the help of the whole team in MahStudio we came acoss with a project named *Project Plannel* which then became **Denna**. 
+Denna's idea came from my own needs. I'm not punctual at all, so I needed a tool to make me care more about the time I have.
+So with the help of the whole team in MahStudio we came across with a project named *Project Plannel* which then became **Denna**.
 
-**Denna** is a name of a mountian in Iran. The idea of *Denna* came from where I failed my test due to not making time for studies and the answer of that missed question was Denna.
+**Denna** is a name of a mountain in Iran. The idea of *Denna* came from where I failed my test due to not making time for studies and the answer of that missed question was Denna.
 
 Then with the help of the team and the community we developed and release a lovely tool named **Denna**.
 The aim of Denna is to help people to care more about the time they have. Cuz time flies!
@@ -40,7 +40,7 @@ Also you can see the whole design files [HERE](https://github.com/MahStudio/Denn
 ## Contributing
 
 Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design.
-As Denna is an opensource project, all kind of contributions are welcome. 
+As Denna is an open source project, all kind of contributions are welcome.
 
 > **Note:** This project needs new maintainers and supporters
 
@@ -57,10 +57,10 @@ As Denna is an opensource project, all kind of contributions are welcome.
 
 ### What features are planned in V2
 
-- Sync (with couchbase sync gateway)
+- Sync
 - New codebase
 - Better performance
-- Design improvments
+- Design improvements
 - Support for android and IOS
 - and so on
 
@@ -69,7 +69,7 @@ As Denna is an opensource project, all kind of contributions are welcome.
 1. Windows 10
 2. Visual Studio 2017 (latest build) with universal windows development features installed.
 3. GIT for Windows ([install from here](http://gitforwindows.org/))
-4. Knowledge about C#, Xaml, MVVM, Windows development and Couchbase NoSQL
+4. Knowledge about C#, Xaml, design patterns, Windows development and Entity framework
 
 ### Authors
 
