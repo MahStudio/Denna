@@ -1,5 +1,7 @@
-﻿using Core.Data;
+﻿using Autofac;
+using Core.Data;
 using Core.Domain;
+using Core.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,9 +14,9 @@ namespace Core.Service
     public class TestSvc
     {
         private IGenericRepository<TaskItem> _repo;
+        public TestSvc() => _repo = DI.Container.Resolve<IGenericRepository<TaskItem>>();
         public void addsth()
         {
-            _repo = new GenericRepository<TaskItem>(new DataContext());
             _repo.Create(new TaskItem()
             {
                 Detail = "Lurem IPsum #Very cool app is under dev to be abnormal and very secret ",

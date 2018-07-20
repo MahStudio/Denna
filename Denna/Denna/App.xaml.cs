@@ -1,4 +1,5 @@
 ﻿using Core.Data;
+using Core.Infrastructure;
 using Denna.Views;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -39,7 +40,7 @@ namespace Denna
             {
                 db.Database.Migrate();
             }
-
+            DI.Build();
         }
         private void stuff()
         {

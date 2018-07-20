@@ -12,7 +12,7 @@ namespace Core.Data
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseModel
     {
         private readonly DataContext _dbContext;
-
+        public GenericRepository() => _dbContext = new DataContext();
         public GenericRepository(DataContext dbContext)
         {
             _dbContext = dbContext;
