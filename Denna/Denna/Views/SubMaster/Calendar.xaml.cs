@@ -38,15 +38,31 @@ namespace Denna.Views.SubMaster
 
 
         }
+
+        private void MyCalendarView_Loaded(object sender, RoutedEventArgs e)
+        {
+            CalendarView loadedCalendarView = sender as CalendarView;
+            if (loadedCalendarView != null)
+            {
+                SelectCurrentDate(loadedCalendarView);
+
+            }
+        }
+
+        private void SelectCurrentDate(CalendarView MyCalendarView)
+        {
+            FindCurrentDateElementInVisualTree<CalendarViewDayItem>(MyCalendarView);
+        }
+
         private async void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
 
             Doer(sender, args);
-           
+
         }
         async void Doer(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
-            
+
             if (args.AddedDates != null)
             {
 
@@ -56,22 +72,47 @@ namespace Denna.Views.SubMaster
                     var selected = FindElementInVisualTree<CalendarViewDayItem>(MyCalendarView, item);
                 }
 
-                
+
 
             }
-            
+
             if (args.RemovedDates != null)
             {
                 foreach (var item in args.RemovedDates)
                 {
-                    
+
                 }
             }
-            
-            
+
+
         }
 
-       
+        public static T FindCurrentDateElementInVisualTree<T>(DependencyObject parentElement) where T : DependencyObject
+        {
+            var count = VisualTreeHelper.GetChildrenCount(parentElement);
+            if (count == 0) return null;
+
+            for (int i = 0; i < count; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parentElement, i);
+
+                if (child != null && child is CalendarViewDayItem)
+                {
+                    if ((child as CalendarViewDayItem).Date.UtcDateTime.Date == DateTimeOffset.UtcNow.Date)
+                    {
+                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Selected", true);
+                    }
+                }
+                else
+                {
+                    var result = FindCurrentDateElementInVisualTree<T>(child);
+                    if (result != null)
+                        return result;
+                }
+            }
+            return null;
+        }
+
 
         public static T FindElementInVisualTree<T>(DependencyObject parentElement, DateTimeOffset selectedDate) where T : DependencyObject
         {
@@ -84,15 +125,11 @@ namespace Denna.Views.SubMaster
 
                 if (child != null && child is CalendarViewDayItem)
                 {
-                    if ((child as CalendarViewDayItem).Date.UtcDateTime == selectedDate.UtcDateTime)
+                    if ((child as CalendarViewDayItem).Date.Date == selectedDate.Date)
                     {
                         VisualStateManager.GoToState((child as CalendarViewDayItem), "Selected", true);
                     }
-                    else if ((child as CalendarViewDayItem).Date.Date == DateTime.Today)
-                    {
-                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Unselected", true);
-                        //styles for today's date
-                    }
+
                     else
                     {
                         VisualStateManager.GoToState((child as CalendarViewDayItem), "Unselected", true);
@@ -107,5 +144,7 @@ namespace Denna.Views.SubMaster
             }
             return null;
         }
+
+
     }
 }

@@ -37,6 +37,7 @@
              VerticalAlignment="Top" SelectedDatesChanged="CalendarView_SelectedDatesChanged"
              CalendarViewDayItemStyle="{StaticResource CalendarViewDayItemStyle1}"
              RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                                      Loaded="MyCalendarView_Loaded"
              RelativePanel.AlignRightWithPanel="True"
                                        classes:CalendarViewHelper.SelectedDate="{x:Bind ViewModel.SelectedDate, Mode=OneWay}" 
                           />
