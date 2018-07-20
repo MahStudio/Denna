@@ -64,12 +64,15 @@ namespace Denna.Views.SubMaster
             {
                 foreach (var item in args.RemovedDates)
                 {
-
+                    
                 }
             }
             
             
         }
+
+       
+
         public static T FindElementInVisualTree<T>(DependencyObject parentElement, DateTimeOffset selectedDate) where T : DependencyObject
         {
             var count = VisualTreeHelper.GetChildrenCount(parentElement);
@@ -81,18 +84,18 @@ namespace Denna.Views.SubMaster
 
                 if (child != null && child is CalendarViewDayItem)
                 {
-                    if ((child as CalendarViewDayItem).Date == selectedDate.DateTime)
+                    if ((child as CalendarViewDayItem).Date.UtcDateTime == selectedDate.UtcDateTime)
                     {
-                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Hover", true);
+                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Selected", true);
                     }
                     else if ((child as CalendarViewDayItem).Date.Date == DateTime.Today)
                     {
-                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Normal", true);
+                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Unselected", true);
                         //styles for today's date
                     }
                     else
                     {
-                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Normal", true);
+                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Unselected", true);
                     }
                 }
                 else
