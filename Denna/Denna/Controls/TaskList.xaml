@@ -29,7 +29,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate >
                     <controls:SwipeListItem  Margin="0,10,0,0" 
-             LeftFirstContent="{Binding StartTime , Converter={StaticResource DateTimeToTimeStringConverter}}" LeftFirstForeground="White" LeftFirstColor="{Binding Isdone,Converter={StaticResource IsdoneToColorConverter}}"
+             LeftFirstContent="{Binding StartTime , Converter={StaticResource DateTimeToTimeStringConverter}}" LeftFirstForeground="White" LeftFirstColor="{Binding Status,Converter={StaticResource IsdoneToColorConverter}}"
              RightFirstColor="{StaticResource GrayBrush}" RightFirstForeground="White" RightFirstContent=""   
                                     RightSecondColor="{StaticResource GreenBrush}" RightSecondForeground="White" RightSecondContent=""
                                     RightThirdColor="{StaticResource YellowBrush}" RightThirdContent="" RightThirdForeground="White"
@@ -41,7 +41,7 @@
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                 <RelativePanel>
                                     <TextBlock x:Name="Glyph" FontFamily="Segoe MDL2 Assets" TextAlignment="Center"  Grid.Column="0" Grid.Row="0" FontSize="17" 
-                                Text="{Binding Isdone,Converter={StaticResource IsdoneToGlyphConverter}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Isdone,Converter={StaticResource IsdoneToColorConverter}}" Width="25" Margin="7,7,0,6"
+                                Text="{Binding Status,Converter={StaticResource IsdoneToGlyphConverter}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Status,Converter={StaticResource IsdoneToColorConverter}}" Width="25" Margin="7,7,0,6"
                                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                                    />
                                         <TextBlock Foreground="{ThemeResource AntiForeground }" RelativePanel.RightOf="title" RelativePanel.AlignRightWithPanel="True"  TextAlignment="Right" Opacity="0.7"
@@ -81,26 +81,8 @@
                                             </Flyout>
                                         </Button.Flyout>
                                     </Button>
-                                        <GridView x:Name="Grid" ItemsSource="{Binding Tags}" RelativePanel.LeftOf="more" ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="25" Margin="7,2,0,0" 
-                                  RelativePanel.Below="Title" RelativePanel.RightOf="Glyph" Style="{StaticResource GridViewStyle1}"
-                                              ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.IsVerticalRailEnabled="False" HorizontalAlignment="Left"  >
-                                            <GridView.ItemTemplate>
-                                            <DataTemplate>
-                                                    <TextBlock Tag="{Binding}" Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="{Binding Converter={StaticResource TextToHashtagConverter}}" />
 
-                                            </DataTemplate>
-
-                                            </GridView.ItemTemplate>
-                                            <GridView.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <VariableSizedWrapGrid MaximumRowsOrColumns="8" MaxWidth="500" Orientation="Horizontal" />
-                                                </ItemsPanelTemplate>
-                                            </GridView.ItemsPanel>
-
-
-
-                                        </GridView>
-                                        <Rectangle RelativePanel.Below="Grid" RelativePanel.AlignLeftWithPanel="True"
+                                        <Rectangle RelativePanel.Below="Title" RelativePanel.AlignLeftWithPanel="True" Margin="0,10,0,0"
                                                 RelativePanel.AlignRightWithPanel="True" Fill="{ThemeResource AntiForeground}" Opacity="0.08"  Height="1" HorizontalAlignment="Stretch" />
 
                                     </RelativePanel>

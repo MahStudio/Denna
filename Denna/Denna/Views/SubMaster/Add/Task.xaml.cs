@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Domain;
+using Core.Todos.Tasks;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +32,17 @@ namespace Denna.Views.SubMaster.Add
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
+        }
+
+        private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            var todo = new Todo()
+            {
+                Subject = Title.Text,
+                Detail = Details.Text,
+                Status = Status.notDone
+            };
+            await TodoService.AddTodo(todo);
         }
     }
 }

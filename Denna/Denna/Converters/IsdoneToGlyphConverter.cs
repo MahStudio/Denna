@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,25 +8,25 @@ using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
 {
-    class IsdoneToGlyphConverter:IValueConverter
+    class IsdoneToGlyphConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            int a = (int)value;
+            var a = (Status)value;
             string x = "";
             switch (a)
             {
-                case 0:
+                case Status.notDone:
                     {
                         x = "";
                         break;
                     }
-                case 1:
+                case Status.Suspended:
                     {
                         x = "";
                         break;
                     }
-                case 2:
+                case Status.Done:
                     {
                         x = "";
                         break;

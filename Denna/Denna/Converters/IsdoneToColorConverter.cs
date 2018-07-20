@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,25 +11,25 @@ using Windows.UI.Xaml.Media;
 
 namespace Denna.Converters
 {
-    class IsdoneToColorConverter: IValueConverter
+    class IsdoneToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            int a = (int)value;
+            var a = (Status)value;
             SolidColorBrush x = new SolidColorBrush(Colors.Red);
             switch (a)
             {
-                case 0:
+                case Status.notDone:
                     {
-                       x= (SolidColorBrush)Application.Current.Resources["BlueBrush"];
-                        break; 
+                        x = (SolidColorBrush)Application.Current.Resources["BlueBrush"];
+                        break;
                     }
-                case 1:
+                case Status.Suspended:
                     {
                         x = (SolidColorBrush)Application.Current.Resources["YellowBrush"];
                         break;
                     }
-                case 2:
+                case Status.Done:
                     {
                         x = (SolidColorBrush)Application.Current.Resources["GreenBrush"];
                         break;
@@ -36,7 +37,7 @@ namespace Denna.Converters
                 default:
                     break;
             }
-            
+
             return x;
         }
 
