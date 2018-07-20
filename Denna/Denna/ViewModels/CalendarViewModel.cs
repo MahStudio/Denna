@@ -13,7 +13,7 @@ namespace Denna.ViewModels
     {
         private DateTimeOffset _selecteddate;
         public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<TaskItem> TodayList { get; set; }
+        public ObservableCollection<Core.Domain.Todo> TodayList { get; set; }
         public DateTimeOffset SelectedDate
         {
             get
@@ -39,8 +39,8 @@ namespace Denna.ViewModels
         {
 
             SelectedDate = DateTime.Today;
-            TodayList = new ObservableCollection<TaskItem>();
-            TodayList.Add(new TaskItem()
+            TodayList = new ObservableCollection<Core.Domain.Todo>();
+            TodayList.Add(new Core.Domain.Todo()
             {
                 Id = 33,
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 33,
@@ -52,7 +52,7 @@ namespace Denna.ViewModels
                 StartTime = DateTime.Now.AddHours(2),
 
             });
-            TodayList.Add(new TaskItem()
+            TodayList.Add(new Core.Domain.Todo()
             {
                 Id = 66,
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 66,
@@ -65,7 +65,7 @@ namespace Denna.ViewModels
             });
             for (int i = 0; i < 3; i++)
             {
-                TodayList.Add(new TaskItem()
+                TodayList.Add(new Core.Domain.Todo()
                 {
                     Id = i,
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,

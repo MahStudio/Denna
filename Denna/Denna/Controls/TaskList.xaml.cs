@@ -30,16 +30,16 @@ namespace Denna.Controls
 
 
 
-        public ObservableCollection<TaskItem> TaskLists
+        public ObservableCollection<Todo> TaskLists
         {
-            get { return (ObservableCollection<TaskItem>)GetValue(TaskListsProperty); }
+            get { return (ObservableCollection<Todo>)GetValue(TaskListsProperty); }
             set { SetValue(TaskListsProperty, value);
             }
         }
 
         // Using a DependencyProperty as the backing store for TaskLists.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TaskListsProperty =
-            DependencyProperty.Register("TaskLists", typeof(ObservableCollection<TaskItem>), typeof(TaskList), new PropertyMetadata(null));
+            DependencyProperty.Register("TaskLists", typeof(ObservableCollection<Todo>), typeof(TaskList), new PropertyMetadata(null));
 
 
 

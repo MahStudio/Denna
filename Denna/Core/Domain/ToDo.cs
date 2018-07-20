@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Domain
 {
-    public class TaskItem:BaseModel
+    public class Todo:BaseModel
     {
         public string Subject { get; set; }
         public string Detail { get; set; }

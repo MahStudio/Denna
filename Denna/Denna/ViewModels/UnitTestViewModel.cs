@@ -26,8 +26,6 @@ namespace Denna.ViewModels
         private void SignIn(object obj)
         {
             Value++;
-            var a = new Core.Service.TestSvc();
-            a.addsth();
             Per = Per + 1;
         }
         private Double _per = 10;

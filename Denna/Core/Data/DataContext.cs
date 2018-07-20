@@ -70,6 +70,6 @@ namespace Core.Data
             }
         }
 
-        public DbSet<TaskItem> Tasks { get; set; }
+        public DbSet<Domain.Todo> Tasks { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Domain;
+using Core.Todos.Tasks;
 
 namespace Denna.ViewModels
 {
@@ -14,29 +15,12 @@ namespace Denna.ViewModels
 
         public TimeLineViewModel()
         {
-            TodayList = new ObservableCollection<TaskItem>();
-            Attention = new ObservableCollection<TaskItem>();
-
-
-            for (int i = 0; i < 5; i++)
-            {
-                TodayList.Add(new TaskItem()
-                {
-                    Id = i,
-                    Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
-                    Subject = "This is Title of " + i
-                    ,
-                    Imprtance = Importance.High,
-                    Isdone = 2,
-                    Notify = 1,
-                    StartTime = DateTime.Now.AddHours(2)
-                });
-
-            }
+            TodayList = new ObservableCollection<Todo>(TodoService.GetAllTodos());
+            Attention = new ObservableCollection<Todo>();
 
             for (int i = 0; i < 5; i++)
             {
-                Attention.Add(new TaskItem()
+                Attention.Add(new Core.Domain.Todo()
                 {
                     Id = i,
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
@@ -51,8 +35,8 @@ namespace Denna.ViewModels
             }
         }
 
-        public ObservableCollection<TaskItem> TodayList { get; set; }
-        public ObservableCollection<TaskItem> Attention { get; set; }
+        public ObservableCollection<Core.Domain.Todo> TodayList { get; set; }
+        public ObservableCollection<Core.Domain.Todo> Attention { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

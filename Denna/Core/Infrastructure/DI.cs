@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Core.Data;
 using Core.Domain;
-using Core.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +15,7 @@ namespace Core.Infrastructure
         public static void Build()
         {
             var builder = new ContainerBuilder();
-            builder.Register(p => new GenericRepository<TaskItem>()).As<IGenericRepository<TaskItem>>();
+            builder.Register(p => new GenericRepository<Todo>()).As<IGenericRepository<Todo>>();
             var container = builder.Build();
             Container = container;
         }
