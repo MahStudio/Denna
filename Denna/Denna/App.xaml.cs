@@ -1,4 +1,6 @@
-﻿using Denna.Views;
+﻿using Core.Data;
+using Denna.Views;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +35,11 @@ namespace Denna
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             Themesetter();
-            
+            using (var db = new DataContext())
+            {
+                db.Database.Migrate();
+            }
+
         }
         private void stuff()
         {

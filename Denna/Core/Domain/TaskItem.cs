@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Core.Domain
 {
-    public class TaskItem
+    public class TaskItem:BaseModel
     {
-        public int ID { get; set; }
         public string Subject { get; set; }
         public string Detail { get; set; }
         public int Notify { get; set; }
@@ -17,7 +16,6 @@ namespace Core.Domain
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public Importance Imprtance { get; set; }
-        public ObservableCollection<string> Tags { get; set; }
 
     }
 }

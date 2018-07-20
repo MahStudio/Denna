@@ -22,15 +22,14 @@ namespace Denna.ViewModels
             {
                 TodayList.Add(new TaskItem()
                 {
-                    ID = i,
+                    Id = i,
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
                     Subject = "This is Title of " + i
                     ,
                     Imprtance = Importance.High,
                     Isdone = 2,
                     Notify = 1,
-                    StartTime = DateTime.Now.AddHours(2),
-                    Tags = new ObservableCollection<string>() { "Tagone", "tagtwo", "tagThree", "TagFour" }
+                    StartTime = DateTime.Now.AddHours(2)
                 });
 
             }
@@ -39,15 +38,14 @@ namespace Denna.ViewModels
             {
                 Attention.Add(new TaskItem()
                 {
-                    ID = i,
+                    Id = i,
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
                     Subject = "This is POSTPONED of " + i
                     ,
                     Imprtance = Importance.High,
                     Isdone = 1,
                     Notify = 1,
-                    StartTime = DateTime.Now.AddHours(2),
-                    Tags = new ObservableCollection<string>() { "Tagone", "tagtwo", "tagThree", "TagFour" }
+                    StartTime = DateTime.Now.AddHours(2)
                 });
 
             }
