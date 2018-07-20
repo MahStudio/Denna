@@ -109,11 +109,17 @@
                                         <Setter Target="ContentPresenter.(Border.Background)" Value="{StaticResource SystemControlBackgroundAccentBrush}"/>
                                     </VisualState.Setters>
                                 </VisualState>
-                                <VisualState x:Name="Normal">
+                                <VisualState x:Name="Unselected">
                                     <VisualState.Setters>
                                         <Setter Target="ContentPresenter.(Border.Background)" Value="Transparent"/>
                                     </VisualState.Setters>
                                 </VisualState>
+                                <VisualState x:Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Target="ContentPresenter.(Border.Background)" Value="{StaticResource SystemControlBackgroundAccentBrush}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="ContentPresenter" PointerPressed="border_PointerPressed"  PointerEntered="border_PointerEntered" BorderBrush="Transparent" PointerExited="border_PointerExited" PointerMoved="border_PointerMoved" BorderThickness="0" CornerRadius="50" />
