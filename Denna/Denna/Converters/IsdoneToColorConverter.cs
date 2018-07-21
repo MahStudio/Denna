@@ -15,21 +15,21 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var a = (Status)value;
+            var a = (int)value;
             SolidColorBrush x = new SolidColorBrush(Colors.Red);
             switch (a)
             {
-                case Status.notDone:
+                case 2:
                     {
                         x = (SolidColorBrush)Application.Current.Resources["BlueBrush"];
                         break;
                     }
-                case Status.Suspended:
+                case 1:
                     {
                         x = (SolidColorBrush)Application.Current.Resources["YellowBrush"];
                         break;
                     }
-                case Status.Done:
+                case 0:
                     {
                         x = (SolidColorBrush)Application.Current.Resources["GreenBrush"];
                         break;

@@ -40,7 +40,7 @@ namespace Denna.Views.SubMaster.Add
             {
                 Subject = Title.Text,
                 Detail = Details.Text,
-                Status = Status.notDone
+                Status = 2
             };
             await TodoService.AddTodo(todo);
         }

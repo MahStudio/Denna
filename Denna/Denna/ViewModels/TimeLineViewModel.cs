@@ -22,12 +22,11 @@ namespace Denna.ViewModels
             {
                 Attention.Add(new Core.Domain.Todo()
                 {
-                    Id = i,
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
                     Subject = "This is POSTPONED of " + i
                     ,
-                    Imprtance = Importance.High,
-                    Status = Status.Suspended,
+                    Imprtance = 2,
+                    Status = 1,
                     Notify = 1,
                     StartTime = DateTime.Now.AddHours(2)
                 });

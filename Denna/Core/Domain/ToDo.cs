@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Realms;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Core.Domain
 {
-    public class Todo : BaseModel
+    public class Todo : RealmObject
     {
         public string Subject { get; set; }
         public string Detail { get; set; }
         public int Notify { get; set; }
-        public Status Status { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public Importance Imprtance { get; set; }
+        public int Status { get; set; }
+        public DateTimeOffset StartTime { get; set; }
+        public DateTimeOffset EndTime { get; set; }
+        public int Imprtance { get; set; }
 
     }
 }

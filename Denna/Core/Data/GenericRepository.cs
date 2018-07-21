@@ -1,5 +1,5 @@
 ﻿using Core.Domain;
-using Microsoft.EntityFrameworkCore;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,42 +9,33 @@ using System.Threading.Tasks;
 
 namespace Core.Data
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseModel
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : RealmObject
     {
-        private readonly DataContext _dbContext;
-        public GenericRepository() => _dbContext = new DataContext();
-        public GenericRepository(DataContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
+        private readonly Realm _instance;
+        public GenericRepository() => _instance = Realm.GetInstance();
+        public GenericRepository(Realm instance) => _instance = instance;
 
-        public IQueryable<TEntity> GetAll()
-        {
-            return _dbContext.Set<TEntity>().AsNoTracking();
-        }
+        public IQueryable<TEntity> GetAll() => _instance.All<TEntity>();
         public async Task<TEntity> GetById(int id)
         {
-            return await _dbContext.Set<TEntity>()
-                        .AsNoTracking()
-                        .FirstOrDefaultAsync(e => e.Id == id);
+            throw new NotImplementedException();
         }
         public async Task Create(TEntity entity)
         {
-            await _dbContext.Set<TEntity>().AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
+            _instance.Write(() =>
+            {
+                _instance.Add(entity);
+            });
         }
 
         public async Task Update(int id, TEntity entity)
         {
-            _dbContext.Set<TEntity>().Update(entity);
-            await _dbContext.SaveChangesAsync();
+            throw new NotImplementedException();
         }
 
         public async Task Delete(int id)
         {
-            var entity = await GetById(id);
-            _dbContext.Set<TEntity>().Remove(entity);
-            await _dbContext.SaveChangesAsync();
+            throw new NotImplementedException();
         }
     }
 }

@@ -42,24 +42,22 @@ namespace Denna.ViewModels
             TodayList = new ObservableCollection<Core.Domain.Todo>();
             TodayList.Add(new Core.Domain.Todo()
             {
-                Id = 33,
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 33,
                 Subject = "This is Title of " + 33
                    ,
-                Imprtance = Importance.High,
-                Status=Status.notDone,
+                Imprtance = 0,
+                Status=2,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2),
 
             });
             TodayList.Add(new Core.Domain.Todo()
             {
-                Id = 66,
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 66,
                 Subject = "This is Title of " + 66
                    ,
-                Imprtance = Importance.Low,
-                Status = Status.Done,
+                Imprtance = 2,
+                Status = 0,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2)
             });
@@ -67,12 +65,11 @@ namespace Denna.ViewModels
             {
                 TodayList.Add(new Core.Domain.Todo()
                 {
-                    Id = i,
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
                     Subject = "This is Title of " + i
                     ,
-                    Imprtance = Importance.Medium,
-                    Status = Status.Suspended,
+                    Imprtance = 1,
+                    Status = 1,
                     Notify = 1,
                     StartTime = DateTime.Now.AddHours(2)
                 });

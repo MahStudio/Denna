@@ -12,21 +12,21 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var a = (Status)value;
+            var a = (int)value;
             string x = "";
             switch (a)
             {
-                case Status.notDone:
+                case 2:
                     {
                         x = "";
                         break;
                     }
-                case Status.Suspended:
+                case 1:
                     {
                         x = "";
                         break;
                     }
-                case Status.Done:
+                case 0:
                     {
                         x = "";
                         break;
