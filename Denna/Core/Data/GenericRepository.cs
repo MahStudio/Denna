@@ -16,11 +16,8 @@ namespace Core.Data
         public GenericRepository(Realm instance) => _instance = instance;
 
         public IQueryable<TEntity> GetAll() => _instance.All<TEntity>();
-        public async Task<TEntity> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-        public async Task Create(TEntity entity)
+        public TEntity GetById(string id) => _instance.Find<TEntity>(id);
+        public void Create(TEntity entity)
         {
             _instance.Write(() =>
             {
@@ -28,14 +25,25 @@ namespace Core.Data
             });
         }
 
-        public async Task Update(int id, TEntity entity)
+        public void Update(TEntity entity) => _instance.Write(() => _instance.Add(entity, update: true));
+
+        public void Delete(TEntity entity)
         {
-            throw new NotImplementedException();
+            using (var trans = _instance.BeginWrite())
+            {
+                _instance.Remove(entity);
+                trans.Commit();
+            }
         }
 
-        public async Task Delete(int id)
+        public void Delete(string id)
         {
-            throw new NotImplementedException();
+            using (var trans = _instance.BeginWrite())
+            {
+                var entity = GetById(id);
+                _instance.Remove(entity);
+                trans.Commit();
+            }
         }
     }
 }

@@ -10,9 +10,10 @@ namespace Core.Data
     public interface IGenericRepository<TEntity> where TEntity : class
     {
         IQueryable<TEntity> GetAll();
-        Task<TEntity> GetById(int id);
-        Task Create(TEntity entity);
-        Task Update(int id, TEntity entity);
-        Task Delete(int id);
+        TEntity GetById(string id);
+        void Create(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
+        void Delete(string id);
     }
 }

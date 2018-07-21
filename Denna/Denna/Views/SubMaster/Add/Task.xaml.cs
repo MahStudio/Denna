@@ -42,7 +42,7 @@ namespace Denna.Views.SubMaster.Add
                 Detail = Details.Text,
                 Status = 2
             };
-            await TodoService.AddTodo(todo);
+            TodoService.AddTodo(todo);
         }
     }
 }

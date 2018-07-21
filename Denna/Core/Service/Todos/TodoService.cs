@@ -14,11 +14,11 @@ namespace Core.Todos.Tasks
     {
         private static IGenericRepository<Todo> _repo;
         static TodoService() => _repo = DI.Container.Resolve<IGenericRepository<Todo>>();
-        public static async Task AddTodo(Todo task) => await _repo.Create(task);
+        public static void AddTodo(Todo task) => _repo.Create(task);
         public static List<Todo> GetAllTodos() => _repo.GetAll().ToList();
-        public static async Task<Todo> GetById(int id) => await _repo.GetById(id);
-        public static async Task Edit(int id, Todo task) => await _repo.Update(id, task);
-        public static async Task Delete(int id) => await _repo.Delete(id);
+        public static Todo GetById(string id) => _repo.GetById(id);
+        public static void Edit(Todo task) => _repo.Update(task);
+        public static void Delete(string id) => _repo.Delete(id);
 
     }
 }

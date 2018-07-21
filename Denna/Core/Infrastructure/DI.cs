@@ -16,6 +16,7 @@ namespace Core.Infrastructure
         {
             var builder = new ContainerBuilder();
             builder.Register(p => new GenericRepository<Todo>()).As<IGenericRepository<Todo>>();
+            builder.Register(p => new GenericRepository<Count>()).As<IGenericRepository<Count>>();
             var container = builder.Build();
             Container = container;
         }

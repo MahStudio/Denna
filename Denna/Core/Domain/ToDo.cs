@@ -1,15 +1,11 @@
-﻿using Realms;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System;
+using Realms;
 namespace Core.Domain
 {
     public class Todo : RealmObject
     {
+        [PrimaryKey]
+        public string Id { get; set; }
         public string Subject { get; set; }
         public string Detail { get; set; }
         public int Notify { get; set; }
