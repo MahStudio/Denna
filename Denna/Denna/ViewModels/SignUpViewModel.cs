@@ -262,7 +262,7 @@ namespace Denna.ViewModels
 
             }
         }
-        private void SignUp(object obj)
+        private async void SignUp(object obj)
         {
             if (Password != RPassword)
             {
