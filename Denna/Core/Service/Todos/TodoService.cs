@@ -2,6 +2,7 @@
 using Core.Data;
 using Core.Domain;
 using Core.Infrastructure;
+using Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,11 @@ namespace Core.Todos.Tasks
     {
         private static IGenericRepository<Todo> _repo;
         static TodoService() => _repo = DI.Container.Resolve<IGenericRepository<Todo>>();
-        public static void AddTodo(Todo task) => _repo.Create(task);
+        public static void AddTodo(Todo task)
+        {
+            task.Id = KeyHelper.CreateId();
+            _repo.Create(task);
+        }
         public static List<Todo> GetAllTodos() => _repo.GetAll().ToList();
         public static Todo GetById(string id) => _repo.GetById(id);
         public static void Edit(Todo task) => _repo.Update(task);
