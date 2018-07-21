@@ -12,13 +12,14 @@ using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Media.Imaging;
+using Core.Service.Users;
 
 namespace Denna.ViewModels
 {
     class SignUpViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         private string _username;
         private string _password;
         private string _rpassword;
@@ -202,7 +203,7 @@ namespace Denna.ViewModels
 
         }
 
-        
+
 
         private string name;
         private string filename;
@@ -237,7 +238,7 @@ namespace Denna.ViewModels
                 StorageFile copiedFile = await file.CopyAsync(localFolder, "avatar.jpg");
 
                 filename = "avatar.jpg";
-                
+
 
 
 
@@ -262,7 +263,13 @@ namespace Denna.ViewModels
         }
         private void SignUp(object obj)
         {
-            //Core.Models.UserModel.CreateUser(UserName, Email, Name, Family, Password);
+            if (Password != RPassword)
+            {
+                "Retype password".ShowMessage("Passwords not maching");
+                return;
+            }
+
+            UserService.Register(UserName, Password);
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
 

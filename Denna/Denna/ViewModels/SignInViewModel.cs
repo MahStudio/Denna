@@ -1,4 +1,5 @@
-﻿using Denna.Classes;
+﻿using Core.Service.Users;
+using Denna.Classes;
 using Denna.Views;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Denna.ViewModels
 {
-     public class SignInViewModel : INotifyPropertyChanged
+    public class SignInViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public MyCommand SignInCommand
@@ -38,7 +39,7 @@ namespace Denna.ViewModels
         }
         private void SignIn(object obj)
         {
-            
+            UserService.Login(UserName, Password);
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
         private string _username;
@@ -49,7 +50,8 @@ namespace Denna.ViewModels
             {
                 return _username;
 
-            } set
+            }
+            set
             {
 
                 if (_username != value)

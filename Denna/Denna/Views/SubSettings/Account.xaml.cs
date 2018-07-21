@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Service.Users;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,13 @@ namespace Denna.Views.SubSettings
         public Account()
         {
             this.InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UserService.Logout();
+            Frame.Navigate(typeof(Welcome));
+            Frame.BackStack.Clear();
         }
     }
 }

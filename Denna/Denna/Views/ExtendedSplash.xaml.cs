@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Service.Users;
+using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -71,13 +72,13 @@ namespace Denna.Views
         }
         void DismissExtendedSplash()
         {
-            if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+            if (UserService.IsUserLoggenIn())
             {
                 rootFrame.Navigate(typeof(PageMaster));
                 
             }
             else
-                rootFrame.Navigate(typeof(PageMaster));
+                rootFrame.Navigate(typeof(Welcome));
            
             
             // Place the frame in the current Window

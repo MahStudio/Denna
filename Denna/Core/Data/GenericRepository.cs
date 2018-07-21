@@ -15,11 +15,19 @@ namespace Core.Data
         private readonly Realm _instance;
         public GenericRepository()
         {
-            var configuration = new QueryBasedSyncConfiguration(new Uri("~/myRealm", UriKind.Relative));
-            _instance = Realm.GetInstance(configuration);
-            var subscription = _instance.All<TEntity>().Subscribe();
-            var subscription2 = _instance.All<Count>().Subscribe();
-            var ss = _instance.GetSession();
+            try
+            {
+                var configuration = new QueryBasedSyncConfiguration(new Uri("~/myRealm", UriKind.Relative));
+                _instance = Realm.GetInstance(configuration);
+                var subscription = _instance.All<TEntity>().Subscribe();
+                var subscription2 = _instance.All<Count>().Subscribe();
+                var ss = _instance.GetSession();
+            }
+            catch
+            {
+                _instance = Realm.GetInstance();
+            }
+
 
         }
         public GenericRepository(Realm instance) => _instance = instance;

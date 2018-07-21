@@ -13,26 +13,9 @@
     </Page.DataContext>
     <StackPanel >
         <Grid Margin="10,20,10,0">
-            <Ellipse   HorizontalAlignment="Center" Height="80"  Width="80" >
-                <Ellipse.Fill>
-                    <SolidColorBrush Color="Black" Opacity="0.1" />
-                </Ellipse.Fill>
-            </Ellipse>
-            <Ellipse   HorizontalAlignment="Center" Height="80"  Width="80" >
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="{Binding Avatar}" Stretch="UniformToFill" x:Name="avatar"  />
-                </Ellipse.Fill>
-            </Ellipse>
-            
-            <Button x:Name="butt1" Command="{Binding Picture}" BorderBrush="Gray" BorderThickness="1" Background="Transparent" Foreground="White" 
-                  FontFamily="Segoe MDL2 Assets" FontSize="25" Content="" Style="{StaticResource dotbut}"  Height="80" Width="80" HorizontalAlignment="Center" />
-
         </Grid>
         <controls:TemplatedTextBox Text="{Binding UserName,Mode=TwoWay}" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Username" />
-        <controls:TemplatedTextBox Margin="10,10,10,0" Text="{Binding Email,Mode=TwoWay}" Height="35" Glyph="" PlaceHolder="Email" />
-        <controls:TemplatedTextBox Margin="10,10,10,0" Text="{Binding Name,Mode=TwoWay}" Height="35" Glyph="" PlaceHolder="First name" />
-        <controls:TemplatedTextBox Margin="10,10,10,0" Text="{Binding Family,Mode=TwoWay}" Height="35" Glyph="" PlaceHolder="Last name" />
-
+        
         <controls:TemplatedPasswordBox Text="{Binding Password,Mode=TwoWay}"
                 PlaceHolder="Password" Glyph="" Margin="10,10,10,0" Height="35"  />
         <controls:TemplatedPasswordBox Text="{Binding RPassword,Mode=TwoWay}"
