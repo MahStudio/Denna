@@ -1,4 +1,5 @@
-﻿using Core.Service.Users;
+﻿using Core.Data;
+using Core.Service.Users;
 using Denna.Classes;
 using Denna.Views;
 using System;
@@ -37,9 +38,10 @@ namespace Denna.ViewModels
         {
             Welcome.current.opensignup();
         }
-        private void SignIn(object obj)
+        private async void SignIn(object obj)
         {
-            UserService.Login(UserName, Password);
+            await UserService.Login(UserName, Password);
+            RealmContext.Initialize();
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
         private string _username;

@@ -1,4 +1,5 @@
-﻿using Core.Service.Users;
+﻿using Core.Data;
+using Core.Service.Users;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
@@ -75,7 +76,7 @@ namespace Denna.Views
             if (UserService.IsUserLoggenIn())
             {
                 rootFrame.Navigate(typeof(PageMaster));
-                
+                RealmContext.Initialize();
             }
             else
                 rootFrame.Navigate(typeof(Welcome));

@@ -3,6 +3,7 @@ using Core.Data;
 using Core.Domain;
 using Core.Infrastructure;
 using Core.Utils;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Core.Todos.Tasks
             task.Id = _repo.CreateId();
             _repo.Create(task);
         }
-        public static List<Todo> GetAllTodos() => _repo.GetAll().ToList();
+        public static IRealmCollection<Todo> GetAllTodos() => _repo.GetAll();
         public static Todo GetById(string id) => _repo.GetById(id);
         public static void Edit(Todo task) => _repo.Update(task);
         public static void Delete(string id) => _repo.Delete(id);

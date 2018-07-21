@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Core.Domain;
+using Realms;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -24,22 +25,24 @@ namespace Denna.Controls
         public TaskList()
         {
             this.InitializeComponent();
-            
+
         }
 
 
 
 
-        public ObservableCollection<Todo> TaskLists
+        public IRealmCollection<Todo> TaskLists
         {
-            get { return (ObservableCollection<Todo>)GetValue(TaskListsProperty); }
-            set { SetValue(TaskListsProperty, value);
+            get { return (IRealmCollection<Todo>)GetValue(TaskListsProperty); }
+            set
+            {
+                SetValue(TaskListsProperty, value);
             }
         }
 
         // Using a DependencyProperty as the backing store for TaskLists.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TaskListsProperty =
-            DependencyProperty.Register("TaskLists", typeof(ObservableCollection<Todo>), typeof(TaskList), new PropertyMetadata(null));
+            DependencyProperty.Register("TaskLists", typeof(IRealmCollection<Todo>), typeof(TaskList), new PropertyMetadata(null));
 
 
 

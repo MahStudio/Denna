@@ -13,6 +13,7 @@ using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Media.Imaging;
 using Core.Service.Users;
+using Core.Data;
 
 namespace Denna.ViewModels
 {
@@ -269,7 +270,8 @@ namespace Denna.ViewModels
                 return;
             }
 
-            UserService.Register(UserName, Password);
+            await UserService.Register(UserName, Password);
+            RealmContext.Initialize();
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
 

@@ -38,10 +38,10 @@
                     <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Today" />
                     <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
                 </StackPanel>
-                <StackPanel Margin="0,30,0,0" >
+                <!--<StackPanel Margin="0,30,0,0" >
                     <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Need attention" />
                     <Controls:TaskList TaskLists="{Binding Attention,Mode=TwoWay}" />
-                </StackPanel>
+                </StackPanel>-->
             </StackPanel>
         </ScrollViewer>
         

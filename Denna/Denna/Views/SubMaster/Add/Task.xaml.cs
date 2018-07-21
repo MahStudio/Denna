@@ -1,4 +1,5 @@
-﻿using Core.Domain;
+﻿using Core.Data;
+using Core.Domain;
 using Core.Todos.Tasks;
 using System;
 using System.Collections.Generic;
@@ -34,15 +35,19 @@ namespace Denna.Views.SubMaster.Add
             Frame.GoBack();
         }
 
-        private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             var todo = new Todo()
             {
-                Subject = Title.Text,
+                Id = DateTime.UtcNow.Ticks.ToString(),
+                Subject = DateTime.Now.ToString(),
                 Detail = Details.Text,
                 Status = 2
             };
-            TodoService.AddTodo(todo);
+            RealmContext.Instance.Write(() =>
+            {
+                RealmContext.Instance.Add(todo);
+            });
         }
     }
 }

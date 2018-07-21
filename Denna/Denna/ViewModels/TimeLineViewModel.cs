@@ -5,8 +5,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Data;
 using Core.Domain;
 using Core.Todos.Tasks;
+using Realms;
+using System.Collections.Specialized;
+using System.Diagnostics;
 
 namespace Denna.ViewModels
 {
@@ -15,7 +19,15 @@ namespace Denna.ViewModels
 
         public TimeLineViewModel()
         {
-            TodayList = new ObservableCollection<Todo>(TodoService.GetAllTodos());
+            TodayList = RealmContext.Instance.All<Todo>().AsRealmCollection();
+            TodayList.CollectionChanged += (s, e) =>
+            {
+                foreach (var item in TodayList)
+                {
+                    Debug.WriteLine(item.Subject);
+                }
+            };
+
             Attention = new ObservableCollection<Todo>();
 
             for (int i = 0; i < 5; i++)
@@ -34,7 +46,7 @@ namespace Denna.ViewModels
             }
         }
 
-        public ObservableCollection<Core.Domain.Todo> TodayList { get; set; }
+        public IRealmCollection<Core.Domain.Todo> TodayList { get; set; }
         public ObservableCollection<Core.Domain.Todo> Attention { get; set; }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Realms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,7 +10,7 @@ namespace Core.Data
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        IQueryable<TEntity> GetAll();
+        IRealmCollection<TEntity> GetAll();
         TEntity GetById(string id);
         void Create(TEntity entity);
         void Update(TEntity entity);

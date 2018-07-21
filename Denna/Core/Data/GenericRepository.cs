@@ -15,26 +15,17 @@ namespace Core.Data
         private readonly Realm _instance;
         public GenericRepository()
         {
-            try
-            {
-                var configuration = new QueryBasedSyncConfiguration(new Uri("~/myRealm", UriKind.Relative));
-                _instance = Realm.GetInstance(configuration);
-                var subscription = _instance.All<TEntity>().Subscribe();
-                var subscription2 = _instance.All<Count>().Subscribe();
-                var ss = _instance.GetSession();
-            }
-            catch
-            {
-                _instance = Realm.GetInstance();
-            }
-
-
+            _instance = RealmContext.Instance;
         }
         public GenericRepository(Realm instance) => _instance = instance;
 
-        public IQueryable<TEntity> GetAll()
+        public IRealmCollection<TEntity> GetAll()
         {
-            var a = _instance.All<TEntity>();
+            var a = _instance.All<TEntity>().AsRealmCollection();
+            var token = _instance.All<TEntity>().SubscribeForNotifications((sender, changes, error) =>
+            {
+                // Access changes.InsertedIndices, changes.DeletedIndices, and changes.ModifiedIndices
+            });
             return a;
         }
 
