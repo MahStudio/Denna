@@ -11,10 +11,10 @@ namespace Core.Service.Users
     {
         public static async void Register(string username, string password)
         {
-            var credentials = Credentials.UsernamePassword(username, password, createUser: true);
+            var credentials = Credentials.UsernamePassword(username, password, createUser: false);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            
+
         }
     }
 }

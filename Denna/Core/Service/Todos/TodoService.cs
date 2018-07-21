@@ -17,7 +17,7 @@ namespace Core.Todos.Tasks
         static TodoService() => _repo = DI.Container.Resolve<IGenericRepository<Todo>>();
         public static void AddTodo(Todo task)
         {
-            task.Id = KeyHelper.CreateId();
+            task.Id = _repo.CreateId();
             _repo.Create(task);
         }
         public static List<Todo> GetAllTodos() => _repo.GetAll().ToList();

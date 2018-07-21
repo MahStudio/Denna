@@ -15,13 +15,21 @@ namespace Core.Data
         private readonly Realm _instance;
         public GenericRepository()
         {
-            var serverURL = new Uri("/some-realm", UriKind.Relative);
-            var configuration = new FullSyncConfiguration(serverURL, User.Current);
+            var configuration = new QueryBasedSyncConfiguration(new Uri("~/myRealm", UriKind.Relative));
             _instance = Realm.GetInstance(configuration);
+            var subscription = _instance.All<TEntity>().Subscribe();
+            var subscription2 = _instance.All<Count>().Subscribe();
+            var ss = _instance.GetSession();
+
         }
         public GenericRepository(Realm instance) => _instance = instance;
 
-        public IQueryable<TEntity> GetAll() => _instance.All<TEntity>();
+        public IQueryable<TEntity> GetAll()
+        {
+            var a = _instance.All<TEntity>();
+            return a;
+        }
+
         public TEntity GetById(string id) => _instance.Find<TEntity>(id);
         public void Create(TEntity entity)
         {
@@ -49,6 +57,25 @@ namespace Core.Data
                 var entity = GetById(id);
                 _instance.Remove(entity);
                 trans.Commit();
+            }
+        }
+        public string CreateId()
+        {
+            if (_instance.All<Count>().Count() == 0)
+            {
+                _instance.Write(() =>
+                {
+                    _instance.Add(new Count());
+                });
+            }
+            var credentials = Credentials.UsernamePassword("", "", createUser: false);
+            var counter = _instance.All<Count>().FirstOrDefault();
+            using (var trans = _instance.BeginWrite())
+            {
+                counter.Counter.Increment();
+                trans.Commit();
+                int a = counter.Counter;
+                return $"{a}_{DateTime.UtcNow.Ticks}";
             }
         }
     }

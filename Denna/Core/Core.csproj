@@ -120,7 +120,6 @@
     <Compile Include="Service\Todos\TodoService.cs" />
     <Compile Include="Service\Users\UserService.cs" />
     <Compile Include="Utils\Extentions.cs" />
-    <Compile Include="Utils\KeyHelper.cs" />
     <EmbeddedResource Include="Properties\Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
