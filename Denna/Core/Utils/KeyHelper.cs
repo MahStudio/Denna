@@ -3,6 +3,7 @@ using Core.Data;
 using Core.Domain;
 using Core.Infrastructure;
 using Realms;
+using Realms.Sync;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Core.Utils
                     _instance.Add(new Count());
                 });
             }
-
+            var credentials = Credentials.UsernamePassword("", "", createUser: false);
             var counter = _instance.All<Count>().FirstOrDefault();
             using (var trans = _instance.BeginWrite())
             {

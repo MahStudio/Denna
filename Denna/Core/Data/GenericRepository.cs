@@ -1,5 +1,6 @@
 ﻿using Core.Domain;
 using Realms;
+using Realms.Sync;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,12 @@ namespace Core.Data
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : RealmObject
     {
         private readonly Realm _instance;
-        public GenericRepository() => _instance = Realm.GetInstance();
+        public GenericRepository()
+        {
+            var serverURL = new Uri("/some-realm", UriKind.Relative);
+            var configuration = new FullSyncConfiguration(serverURL, User.Current);
+            _instance = Realm.GetInstance(configuration);
+        }
         public GenericRepository(Realm instance) => _instance = instance;
 
         public IQueryable<TEntity> GetAll() => _instance.All<TEntity>();
