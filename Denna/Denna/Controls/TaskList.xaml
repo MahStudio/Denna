@@ -29,7 +29,7 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate >
-                    <controls:SwipeListItem  Margin="0,10,0,0" 
+                    <controls:SwipeListItem  Margin="0,10,0,0" Tag="{Binding}" RightFirstClicked="Undone_click" RightSecondClicked="Done_click" RightThirdClicked="PostponeClick"
              LeftFirstContent="{Binding StartTime , Converter={StaticResource DateTimeToTimeStringConverter}}" LeftFirstForeground="White" LeftFirstColor="{Binding Status,Converter={StaticResource IsdoneToColorConverter}}"
              RightFirstColor="{StaticResource GrayBrush}" RightFirstForeground="White" RightFirstContent=""   
                                     RightSecondColor="{StaticResource GreenBrush}" RightSecondForeground="White" RightSecondContent=""

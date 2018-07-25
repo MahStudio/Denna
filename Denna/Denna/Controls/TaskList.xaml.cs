@@ -46,7 +46,7 @@ namespace Denna.Controls
             DependencyProperty.Register("TaskLists", typeof(IRealmCollection<Todo>), typeof(TaskList), new PropertyMetadata(null));
 
 
-        
+
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
@@ -71,9 +71,27 @@ namespace Denna.Controls
                 default:
                     break;
             }
-            
+
         }
 
+        private void Undone_click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            var todo = btn.Tag as Todo;
+            TodoService.Undone(todo);
+        }
+        private void Done_click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            var todo = btn.Tag as Todo;
+            TodoService.Done(todo);
+        }
+        private void PostponeClick(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            var todo = btn.Tag as Todo;
+            TodoService.Postpone(todo);
+        }
 
 
 
