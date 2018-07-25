@@ -46,12 +46,32 @@ namespace Denna.Controls
             DependencyProperty.Register("TaskLists", typeof(IRealmCollection<Todo>), typeof(TaskList), new PropertyMetadata(null));
 
 
-
-
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            var todo = (sender as Button).Tag as Todo;
-            TodoService.Delete(todo);
+            var btn = sender as Button;
+            var todo = btn.Tag as Todo;
+            switch (btn.Name)
+            {
+                case "delete":
+                    TodoService.Delete(todo);
+                    break;
+                case "edit":
+                    //Edit page navigation
+                    break;
+                case "Done":
+                    TodoService.Done(todo);
+                    break;
+                case "Undo":
+                    TodoService.Undone(todo);
+                    break;
+                case "Postpone":
+                    TodoService.Postpone(todo);
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
 

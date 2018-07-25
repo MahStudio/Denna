@@ -38,8 +38,16 @@ namespace Core.Data
             });
         }
 
-        public void Update(TEntity entity) => _instance.Write(() => _instance.Add(entity, update: true));
+        public void UpdateManaged(TEntity oldEntity, TEntity newEntity)
+        {
+            using (var trans = _instance.BeginWrite())
+            {
+                oldEntity = newEntity;
+                trans.Commit();
+            }
+        }
 
+        public void UpdatePrimary(TEntity entity, string id) => _instance.Write(() => _instance.Add(entity, update: true));
         public void Delete(TEntity entity)
         {
             using (var trans = _instance.BeginWrite())

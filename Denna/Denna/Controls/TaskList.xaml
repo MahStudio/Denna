@@ -40,49 +40,59 @@
                         <controls:SwipeListItem.TheGrid>
                             <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                <RelativePanel>
-                                    <TextBlock x:Name="Glyph" FontFamily="Segoe MDL2 Assets" TextAlignment="Center"  Grid.Column="0" Grid.Row="0" FontSize="17" 
+                                    <RelativePanel>
+                                        <TextBlock x:Name="Glyph" FontFamily="Segoe MDL2 Assets" TextAlignment="Center"  Grid.Column="0" Grid.Row="0" FontSize="17" 
                                 Text="{Binding Status,Converter={StaticResource IsdoneToGlyphConverter}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Status,Converter={StaticResource IsdoneToColorConverter}}" Width="25" Margin="7,7,0,6"
                                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                                    />
                                         <TextBlock Foreground="{ThemeResource AntiForeground }" RelativePanel.RightOf="title" RelativePanel.AlignRightWithPanel="True"  TextAlignment="Right" Opacity="0.7"
                                                    Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding StartTime}"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>
 
-                                    <TextBlock x:Name="title" FontWeight="SemiBold"  Grid.Column="1" Grid.Row="0"
+                                        <TextBlock x:Name="title" FontWeight="SemiBold"  Grid.Column="1" Grid.Row="0"
                                     FontSize="14" Text="{Binding Subject}"  Margin="7,5,0,0" Foreground="{ThemeResource AntiForeground }"
                                RelativePanel.RightOf="Glyph"    />
                                         <RichTextBlock classes:BindingHelper.Text="{Binding Detail}"  MaxLines="3" TextWrapping="Wrap" Foreground="{ThemeResource AntiForeground }" Opacity="0.65" Grid.Column="1" Grid.Row="1"  FontSize="13"
                         Margin="7,2,0,0" RelativePanel.Below="title" RelativePanel.RightOf="Glyph" RelativePanel.LeftOf="more"  x:Name="Title"   
                                                        IsTextSelectionEnabled="False"/>
 
-                                    <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more"  Background="Transparent" Tag="WOW"
+                                        <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more"  Background="Transparent" Tag="WOW"
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" Grid.Row="1" 
                                 RelativePanel.AlignVerticalCenterWithPanel="True"  RelativePanel.AlignRightWithPanel="True"
                                 >
 
 
-                                        <Button.Flyout>
-                                            <Flyout>
-                                                <StackPanel Orientation="Vertical" Width="40">
-                                                    <Button x:Name="sharetodo" Tag="WOW"  Background="Transparent"  HorizontalAlignment="Stretch">
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                                        </StackPanel>
-                                                    </Button>
-                                                    <Button Click="Delete_Click"  Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch" >
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                                        </StackPanel>
-                                                    </Button>
-                                                    <Button  Tag="WOW" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                                        </StackPanel>
-                                                    </Button>
-                                                </StackPanel>
-                                            </Flyout>
-                                        </Button.Flyout>
-                                    </Button>
+                                            <Button.Flyout>
+                                                <Flyout>
+                                                    <StackPanel Orientation="Vertical" Width="40">
+                                                        <Button Click="Edit_Click" x:Name="Done" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                                                            </StackPanel>
+                                                        </Button>
+                                                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                                                            </StackPanel>
+                                                        </Button>
+                                                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                                                            </StackPanel>
+                                                        </Button>
+                                                        <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch" >
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                                                            </StackPanel>
+                                                        </Button>
+                                                        <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                                                            </StackPanel>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Flyout>
+                                            </Button.Flyout>
+                                        </Button>
 
                                         <Rectangle RelativePanel.Below="Title" RelativePanel.AlignLeftWithPanel="True" Margin="0,15,0,0"
                                                 RelativePanel.AlignRightWithPanel="True" Fill="{ThemeResource AntiForeground}" Opacity="0.08"  Height="1" HorizontalAlignment="Stretch" />
