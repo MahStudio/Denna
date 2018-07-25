@@ -16,7 +16,7 @@ namespace Core.Data
         public static Realm Instance;
         public static void Initialize()
         {
-            var configuration = new FullSyncConfiguration(new Uri("~/myRealm", UriKind.Relative));
+            var configuration = new SyncConfiguration(User.Current, new Uri("~/myRealm", UriKind.Relative));
             Instance = Realm.GetInstance(configuration);
 
         }
