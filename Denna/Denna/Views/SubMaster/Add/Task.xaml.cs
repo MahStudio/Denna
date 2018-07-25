@@ -39,15 +39,12 @@ namespace Denna.Views.SubMaster.Add
         {
             var todo = new Todo()
             {
-                Id = DateTime.UtcNow.Ticks.ToString(),
-                Subject = DateTime.Now.ToString(),
+                Subject = Title.Text,
                 Detail = Details.Text,
                 Status = 2
             };
-            RealmContext.Instance.Write(() =>
-            {
-                RealmContext.Instance.Add(todo);
-            });
+            TodoService.AddTodo(todo);
+            Frame.GoBack();
         }
     }
 }
