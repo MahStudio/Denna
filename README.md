@@ -33,8 +33,6 @@ This project is designed by Sr. architect and designer Aref M. Ahmadi and Sr. de
 
 ![image](https://user-images.githubusercontent.com/22152065/38919478-f123c7b4-4305-11e8-9d7c-98d49b692b31.png)
 
-![image](https://user-images.githubusercontent.com/22152065/38919506-03542122-4306-11e8-80d0-57def1271d8b.png)
-
 Also you can see the whole design files [HERE](https://github.com/MahStudio/Denna/tree/master/Design)
 
 ## Contributing
@@ -42,7 +40,7 @@ Also you can see the whole design files [HERE](https://github.com/MahStudio/Denn
 Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design.
 As Denna is an open source project, all kind of contributions are welcome.
 
-> **Note:** This project needs new maintainers and supporters
+> **Note:** Denna V2 is under development. You can help us by giving us feedbacks. Nightly builds are [HERE AT DENNA INSIDER CHAT ON TELEGRAM](https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g)
 
 ### What we had in V1
 
@@ -78,7 +76,7 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 
 #### Personnel
 
-- [Mohsen Seifi](https://github.com/mohsens22) : Frontman, software designer and lead developer.
+- [Mohsen Seifi](https://github.com/mohsens22) : Frontman, architect and lead developer.
 - [Aref M. Ahmadi](https://www.instagram.com/itsaref/) : UI/UX design
 - [Mohammad R. Alidoost](https://www.instagram.com/mr.alidoost/) : UI/UX design
 - [Amir Stephade](https://www.instagram.com/amir_stefad/) : Motion
