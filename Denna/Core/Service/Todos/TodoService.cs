@@ -23,7 +23,7 @@ namespace Core.Todos.Tasks
         }
         public static IRealmCollection<Todo> GetAllTodos() => _repo.GetAll();
         public static Todo GetById(string id) => _repo.GetById(id);
-        public static void Edit(Todo oldTask,Todo newTask) => _repo.UpdateManaged(oldTask,newTask);
+        public static void Edit(Todo oldTask, Todo newTask) => _repo.UpdateManaged(oldTask, newTask);
         public static void Delete(string id) => _repo.Delete(id);
         public static void Delete(Todo item) => _repo.Delete(item.Id);
         public static void Done(Todo task)
@@ -50,7 +50,13 @@ namespace Core.Todos.Tasks
                 trans.Commit();
             }
         }
-        public static IRealmCollection<Todo> GetTodayList() => RealmContext.Instance.All<Todo>().OrderBy(x => x.StartTime).AsRealmCollection();
+        public static IRealmCollection<Todo> GetTodayList()
+        {
+            var today = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, 0, 0, 0, new TimeSpan());
+            return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime > today).OrderBy(x => x.StartTime).AsRealmCollection();
+        }
+
+        public static IRealmCollection<Todo> GetPostponedList() => RealmContext.Instance.All<Todo>().Where(s => s.Status == 1 && s.StartTime != DateTime.Today).OrderBy(x => x.StartTime).AsRealmCollection();
 
     }
 }
