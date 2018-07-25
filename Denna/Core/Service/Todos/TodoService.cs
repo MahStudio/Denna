@@ -50,6 +50,7 @@ namespace Core.Todos.Tasks
                 trans.Commit();
             }
         }
+        public static IRealmCollection<Todo> GetTodayList() => RealmContext.Instance.All<Todo>().OrderBy(x => x.StartTime).AsRealmCollection();
 
     }
 }

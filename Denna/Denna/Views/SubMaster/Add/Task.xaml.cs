@@ -29,6 +29,11 @@ namespace Denna.Views.SubMaster.Add
         {
             this.InitializeComponent();
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+            base.OnNavigatedTo(e);
+        }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -37,10 +42,14 @@ namespace Denna.Views.SubMaster.Add
 
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
+            var start = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
             var todo = new Todo()
             {
                 Subject = Title.Text,
                 Detail = Details.Text,
+                StartTime = start,
+                Imprtance = 0,
+                Notify = 0,
                 Status = 2
             };
             TodoService.AddTodo(todo);

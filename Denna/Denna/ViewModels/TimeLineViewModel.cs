@@ -19,7 +19,7 @@ namespace Denna.ViewModels
 
         public TimeLineViewModel()
         {
-            TodayList = RealmContext.Instance.All<Todo>().OrderBy(x => x.Subject).AsRealmCollection();
+            TodayList = TodoService.GetTodayList();
             TodayList.CollectionChanged += (s, e) =>
             {
                 foreach (var item in TodayList)

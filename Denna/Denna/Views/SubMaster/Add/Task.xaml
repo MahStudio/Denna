@@ -30,9 +30,7 @@
 
                 <controls:TemplatedTextBox x:Name="Title" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Title" />
                     <controls:TemplatedTextBox x:Name="Details" Text="" Margin="10,10,10,0" Glyph="" PlaceHolder="Details" />
-                <Controls:Expander x:Name="Expander3" VerticalAlignment="Top" Margin="0,20,0,10" 
-                               Header="Date and Time" 
-                               IsExpanded="False">
+                
                     <StackPanel>
                     <DatePicker Width="300" HorizontalAlignment="Center" BorderBrush="Transparent" BorderThickness="0"  x:Name="datepic"  Margin="5,10,5,0" Style="{StaticResource DatePickerStyle}" />
                     <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
@@ -43,9 +41,9 @@
                             <RadioButton x:Uid="alarm" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
                         </StackPanel>
                     </StackPanel>
-                </Controls:Expander>
+                
                     <Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,10,0,10" 
-                               Header="End time"
+                               Header="Deadline"
                                IsExpanded="False">
                         <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic2" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
 
