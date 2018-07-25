@@ -15,37 +15,37 @@
         <VM:TimeLineViewModel />
     </Page.DataContext>
     <Grid>
-    <RelativePanel Background="{ThemeResource AppBackgroundColor}" Margin="0,0,0,48">
-        <Grid x:Name="Search" Margin="20,10,20,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" >
-            <Grid CornerRadius="3" Opacity="0.2" BorderBrush="Gray" BorderThickness="1"  />
-            <Grid Background="Gray" Opacity="0.05"  />
+        <RelativePanel Background="{ThemeResource AppBackgroundColor}" Margin="0,0,0,48">
+            <Grid x:Name="Search" Margin="20,10,20,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" >
+                <Grid CornerRadius="3" Opacity="0.2" BorderBrush="Gray" BorderThickness="1"  />
+                <Grid Background="Gray" Opacity="0.05"  />
                 <AutoSuggestBox  Margin="2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
                 TextChanged="AutoSuggestBox_TextChanged"
                 QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                 SuggestionChosen="AutoSuggestBox_SuggestionChosen" Style="{StaticResource Box1}"/>
-           
 
 
 
-        </Grid>
+
+            </Grid>
             <ScrollViewer Margin="0,10,0,0"
                           RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                           RelativePanel.Below="Search" RelativePanel.AlignBottomWithPanel="True"
                           >
-            <StackPanel>
-                
-                <StackPanel  >
-                    <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Today" />
-                    <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
+                <StackPanel>
+
+                    <StackPanel  >
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Today" />
+                        <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
+                    </StackPanel>
+                    <StackPanel Margin="0,30,0,0" >
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Need attention" />
+                        <Controls:TaskList TaskLists="{Binding Attention,Mode=TwoWay}" />
+                    </StackPanel>
                 </StackPanel>
-                <!--<StackPanel Margin="0,30,0,0" >
-                    <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Need attention" />
-                    <Controls:TaskList TaskLists="{Binding Attention,Mode=TwoWay}" />
-                </StackPanel>-->
-            </StackPanel>
-        </ScrollViewer>
-        
-    </RelativePanel>
+            </ScrollViewer>
+
+        </RelativePanel>
         <CommandBar   VerticalAlignment="Bottom">
 
 

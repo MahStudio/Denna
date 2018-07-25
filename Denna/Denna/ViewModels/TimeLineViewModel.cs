@@ -20,34 +20,15 @@ namespace Denna.ViewModels
         public TimeLineViewModel()
         {
             TodayList = TodoService.GetTodayList();
-            TodayList.CollectionChanged += (s, e) =>
-            {
-                foreach (var item in TodayList)
-                {
-                    Debug.WriteLine(item.Subject);
-                }
-            };
 
-            Attention = new ObservableCollection<Todo>();
+            Attention = TodoService.GetPostponedList();
 
-            for (int i = 0; i < 5; i++)
-            {
-                Attention.Add(new Core.Domain.Todo()
-                {
-                    Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
-                    Subject = "This is POSTPONED of " + i
-                    ,
-                    Imprtance = 2,
-                    Status = 1,
-                    Notify = 1,
-                    StartTime = DateTime.Now.AddHours(2)
-                });
 
-            }
+
         }
 
-        public IRealmCollection<Core.Domain.Todo> TodayList { get; set; }
-        public ObservableCollection<Core.Domain.Todo> Attention { get; set; }
+        public IRealmCollection<Todo> TodayList { get; set; }
+        public IRealmCollection<Todo> Attention { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
