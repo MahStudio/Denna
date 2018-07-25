@@ -69,7 +69,7 @@
                                                             <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
                                                         </StackPanel>
                                                     </Button>
-                                                    <Button  Tag="WOW" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch">
+                                                    <Button Click="Delete_Click"  Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch" >
                                                         <StackPanel Orientation="Horizontal">
                                                             <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
                                                         </StackPanel>

@@ -25,6 +25,7 @@ namespace Core.Todos.Tasks
         public static Todo GetById(string id) => _repo.GetById(id);
         public static void Edit(Todo task) => _repo.Update(task);
         public static void Delete(string id) => _repo.Delete(id);
+        public static void Delete(Todo item) => _repo.Delete(item.Id);
 
     }
 }

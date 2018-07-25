@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Core.Domain;
 using Realms;
+using Core.Todos.Tasks;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -47,7 +48,11 @@ namespace Denna.Controls
 
 
 
-
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var todo = (sender as Button).Tag as Todo;
+            TodoService.Delete(todo);
+        }
 
 
 
