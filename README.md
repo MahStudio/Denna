@@ -55,19 +55,43 @@ As Denna is an open source project, all kind of contributions are welcome.
 
 ### What features are planned in V2
 
-- Sync
+- Offline-first Sync
 - New codebase
 - Better performance
 - Design improvements
 - Support for android and IOS
 - and so on
 
+You can see V 2.0 milestone [HERE](https://github.com/MahStudio/Denna/milestone/1)
+
 ### Build Prerequisites
 
 1. Windows 10
 2. Visual Studio 2017 (latest build) with universal windows development features installed.
 3. GIT for Windows ([install from here](http://gitforwindows.org/))
-4. Knowledge about C#, Xaml, design patterns, Windows development and Entity framework
+4. Knowledge about C#, Xaml, [Realm](https://realm.io/), MVVM, design patterns and Windows development
+
+### Build instructions
+
+We use realm as our database and sync engine, so see [Realm.net documentation](https://realm.io/docs/dotnet/latest/) first.
+
+1. Clone the repo
+2. Open Denna Solution
+3. Open [Realm cloud website](https://cloud.realm.io/) and register for a realm instance for free.
+4. Back into solution, there is a missing `Constants.cs` file. Replace it with following code. Remember that you should paste your *realm instance URL* in `ServerUri`.
+
+```csharp
+using System;
+namespace Core
+{
+    public static class Constants
+    {
+        public static readonly Uri ServerUri = new Uri("My realm server URL");
+    }
+}
+```
+
+5. Hit F5 and run the project
 
 ### Authors
 
@@ -83,4 +107,4 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 - Lukas Frensel : UX tests
 - Reza Cloner : UX tests
 
-Special thanks to AliNGame, Pouria Riahi and Windows developers community for their help to this project.
+Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers community for their help to this project.
