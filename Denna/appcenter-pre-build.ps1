@@ -1,0 +1,1 @@
+ echo %DennaCode% > .\Core\Constants.cs
