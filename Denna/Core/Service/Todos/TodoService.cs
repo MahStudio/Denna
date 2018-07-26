@@ -59,7 +59,7 @@ namespace Core.Todos.Tasks
         public static IRealmCollection<Todo> GetPostponedList()
         {
             var today = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, 0, 0, 0, new TimeSpan());
-            return RealmContext.Instance.All<Todo>().Where(s => s.Status == 1 && s.StartTime < today).OrderBy(x => x.StartTime).AsRealmCollection();
+            return RealmContext.Instance.All<Todo>().Where(s => (s.Status == 1 || s.Status == 2) && s.StartTime < today).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
 
