@@ -1,8 +1,24 @@
-# Denna
+<p align="center">
+  <a href="https://www.microsoft.com/en-us/store/p/denna/9n9c2hwnzcft">
+    <img src="https://github.com/MahStudio/Denna/raw/master/Design/Denna%20logo%20Green.png" width=80 height=80>
+  </a>
 
-[![Build status](https://build.appcenter.ms/v0.1/apps/dc393a1e-1121-4a3e-99c2-589182d9e5f6/branches/master/badge)](https://appcenter.ms)
+  <h3 align="center">Denna</h3>
 
-Denna is a fully featured and productive To-Do list for Windows 10 devices. [Get it from Microsoft Store](https://www.microsoft.com/en-us/store/p/denna/9n9c2hwnzcft)
+  <p align="center">
+    Denna is a fully featured and productive To-Do list for Windows 10 devices.
+    <br>
+    <br>
+    <img src="https://build.appcenter.ms/v0.1/apps/dc393a1e-1121-4a3e-99c2-589182d9e5f6/branches/master/badge">
+    <br>
+    <a href="https://www.microsoft.com/en-us/store/p/denna/9n9c2hwnzcft">Download</a>
+    &middot;
+    <a href="https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g">Insiders Group</a>
+  </p>
+</p>
+
+<br>
+
 
 ## Story
 
