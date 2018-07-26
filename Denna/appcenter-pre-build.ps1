@@ -1,1 +1,1 @@
- echo %DennaCode% > .\Core\Constants.cs
+ echo %DennaCode% > %APPCENTER_SOURCE_DIRECTORY%\Core\Constants.cs
