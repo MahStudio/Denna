@@ -1,33 +1,17 @@
 ﻿using Core.Domain;
 using Realms;
 using Realms.Sync;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Data
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : RealmObject
     {
         private readonly Realm _instance;
-        public GenericRepository()
-        {
-            _instance = RealmContext.Instance;
-        }
+        public GenericRepository() => _instance = RealmContext.Instance;
         public GenericRepository(Realm instance) => _instance = instance;
 
-        public IRealmCollection<TEntity> GetAll()
-        {
-            var a = _instance.All<TEntity>().AsRealmCollection();
-            var token = _instance.All<TEntity>().SubscribeForNotifications((sender, changes, error) =>
-            {
-                // Access changes.InsertedIndices, changes.DeletedIndices, and changes.ModifiedIndices
-            });
-            return a;
-        }
+        public IRealmCollection<TEntity> GetAll() => _instance.All<TEntity>().AsRealmCollection();
 
         public TEntity GetById(string id) => _instance.Find<TEntity>(id);
         public void Create(TEntity entity)
