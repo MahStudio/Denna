@@ -1,7 +1,8 @@
-Add-Content %APPCENTER_SOURCE_DIRECTORY%\Denna\Core\Constants.cs %DennaCode%
+echo "Init"
 
-Out-Host Initializing
+Add-Content $env:APPCENTER_SOURCE_DIRECTORY\Denna\Core\Constants.cs $env:DennaCode
 
-Out-Host %DennaCode%
+echo $env:DennaCode
 
-Out-Host %APPCENTER_SOURCE_DIRECTORY%\Denna\Core\Constants.cs
+echo $env:APPCENTER_SOURCE_DIRECTORY
+
