@@ -1,0 +1,1 @@
+Add-Content %APPCENTER_SOURCE_DIRECTORY%\Denna\Core\Constants.cs %DennaCode%
