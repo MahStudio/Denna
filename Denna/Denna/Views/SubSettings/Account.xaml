@@ -23,5 +23,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Button Background="Red" Foreground="White" Content="Logout" Click="Button_Click" HorizontalAlignment="Center" Margin="0,94,0,0" VerticalAlignment="Top" Height="70" Width="300" />
     </Grid>
 </Page>

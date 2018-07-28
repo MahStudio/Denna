@@ -49,7 +49,7 @@ namespace Denna.Views
                 try
                 {
                     Frame.BackStack.Clear();
-                    
+
                 }
                 catch { }
             }
@@ -67,88 +67,52 @@ namespace Denna.Views
 
             #endregion
             #region navigations
-            Home.Navigate(typeof(Home));
             TimeLine.Navigate(typeof(TimeLine));
             CalView.Navigate(typeof(Calendar));
-            Chats.Navigate(typeof(SubMaster.Graphs));
-#endregion
+            Chats.Navigate(typeof(Graphs));
+            #endregion
 
         }
 
-#region Pivot
+        #region Pivot
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           // await Task.Delay(20);
+            // await Task.Delay(20);
             if (Pivot.SelectedIndex == 0)
-            {
-                mhome();
-
-            }
-            if (Pivot.SelectedIndex == 1)
-            {
                 mtoday();
-
-            }
-            if (Pivot.SelectedIndex == 2)
-            {
+            if (Pivot.SelectedIndex == 1)
                 mmonth();
-
-
-            }
-            if (Pivot.SelectedIndex == 3)
-            {
+            if (Pivot.SelectedIndex == 2)
                 mpref();
-
-            }
-
-        }
-        private async void mhome()
-        {
-            bhome.BorderThickness = new Thickness(0, 0, 0, 2);
-            btoday.BorderThickness = new Thickness(0, 0, 0, 0);
-            bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
-            bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            this.Publish(new Classes.Header("Dear Insider"));
-
-
-            Pivot.SelectedIndex = 0;
-
 
         }
         private void mtoday()
         {
-            bhome.BorderThickness = new Thickness(0, 0, 0, 0);
             btoday.BorderThickness = new Thickness(0, 0, 0, 2);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            Pivot.SelectedIndex = 1;
+            Pivot.SelectedIndex = 0;
             this.Publish(new Classes.Header("Timeline"));
 
 
         }
         private void mmonth()
         {
-            bhome.BorderThickness = new Thickness(0, 0, 0, 0);
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 2);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            Pivot.SelectedIndex = 2;
+            Pivot.SelectedIndex = 1;
             this.Publish(new Classes.Header("Entire month"));
         }
         private void mpref()
         {
-            bhome.BorderThickness = new Thickness(0, 0, 0, 0);
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 2);
             this.Publish(new Classes.Header("Performance"));
-            Pivot.SelectedIndex = 3;
-            
-        }
-        private void bhome_Click(object sender, RoutedEventArgs e)
-        {
-            mhome();
+            Pivot.SelectedIndex = 2;
+
         }
 
         private void btoday_Click(object sender, RoutedEventArgs e)
@@ -164,6 +128,6 @@ namespace Denna.Views
         {
             mpref();
         }
-#endregion
+        #endregion
     }
 }

@@ -13,7 +13,7 @@ namespace Denna.ViewModels
     {
         private DateTimeOffset _selecteddate;
         public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<TaskItem> TodayList { get; set; }
+        public ObservableCollection<Core.Domain.Todo> TodayList { get; set; }
         public DateTimeOffset SelectedDate
         {
             get
@@ -39,44 +39,39 @@ namespace Denna.ViewModels
         {
 
             SelectedDate = DateTime.Today;
-            TodayList = new ObservableCollection<TaskItem>();
-            TodayList.Add(new TaskItem()
+            TodayList = new ObservableCollection<Core.Domain.Todo>();
+            TodayList.Add(new Core.Domain.Todo()
             {
-                ID = 33,
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 33,
                 Subject = "This is Title of " + 33
                    ,
-                Imprtance = Importance.High,
-                Isdone = 0,
+                Imprtance = 0,
+                Status=2,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2),
 
             });
-            TodayList.Add(new TaskItem()
+            TodayList.Add(new Core.Domain.Todo()
             {
-                ID = 66,
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 66,
                 Subject = "This is Title of " + 66
                    ,
-                Imprtance = Importance.Low,
-                Isdone = 1,
+                Imprtance = 2,
+                Status = 0,
                 Notify = 1,
-                StartTime = DateTime.Now.AddHours(2),
-                Tags = new ObservableCollection<string>() { "Tagone", "tagtwo", "tagThree", "TagFour" }
+                StartTime = DateTime.Now.AddHours(2)
             });
             for (int i = 0; i < 3; i++)
             {
-                TodayList.Add(new TaskItem()
+                TodayList.Add(new Core.Domain.Todo()
                 {
-                    ID = i,
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
                     Subject = "This is Title of " + i
                     ,
-                    Imprtance = Importance.Medium,
-                    Isdone = 2,
+                    Imprtance = 1,
+                    Status = 1,
                     Notify = 1,
-                    StartTime = DateTime.Now.AddHours(2),
-                    Tags = new ObservableCollection<string>() { "Tagone", "tagtwo", "tagThree", "TagFour" }
+                    StartTime = DateTime.Now.AddHours(2)
                 });
 
             }

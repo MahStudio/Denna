@@ -12,16 +12,19 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateKeyFile>Denna_StoreKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>8A0513E82097873AAC6772B26558F0A541A10167</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>Denna_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>1A00D4B506B0FC056537928E11350B65AAA46C8B</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -101,12 +104,15 @@
     </Compile>
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Behaviors\InternalAnimation.cs" />
+    <Compile Include="Classes\BindingHelper.cs" />
     <Compile Include="Classes\CalendarViewHelper.cs" />
     <Compile Include="Classes\DelegateCommand.cs" />
+    <Compile Include="Classes\Extentions.cs" />
     <Compile Include="Classes\Header.cs" />
     <Compile Include="Classes\ItemHolder.cs" />
     <Compile Include="Classes\MyCommand.cs" />
     <Compile Include="Classes\NameValueItem.cs" />
+    <Compile Include="Classes\PassageHelper.cs" />
     <Compile Include="Classes\SetttingsHeader.cs" />
     <Compile Include="Classes\Themesetter.cs" />
     <Compile Include="Controls\DoublePi.xaml.cs">
@@ -225,8 +231,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Denna_StoreKey.pfx" />
-    <None Include="Denna_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Headings\bgs.png" />
@@ -247,7 +251,6 @@
     <Content Include="Assets\Mockups\Comp.mp4" />
     <Content Include="Assets\Mockups\Pure.png" />
     <Content Include="Assets\Mockups\usrimg.jpg" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\PackageImages\BadgeLogo.scale-100.png" />
     <Content Include="Assets\PackageImages\BadgeLogo.scale-125.png" />
     <Content Include="Assets\PackageImages\BadgeLogo.scale-150.png" />
@@ -435,17 +438,20 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>1.8.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.2.3</Version>
+      <Version>6.1.5</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>1.4.1</Version>
+      <Version>3.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.0</Version>
     </PackageReference>
     <PackageReference Include="PubSub">
-      <Version>1.5.0</Version>
+      <Version>2.0.0</Version>
     </PackageReference>
     <PackageReference Include="WinRTXamlToolkit.Controls.DataVisualization.UWP">
       <Version>2.3.0</Version>
@@ -468,6 +474,9 @@
     <SDKReference Include="WindowsTeam, Version=10.0.17134.0">
       <Name>Windows Team Extensions for the UWP</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Denna_TemporaryKey.pfx" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

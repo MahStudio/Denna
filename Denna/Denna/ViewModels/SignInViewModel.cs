@@ -1,4 +1,6 @@
-﻿using Denna.Classes;
+﻿using Core.Data;
+using Core.Service.Users;
+using Denna.Classes;
 using Denna.Views;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Denna.ViewModels
 {
-     public class SignInViewModel : INotifyPropertyChanged
+    public class SignInViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public MyCommand SignInCommand
@@ -36,9 +38,10 @@ namespace Denna.ViewModels
         {
             Welcome.current.opensignup();
         }
-        private void SignIn(object obj)
+        private async void SignIn(object obj)
         {
-            
+            await UserService.Login(UserName, Password);
+            RealmContext.Initialize();
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
         private string _username;
@@ -49,7 +52,8 @@ namespace Denna.ViewModels
             {
                 return _username;
 
-            } set
+            }
+            set
             {
 
                 if (_username != value)

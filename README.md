@@ -1,12 +1,33 @@
-# Denna
-Denna is a fully featured and productive To-Do list for Windows 10 devices. [Get it from Microsoft Store](https://www.microsoft.com/en-us/store/p/denna/9n9c2hwnzcft)
+<p align="center">
+  <a href="https://www.microsoft.com/en-us/store/p/denna/9n9c2hwnzcft">
+    <img src="https://github.com/MahStudio/Denna/raw/master/Design/Denna%20logo%20Green.png" width=80 height=80>
+  </a>
+
+  <h3 align="center">Denna</h3>
+
+  <p align="center">
+    Denna is a fully featured and productive To-Do list for Windows 10 devices.
+    <br>
+    <br>
+  <a href="https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/beta%20testers">
+    <img src="https://build.appcenter.ms/v0.1/apps/dc393a1e-1121-4a3e-99c2-589182d9e5f6/branches/master/badge">
+    </a>
+    <br>
+    <a href="https://www.microsoft.com/en-us/store/p/denna/9n9c2hwnzcft">Download</a>
+    &middot;
+    <a href="https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g">Insiders Group</a>
+  </p>
+</p>
+
+<br>
+
 
 ## Story
 
-Denna's idea came from my own needs. I'm not ponctual at all, so I needed a tool to make me care more about the time I have.
-So with the help of the whole team in MahStudio we came acoss with a project named *Project Plannel* which then became **Denna**. 
+Denna's idea came from my own needs. I'm not punctual at all, so I needed a tool to make me care more about the time I have.
+So with the help of the whole team in MahStudio we came across with a project named *Project Plannel* which then became **Denna**.
 
-**Denna** is a name of a mountian in Iran. The idea of *Denna* came from where I failed my test due to not making time for studies and the answer of that missed question was Denna.
+**Denna** is a name of a mountain in Iran. The idea of *Denna* came from where I failed my test due to not making time for studies and the answer of that missed question was Denna.
 
 Then with the help of the team and the community we developed and release a lovely tool named **Denna**.
 The aim of Denna is to help people to care more about the time they have. Cuz time flies!
@@ -33,16 +54,14 @@ This project is designed by Sr. architect and designer Aref M. Ahmadi and Sr. de
 
 ![image](https://user-images.githubusercontent.com/22152065/38919478-f123c7b4-4305-11e8-9d7c-98d49b692b31.png)
 
-![image](https://user-images.githubusercontent.com/22152065/38919506-03542122-4306-11e8-80d0-57def1271d8b.png)
-
 Also you can see the whole design files [HERE](https://github.com/MahStudio/Denna/tree/master/Design)
 
 ## Contributing
 
 Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design.
-As Denna is an opensource project, all kind of contributions are welcome. 
+As Denna is an open source project, all kind of contributions are welcome.
 
-> **Note:** This project needs new maintainers and supporters
+> **Note:** Denna V2 is under development. You can help us by giving us feedbacks. Nightly builds are [HERE AT DENNA INSIDER CHAT ON TELEGRAM](https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g)
 
 ### What we had in V1
 
@@ -57,19 +76,43 @@ As Denna is an opensource project, all kind of contributions are welcome.
 
 ### What features are planned in V2
 
-- Sync (with couchbase sync gateway)
+- Offline-first Sync
 - New codebase
 - Better performance
-- Design improvments
+- Design improvements
 - Support for android and IOS
 - and so on
+
+You can see V 2.0 milestone [HERE](https://github.com/MahStudio/Denna/milestone/1)
 
 ### Build Prerequisites
 
 1. Windows 10
 2. Visual Studio 2017 (latest build) with universal windows development features installed.
 3. GIT for Windows ([install from here](http://gitforwindows.org/))
-4. Knowledge about C#, Xaml, MVVM, Windows development and Couchbase NoSQL
+4. Knowledge about C#, Xaml, [Realm](https://realm.io/), MVVM, design patterns and Windows development
+
+### Build instructions
+
+We use realm as our database and sync engine, so see [Realm.net documentation](https://realm.io/docs/dotnet/latest/) first.
+
+1. Clone the repo
+2. Open Denna Solution
+3. Open [Realm cloud website](https://cloud.realm.io/) and register for a realm instance for free.
+4. Back into solution, there is a missing `Constants.cs` file. Replace it with following code. Remember that you should paste your *realm instance URL* in `ServerUri`.
+
+```csharp
+using System;
+namespace Core
+{
+    public static class Constants
+    {
+        public static readonly Uri ServerUri = new Uri("My realm server URL");
+    }
+}
+```
+
+5. Hit F5 and run the project
 
 ### Authors
 
@@ -78,11 +121,11 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 
 #### Personnel
 
-- [Mohsen Seifi](https://github.com/mohsens22) : Frontman, software designer and lead developer.
+- [Mohsen Seifi](https://github.com/mohsens22) : Frontman, architect and lead developer.
 - [Aref M. Ahmadi](https://www.instagram.com/itsaref/) : UI/UX design
 - [Mohammad R. Alidoost](https://www.instagram.com/mr.alidoost/) : UI/UX design
 - [Amir Stephade](https://www.instagram.com/amir_stefad/) : Motion
 - Lukas Frensel : UX tests
 - Reza Cloner : UX tests
 
-Special thanks to AliNGame, Pouria Riahi and Windows developers community for their help to this project.
+Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers community for their help to this project.

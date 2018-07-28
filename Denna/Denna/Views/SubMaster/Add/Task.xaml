@@ -28,11 +28,9 @@
             <StackPanel x:Name="Damn">
                
 
-                <controls:TemplatedTextBox Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Subject" />
-                <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Details" />
-                <Controls:Expander x:Name="Expander3" VerticalAlignment="Top" Margin="0,20,0,10" 
-                               Header="Date and Time" 
-                               IsExpanded="False">
+                <controls:TemplatedTextBox x:Name="Title" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Title" />
+                    <controls:TemplatedTextBox x:Name="Details" Text="" Margin="10,10,10,0" Glyph="" PlaceHolder="Details" />
+                
                     <StackPanel>
                     <DatePicker Width="300" HorizontalAlignment="Center" BorderBrush="Transparent" BorderThickness="0"  x:Name="datepic"  Margin="5,10,5,0" Style="{StaticResource DatePickerStyle}" />
                     <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
@@ -43,51 +41,21 @@
                             <RadioButton x:Uid="alarm" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
                         </StackPanel>
                     </StackPanel>
-                </Controls:Expander>
-                <Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,10,0,10" 
-                               Header="End time"
+                
+                    <Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,10,0,10" 
+                               Header="Deadline"
                                IsExpanded="False">
-                    <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic2" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
+                        <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic2" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
 
 
-                </Controls:Expander>
-                <Controls:Expander x:Name="Expander2" VerticalAlignment="Top" Margin="0,10,0,10" 
-                               Header="Tags"
-                               IsExpanded="False">
-                    <StackPanel>
-                        <controls:TemplatedTextBox Text="" Margin="10,10,10,0" Height="35" HorizontalAlignment="Stretch" Glyph="" PlaceHolder="Tags" />
-                        <GridView x:Name="Grid"   ItemContainerStyle="{StaticResource GridViewItemExpanded}" IsItemClickEnabled="True" SelectionMode="None" Padding="0,0,0,0" Height="25" Margin="7,2,0,0" 
-                                  RelativePanel.Below="Title" RelativePanel.RightOf="Glyph" Style="{StaticResource GridViewStyle1}"
-                                              ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.IsVerticalRailEnabled="False" HorizontalAlignment="Left"  >
-                            <GridView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Tag="{Binding}" Foreground="{StaticResource PurpleBrush}" FontSize="13" Text="{Binding Converter={StaticResource TextToHashtagConverter}}" />
+                    </Controls:Expander>
 
-                                </DataTemplate>
-
-                            </GridView.ItemTemplate>
-                            <GridView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <VariableSizedWrapGrid MaximumRowsOrColumns="8" MaxWidth="500" Orientation="Horizontal" />
-                                </ItemsPanelTemplate>
-                            </GridView.ItemsPanel>
-
-
-
-                        </GridView>
-                    </StackPanel>
-                </Controls:Expander>
-
-            </StackPanel>
+                </StackPanel>
             </ScrollViewer>
 
         </Grid>
 
         <CommandBar   VerticalAlignment="Bottom">
-
-
-
-
             <AppBarButton Width="Auto" MinWidth="70" Label="Cancel" Click="AppBarButton_Click" >
 
                 <AppBarButton.Icon>
@@ -95,7 +63,7 @@
                 </AppBarButton.Icon>
             </AppBarButton>
             
-            <AppBarButton Width="Auto" MinWidth="70"  Label="Save"    >
+            <AppBarButton Width="Auto" MinWidth="70"  Label="Save"  Click="AppBarButton_Click_1"  >
 
                 <AppBarButton.Icon>
                     <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>

@@ -69,7 +69,7 @@
                             >
                             <Controls:TemplatedChart Percent1="100" Percent2="20" Margin="0,20,0,0" SegmentColor="Red" DoneTasks="3" 
                              PostponedTasks="4" PendingTasks="4" GlyphBrush="Red"   HorizontalAlignment="Center"   VerticalAlignment="Top"              />
-                            <Controls:TaskList TaskLists="{x:Bind ViewModel.TodayList,Mode=TwoWay}" />
+                            <!--<Controls:TaskList TaskLists="{x:Bind ViewModel.TodayList,Mode=TwoWay}" />-->
 
                         </StackPanel>
                     </RelativePanel>

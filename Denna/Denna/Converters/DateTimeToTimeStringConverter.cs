@@ -11,11 +11,11 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            
-            DateTime Value = (DateTime)value;
+
+            DateTimeOffset Value = (DateTimeOffset)value;
             string Hour = Value.Hour.ToString();
             string Min = Value.Minute.ToString();
-            string x = Hour+ ":" + Min;
+            string x = Hour + ":" + Min;
 
 
             return x;

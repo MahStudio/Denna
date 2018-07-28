@@ -53,11 +53,7 @@ namespace Denna.ViewModels
         }
         public Double Per
         {
-            get
-            {
-                return _per;
-
-            }
+            get => _per;
             set
             {
 

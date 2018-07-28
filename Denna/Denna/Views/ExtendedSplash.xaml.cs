@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Data;
+using Core.Service.Users;
+using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -38,7 +40,7 @@ namespace Denna.Views
 
                 // Retrieve the window coordinates of the splash screen image.
                 splashImageRect = splash.ImageLocation;
-                
+
             }
 
             // Create a Frame to act as the navigation context
@@ -56,7 +58,7 @@ namespace Denna.Views
 
         private void ExtendedSplash_OnResize(object sender, WindowSizeChangedEventArgs e)
         {
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
 
@@ -67,23 +69,23 @@ namespace Denna.Views
 
             // Complete app setup operations here...
 
-           
+
         }
         void DismissExtendedSplash()
         {
-            if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+            if (UserService.IsUserLoggenIn())
             {
+                RealmContext.Initialize();
                 rootFrame.Navigate(typeof(PageMaster));
-                
             }
             else
-                rootFrame.Navigate(typeof(PageMaster));
-           
-            
+                rootFrame.Navigate(typeof(Welcome));
+
+
             // Place the frame in the current Window
             Window.Current.Content = rootFrame;
         }
-        
+
         async void RestoreStateAsync(bool loadState)
         {
             if (loadState)
@@ -92,11 +94,11 @@ namespace Denna.Views
             }
         }
 
-        
+
 
         private void Media_MediaEnded(object sender, RoutedEventArgs e)
         {
-           
+
 
         }
     }

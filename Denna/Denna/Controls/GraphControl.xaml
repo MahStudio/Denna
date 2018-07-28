@@ -20,7 +20,7 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Grid>
-            <TextBlock Text="{x:Bind Header}" FontSize="18" Opacity="0.6" FontWeight="SemiBold" VerticalAlignment="Center" />
+            <TextBlock Margin="5,10,0,0" Text="{x:Bind Header}" FontSize="16" Opacity="0.7" FontWeight="SemiBold" VerticalAlignment="Center" />
         </Grid>
         <charting:Chart
             

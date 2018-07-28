@@ -9,6 +9,7 @@
     xmlns:controls="using:Denna.Controls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Denna.Views.PageMaster"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
     
     <Interactivity:Interaction.Behaviors>
@@ -681,16 +682,6 @@
 
                 <PivotItem Margin="0,0,0,0" >
 
-                    <Frame x:Name="Home" />
-
-
-
-
-
-                </PivotItem>
-
-                <PivotItem Margin="0,0,0,0" >
-
                     <Frame x:Name="TimeLine" />
 
                 </PivotItem>
@@ -718,7 +709,6 @@
         </Button>-->
         <Grid ManipulationMode="None" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Button Click="bhome_Click" x:Name="bhome" Content="&#xE80F;" Style="{StaticResource pivotheaderstyle}"  Width="48" Height="48" />
                 <Button Click="btoday_Click" x:Name="btoday" Content="" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
                 <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
                 <Button Click="bpref_Click" x:Name="bpref" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
