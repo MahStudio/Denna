@@ -212,9 +212,6 @@
     <Compile Include="Views\SubSettings\Personalization.xaml.cs">
       <DependentUpon>Personalization.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SubSettings\Privacy.xaml.cs">
-      <DependentUpon>Privacy.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SubSettings\QuickActions.xaml.cs">
       <DependentUpon>QuickActions.xaml</DependentUpon>
     </Compile>
@@ -414,10 +411,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubSettings\Personalization.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SubSettings\Privacy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

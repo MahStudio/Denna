@@ -26,6 +26,7 @@ namespace Denna.Views.SubSettings
         public Account()
         {
             this.InitializeComponent();
+            //reconnect, sync session, active user
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
