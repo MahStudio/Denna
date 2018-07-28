@@ -27,7 +27,7 @@ namespace Denna.Views.SubMaster
         public TimeLineViewModel VM { get; set; }
         public TimeLine()
         {
-            
+
             this.InitializeComponent();
             DataContextChanged += (s, e) =>
             {
@@ -52,7 +52,15 @@ namespace Denna.Views.SubMaster
             }
         }
 
+        private void AppBarButtonUTest_Click(object sender, RoutedEventArgs e)
+        {
 
+            PageMaster.current.NavigateToUnitTests();
+        }
+        private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            PageMaster.current.NavigateToSettings();
+        }
         private void AutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
             // Set sender.Text. You can use args.SelectedItem to build your text string.

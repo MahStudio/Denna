@@ -47,7 +47,20 @@
 
         </RelativePanel>
         <CommandBar   VerticalAlignment="Bottom">
+            <!--<AppBarButton Width="Auto" MinWidth="70" Label="Unit Tests" Click="AppBarButtonUTest_Click"   >
 
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarSeparator />-->
+            <AppBarButton Width="Auto" MinWidth="70"  Label="Settings" Click="AppBarButton_Click_2"   >
+
+                <AppBarButton.Icon>
+                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarSeparator />
 
             <AppBarButton Width="Auto" MinWidth="70"  Label="Add task" Click="AppBarButton_Click_1"   >
 
