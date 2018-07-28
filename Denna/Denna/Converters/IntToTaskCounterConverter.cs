@@ -11,7 +11,14 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            string x = value.ToString() + " Works to do";
+            int count = (int)value;
+            string x = "";
+            if (count == 0)
+                x = "Nothing to do";
+            else if (count == 1)
+                x = count + " Task to do";
+            else
+                x = count + " Tasks to do";
             return x;
         }
 

@@ -70,10 +70,10 @@
             </DoubleAnimation>
         </Storyboard>
 
-        </UserControl.Resources>
+    </UserControl.Resources>
 
 
-            <Grid  ManipulationMode="TranslateY"
+    <Grid  ManipulationMode="TranslateY"
               ManipulationDelta="gridMain_ManipulationDelta"
               ManipulationCompleted="gridMain_ManipulationCompleted"
               Height="280" Margin="0,-120,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" 
@@ -84,10 +84,10 @@
         <Image Opacity="0.15" Source="ms-appx:///Assets/Headings/h31.png" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Stretch="UniformToFill" Height="180" Margin="0,-247,-444,0"   />
         <Grid>
             <StackPanel Margin="0,0,0,0" x:Name="detstack" Opacity="0">
-                
+
                 <TextBlock x:Name="todate" Margin="0,120,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="{Binding Todate}" />
-                <TextBlock x:Name="counter" Text="{Binding Counter , Converter={StaticResource IntToTaskCounterConverter}}" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
-                                
+                <TextBlock x:Name="counter" Text="{Binding ToDos.Count , Converter={StaticResource IntToTaskCounterConverter}}" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
+
 
                 </TextBlock>
 
