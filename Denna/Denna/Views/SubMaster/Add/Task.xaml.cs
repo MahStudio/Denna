@@ -48,7 +48,6 @@ namespace Denna.Views.SubMaster.Add
                 Subject = Title.Text,
                 Detail = Details.Text,
                 StartTime = start,
-                Imprtance = 0,
                 Notify = 0,
                 Status = 2
             };

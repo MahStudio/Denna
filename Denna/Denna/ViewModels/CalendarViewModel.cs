@@ -45,8 +45,7 @@ namespace Denna.ViewModels
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 33,
                 Subject = "This is Title of " + 33
                    ,
-                Imprtance = 0,
-                Status=2,
+                Status = 2,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2),
 
@@ -56,7 +55,6 @@ namespace Denna.ViewModels
                 Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + 66,
                 Subject = "This is Title of " + 66
                    ,
-                Imprtance = 2,
                 Status = 0,
                 Notify = 1,
                 StartTime = DateTime.Now.AddHours(2)
@@ -68,7 +66,6 @@ namespace Denna.ViewModels
                     Detail = "Lurem IPsum Very cool app is under dev to be abnormal and very secret " + i,
                     Subject = "This is Title of " + i
                     ,
-                    Imprtance = 1,
                     Status = 1,
                     Notify = 1,
                     StartTime = DateTime.Now.AddHours(2)
