@@ -8,6 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
+using Windows.UI.Popups;
 
 namespace Denna
 {
@@ -24,10 +25,19 @@ namespace Denna
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.UnhandledException += App_UnhandledException;
             AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Analytics));
             Themesetter();
             DI.Build();
         }
+
+        private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
+            throw new NotImplementedException();
+        }
+
         private void stuff()
         {
             try
