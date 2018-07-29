@@ -62,7 +62,7 @@ namespace Core.Todos.Tasks
         {
             var startDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
             var endDate = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
-            return RealmContext.Instance.All<Todo>().Where(s => s.StartTime > startDate || s.StartTime < endDate).OrderBy(x => x.StartTime).AsRealmCollection();
+            return RealmContext.Instance.All<Todo>().Where(s => s.StartTime > startDate && s.StartTime < endDate).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
     }

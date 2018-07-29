@@ -30,85 +30,20 @@ namespace Denna.Views.SubMaster
         public Calendar()
         {
             this.InitializeComponent();
-
-
-            DataContextChanged += (s, e) =>
-            {
-                ViewModel = DataContext as CalendarViewModel;
-            };
+            ViewModel = new CalendarViewModel();
+            this.DataContext = ViewModel;
+            ViewModel.TodayList = TodoService.GetTodoListForDate(DateTime.Today);
 
 
         }
         private async void CalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
 
-            Doer(sender, args);
-
             var a = args.AddedDates.FirstOrDefault();
-            ViewModel.TodayList = TodoService.GetTodoListForDate(a.UtcDateTime);
-        }
-        async void Doer(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
-        {
-
-            if (args.AddedDates != null)
-            {
-
-                foreach (var item in args.AddedDates)
-                {
-
-                    var selected = FindElementInVisualTree<CalendarViewDayItem>(MyCalendarView, item);
-                }
-
-
-
-            }
-
-            if (args.RemovedDates != null)
-            {
-                foreach (var item in args.RemovedDates)
-                {
-
-                }
-            }
-
-
-        }
-
-
-
-        public static T FindElementInVisualTree<T>(DependencyObject parentElement, DateTimeOffset selectedDate) where T : DependencyObject
-        {
-            var count = VisualTreeHelper.GetChildrenCount(parentElement);
-            if (count == 0) return null;
-
-            for (int i = 0; i < count; i++)
-            {
-                var child = VisualTreeHelper.GetChild(parentElement, i);
-
-                if (child != null && child is CalendarViewDayItem)
-                {
-                    if ((child as CalendarViewDayItem).Date.UtcDateTime == selectedDate.UtcDateTime)
-                    {
-                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Selected", true);
-                    }
-                    else if ((child as CalendarViewDayItem).Date.Date == DateTime.Today)
-                    {
-                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Unselected", true);
-                        //styles for today's date
-                    }
-                    else
-                    {
-                        VisualStateManager.GoToState((child as CalendarViewDayItem), "Unselected", true);
-                    }
-                }
-                else
-                {
-                    var result = FindElementInVisualTree<T>(child, selectedDate);
-                    if (result != null)
-                        return result;
-                }
-            }
-            return null;
+            if (a.Year < 2000)
+                return;
+            var b = TodoService.GetTodoListForDate(a);
+            ViewModel.TodayList = b;
         }
     }
 }

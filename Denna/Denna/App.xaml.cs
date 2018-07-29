@@ -35,7 +35,7 @@ namespace Denna
         {
             e.Handled = true;
             await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
-            throw new NotImplementedException();
+            Analytics.TrackEvent("Crash happened");
         }
 
         private void stuff()
