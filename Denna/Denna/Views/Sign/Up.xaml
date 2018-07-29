@@ -15,6 +15,8 @@
         <Grid Margin="10,20,10,0">
         </Grid>
         <controls:TemplatedTextBox Text="{Binding UserName,Mode=TwoWay}" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Username" />
+        <controls:TemplatedTextBox Text="{Binding Name,Mode=TwoWay}" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Full Name" />
+        <controls:TemplatedTextBox Text="{Binding Email,Mode=TwoWay}" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Email" />
         
         <controls:TemplatedPasswordBox Text="{Binding Password,Mode=TwoWay}"
                 PlaceHolder="Password" Glyph="" Margin="10,10,10,0" Height="35"  />

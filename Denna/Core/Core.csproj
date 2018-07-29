@@ -114,6 +114,7 @@
     <Compile Include="Domain\Count.cs" />
     <Compile Include="Domain\Importance.cs" />
     <Compile Include="Domain\Status.cs" />
+    <Compile Include="Domain\DennaUser.cs" />
     <Compile Include="Infrastructure\DI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Todo.cs" />

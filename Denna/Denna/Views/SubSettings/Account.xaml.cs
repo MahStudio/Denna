@@ -1,4 +1,8 @@
-﻿using Core.Service.Users;
+﻿using Core.Data;
+using Core.Domain;
+using Core.Service.Users;
+using Denna.Classes;
+using Realms.Sync;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,14 +30,44 @@ namespace Denna.Views.SubSettings
         public Account()
         {
             this.InitializeComponent();
-            //reconnect, sync session, active user
-        }
+            //reconnect, sync session
+            //Get and Set user data
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Username.Text = UserService.GetUsername();
+            var userInfo = UserService.GetUserInfo();
+            FullName.Text = userInfo.FullName;
+            Email.Text = userInfo.Email;
+            Ses.Text = RealmContext.Instance.GetSession().State.ToString();
+            base.OnNavigatedTo(e);
+        }
+        private void LogOut(object sender, RoutedEventArgs e)
         {
             UserService.Logout();
             Frame.Navigate(typeof(Welcome));
             Frame.BackStack.Clear();
+        }
+
+        private void Reconnect_Click(object sender, RoutedEventArgs e) => Session.Reconnect();
+
+        private async void CoPAss_Click(object sender, RoutedEventArgs e)
+        {
+            if (Pass.Text != Rpass.Text)
+            {
+                "Retype password".ShowMessage("Passwords not maching");
+                return;
+            }
+            await UserService.ChangePass(Pass.Text);
+        }
+
+        private void UsrInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var user = UserService.GetUserInfo();
+            user.Email = Email.Text;
+            user.FullName = FullName.Text;
+            UserService.UpdateUserInfo(UserService.GetUserInfo(), user);
         }
     }
 }
