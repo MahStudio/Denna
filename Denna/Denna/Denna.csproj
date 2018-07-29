@@ -191,9 +191,6 @@
     <Compile Include="Views\SubMaster\Graphs.xaml.cs">
       <DependentUpon>Graphs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SubMaster\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SubMaster\TimeLine.xaml.cs">
       <DependentUpon>TimeLine.xaml</DependentUpon>
     </Compile>
@@ -383,10 +380,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubMaster\Graphs.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SubMaster\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

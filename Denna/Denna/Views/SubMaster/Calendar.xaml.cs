@@ -1,4 +1,5 @@
-﻿using Denna.ViewModels;
+﻿using Core.Todos.Tasks;
+using Denna.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,11 +43,13 @@ namespace Denna.Views.SubMaster
         {
 
             Doer(sender, args);
-           
+
+            var a = args.AddedDates.FirstOrDefault();
+            ViewModel.TodayList = TodoService.GetTodoListForDate(a.UtcDateTime);
         }
         async void Doer(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
-            
+
             if (args.AddedDates != null)
             {
 
@@ -56,22 +59,22 @@ namespace Denna.Views.SubMaster
                     var selected = FindElementInVisualTree<CalendarViewDayItem>(MyCalendarView, item);
                 }
 
-                
+
 
             }
-            
+
             if (args.RemovedDates != null)
             {
                 foreach (var item in args.RemovedDates)
                 {
-                    
+
                 }
             }
-            
-            
+
+
         }
 
-       
+
 
         public static T FindElementInVisualTree<T>(DependencyObject parentElement, DateTimeOffset selectedDate) where T : DependencyObject
         {

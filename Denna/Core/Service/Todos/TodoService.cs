@@ -58,6 +58,12 @@ namespace Core.Todos.Tasks
             return RealmContext.Instance.All<Todo>().Where(s => (s.Status == 1 || s.Status == 2) && s.StartTime < today).OrderBy(x => x.StartTime).AsRealmCollection();
         }
         public static IRealmCollection<Todo> GetMustDoList() => RealmContext.Instance.All<Todo>().Where(s => s.Status == 1 || s.Status == 2).OrderBy(x => x.StartTime).AsRealmCollection();
+        public static IRealmCollection<Todo> GetTodoListForDate(DateTimeOffset date)
+        {
+            var startDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+            var endDate = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
+            return RealmContext.Instance.All<Todo>().Where(s => s.StartTime > startDate || s.StartTime < endDate).OrderBy(x => x.StartTime).AsRealmCollection();
+        }
 
     }
 }
