@@ -129,3 +129,9 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 - Reza Cloner : UX tests
 
 Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers community for their help to this project.
+
+## Licence
+
+This application is available under [GPL-3 Licence](https://github.com/MahStudio/Denna/blob/master/LICENSE).
+
+Copyright © 2016-2018 [Denna Authors](https://github.com/Mahstudio/Denna/graphs/contributors) // [Mah Studio](https://github.com/Mahstudio/Denna/graphs/contributors).
