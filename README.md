@@ -32,6 +32,8 @@ So with the help of the whole team in MahStudio we came across with a project na
 Then with the help of the team and the community we developed and release a lovely tool named **Denna**.
 The aim of Denna is to help people to care more about the time they have. Cuz time flies!
 
+Ease of access and productivity is Denna's core value.
+
 ![image](https://user-images.githubusercontent.com/22152065/38919555-2566f7b2-4306-11e8-8a9c-95eb08eff28a.png)
 
 ### Denna in press
