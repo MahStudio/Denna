@@ -104,11 +104,6 @@
                     <Grid Height="35" Width="35" >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CustomStates">
-                                <VisualState x:Name="Hover">
-                                    <VisualState.Setters>
-                                        <Setter Target="ContentPresenter.(Border.Background)" Value="{StaticResource SystemControlBackgroundAccentBrush}"/>
-                                    </VisualState.Setters>
-                                </VisualState>
                                 <VisualState x:Name="Unselected">
                                     <VisualState.Setters>
                                         <Setter Target="ContentPresenter.(Border.Background)" Value="Transparent"/>
