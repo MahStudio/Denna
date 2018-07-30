@@ -22,35 +22,44 @@
                 <Converters:TextToHashtagConverter x:Key="TextToHashtagConverter" />
                 <Converters:DateTimeToTimeStringConverter x:Key="DateTimeToTimeStringConverter" />
                 <Flyout x:Key="TaskListContextMenu">
-                    <StackPanel Orientation="Vertical" Width="40">
+                    <StackPanel Orientation="Vertical" Width="150">
                         <Button Click="Edit_Click" x:Name="Done" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch"
                                 HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph=""
                                           Foreground="{StaticResource GreenBrush}"/>
+                                <TextBlock Margin="12,5,0,5" Text="Do"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch"
+                                 HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
                                           Foreground="{StaticResource BlueBrush}"/>
+                                <TextBlock Margin="12,5,0,5" Text="Undo"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch"
+                                 HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
                                           Foreground="{StaticResource YellowBrush}"/>
+                                <TextBlock Margin="12,5,0,5" Text="Postpone"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch" >
+                        <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch"
+                                 HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" 
                                           Foreground="{StaticResource RedBrush}"/>
+                                <TextBlock Margin="12,5,0,5" Text="Delete"/>
                             </StackPanel>
                         </Button>
-                        <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
+                        <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                                <TextBlock Margin="12,5,0,5" Text="Edit"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
