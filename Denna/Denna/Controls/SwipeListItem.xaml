@@ -48,7 +48,7 @@
                 <Button x:Name="R1" Tag="{Binding}"  Background="{x:Bind RightFirstColor,Mode=OneWay}" Foreground="{x:Bind RightFirstForeground,Mode=OneWay}"
                 Content="{x:Bind RightFirstContent,Mode=OneWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}"  />
                 <TextBlock Text="{x:Bind RightFirstCaption, Mode=OneWay}" VerticalAlignment="Bottom"
-                           HorizontalAlignment="Center"
+                           HorizontalAlignment="Center" Foreground="White"
                            FontSize="10"
                            Margin="0,0,0,4"/>
 
@@ -57,7 +57,7 @@
                 <Button x:Name="R2" Tag="{Binding}" Background="{x:Bind RightSecondColor,Mode=OneWay}" Foreground="{x:Bind RightSecondForeground,Mode=OneWay}"
                 Content="{x:Bind RightSecondContent,Mode=OneWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
                 <TextBlock Text="{x:Bind RightSecondCaption, Mode=OneWay}" VerticalAlignment="Bottom"
-                           HorizontalAlignment="Center"
+                           HorizontalAlignment="Center" Foreground="White"
                            FontSize="10"
                            Margin="0,0,0,4"/>
             </Grid>
@@ -65,7 +65,7 @@
                 <Button x:Name="R3" Tag="{Binding}" Background="{x:Bind RightThirdColor,Mode=OneWay}" Foreground="{x:Bind RightThirdForeground,Mode=OneWay}"
                 Content="{x:Bind RightThirdContent,Mode=OneWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
                 <TextBlock Text="{x:Bind RightThirdCaption, Mode=OneWay}" VerticalAlignment="Bottom"
-                           HorizontalAlignment="Center"
+                           HorizontalAlignment="Center" Foreground="White"
                            FontSize="10"
                            Margin="0,0,0,4"/>
             </Grid>
