@@ -67,6 +67,7 @@
              RightFirstColor="{StaticResource GrayBrush}" RightFirstForeground="White" RightFirstContent=""   
                                     RightSecondColor="{StaticResource GreenBrush}" RightSecondForeground="White" RightSecondContent=""
                                     RightThirdColor="{StaticResource YellowBrush}" RightThirdContent="" RightThirdForeground="White"
+                                            RightFirstCaption="Undo" RightSecondCaption="Do" RightThirdCaption="Postpone"
                                     VerticalAlignment="Center" 
                                             FlyoutBase.AttachedFlyout="{StaticResource TaskListContextMenu}"
                                    >
