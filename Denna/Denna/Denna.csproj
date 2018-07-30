@@ -142,6 +142,7 @@
     <Compile Include="Controls\TemplatedTextBox.xaml.cs">
       <DependentUpon>TemplatedTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateTimeToRelativeDayConverter.cs" />
     <Compile Include="Converters\IntToVisibilityConverter.cs" />
     <Compile Include="Converters\DateTimeToTimeStringConverter.cs" />
     <Compile Include="Converters\DoubleToStringConverter.cs" />
