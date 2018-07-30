@@ -11,7 +11,6 @@ namespace Core.Domain
         public int Notify { get; set; }
         public int Status { get; set; }
         public DateTimeOffset StartTime { get; set; }
-        public DateTimeOffset EndTime { get; set; }
 
     }
 }
