@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core;
+using Core.Domain;
+using Core.Todos.Tasks;
 using PubSub;
+using Realms;
 
 namespace Denna.ViewModels
 {
@@ -14,61 +17,19 @@ namespace Denna.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         private string _greet;
         private string _todate = DateTime.Now.ToLocalTime().ToString("D");
-        private string _picture= "ms-appx:///Assets/Mockups/usrimg.jpg";
-        private int _counter = 2;
         public SwipePanelViewModel()
         {
             this.Subscribe<Classes.Header>(Text =>
             {
                 Greet = Text.Text;
             });
+            ToDos = TodoService.GetMustDoList();
 
         }
-        public int Counter
+        public IRealmCollection<Todo> ToDos { get; set; }
+
+        public string Greet
         {
-            get
-            {
-
-                return _counter;
-
-            }
-            set
-            {
-                if (_counter != value)
-                {
-                    _counter = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this,
-                            new PropertyChangedEventArgs("Counter"));
-                    }
-                }
-
-            }
-        }
-        public string Picture
-        {
-            get
-            {
-
-                return _picture;
-
-            }
-            set
-            {
-                if (_picture != value)
-                {
-                    _picture = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this,
-                            new PropertyChangedEventArgs("Picture"));
-                    }
-                }
-
-            }
-        }
-        public string Greet {
             get
             {
 

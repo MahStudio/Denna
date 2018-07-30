@@ -1,25 +1,24 @@
-﻿using System;
+﻿using Core.Domain;
+using Realms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
 {
-    class IntToTaskCounterConverter : IValueConverter
+    public class IntToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            int count = (int)value;
-            string x = "";
+            var count = (int)value;
             if (count == 0)
-                x = "Nothing to do";
-            else if (count == 1)
-                x = count + " Task to do";
+                return Visibility.Visible;
             else
-                x = count + " Tasks to do";
-            return x;
+                return Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

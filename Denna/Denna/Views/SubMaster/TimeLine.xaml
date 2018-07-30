@@ -9,11 +9,15 @@
     xmlns:VM="using:Denna.ViewModels"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Converters="using:Denna.Converters"
     NavigationCacheMode="Required"
     mc:Ignorable="d">
     <Page.DataContext>
         <VM:TimeLineViewModel />
     </Page.DataContext>
+    <Page.Resources>
+        <Converters:IntToVisibilityConverter x:Key="TaskListToVisibilityConverter" />
+    </Page.Resources>
     <Grid>
         <RelativePanel Background="{ThemeResource AppBackgroundColor}" Margin="0,0,0,48">
             <Grid x:Name="Search" Margin="20,10,20,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" >
@@ -36,10 +40,20 @@
 
                     <StackPanel  >
                         <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Today" />
+                        <Grid Height="80" Visibility="{Binding TodayList.Count,Mode=TwoWay,Converter={StaticResource TaskListToVisibilityConverter}}" HorizontalAlignment="Center">
+                            <TextBlock VerticalAlignment="Center" Opacity="0.7" HorizontalAlignment="Center" TextAlignment="Center" >
+                                You have no tasks for today! press + button to add one.
+                            </TextBlock>
+                        </Grid>
                         <Controls:TaskList TaskLists="{Binding TodayList,Mode=TwoWay}" />
                     </StackPanel>
                     <StackPanel Margin="0,30,0,0" >
                         <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Need attention" />
+                        <Grid Visibility="{Binding Attention.Count,Mode=TwoWay,Converter={StaticResource TaskListToVisibilityConverter}}" Height="80" HorizontalAlignment="Center">
+                            <TextBlock VerticalAlignment="Center" Opacity="0.7" HorizontalAlignment="Center" TextAlignment="Center" >
+                                Nice, no postponed task needs your attention.
+                            </TextBlock>
+                        </Grid>
                         <Controls:TaskList TaskLists="{Binding Attention,Mode=TwoWay}" />
                     </StackPanel>
                 </StackPanel>

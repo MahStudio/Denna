@@ -47,7 +47,7 @@ namespace Denna.Views
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
-            
+
             if (Frame == null)
                 return;
 
@@ -64,7 +64,7 @@ namespace Denna.Views
 
         private void App_BackRequested(object sender, BackRequestedEventArgs e)
         {
-           
+
             if (Frame == null)
                 return;
 
@@ -98,14 +98,9 @@ namespace Denna.Views
             var clk = e.ClickedItem as Classes.ItemHolder;
             switch (clk.ID)
             {
-                case 1 :
+                case 1:
                     {
                         Frame.Navigate(typeof(Account));
-                        break;
-                    }
-                case 2:
-                    {
-                        Frame.Navigate(typeof(Privacy));
                         break;
                     }
                 case 3:

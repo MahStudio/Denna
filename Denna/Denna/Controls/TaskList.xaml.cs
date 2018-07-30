@@ -68,6 +68,21 @@ namespace Denna.Controls
                 case "Postpone":
                     TodoService.Postpone(todo);
                     break;
+                case "delete1":
+                    TodoService.Delete(todo);
+                    break;
+                case "edit1":
+                    //Edit page navigation
+                    break;
+                case "Done1":
+                    TodoService.Done(todo);
+                    break;
+                case "Undo1":
+                    TodoService.Undone(todo);
+                    break;
+                case "Postpone1":
+                    TodoService.Postpone(todo);
+                    break;
                 default:
                     break;
             }
@@ -93,7 +108,9 @@ namespace Denna.Controls
             TodoService.Postpone(todo);
         }
 
-
-
+        private void SwipeListItem_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+        }
     }
 }

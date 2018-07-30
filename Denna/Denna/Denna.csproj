@@ -105,7 +105,6 @@
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Behaviors\InternalAnimation.cs" />
     <Compile Include="Classes\BindingHelper.cs" />
-    <Compile Include="Classes\CalendarViewHelper.cs" />
     <Compile Include="Classes\DelegateCommand.cs" />
     <Compile Include="Classes\Extentions.cs" />
     <Compile Include="Classes\Header.cs" />
@@ -143,6 +142,7 @@
     <Compile Include="Controls\TemplatedTextBox.xaml.cs">
       <DependentUpon>TemplatedTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\IntToVisibilityConverter.cs" />
     <Compile Include="Converters\DateTimeToTimeStringConverter.cs" />
     <Compile Include="Converters\DoubleToStringConverter.cs" />
     <Compile Include="Converters\InputScopeConverter.cs" />
@@ -184,14 +184,8 @@
     <Compile Include="Views\SubMaster\Add\Task.xaml.cs">
       <DependentUpon>Task.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SubMaster\Calendar.xaml.cs">
-      <DependentUpon>Calendar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SubMaster\Graphs.xaml.cs">
       <DependentUpon>Graphs.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SubMaster\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubMaster\TimeLine.xaml.cs">
       <DependentUpon>TimeLine.xaml</DependentUpon>
@@ -210,9 +204,6 @@
     </Compile>
     <Compile Include="Views\SubSettings\Personalization.xaml.cs">
       <DependentUpon>Personalization.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SubSettings\Privacy.xaml.cs">
-      <DependentUpon>Privacy.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubSettings\QuickActions.xaml.cs">
       <DependentUpon>QuickActions.xaml</DependentUpon>
@@ -380,15 +371,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SubMaster\Calendar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\SubMaster\Graphs.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SubMaster\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -413,10 +396,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubSettings\Personalization.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SubSettings\Privacy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

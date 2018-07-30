@@ -44,7 +44,6 @@ namespace Denna.ViewModels
         {
             MenuList = new List<ItemHolder>();
             MenuList.Add(new ItemHolder() { icon = "", detail = "Edit profile, email", title = "Account", ID = 1 });
-            MenuList.Add(new ItemHolder() { icon = "", detail = "Connected devices, sessions", title = "Sync and devices", ID = 2 });
             MenuList.Add(new ItemHolder() { icon = "", detail = "Sounds, reminders", title = "Notifications", ID = 3 });
             MenuList.Add(new ItemHolder() { icon = "", detail = "Action center tools", title = "Quick Actions", ID = 4 });
             MenuList.Add(new ItemHolder() { icon = "", detail = "Color, theme", title = "Personalization", ID = 5 });

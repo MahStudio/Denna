@@ -32,6 +32,8 @@ So with the help of the whole team in MahStudio we came across with a project na
 Then with the help of the team and the community we developed and release a lovely tool named **Denna**.
 The aim of Denna is to help people to care more about the time they have. Cuz time flies!
 
+Ease of access and productivity is Denna's core value.
+
 ![image](https://user-images.githubusercontent.com/22152065/38919555-2566f7b2-4306-11e8-8a9c-95eb08eff28a.png)
 
 ### Denna in press
@@ -129,3 +131,9 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 - Reza Cloner : UX tests
 
 Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers community for their help to this project.
+
+## Licence
+
+This application is available under [GPL-3 Licence](https://github.com/MahStudio/Denna/blob/master/LICENSE).
+
+Copyright © 2016-2018 [Denna Authors](https://github.com/Mahstudio/Denna/graphs/contributors) // [Mah Studio](https://github.com/Mahstudio/Denna/graphs/contributors).
