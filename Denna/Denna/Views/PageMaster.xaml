@@ -687,11 +687,6 @@
                 </PivotItem>
                 <PivotItem Margin="0,0,0,0" >
 
-                    <Frame x:Name="CalView" />
-
-                </PivotItem>
-                <PivotItem Margin="0,0,0,0" >
-
                     <Frame x:Name="Chats" />
 
                 </PivotItem>
@@ -710,7 +705,6 @@
         <Grid ManipulationMode="None" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button Click="btoday_Click" x:Name="btoday" Content="" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
-                <Button Click="bmonth_Click" x:Name="bmonth" Content="&#xE163;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
                 <Button Click="bpref_Click" x:Name="bpref" Content="&#xE2AC;" Style="{StaticResource pivotheaderstyle}" Width="48" Height="48" />
             </StackPanel>
         </Grid>

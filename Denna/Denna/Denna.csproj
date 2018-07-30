@@ -105,7 +105,6 @@
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Behaviors\InternalAnimation.cs" />
     <Compile Include="Classes\BindingHelper.cs" />
-    <Compile Include="Classes\CalendarViewHelper.cs" />
     <Compile Include="Classes\DelegateCommand.cs" />
     <Compile Include="Classes\Extentions.cs" />
     <Compile Include="Classes\Header.cs" />
@@ -184,9 +183,6 @@
     </Compile>
     <Compile Include="Views\SubMaster\Add\Task.xaml.cs">
       <DependentUpon>Task.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SubMaster\Calendar.xaml.cs">
-      <DependentUpon>Calendar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubMaster\Graphs.xaml.cs">
       <DependentUpon>Graphs.xaml</DependentUpon>
@@ -372,10 +368,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubMaster\Add\Task.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SubMaster\Calendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

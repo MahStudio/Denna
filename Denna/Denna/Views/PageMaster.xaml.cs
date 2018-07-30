@@ -68,7 +68,6 @@ namespace Denna.Views
             #endregion
             #region navigations
             TimeLine.Navigate(typeof(TimeLine));
-            CalView.Navigate(typeof(Calendar));
             Chats.Navigate(typeof(Graphs));
             #endregion
 
@@ -81,48 +80,30 @@ namespace Denna.Views
             if (Pivot.SelectedIndex == 0)
                 mtoday();
             if (Pivot.SelectedIndex == 1)
-                mmonth();
-            if (Pivot.SelectedIndex == 2)
                 mpref();
 
         }
         private void mtoday()
         {
             btoday.BorderThickness = new Thickness(0, 0, 0, 2);
-            bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
-            bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             Pivot.SelectedIndex = 0;
             this.Publish(new Classes.Header("Timeline"));
 
 
         }
-        private void mmonth()
-        {
-            btoday.BorderThickness = new Thickness(0, 0, 0, 0);
-            bmonth.BorderThickness = new Thickness(0, 0, 0, 2);
-            bpref.BorderThickness = new Thickness(0, 0, 0, 0);
-            Pivot.SelectedIndex = 1;
-            this.Publish(new Classes.Header("Entire month"));
-        }
         private void mpref()
         {
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
-            bmonth.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 2);
             this.Publish(new Classes.Header("Performance"));
-            Pivot.SelectedIndex = 2;
+            Pivot.SelectedIndex = 1;
 
         }
 
         private void btoday_Click(object sender, RoutedEventArgs e)
         {
             mtoday();
-        }
-
-        private void bmonth_Click(object sender, RoutedEventArgs e)
-        {
-            mmonth();
         }
         private void bpref_Click(object sender, RoutedEventArgs e)
         {
