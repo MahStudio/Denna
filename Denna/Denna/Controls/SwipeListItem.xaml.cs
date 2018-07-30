@@ -120,6 +120,21 @@ namespace Denna.Controls
         public static readonly DependencyProperty RightFirstContentProperty =
             DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
 
+
+
+
+        public string RightFirstCaption
+        {
+            get { return (string)GetValue(RightFirstCaptionProperty); }
+            set { SetValue(RightFirstCaptionProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightFirstCaption.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightFirstCaptionProperty =
+            DependencyProperty.Register(nameof(RightFirstCaption), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
         public SolidColorBrush RightSecondColor
         {
             get { return (SolidColorBrush)GetValue(RightSecondColorProperty); }
@@ -155,6 +170,20 @@ namespace Denna.Controls
             DependencyProperty.Register(nameof(RightSecondContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
 
 
+
+
+        public string RightSecondCaption
+        {
+            get { return (string)GetValue(RightSecondCaptionProperty); }
+            set { SetValue(RightSecondCaptionProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightSecondCaption.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightSecondCaptionProperty =
+            DependencyProperty.Register(nameof(RightSecondCaption), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
         public SolidColorBrush RightThirdColor
         {
             get { return (SolidColorBrush)GetValue(RightThirdColorProperty); }
@@ -188,6 +217,20 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightThirdContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightThirdContentProperty =
             DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
+
+        public string RightThirdCaption
+        {
+            get { return (string)GetValue(RightThirdCaptionProperty); }
+            set { SetValue(RightThirdCaptionProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RightThirdCaption.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RightThirdCaptionProperty =
+            DependencyProperty.Register(nameof(RightThirdCaption), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
+
+
         #endregion
 
 
