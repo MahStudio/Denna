@@ -95,7 +95,7 @@
                                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                                    />
                                         <TextBlock Foreground="{ThemeResource AntiForeground }" RelativePanel.RightOf="title" RelativePanel.AlignRightWithPanel="True"  TextAlignment="Right" Opacity="0.7"
-                                                   Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding StartTime}"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>
+                                                   Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding StartTime,Converter={StaticResource DateTimeToRelativeDayConverter}}"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>
 
                                         <TextBlock x:Name="title" FontWeight="SemiBold"  Grid.Column="1" Grid.Row="0"
                                     FontSize="14" Text="{Binding Subject}"  Margin="7,5,0,0" Foreground="{ThemeResource AntiForeground }"
