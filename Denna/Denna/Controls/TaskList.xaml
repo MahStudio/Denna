@@ -12,6 +12,38 @@
     d:DesignWidth="400">
 
     <Grid>
+        <Grid.Resources>
+            <Flyout x:Key="TaskListContextMenu">
+                <StackPanel Orientation="Vertical" Width="40">
+                    <Button Click="Edit_Click" x:Name="Done1" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                        </StackPanel>
+                    </Button>
+                    <Button Click="Edit_Click" x:Name="Undo1" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                        </StackPanel>
+                    </Button>
+                    <Button Click="Edit_Click" x:Name="Postpone1" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                        </StackPanel>
+                    </Button>
+                    <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete1" Background="Transparent" HorizontalAlignment="Stretch" >
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                        </StackPanel>
+                    </Button>
+                    <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit1" Background="Transparent" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Flyout>
+
+        </Grid.Resources>
         <ListView ItemsSource="{x:Bind TaskLists}" ScrollViewer.IsHorizontalRailEnabled="False"
                   ScrollViewer.IsVerticalRailEnabled="False"
          SelectionMode="None" IsMultiSelectCheckBoxEnabled="False"  Name="ListofTasks" >
@@ -20,6 +52,8 @@
                 <Converters:IsdoneToGlyphConverter x:Key="IsdoneToGlyphConverter" />
                 <Converters:TextToHashtagConverter x:Key="TextToHashtagConverter" />
                 <Converters:DateTimeToTimeStringConverter x:Key="DateTimeToTimeStringConverter" />
+               
+
             </ListView.Resources>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -35,38 +69,9 @@
                                     RightSecondColor="{StaticResource GreenBrush}" RightSecondForeground="White" RightSecondContent=""
                                     RightThirdColor="{StaticResource YellowBrush}" RightThirdContent="" RightThirdForeground="White"
                                     VerticalAlignment="Center" 
+                                            FlyoutBase.AttachedFlyout="{StaticResource TaskListContextMenu}"
                                    >
-                        <FlyoutBase.AttachedFlyout>
-                            <Flyout>
-                                <StackPanel Orientation="Vertical" Width="40">
-                                    <Button Click="Edit_Click" x:Name="Done1" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
-                                        <StackPanel Orientation="Horizontal">
-                                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Click="Edit_Click" x:Name="Undo1" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
-                                        <StackPanel Orientation="Horizontal">
-                                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Click="Edit_Click" x:Name="Postpone1" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
-                                        <StackPanel Orientation="Horizontal">
-                                            <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete1" Background="Transparent" HorizontalAlignment="Stretch" >
-                                        <StackPanel Orientation="Horizontal">
-                                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                        </StackPanel>
-                                    </Button>
-                                    <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit1" Background="Transparent" HorizontalAlignment="Stretch">
-                                        <StackPanel Orientation="Horizontal">
-                                            <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                        </StackPanel>
-                                    </Button>
-                                </StackPanel>
-                            </Flyout>
-                        </FlyoutBase.AttachedFlyout>
+                       
                         <controls:SwipeListItem.TheGrid>
                             <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -88,40 +93,8 @@
                                         <Button FontWeight="Light" Foreground="Gray" BorderBrush="Gray" x:Name="more"  Background="Transparent" Tag="WOW"
                                 FontFamily="Segoe MDL2 Assets" Grid.Column="1" BorderThickness="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="18" Content="" Style="{StaticResource dotbut}" Height="35" Width="35" Grid.Row="1" 
                                 RelativePanel.AlignVerticalCenterWithPanel="True"  RelativePanel.AlignRightWithPanel="True"
-                                >
+                                Button.Flyout="{StaticResource TaskListContextMenu}">
 
-
-                                            <Button.Flyout>
-                                                <Flyout>
-                                                    <StackPanel Orientation="Vertical" Width="40">
-                                                        <Button Click="Edit_Click" x:Name="Done" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                                            </StackPanel>
-                                                        </Button>
-                                                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                                            </StackPanel>
-                                                        </Button>
-                                                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
-                                                            </StackPanel>
-                                                        </Button>
-                                                        <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch" >
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                                            </StackPanel>
-                                                        </Button>
-                                                        <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
-                                                            </StackPanel>
-                                                        </Button>
-                                                    </StackPanel>
-                                                </Flyout>
-                                            </Button.Flyout>
                                         </Button>
 
                                         <Rectangle RelativePanel.Below="Title" RelativePanel.AlignLeftWithPanel="True" Margin="0,15,0,0"
