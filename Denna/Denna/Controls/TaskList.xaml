@@ -26,22 +26,26 @@
                         <Button Click="Edit_Click" x:Name="Done" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch"
                                 HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph=""
+                                          Foreground="{StaticResource GreenBrush}"/>
                             </StackPanel>
                         </Button>
                         <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
+                                          Foreground="{StaticResource BlueBrush}"/>
                             </StackPanel>
                         </Button>
                         <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch">
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" />
+                                <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
+                                          Foreground="{StaticResource YellowBrush}"/>
                             </StackPanel>
                         </Button>
                         <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete" Background="Transparent" HorizontalAlignment="Stretch" >
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
+                                <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" 
+                                          Foreground="{StaticResource RedBrush}"/>
                             </StackPanel>
                         </Button>
                         <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit" Background="Transparent" HorizontalAlignment="Stretch">
