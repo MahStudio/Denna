@@ -25,7 +25,7 @@ namespace Denna.Views.SubMaster
     public sealed partial class Calendar : Page
     {
         public CalendarViewModel ViewModel { get; set; }
-        public DateTimeOffset SelectedDate { get => MyCalendarView.SelectedDates.First(); }
+        
         public bool LoadTime = false;
         public Calendar()
         {
