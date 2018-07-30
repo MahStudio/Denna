@@ -7,17 +7,29 @@ using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
 {
-    class DateTimeToTimeStringConverter : IValueConverter
+    public class DateTimeToRelativeDayConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-
             DateTimeOffset Value = (DateTimeOffset)value;
+            var Day = Value.Date;
+            string x = "";
+            if (Day == DateTime.Today)
+                x += "Today";
+            else if (Day == DateTime.Today.AddDays(1))
+                x += "Tomorrow";
+            else if (Day == DateTime.Today.AddDays(-1))
+                x += "Yesterday";
+            else
+            {
+                var month = Value.Month;
+                var day = Value.Day;
+                x += month + "/" + day;
+            }
             string Hour = Value.Hour.ToString();
             string Min = Value.Minute.ToString();
-            var month = Value.Month;
-            var day = Value.Day;
-            string x = month + "/" + day + Environment.NewLine + Hour + ":" + Min;
+            
+            x += " " + Hour + ":" + Min;
 
 
             return x;

@@ -39,7 +39,9 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0"  >
                 <Button Background="{x:Bind LeftFirstColor,Mode=OneWay}" Foreground="{x:Bind LeftFirstForeground,Mode=OneWay}"
-                Content="{x:Bind LeftFirstContent,Mode=OneWay}" Style="{StaticResource infoButton}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                 Style="{StaticResource infoButton}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                    <TextBlock LineHeight="23" TextAlignment="Center" FontSize="13" Text="{x:Bind LeftFirstContent,Mode=OneWay}" />
+                </Button>
 
             </Grid>
             <Grid Grid.Column="3"  >

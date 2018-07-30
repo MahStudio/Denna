@@ -9,7 +9,6 @@
     xmlns:controls="using:Denna.Controls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Denna.Views.PageMaster"
-    NavigationCacheMode="Required"
     mc:Ignorable="d">
     
     <Interactivity:Interaction.Behaviors>
