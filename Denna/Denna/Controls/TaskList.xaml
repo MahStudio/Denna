@@ -21,6 +21,7 @@
                 <Converters:IsdoneToGlyphConverter x:Key="IsdoneToGlyphConverter" />
                 <Converters:TextToHashtagConverter x:Key="TextToHashtagConverter" />
                 <Converters:DateTimeToTimeStringConverter x:Key="DateTimeToTimeStringConverter" />
+                <Converters:DateTimeToRelativeDayConverter x:Key="DateTimeToRelativeDayConverter"/>
                 <Flyout x:Key="TaskListContextMenu">
                     <StackPanel Orientation="Vertical" Width="150">
                         <Button Click="Edit_Click" x:Name="Done" Tag="{Binding}"  Background="Transparent"  HorizontalAlignment="Stretch"
