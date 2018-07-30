@@ -15,7 +15,9 @@ namespace Denna.Converters
             DateTimeOffset Value = (DateTimeOffset)value;
             string Hour = Value.Hour.ToString();
             string Min = Value.Minute.ToString();
-            string x = Hour + ":" + Min;
+            var month = Value.Month;
+            var day = Value.Day;
+            string x = month + "/" + day + Environment.NewLine + Hour + ":" + Min;
 
 
             return x;
