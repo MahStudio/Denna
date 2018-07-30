@@ -117,9 +117,6 @@
     <Compile Include="Controls\DoublePi.xaml.cs">
       <DependentUpon>DoublePi.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FlyoutControl.xaml.cs">
-      <DependentUpon>FlyoutControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\GraphControl.xaml.cs">
       <DependentUpon>GraphControl.xaml</DependentUpon>
     </Compile>
@@ -303,10 +300,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\DoublePi.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\FlyoutControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
