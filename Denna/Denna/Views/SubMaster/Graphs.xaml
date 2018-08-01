@@ -7,11 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Controls="using:Denna.Controls"
     xmlns:VM="using:Denna.ViewModels"
+    xmlns:Converters="using:Denna.Converters"
     NavigationCacheMode="Required"
     mc:Ignorable="d">
     <Page.DataContext>
         <VM:GraphViewModel />
     </Page.DataContext>
+    <Page.Resources>
+        <Converters:TaskListToMonthlyLineChartConverter x:Key="TaskListToMonthlyLineChartConverter" />
+    </Page.Resources>
     <ScrollViewer>
         <StackPanel>
             <Grid x:Name="today"
@@ -36,13 +40,13 @@
                    PostponedTasks="4" PendingTasks="4" GlyphBrush="Red"   Margin="0,40,0,0"     HorizontalAlignment="Center"              />
             </Grid>
             
-            <Controls:GraphControl x:Name="Fist" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Week" Items="{x:Bind VM.week}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+            <Controls:GraphControl x:Name="Fist" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Week"
                  RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"
                                 MinWidth="300"
                                
                                />
             <Controls:GraphControl x:Name="Sec" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Month"
-                Items="{Binding Today}" Done="{Binding Today}" Pending="{Binding Today}"
+                Items="{x:Bind VM.LastMonth,Converter={StaticResource TaskListToMonthlyLineChartConverter}}" Done="3" Pending="3"
                  RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"  MinWidth="300"
                                />
         </StackPanel>

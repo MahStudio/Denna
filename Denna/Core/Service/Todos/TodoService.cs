@@ -75,7 +75,8 @@ namespace Core.Todos.Tasks
         {
             var yesterdayStart = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.AddMonths(-1).Month, DateTime.UtcNow.Day, 0, 0, 0, new TimeSpan());
             var yesterdayEnd = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, 23, 59, 59, new TimeSpan());
-            return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime > yesterdayStart && offset.StartTime < yesterdayEnd).OrderBy(x => x.StartTime).AsRealmCollection();
+            var y = RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime > yesterdayStart && offset.StartTime < yesterdayEnd).OrderBy(x => x.StartTime).AsRealmCollection();
+            return y;
         }
         public static IRealmCollection<Todo> GetPostponedList()
         {
