@@ -42,7 +42,7 @@
                                
                                />
             <Controls:GraphControl x:Name="Sec" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Month"
-                Items="{x:Bind VM.items}" Done="{x:Bind VM.Done}" Pending="{x:Bind VM.Pending}"
+                Items="{Binding Today}" Done="{Binding Today}" Pending="{Binding Today}"
                  RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"  MinWidth="300"
                                />
         </StackPanel>

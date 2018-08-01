@@ -1,4 +1,7 @@
-﻿using Denna.Classes;
+﻿using Core.Domain;
+using Core.Todos.Tasks;
+using Denna.Classes;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,67 +15,26 @@ namespace Denna.ViewModels
     public class GraphViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private Random _random = new Random();
-        public ObservableCollection<NameValueItem> items { get; set; }
-        public ObservableCollection<NameValueItem> week { get; set; }
+        public IRealmCollection<Todo> Today { get; set; }
+        public IRealmCollection<Todo> Yesterday { get; set; }
+        public IRealmCollection<Todo> ThisWeek { get; set; }
+        public IRealmCollection<Todo> LastWeek { get; set; }
+        public IRealmCollection<Todo> LastMonth { get; set; }
         public GraphViewModel()
         {
-            items = new ObservableCollection<NameValueItem>();
-            week = new ObservableCollection<NameValueItem>();
-            for (int i = 0; i < 7; i++)
-            {
-                week.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
-            }
-            for (int i = 0; i < 30; i++)
-            {
-                items.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
-            }
-            Pending = 3;
-            Done = 4;
-        }
-        private int _done;
-        public int Done
-        {
-            get
-            {
-                return _done;
-
-            }
-            set
-            {
-
-                if (_done != value)
-                {
-                    _done = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this,
-                            new PropertyChangedEventArgs("Done"));
-                    }
-                }
-            }
-        }
-        private int _pending;
-        public int Pending
-        {
-            get
-            {
-                return _pending;
-
-            }
-            set
-            {
-
-                if (_pending != value)
-                {
-                    _pending = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this,
-                            new PropertyChangedEventArgs("Pending"));
-                    }
-                }
-            }
+            Today = TodoService.GetTodayList();
+            Yesterday = TodoService.GetYesterdayList();
+            ThisWeek = TodoService.GetThisWeekList();
+            LastWeek = TodoService.GetLastWeekList();
+            LastMonth = TodoService.GetLastMonthList();
+            //for (int i = 0; i < 7; i++)
+            //{
+            //    week.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
+            //}
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    items.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
+            //}
         }
     }
 }
