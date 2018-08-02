@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Windows.UI.Popups;
+using Microsoft.AppCenter.Crashes;
 
 namespace Denna
 {
@@ -27,6 +28,7 @@ namespace Denna
             this.Suspending += OnSuspending;
             this.UnhandledException += App_UnhandledException;
             AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Analytics));
+            AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Crashes));
             Themesetter();
             DI.Build();
         }
