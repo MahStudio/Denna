@@ -10,6 +10,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Windows.UI.Popups;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 
 namespace Denna
 {
@@ -29,6 +30,7 @@ namespace Denna
             this.UnhandledException += App_UnhandledException;
             AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Analytics));
             AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Crashes));
+            AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Push));
             Themesetter();
             DI.Build();
         }
