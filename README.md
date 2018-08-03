@@ -100,8 +100,9 @@ We use realm as our database and sync engine, so see [Realm.net documentation](h
 
 1. Clone the repo
 2. Open Denna Solution
-3. Open [Realm cloud website](https://cloud.realm.io/) and register for a realm instance for free.
+3. Open [Realm cloud website](https://cloud.realm.io/) and register for a realm instance for free. If you don't want sync, skip this step and open an [issue](https://github.com/MahStudio/Denna/issues) and ask us for the solution.
 4. Back into solution, there is a missing `Constants.cs` file. Replace it with following code. Remember that you should paste your *realm instance URL* in `ServerUri`.
+5. Register for an app in Microsoft App Center and paste your *app secret code* in `AppCenterSecret`. If you don't want analytics you can skip this and write a random string there.
 
 ```csharp
 using System;
@@ -110,11 +111,12 @@ namespace Core
     public static class Constants
     {
         public static readonly Uri ServerUri = new Uri("My realm server URL");
+        public static readonly string AppCenterSecret = "Your App Center secret" ;
     }
 }
 ```
 
-5. Hit F5 and run the project
+6. Hit F5 and run the project
 
 ### Authors
 
