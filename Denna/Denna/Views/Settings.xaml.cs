@@ -1,4 +1,5 @@
 ﻿using Denna.Views.SubSettings;
+using Microsoft.AppCenter.Analytics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -92,6 +93,7 @@ namespace Denna.Views
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                     AppViewBackButtonVisibility.Collapsed;
             }
+            Analytics.TrackEvent("Settings Opened");
         }
         private void ArtistsList_ItemClick(object sender, ItemClickEventArgs e)
         {

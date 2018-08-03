@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -98,6 +99,7 @@ namespace Denna.Controls
                 }
                 catch (Exception ex) { }
             }
+            Analytics.TrackEvent("Swipe panel used");
         }
 
         private void gridMain_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)

@@ -11,6 +11,7 @@ using Microsoft.AppCenter.Analytics;
 using Windows.UI.Popups;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Push;
+using Core;
 
 namespace Denna
 {
@@ -28,11 +29,12 @@ namespace Denna
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             this.UnhandledException += App_UnhandledException;
-            AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Analytics));
-            AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Crashes));
-            AppCenter.Start("2b144adb-5aac-4c75-a761-5f9ee1a0fd92", typeof(Push));
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Analytics));
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
             Themesetter();
             DI.Build();
+            Analytics.TrackEvent("App Opened");
         }
 
         private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -256,6 +257,7 @@ namespace Denna.Controls
         {
             if (myScaleTransform.X <= -170 ) return;
             urStoryboard.Begin();
+            Analytics.TrackEvent("Swipe menu opened");
 
         }
 

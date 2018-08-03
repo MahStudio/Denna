@@ -2,6 +2,7 @@
 using Core.Service.Users;
 using Denna.Classes;
 using Denna.Views;
+using Microsoft.AppCenter.Analytics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,7 @@ namespace Denna.ViewModels
         {
             await UserService.Login(UserName, Password);
             RealmContext.Initialize();
+            Analytics.TrackEvent("User signed in");
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
         private string _username;

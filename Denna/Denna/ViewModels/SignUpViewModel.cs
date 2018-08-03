@@ -14,6 +14,7 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml.Media.Imaging;
 using Core.Service.Users;
 using Core.Data;
+using Microsoft.AppCenter.Analytics;
 
 namespace Denna.ViewModels
 {
@@ -165,6 +166,7 @@ namespace Denna.ViewModels
             }
 
             await UserService.Register(UserName, Password,Name,Email);
+            Analytics.TrackEvent("User signed up");
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
 

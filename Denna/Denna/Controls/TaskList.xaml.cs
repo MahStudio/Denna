@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using Core.Domain;
 using Realms;
 using Core.Todos.Tasks;
+using Microsoft.AppCenter.Analytics;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -49,6 +50,7 @@ namespace Denna.Controls
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            Analytics.TrackEvent("Action From Context Menu");
             var btn = sender as Button;
             var todo = btn.Tag as Todo;
             switch (btn.Name)
