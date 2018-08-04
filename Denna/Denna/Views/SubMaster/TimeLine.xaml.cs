@@ -1,4 +1,5 @@
-﻿using Denna.ViewModels;
+﻿using Core.Todos.Tasks;
+using Denna.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +34,6 @@ namespace Denna.Views.SubMaster
             {
                 VM = DataContext as TimeLineViewModel;
             };
-            countries = new List<string> { "United Kingdom", "United States", "United Arab Emrites", "ahmed", "India", "Canada" };
         }
 
         private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -46,8 +46,18 @@ namespace Denna.Views.SubMaster
                 if (args.CheckCurrent())
                 {
                     var search_term = txtAutoComplete.Text;
-                    var results = countries.Where(i => i.StartsWith(search_term)).ToList();
-                    txtAutoComplete.ItemsSource = results;
+                    if (String.IsNullOrEmpty(search_term))
+                    {
+                        SearchView.Visibility = Visibility.Collapsed;
+                        RegularView.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        SearchView.Visibility = Visibility.Visible;
+                        RegularView.Visibility = Visibility.Collapsed;
+                        VM.SearchResults = TodoService.FullTextSearch(search_term);
+                    }
+
                 }
             }
         }
@@ -61,12 +71,6 @@ namespace Denna.Views.SubMaster
         {
             PageMaster.current.NavigateToSettings();
         }
-        private void AutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
-            // Set sender.Text. You can use args.SelectedItem to build your text string.
-            txtAutoComplete.Text = args.SelectedItem as string;
-
-        }
 
 
         private void AutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
@@ -74,9 +78,7 @@ namespace Denna.Views.SubMaster
             if (args.ChosenSuggestion != null)
             {
                 var search_term = args.QueryText;
-                var results = countries.Where(i => i.StartsWith(search_term)).ToList();
-                txtAutoComplete.ItemsSource = results;
-                txtAutoComplete.IsSuggestionListOpen = true;
+                VM.SearchResults = TodoService.FullTextSearch(search_term);
             }
             else
             {

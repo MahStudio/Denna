@@ -25,8 +25,7 @@
                 <Grid Background="Gray" Opacity="0.05"  />
                 <AutoSuggestBox  Margin="2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
                 TextChanged="AutoSuggestBox_TextChanged"
-                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
-                SuggestionChosen="AutoSuggestBox_SuggestionChosen" Style="{StaticResource Box1}"/>
+                QuerySubmitted="AutoSuggestBox_QuerySubmitted" Style="{StaticResource Box1}"/>
 
 
 
@@ -38,6 +37,13 @@
                           >
                 <StackPanel>
 
+                    <StackPanel x:Name="SearchView" >
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Search results" />
+                       
+                        <Controls:TaskList TaskLists="{Binding SearchResults,Mode=TwoWay}" />
+                    </StackPanel>
+                    
+                    <StackPanel x:Name="RegularView">
                     <StackPanel  >
                         <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Today" />
                         <Grid Height="80" Visibility="{Binding TodayList.Count,Mode=TwoWay,Converter={StaticResource TaskListToVisibilityConverter}}" HorizontalAlignment="Center">
@@ -55,6 +61,7 @@
                             </TextBlock>
                         </Grid>
                         <Controls:TaskList TaskLists="{Binding Attention,Mode=TwoWay}" />
+                    </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>

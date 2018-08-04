@@ -29,6 +29,29 @@ namespace Denna.ViewModels
 
         public IRealmCollection<Todo> TodayList { get; set; }
         public IRealmCollection<Todo> Attention { get; set; }
+        private IRealmCollection<Todo> _value;
+        public IRealmCollection<Todo> SearchResults
+        {
+            get
+            {
+                return _value;
+
+            }
+            set
+            {
+
+                if (_value != value)
+                {
+                    _value = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this,
+                            new PropertyChangedEventArgs("SearchResults"));
+                    }
+                }
+            }
+        }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;

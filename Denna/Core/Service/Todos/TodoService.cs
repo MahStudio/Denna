@@ -90,6 +90,11 @@ namespace Core.Todos.Tasks
             var endDate = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
             return RealmContext.Instance.All<Todo>().Where(s => s.StartTime > startDate && s.StartTime < endDate).OrderBy(x => x.StartTime).AsRealmCollection();
         }
+        public static IRealmCollection<Todo> FullTextSearch(string term)
+        {
+            var itmz = RealmContext.Instance.All<Todo>().Where(s => s.Detail.Contains(term) || s.Subject.Contains(term)).OrderBy(x => x.StartTime).AsRealmCollection();
+            return itmz;
+        }
 
     }
 }
