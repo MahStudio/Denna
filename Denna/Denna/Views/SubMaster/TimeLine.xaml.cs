@@ -26,6 +26,7 @@ namespace Denna.Views.SubMaster
     {
         List<string> countries = new List<string>();
         public TimeLineViewModel VM { get; set; }
+        public static TimeLine current;
         public TimeLine()
         {
 
@@ -34,6 +35,24 @@ namespace Denna.Views.SubMaster
             {
                 VM = DataContext as TimeLineViewModel;
             };
+            current = this;
+        }
+        public void DoOutsiderSearch(string term)
+        {
+            if (String.IsNullOrEmpty(term))
+            {
+                SearchView.Visibility = Visibility.Collapsed;
+                RegularView.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SearchView.Visibility = Visibility.Visible;
+                RegularView.Visibility = Visibility.Collapsed;
+                VM.SearchResults = TodoService.FullTextSearch(term);
+                txtAutoComplete.Text = term;
+            }
+
+
         }
 
         private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)

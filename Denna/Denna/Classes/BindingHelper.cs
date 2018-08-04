@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Denna.Views.SubMaster;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,7 +58,9 @@ namespace Denna.Classes
                         if (text.StartsWith("http://") || text.StartsWith("https://") || text.StartsWith("www."))
                             run.Text.OpenUrl();
                         else
-                            text.ShowMessage("Info");
+                        {
+                            TimeLine.current.DoOutsiderSearch( run.Text);
+                        }
                     }
                 }
             }

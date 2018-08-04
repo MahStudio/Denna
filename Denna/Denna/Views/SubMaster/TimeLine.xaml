@@ -24,7 +24,7 @@
                 <Grid CornerRadius="3" Opacity="0.2" BorderBrush="Gray" BorderThickness="1"  />
                 <Grid Background="Gray" Opacity="0.05"  />
                 <AutoSuggestBox  Margin="2" x:Name="txtAutoComplete" PlaceholderText="Search" QueryIcon="Find" 
-                TextChanged="AutoSuggestBox_TextChanged"
+                TextChanged="AutoSuggestBox_TextChanged" x:FieldModifier="public"
                 QuerySubmitted="AutoSuggestBox_QuerySubmitted" Style="{StaticResource Box1}"/>
 
 
@@ -35,9 +35,9 @@
                           RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                           RelativePanel.Below="Search" RelativePanel.AlignBottomWithPanel="True"
                           >
-                <StackPanel>
+                <StackPanel >
 
-                    <StackPanel x:Name="SearchView" >
+                    <StackPanel x:Name="SearchView" Visibility="Collapsed" >
                         <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Search results" />
                        
                         <Controls:TaskList TaskLists="{Binding SearchResults,Mode=TwoWay}" />
