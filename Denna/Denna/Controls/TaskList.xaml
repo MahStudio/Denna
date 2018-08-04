@@ -12,8 +12,8 @@
     d:DesignWidth="400">
 
     <Grid>
-        
-        <ListView ItemsSource="{x:Bind TaskLists}" ScrollViewer.IsHorizontalRailEnabled="False"
+
+        <ListView ItemsSource="{x:Bind TaskLists ,Mode=TwoWay}" ScrollViewer.IsHorizontalRailEnabled="False"
                   ScrollViewer.IsVerticalRailEnabled="False"
          SelectionMode="None" IsMultiSelectCheckBoxEnabled="False"  Name="ListofTasks" >
             <ListView.Resources>
@@ -24,7 +24,7 @@
                 <Converters:DateTimeToRelativeDayConverter x:Key="DateTimeToRelativeDayConverter"/>
                 <Flyout x:Key="TaskListContextMenu">
                     <StackPanel Orientation="Vertical" Width="150">
-                        <Button Click="Edit_Click" x:Name="Done" Tag="{Binding}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click" x:Name="Done" Tag="{Binding Mode=TwoWay}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                 HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph=""
@@ -32,7 +32,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Do"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent"  HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding Mode=TwoWay}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent"  HorizontalAlignment="Stretch"
                                  HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
@@ -40,7 +40,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Undo"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding Mode=TwoWay}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                  HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
@@ -48,7 +48,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Postpone"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click"  Tag="{Binding}" x:Name="delete" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click"  Tag="{Binding Mode=TwoWay}" x:Name="delete" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                  HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" 
@@ -56,7 +56,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Delete"/>
                             </StackPanel>
                         </Button>
-                        <Button  Tag="{Binding}" Click="Edit_Click" x:Name="edit" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button  Tag="{Binding Mode=TwoWay}" Click="Edit_Click" x:Name="edit" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
@@ -76,8 +76,8 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate >
-                    <controls:SwipeListItem RightTapped="SwipeListItem_RightTapped" Margin="0,10,0,0" Tag="{Binding}" RightFirstClicked="Undone_click" RightSecondClicked="Done_click" RightThirdClicked="PostponeClick"
-             LeftFirstContent="{Binding StartTime , Converter={StaticResource DateTimeToTimeStringConverter}}" LeftFirstForeground="White" LeftFirstColor="{Binding Status,Converter={StaticResource IsdoneToColorConverter}}"
+                    <controls:SwipeListItem RightTapped="SwipeListItem_RightTapped" Margin="0,10,0,0" Tag="{Binding Mode=TwoWay}" RightFirstClicked="Undone_click" RightSecondClicked="Done_click" RightThirdClicked="PostponeClick"
+             LeftFirstContent="{Binding StartTime , Converter={StaticResource DateTimeToTimeStringConverter},Mode=TwoWay}" LeftFirstForeground="White" LeftFirstColor="{Binding Status,Converter={StaticResource IsdoneToColorConverter},Mode=TwoWay}"
              RightFirstColor="{StaticResource GrayBrush}" RightFirstForeground="White" RightFirstContent=""   
                                     RightSecondColor="{StaticResource GreenBrush}" RightSecondForeground="White" RightSecondContent=""
                                     RightThirdColor="{StaticResource YellowBrush}" RightThirdContent="" RightThirdForeground="White"
@@ -91,16 +91,16 @@
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                     <RelativePanel>
                                         <TextBlock x:Name="Glyph" FontFamily="Segoe MDL2 Assets" TextAlignment="Center"  Grid.Column="0" Grid.Row="0" FontSize="17" 
-                                Text="{Binding Status,Converter={StaticResource IsdoneToGlyphConverter}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Status,Converter={StaticResource IsdoneToColorConverter}}" Width="25" Margin="7,7,0,6"
+                                Text="{Binding Status,Converter={StaticResource IsdoneToGlyphConverter},Mode=TwoWay}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Status,Converter={StaticResource IsdoneToColorConverter},Mode=TwoWay}" Width="25" Margin="7,7,0,6"
                                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"
                                    />
                                         <TextBlock Foreground="{ThemeResource AntiForeground }" RelativePanel.RightOf="title" RelativePanel.AlignRightWithPanel="True"  TextAlignment="Right" Opacity="0.7"
-                                                   Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding StartTime,Converter={StaticResource DateTimeToRelativeDayConverter}}"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>
+                                                   Grid.Column="1" Grid.Row="0" FontSize="10" Text="{Binding StartTime,Converter={StaticResource DateTimeToRelativeDayConverter},Mode=TwoWay}"  Margin="0,0,0.333,0" HorizontalAlignment="Right" Width="Auto"/>
 
                                         <TextBlock x:Name="title" FontWeight="SemiBold"  Grid.Column="1" Grid.Row="0"
-                                    FontSize="14" Text="{Binding Subject}"  Margin="7,5,0,0" Foreground="{ThemeResource AntiForeground }"
+                                    FontSize="14" Text="{Binding Subject,Mode=TwoWay}"  Margin="7,5,0,0" Foreground="{ThemeResource AntiForeground }"
                                RelativePanel.RightOf="Glyph"    />
-                                        <RichTextBlock classes:BindingHelper.Text="{Binding Detail}"  MaxLines="3" TextWrapping="Wrap" Foreground="{ThemeResource AntiForeground }" Opacity="0.65" Grid.Column="1" Grid.Row="1"  FontSize="13"
+                                        <RichTextBlock classes:BindingHelper.Text="{Binding Detail,Mode=TwoWay}"  MaxLines="3" TextWrapping="Wrap" Foreground="{ThemeResource AntiForeground }" Opacity="0.65" Grid.Column="1" Grid.Row="1"  FontSize="13"
                         Margin="7,2,0,0" RelativePanel.Below="title" RelativePanel.RightOf="Glyph" RelativePanel.LeftOf="more"  x:Name="Title"   
                                                        IsTextSelectionEnabled="False"/>
 

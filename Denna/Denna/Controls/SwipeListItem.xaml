@@ -38,46 +38,46 @@
 
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0"  >
-                <Button Background="{x:Bind LeftFirstColor,Mode=OneWay}" Foreground="{x:Bind LeftFirstForeground,Mode=OneWay}"
+                <Button Background="{x:Bind LeftFirstColor,Mode=TwoWay}" Foreground="{x:Bind LeftFirstForeground,Mode=TwoWay}"
                  Style="{StaticResource infoButton}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
-                    <TextBlock LineHeight="23" TextAlignment="Center" FontSize="13" Text="{x:Bind LeftFirstContent,Mode=OneWay}" />
+                    <TextBlock LineHeight="23" TextAlignment="Center" FontSize="13" Text="{x:Bind LeftFirstContent,Mode=TwoWay}" />
                 </Button>
 
             </Grid>
             <Grid Grid.Column="3"  >
-                <Button x:Name="R1" Tag="{Binding}"  Background="{x:Bind RightFirstColor,Mode=OneWay}" Foreground="{x:Bind RightFirstForeground,Mode=OneWay}"
-                Content="{x:Bind RightFirstContent,Mode=OneWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}"  />
-                <TextBlock Text="{x:Bind RightFirstCaption, Mode=OneWay}" VerticalAlignment="Bottom"
+                <Button x:Name="R1" Tag="{Binding Mode=TwoWay}"  Background="{x:Bind RightFirstColor,Mode=TwoWay}" Foreground="{x:Bind RightFirstForeground,Mode=TwoWay}"
+                Content="{x:Bind RightFirstContent,Mode=TwoWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}"  />
+                <TextBlock Text="{x:Bind RightFirstCaption,Mode=TwoWay}" VerticalAlignment="Bottom"
                            HorizontalAlignment="Center" Foreground="White"
                            FontSize="10"
                            Margin="0,0,0,4"/>
 
             </Grid>
             <Grid Grid.Column="4"  >
-                <Button x:Name="R2" Tag="{Binding}" Background="{x:Bind RightSecondColor,Mode=OneWay}" Foreground="{x:Bind RightSecondForeground,Mode=OneWay}"
-                Content="{x:Bind RightSecondContent,Mode=OneWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
-                <TextBlock Text="{x:Bind RightSecondCaption, Mode=OneWay}" VerticalAlignment="Bottom"
+                <Button x:Name="R2" Tag="{Binding Mode=TwoWay}" Background="{x:Bind RightSecondColor,Mode=TwoWay}" Foreground="{x:Bind RightSecondForeground,Mode=TwoWay}"
+                Content="{x:Bind RightSecondContent,Mode=TwoWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
+                <TextBlock Text="{x:Bind RightSecondCaption,Mode=TwoWay}" VerticalAlignment="Bottom"
                            HorizontalAlignment="Center" Foreground="White"
                            FontSize="10"
                            Margin="0,0,0,4"/>
             </Grid>
             <Grid Grid.Column="5"  >
-                <Button x:Name="R3" Tag="{Binding}" Background="{x:Bind RightThirdColor,Mode=OneWay}" Foreground="{x:Bind RightThirdForeground,Mode=OneWay}"
-                Content="{x:Bind RightThirdContent,Mode=OneWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
-                <TextBlock Text="{x:Bind RightThirdCaption, Mode=OneWay}" VerticalAlignment="Bottom"
+                <Button x:Name="R3" Tag="{Binding Mode=TwoWay}" Background="{x:Bind RightThirdColor,Mode=TwoWay}" Foreground="{x:Bind RightThirdForeground,Mode=TwoWay}"
+                Content="{x:Bind RightThirdContent,Mode=TwoWay}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource SexyButton}" />
+                <TextBlock Text="{x:Bind RightThirdCaption,Mode=TwoWay}" VerticalAlignment="Bottom"
                            HorizontalAlignment="Center" Foreground="White"
                            FontSize="10"
                            Margin="0,0,0,4"/>
             </Grid>
-            <Grid Grid.Column="1" Background="{x:Bind LeftFirstColor,Mode=OneWay}" />
-            <Grid Grid.Column="2" Background="{x:Bind RightFirstColor,Mode=OneWay}" />
+            <Grid Grid.Column="1" Background="{x:Bind LeftFirstColor,Mode=TwoWay}" />
+            <Grid Grid.Column="2" Background="{x:Bind RightFirstColor,Mode=TwoWay}" />
         </Grid>
         <Grid x:Name="MainGrid"  Background="{ThemeResource AppBackgroundColor}"
          ManipulationMode="TranslateX,System"  ManipulationDelta="MainGrid_ManipulationDelta" ManipulationCompleted="MainGrid_ManipulationCompleted"
          ManipulationStarted="MainGrid_ManipulationStarted" 
          
          >
-            <ContentControl  Content="{x:Bind TheGrid,Mode=OneWay}"/>
+            <ContentControl  Content="{x:Bind TheGrid,Mode=TwoWay}"/>
 
             <Grid.RenderTransform >
 
