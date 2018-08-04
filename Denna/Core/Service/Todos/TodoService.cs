@@ -61,14 +61,14 @@ namespace Core.Todos.Tasks
         }
         public static IRealmCollection<Todo> GetThisWeekList()
         {
-            var yesterdayStart = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.AddDays(-7).Day, 0, 0, 0, new TimeSpan());
-            var yesterdayEnd = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, 23, 59, 59, new TimeSpan());
+            var yesterdayStart = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, 0, 0, 0, new TimeSpan());
+            var yesterdayEnd = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.AddDays(-7).Day, 23, 59, 59, new TimeSpan());
             return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime > yesterdayStart && offset.StartTime < yesterdayEnd).OrderBy(x => x.StartTime).AsRealmCollection();
         }
         public static IRealmCollection<Todo> GetLastWeekList()
         {
-            var yesterdayStart = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.AddDays(-14).Day, 0, 0, 0, new TimeSpan());
-            var yesterdayEnd = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.AddDays(-7).Day, 23, 59, 59, new TimeSpan());
+            var yesterdayStart = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.AddDays(-7).Day, 0, 0, 0, new TimeSpan());
+            var yesterdayEnd = new DateTimeOffset(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.AddDays(-14).Day, 23, 59, 59, new TimeSpan());
             return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime > yesterdayStart && offset.StartTime < yesterdayEnd).OrderBy(x => x.StartTime).AsRealmCollection();
         }
         public static IRealmCollection<Todo> GetLastMonthList()
