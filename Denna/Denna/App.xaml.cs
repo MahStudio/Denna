@@ -40,8 +40,9 @@ namespace Denna
         private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
-            await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
             Analytics.TrackEvent("Crash happened");
+            await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
+
         }
 
         private void stuff()

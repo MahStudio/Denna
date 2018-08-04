@@ -27,14 +27,6 @@ namespace Denna.ViewModels
             ThisWeek = TodoService.GetThisWeekList();
             LastWeek = TodoService.GetLastWeekList();
             LastMonth = TodoService.GetLastMonthList();
-            //for (int i = 0; i < 7; i++)
-            //{
-            //    week.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
-            //}
-            //for (int i = 0; i < 30; i++)
-            //{
-            //    items.Add(new NameValueItem { Name = "Test" + i, Value = _random.Next(10, 100) });
-            //}
         }
     }
 }

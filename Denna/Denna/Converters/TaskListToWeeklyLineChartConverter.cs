@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
 {
-    public class TaskListToMonthlyLineChartConverter : IValueConverter
+    public class TaskListToWeeklyLineChartConverter: IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -19,7 +19,7 @@ namespace Denna.Converters
             var chartItems = new ObservableCollection<NameValueItem>();
             if (items.Count == 0)
             {
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 6; i++)
                 {
                     chartItems.Add(new NameValueItem()
                     {
@@ -30,7 +30,7 @@ namespace Denna.Converters
                 return chartItems;
             }
             var max = items.Max(x => x.StartTime);
-            var min = max.AddMonths(-1);
+            var min = max.AddDays(-7);
             for (int i = 0; i < (max - min).TotalDays - 1; i++)
             {
                 var thDate = max.AddDays(-i);

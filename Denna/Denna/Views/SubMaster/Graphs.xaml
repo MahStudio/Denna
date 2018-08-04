@@ -15,6 +15,13 @@
     </Page.DataContext>
     <Page.Resources>
         <Converters:TaskListToMonthlyLineChartConverter x:Key="TaskListToMonthlyLineChartConverter" />
+        <Converters:TaskListToWeeklyLineChartConverter x:Key="TaskListToWeeklyLineChartConverter" />
+        <Converters:TaskListToDoneConverter x:Key="TaskListToDoneConverter" />
+        <Converters:TaskListToPendingConverter x:Key="TaskListToPendingConverter" />
+        <Converters:TaskListToNotDoneConverter x:Key="TaskListToNotDoneConverter" />
+        <Converters:TaskListToPostponedConverter x:Key="TaskListToPostponedConverter" />
+        <Converters:TaskListToNotDonePercentageConverter x:Key="TaskListToNotDonePercentageConverter" />
+        <Converters:TaskListToDonePercentageConverter x:Key="TaskListToDonePercentageConverter" />
     </Page.Resources>
     <ScrollViewer>
         <StackPanel>
@@ -22,36 +29,57 @@
                        RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                             RelativePanel.AlignRightWithPanel="True">
                 <TextBlock Height="25" VerticalAlignment="Top" Margin="15,10,0,0"  Text="Today tasks" FontSize="16" Opacity="0.6" FontWeight="SemiBold" />
-                <Controls:TemplatedChart Percent1="50" Percent2="20" SegmentColor="{StaticResource YellowBrush}" DoneTasks="3" 
-                   PostponedTasks="4" PendingTasks="4" GlyphBrush="Gray"     HorizontalAlignment="Center"        Margin="0,40,0,0"           />
+                <Controls:TemplatedChart 
+                    Percent1="{x:Bind VM.Today,Converter={StaticResource TaskListToDonePercentageConverter}}" 
+                    Percent2="{x:Bind VM.Today,Converter={StaticResource TaskListToNotDonePercentageConverter}}" 
+                    DoneTasks="{x:Bind VM.Today,Converter={StaticResource TaskListToDoneConverter}}" 
+                   PostponedTasks="{x:Bind VM.Today,Converter={StaticResource TaskListToPostponedConverter}}" 
+                    PendingTasks="{x:Bind VM.Today,Converter={StaticResource TaskListToNotDoneConverter}}" 
+                    SegmentColor="{StaticResource YellowBrush}" GlyphBrush="Gray"  
+                    HorizontalAlignment="Center"   
+                    Margin="0,40,0,0"           />
             </Grid>
             <Grid Margin="0,30,0,0" x:Name="yesterday" 
                        RelativePanel.Below="today" RelativePanel.AlignLeftWithPanel="True"
                             RelativePanel.AlignRightWithPanel="True">
                 <TextBlock Height="25" VerticalAlignment="Top" Margin="15,10,0,0" Text="Yesterday" FontSize="16" Opacity="0.6" FontWeight="SemiBold" />
-                <Controls:TemplatedChart Percent1="100" Percent2="20" SegmentColor="Red" DoneTasks="3" 
-                   PostponedTasks="4" PendingTasks="4" GlyphBrush="Red"   HorizontalAlignment="Center"    Margin="0,40,0,0"                 />
+                <Controls:TemplatedChart SegmentColor="Red" 
+                   Percent1="{x:Bind VM.Yesterday,Converter={StaticResource TaskListToDonePercentageConverter}}" 
+                    Percent2="{x:Bind VM.Yesterday,Converter={StaticResource TaskListToNotDonePercentageConverter}}" 
+                    DoneTasks="{x:Bind VM.Yesterday,Converter={StaticResource TaskListToDoneConverter}}" 
+                   PostponedTasks="{x:Bind VM.Yesterday,Converter={StaticResource TaskListToPostponedConverter}}" 
+                    PendingTasks="{x:Bind VM.Yesterday,Converter={StaticResource TaskListToNotDoneConverter}}" GlyphBrush="Red"   HorizontalAlignment="Center"    Margin="0,40,0,0"                 />
             </Grid>
             <Grid x:Name="week" Margin="0,30,0,0"
                    RelativePanel.Below="yesterday" RelativePanel.AlignLeftWithPanel="True"
                             RelativePanel.AlignRightWithPanel="True">
                 <TextBlock Height="25" VerticalAlignment="Top" Margin="15,10,0,0" Text="This week" FontSize="16" Opacity="0.6" FontWeight="SemiBold" />
-                <Controls:TemplatedChart Percent1="100" Percent2="20" SegmentColor="Red" DoneTasks="3" 
-                   PostponedTasks="4" PendingTasks="4" GlyphBrush="Red"   Margin="0,40,0,0"     HorizontalAlignment="Center"              />
+                <Controls:TemplatedChart SegmentColor="Red" 
+                    Percent1="{x:Bind VM.ThisWeek,Converter={StaticResource TaskListToDonePercentageConverter}}" 
+                    Percent2="{x:Bind VM.ThisWeek,Converter={StaticResource TaskListToNotDonePercentageConverter}}" 
+                    DoneTasks="{x:Bind VM.ThisWeek,Converter={StaticResource TaskListToDoneConverter}}" 
+                   PostponedTasks="{x:Bind VM.ThisWeek,Converter={StaticResource TaskListToPostponedConverter}}" 
+                    PendingTasks="{x:Bind VM.ThisWeek,Converter={StaticResource TaskListToNotDoneConverter}}"
+                                         GlyphBrush="Red"   Margin="0,40,0,0"     HorizontalAlignment="Center"              />
             </Grid>
-            
+
             <Controls:GraphControl x:Name="Fist" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Week"
-                 RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"
+                 Items="{x:Bind VM.LastWeek,Converter={StaticResource TaskListToWeeklyLineChartConverter}}" 
+                Done="{x:Bind VM.LastWeek,Converter={StaticResource TaskListToDoneConverter}}" 
+                Pending="{x:Bind VM.LastWeek,Converter={StaticResource TaskListToPendingConverter}}"
+                                   RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"
                                 MinWidth="300"
                                
                                />
             <Controls:GraphControl x:Name="Sec" Margin="10,20,0,0" Height="300" MaxWidth="600" Header="Last Month"
-                Items="{x:Bind VM.LastMonth,Converter={StaticResource TaskListToMonthlyLineChartConverter}}" Done="3" Pending="3"
-                 RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"  MinWidth="300"
+                Items="{x:Bind VM.LastMonth,Converter={StaticResource TaskListToMonthlyLineChartConverter}}" 
+                Done="{x:Bind VM.LastMonth,Converter={StaticResource TaskListToDoneConverter}}" 
+                Pending="{x:Bind VM.LastMonth,Converter={StaticResource TaskListToPendingConverter}}"
+                RelativePanel.AlignLeftWithPanel="False" RelativePanel.AlignRightWithPanel="False"  MinWidth="300"
                                />
         </StackPanel>
-    
-            
-        
+
+
+
     </ScrollViewer>
 </Page>

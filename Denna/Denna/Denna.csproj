@@ -154,7 +154,14 @@
     <Compile Include="Converters\IntToTaskCounterConverter.cs" />
     <Compile Include="Converters\IsdoneToColorConverter.cs" />
     <Compile Include="Converters\IsdoneToGlyphConverter.cs" />
+    <Compile Include="Converters\TaskListToDoneConverter.cs" />
+    <Compile Include="Converters\TaskListToDonePercentageConverter.cs" />
     <Compile Include="Converters\TaskListToMonthlyLineChartConverter.cs" />
+    <Compile Include="Converters\TaskListToNotDoneConverter.cs" />
+    <Compile Include="Converters\TaskListToNotDonePercentageConverter.cs" />
+    <Compile Include="Converters\TaskListToPendingConverter.cs" />
+    <Compile Include="Converters\TaskListToPostponedConverter.cs" />
+    <Compile Include="Converters\TaskListToWeeklyLineChartConverter.cs" />
     <Compile Include="Converters\TextToHashtagConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CalendarViewModel.cs" />
