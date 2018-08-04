@@ -2,8 +2,8 @@
 {
     public enum Status
     {
-        Done,
-        Suspended,
-        notDone
+        Done = 0,
+        Suspended = 1,
+        notDone = 2
     }
 }
