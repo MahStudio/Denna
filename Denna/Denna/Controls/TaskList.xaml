@@ -24,7 +24,7 @@
                 <Converters:DateTimeToRelativeDayConverter x:Key="DateTimeToRelativeDayConverter"/>
                 <Flyout x:Key="TaskListContextMenu">
                     <StackPanel Orientation="Vertical" Width="150">
-                        <Button Click="Edit_Click" x:Name="Done" Tag="{Binding Mode=TwoWay}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click" x:Name="Done" Tag="{Binding Mode=TwoWay}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                 HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph=""
@@ -32,7 +32,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Do"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding Mode=TwoWay}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent"  HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click" x:Name="Undo" Tag="{Binding Mode=TwoWay}" BorderThickness="1" Background="Transparent"  HorizontalAlignment="Stretch"
                                  HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
@@ -40,7 +40,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Undo"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding Mode=TwoWay}" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click" x:Name="Postpone" Tag="{Binding Mode=TwoWay}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                  HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="Segoe MDL2 Assets"  Margin="0,5"  Glyph="" 
@@ -48,7 +48,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Postpone"/>
                             </StackPanel>
                         </Button>
-                        <Button Click="Edit_Click"  Tag="{Binding Mode=TwoWay}" x:Name="delete" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button Click="Edit_Click"  Tag="{Binding Mode=TwoWay}" x:Name="delete" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                  HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" 
@@ -56,7 +56,7 @@
                                 <TextBlock Margin="12,5,0,5" Text="Delete"/>
                             </StackPanel>
                         </Button>
-                        <Button  Tag="{Binding Mode=TwoWay}" Click="Edit_Click" x:Name="edit" Style="{StaticResource ButtonRevealStyle}" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
+                        <Button  Tag="{Binding Mode=TwoWay}" Click="Edit_Click" x:Name="edit" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon Margin="0,5" FontFamily="Segoe MDL2 Assets" Glyph="" />
