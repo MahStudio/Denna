@@ -32,6 +32,15 @@ namespace Denna.Controls
             _r1.Click += (s, e) => RightFirstClicked?.Invoke(s, e);
             _r2.Click += (s, e) => RightSecondClicked?.Invoke(s, e);
             _r3.Click += (s, e) => RightThirdClicked?.Invoke(s, e);
+            _r1.Click += CloseSwipe;
+            _r2.Click += CloseSwipe;
+            _r3.Click += CloseSwipe;
+        }
+
+        private void CloseSwipe(object sender, RoutedEventArgs e)
+        {
+            urStoryboard.Begin();
+            Analytics.TrackEvent("Swipe menu button clicked");
         }
 
         Button _r1;
@@ -250,12 +259,12 @@ namespace Denna.Controls
             }
             myScaleTransform.X += e.Delta.Translation.X;
             lastPostition.X += e.Delta.Translation.X;
-           
+
         }
 
         private void MainGrid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            if (myScaleTransform.X <= -170 ) return;
+            if (myScaleTransform.X <= -170) return;
             urStoryboard.Begin();
             Analytics.TrackEvent("Swipe menu opened");
 
