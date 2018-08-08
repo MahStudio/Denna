@@ -18,6 +18,11 @@
       <uap:VisualElements DisplayName="Denna" Square150x150Logo="Assets\PackageImages\Square150x150Logo.png" Square44x44Logo="Assets\PackageImages\Square44x44Logo.png" Description="Denna" BackgroundColor="transparent">
         <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\PackageImages\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\PackageImages\Wide310x150Logo.png" Square310x310Logo="Assets\PackageImages\LargeTile.png" Square71x71Logo="Assets\PackageImages\SmallTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\PackageImages\SplashScreen.png" BackgroundColor="black" />
       </uap:VisualElements>
