@@ -126,16 +126,16 @@ namespace Planel.Views
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.IsSupported())
-            {
-                var launcher = Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.GetDefault();
-                await launcher.LaunchAsync();
-            }
-            else
-            {
-                await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:mohsens22@outlook.com?subject=DENNA_BETA_FeedBack"));
-            }
-            
+            //if (Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.IsSupported())
+            //{
+            //    var launcher = Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.GetDefault();
+            //    await launcher.LaunchAsync();
+            //}
+            //else
+            //{
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:mohsens22@outlook.com?subject=DENNA_BETA_FeedBack"));
+            //}
+
         }
 
         private async void HyperlinkButton_Click(object sender, RoutedEventArgs e)
