@@ -11,7 +11,7 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            DateTimeOffset Value = (DateTimeOffset)value;
+            DateTimeOffset Value = ((DateTimeOffset)value).ToLocalTime() ;
             var Day = Value.Date;
             string x = "";
             if (Day == DateTime.Today)

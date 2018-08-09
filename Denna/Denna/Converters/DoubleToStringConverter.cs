@@ -14,7 +14,7 @@ namespace Denna.Converters
             int sx = System.Convert.ToInt32((Double)value);
             return sx.ToString() + "%";
         }
-       
+
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {

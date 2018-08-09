@@ -12,7 +12,7 @@ namespace Denna.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
 
-            DateTimeOffset Value = (DateTimeOffset)value;
+            DateTimeOffset Value = ((DateTimeOffset)value).ToLocalTime();
             string Hour = Value.Hour.ToString();
             string Min = Value.Minute.ToString();
             var month = Value.Month;
