@@ -43,7 +43,7 @@ namespace Denna.Converters
                     chartItems.Add(new NameValueItem()
                     {
                         Name = "test" + i,
-                        Value = (done / itemsOfTheDay.Count()) * 100
+                        Value = System.Convert.ToInt32((done / (double)itemsOfTheDay.Count() * 100) )
                     });
                 }
                 else

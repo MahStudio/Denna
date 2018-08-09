@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
 {
-    public class TaskListToWeeklyLineChartConverter: IValueConverter
+    public class TaskListToWeeklyLineChartConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -43,7 +43,7 @@ namespace Denna.Converters
                     chartItems.Add(new NameValueItem()
                     {
                         Name = "test" + i,
-                        Value = (done / itemsOfTheDay.Count()) * 100
+                        Value = System.Convert.ToInt32((done / (double)itemsOfTheDay.Count() * 100))
                     });
                 }
                 else
