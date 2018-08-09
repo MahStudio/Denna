@@ -9,7 +9,6 @@
     xmlns:behavior="using:Denna.Behaviors"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:vm="using:Denna.ViewModels"
-    NavigationCacheMode="Required"
     >
     <Page.Transitions>
         <TransitionCollection>
