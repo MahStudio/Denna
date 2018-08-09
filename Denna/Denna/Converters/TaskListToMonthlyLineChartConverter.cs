@@ -34,8 +34,8 @@ namespace Denna.Converters
             for (int i = 0; i < (max - min).TotalDays - 1; i++)
             {
                 var thDate = max.AddDays(-i);
-                var start = new DateTime(thDate.Year, thDate.Month, thDate.Day, 0, 0, 0);
-                var end = new DateTime(thDate.Year, thDate.Month, thDate.Day, 23, 59, 59);
+                var start = new DateTimeOffset(new DateTime(thDate.Year, thDate.Month, thDate.Day, 0, 0, 0));
+                var end = new DateTimeOffset(new DateTime(thDate.Year, thDate.Month, thDate.Day, 23, 59, 59));
                 var itemsOfTheDay = items.Where(y => y.StartTime > start && y.StartTime < end);
                 if (itemsOfTheDay.Any())
                 {
@@ -43,7 +43,7 @@ namespace Denna.Converters
                     chartItems.Add(new NameValueItem()
                     {
                         Name = "test" + i,
-                        Value = System.Convert.ToInt32((done / (double)itemsOfTheDay.Count() * 100) )
+                        Value = System.Convert.ToInt32((done / (double)itemsOfTheDay.Count() * 100))
                     });
                 }
                 else
