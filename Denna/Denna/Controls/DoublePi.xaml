@@ -26,9 +26,6 @@
                             SegmentColor="{x:Bind SegmentColor1,Mode=OneWay}"
                                           Percentage="{x:Bind Percentage1,Mode=OneWay}"
                             StrokeThickness="19" >
-                <Interactivity:Interaction.Behaviors>
-                    <be:InternalAnimation IntendedValue="{x:Bind Percentage1,Mode=OneWay}" />
-                </Interactivity:Interaction.Behaviors>
 
             </local2:PieChart>
 
@@ -40,9 +37,6 @@
                            Segment360Color="Transparent"
                             StrokeThickness="19"
                               >
-                <Interactivity:Interaction.Behaviors>
-                    <be:InternalAnimation IntendedValue="{x:Bind Percentage2,Mode=OneWay}" />
-                </Interactivity:Interaction.Behaviors>
 
             </local2:PieChart>
 
