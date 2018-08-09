@@ -1,5 +1,4 @@
-﻿using Core;
-using Core.Models;
+﻿using Core.Models;
 using Newtonsoft.Json;
 using Planel.Classes;
 using Planel.Views.sframes;
@@ -21,67 +20,54 @@ namespace Planel.Views
     /// </summary>
     public sealed partial class fmonth : Page
     {
-        private ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
+        ObservableCollection<Core.Models.todo> todolist = new ObservableCollection<Core.Models.todo>();
         public static fmonth current;
         public fmonth()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             current = this;
-            
-
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-             filllist();
-        }
+        protected override async void OnNavigatedTo(NavigationEventArgs e) => filllist();
 
-        public async  Task filllist()
+        public async Task filllist()
         {
-            DateTime now = DateTime.Now;
+            var now = DateTime.Now;
             todolist = Core.Models.Localdb.Getfordoday(now);
             lvTest.ItemsSource = todolist;
         }
-        private async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
-        {
 
+        async void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
+        {
             var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             // await Models.Localdb.Deletetodo(clk.Id);
 
             await Core.Models.Localdb.Suspend(clk);
-             Classes.worker.refresher("Month");
-
+            Classes.worker.refresher("Month");
         }
 
-        private async void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
+        async void SlidableListItem_LeftCommandRequested(object sender, EventArgs e)
         {
             var clk = (Core.Models.todo)(sender as Microsoft.Toolkit.Uwp.UI.Controls.SlidableListItem).DataContext;
             await Core.Models.Localdb.Done(clk);
-             Classes.worker.refresher("Month");
-
-
+            Classes.worker.refresher("Month");
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(add));
         }
 
-        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
-
         }
 
-        private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
+        async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-            
-
             var clk = e.ClickedItem as todo;
             try
             {
@@ -117,23 +103,18 @@ namespace Planel.Views
                 }
             }
             catch { }
-            
-          
-
 
             Tododatail.Visibility = Visibility.Visible;
             await Task.Delay(10);
             myStoryboard.Begin();
             opacitySb1.Begin();
-
-
         }
 
         public string Convert(object value)
         {
-            string json = value.ToString();
+            var json = value.ToString();
             var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
-            string Days = "";
+            var Days = "";
             if (toadd.Count == 7)
             {
                 Days = MultilingualHelpToolkit.GetString("Everydat", "Text"); ;
@@ -147,73 +128,77 @@ namespace Planel.Views
                     {
                         x = MultilingualHelpToolkit.GetString("fri", "Content");
                     }
+
                     if (item == DayOfWeek.Saturday)
                     {
                         x = MultilingualHelpToolkit.GetString("sat", "Content");
                     }
+
                     if (item == DayOfWeek.Sunday)
                     {
                         x = MultilingualHelpToolkit.GetString("sun", "Content");
                     }
+
                     if (item == DayOfWeek.Monday)
                     {
                         x = MultilingualHelpToolkit.GetString("mon", "Content");
                     }
+
                     if (item == DayOfWeek.Tuesday)
                     {
                         x = MultilingualHelpToolkit.GetString("tue", "Content");
                     }
+
                     if (item == DayOfWeek.Wednesday)
                     {
                         x = MultilingualHelpToolkit.GetString("wed", "Content");
                     }
+
                     if (item == DayOfWeek.Thursday)
                     {
                         x = MultilingualHelpToolkit.GetString("thu", "Content");
                     }
+
                     Days += x + "  ";
                 }
             }
 
-
             return Days;
         }
 
-        private async void Grid_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        async void Grid_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             opacitySb0.Begin();
             myStoryboard0.Begin();
             await Task.Delay(300);
             Tododatail.Visibility = Visibility.Collapsed;
-
-
         }
 
-        private async void delete_Click(object sender, RoutedEventArgs e)
+        async void delete_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
-            msg.Commands.Add(new UICommand("Yes", async delegate {
+            var msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
+            msg.Commands.Add(new UICommand("Yes", async delegate
+            {
                 var clk = ((sender as Button).Tag) as Core.Models.todo;
                 await Core.Models.Localdb.Deletetodo(clk.Id);
                 todolist.Remove(clk);
-                 Classes.worker.refresher("Month");
+                Classes.worker.refresher("Month");
             }));
             msg.Commands.Add(new UICommand("Nope"));
             msg.ShowAsync();
         }
-        private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+
+        void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
-            
-            try { 
-            DateTime selecteddate = new DateTime(args.AddedDates[0].Year, args.AddedDates[0].Month, args.AddedDates[0].Day,0,0,0);
+            try
+            {
+                var selecteddate = new DateTime(args.AddedDates[0].Year, args.AddedDates[0].Month, args.AddedDates[0].Day, 0, 0, 0);
 
-               todolist = Core.Models.Localdb.Getfordoday(selecteddate);
-              lvTest.ItemsSource = todolist;
-
+                todolist = Core.Models.Localdb.Getfordoday(selecteddate);
+                lvTest.ItemsSource = todolist;
             }
             catch
             {
-
             }
         }
     }

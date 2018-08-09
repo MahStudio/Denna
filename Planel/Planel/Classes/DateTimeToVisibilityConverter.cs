@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
@@ -12,14 +8,14 @@ namespace Planel.Classes
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            Visibility visi = Visibility.Visible;
+            var visi = Visibility.Visible;
             try
             {
                 var inter = (DateTime)value;
-                DateTime now = DateTime.Now;
-                DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-                DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
-                
+                var now = DateTime.Now;
+                var starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+                var endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
+
                 if (inter >= starttoday && inter <= endtoday)
                 {
                     visi = Visibility.Visible;
@@ -28,20 +24,19 @@ namespace Planel.Classes
                 {
                     visi = Visibility.Collapsed;
                 }
-
             }
             catch { }
-            
+
             return visi;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            DateTime inter = (DateTime)value;
-            DateTime now = DateTime.Now;
-            DateTime starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-            DateTime endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
-            Visibility visi = Visibility.Visible;
+            var inter = (DateTime)value;
+            var now = DateTime.Now;
+            var starttoday = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+            var endtoday = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
+            var visi = Visibility.Visible;
             if (inter >= starttoday && inter <= endtoday)
             {
                 visi = Visibility.Visible;
@@ -50,6 +45,7 @@ namespace Planel.Classes
             {
                 visi = Visibility.Collapsed;
             }
+
             return visi;
         }
     }

@@ -1,15 +1,10 @@
-﻿using Core.Models;
+﻿using Microsoft.HockeyApp;
 using Planel.Views;
-using SQLite.Net;
 using System;
-using Microsoft.HockeyApp;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Store;
-using Windows.Foundation.Metadata;
 using Windows.Storage;
-using Windows.UI;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -31,8 +26,8 @@ namespace Planel
         public static bool licenseactive;
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
             licenseactive = true;
             // license();
             if (Classes.Themesetter.GetApplicationTheme() != "System")
@@ -59,34 +54,25 @@ namespace Planel
             {
                 try
                 {
-                    
-                    //var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
-                    //await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
-                  //  License = CurrentAppSimulator.LicenseInformation;
-                  //  Listing = await CurrentAppSimulator.LoadListingInformationAsync();
-                    
+                    // var proxyFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/trialmanagement.xml"));
+                    // await Windows.ApplicationModel.Store.CurrentAppSimulator.ReloadSimulatorAsync(proxyFile);
+                    //  License = CurrentAppSimulator.LicenseInformation;
+                    //  Listing = await CurrentAppSimulator.LoadListingInformationAsync();
                 }
                 catch { }
-
-                
             }
-            
-            
-          
 
-            if (ApplicationData.Current.LocalSettings.Values["LicenceActive"] == null )
-            ApplicationData.Current.LocalSettings.Values["LicenceActive"] =false;
+            if (ApplicationData.Current.LocalSettings.Values["LicenceActive"] == null)
+                ApplicationData.Current.LocalSettings.Values["LicenceActive"] = false;
 
-            
-            licenseactive = (bool) ApplicationData.Current.LocalSettings.Values["LicenceActive"];
+            licenseactive = (bool)ApplicationData.Current.LocalSettings.Values["LicenceActive"];
             try
             {
-                if(License != null)
+                if (License != null)
                 {
                     if (License.IsActive == true || licenseactive == true)
                     {
                         licenseactive = true;
-
                     }
                     else
                     {
@@ -97,26 +83,14 @@ namespace Planel
                 {
                     licenseactive = true;
                 }
-               
             }
             catch
             {
                 licenseactive = true;
             }
-                
-
-            
-            
-            
-            
-
-
-
-
-
-
         }
-        private void stuff()
+
+        void stuff()
         {
             try
             {
@@ -128,13 +102,14 @@ namespace Planel
             catch
             { }
         }
+
         protected override void OnFileActivated(FileActivatedEventArgs args)
         {
             stuff();
             base.OnFileActivated(args);
             coloradjust();
             var rootFrame = new Frame();
-           // if (licenseactive == false && License.IsTrial == false)
+            // if (licenseactive == false && License.IsTrial == false)
             //    rootFrame.Navigate(typeof(Expire), args);
 
             if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
@@ -142,20 +117,20 @@ namespace Planel
                 rootFrame.Navigate(typeof(MainPage), args);
                 migratedata();
             }
-                
+
             else
                 rootFrame.Navigate(typeof(WelcomePage), args);
-            
-            
+
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
         }
-        private async void SetUpVoiceCommends()
+
+        async void SetUpVoiceCommends()
         {
             try
             {
                 // Install the main VCD. 
-                StorageFile vcdStorageFile =
+                var vcdStorageFile =
                   await Package.Current.InstalledLocation.GetFileAsync(@"CortanaVCD.xml");
 
                 await Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.
@@ -179,10 +154,11 @@ namespace Planel
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                DebugSettings.EnableFrameRateCounter = true;
             }
+
 #endif
-            Frame rootFrame = Window.Current.Content as Frame;
+            var rootFrame = Window.Current.Content as Frame;
 
             SetUpVoiceCommends();
             // Do not repeat app initialization when the Window already has content,
@@ -196,7 +172,7 @@ namespace Planel
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                    // TODO: Load state from previously suspended application
                 }
 
                 // Place the frame in the current Window
@@ -207,35 +183,34 @@ namespace Planel
             {
                 if (rootFrame.Content == null)
                 {
-
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     coloradjust();
-                 //   if (licenseactive == false && License.IsTrial == false)
+                    //   if (licenseactive == false && License.IsTrial == false)
                     //    rootFrame.Navigate(typeof(Expire), e.Arguments);
 
-
-                   if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1") { 
+                    if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                    {
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
                         migratedata();
                     }
 
                     else
                         rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
-
-                   
                 }
+
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
         }
-        private void migratedata()
-        {
-            //var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
 
-            //using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
-            //{
+        void migratedata()
+        {
+            // var sqlpath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Contactdb.sqlite");
+
+            // using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), sqlpath))
+            // {
             //    var tableExistsQuery = "SELECT name FROM sqlite_master WHERE type='table' AND name='Hobby';";
             //    var result = conn.ExecuteScalar<string>(tableExistsQuery);
             //    if (result == null)
@@ -243,15 +218,13 @@ namespace Planel
             //        conn.CreateTable<Hobby>();
             //    }
 
-
-            //}
+            // }
         }
-        
-        
-        private void coloradjust()
+
+        void coloradjust()
         {
-            //try
-            //{
+            // try
+            // {
             //    ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             //    titleBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
             //    titleBar.ForegroundColor = Colors.White;
@@ -266,13 +239,13 @@ namespace Planel
             //    titleBar.ButtonForegroundColor = Colors.White;
             //    //fuck you asshilism
 
-            //}
-            //catch
-            //{
+            // }
+            // catch
+            // {
 
-            //}
-            //if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            //{
+            // }
+            // if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            // {
             //    var statusBar = StatusBar.GetForCurrentView();
             //    if (statusBar != null)
             //    {
@@ -280,8 +253,7 @@ namespace Planel
             //        statusBar.BackgroundColor = ((Color)Application.Current.Resources["SystemAccentColor"]);
             //        statusBar.ForegroundColor = Colors.White;
             //    }
-            //}
-
+            // }
         }
 
         /// <summary>
@@ -293,27 +265,16 @@ namespace Planel
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
+
         protected override void OnActivated(IActivatedEventArgs args)
         {
             stuff();
-            Frame rootFrame = Window.Current.Content as Frame;
+            var rootFrame = Window.Current.Content as Frame;
 
-            
-            
+            base.OnActivated(args);
 
-
-            
-
-
-
-                
-                base.OnActivated(args);
-
-              
-                
-               if (args.Kind == ActivationKind.Protocol)
-                {
-
+            if (args.Kind == ActivationKind.Protocol)
+            {
                 license();
                 var protocolArgs = (ProtocolActivatedEventArgs)args;
                 var uri = protocolArgs.Uri;
@@ -323,11 +284,12 @@ namespace Planel
                     rootFrame.NavigationFailed += OnNavigationFailed;
                     Window.Current.Content = rootFrame;
                 }
+
                 coloradjust();
                 //  if (licenseactive == false && License.IsTrial == false)
                 //     rootFrame.Navigate(typeof(Expire), uri);
-                string x = uri.ToString();
-                
+                var x = uri.ToString();
+
                 if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
                 {
                     if (x.Contains("agsonCortana") == false)
@@ -338,7 +300,7 @@ namespace Planel
                     {
                         rootFrame.Navigate(typeof(MainPage));
                     }
-                    
+
                     migratedata();
                 }
 
@@ -347,37 +309,31 @@ namespace Planel
 
                 // Ensure the current window is active
                 Window.Current.Activate();
-
-
             }
-                else
-                {
+            else
+            {
                 if (rootFrame == null)
                 {
                     rootFrame = new Frame();
                     rootFrame.NavigationFailed += OnNavigationFailed;
                     Window.Current.Content = rootFrame;
                 }
-                
-                    coloradjust();
-                    //if (licenseactive == false && License.IsTrial == false)
-                    //    rootFrame.Navigate(typeof(Expire), args);
 
+                coloradjust();
+                // if (licenseactive == false && License.IsTrial == false)
+                //    rootFrame.Navigate(typeof(Expire), args);
 
-                    if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
-                    {
-                        rootFrame.Navigate(typeof(MainPage), args);
-                        migratedata();
-                    }
+                if (ApplicationData.Current.LocalSettings.Values["Firstrun"] as string == "1")
+                {
+                    rootFrame.Navigate(typeof(MainPage), args);
+                    migratedata();
+                }
 
-                    else
-                        rootFrame.Navigate(typeof(WelcomePage), args);
+                else
+                    rootFrame.Navigate(typeof(WelcomePage), args);
 
-                    // Ensure the current window is active
-                    Window.Current.Activate();
-               
-                
-
+                // Ensure the current window is active
+                Window.Current.Activate();
             }
         }
 
@@ -388,10 +344,10 @@ namespace Planel
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
+            // TODO: Save application state and stop any background activity
             deferral.Complete();
         }
     }

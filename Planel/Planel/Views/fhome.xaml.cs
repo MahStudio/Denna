@@ -1,5 +1,4 @@
-﻿using Core;
-using Planel.Classes;
+﻿using Planel.Classes;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -17,34 +16,30 @@ namespace Planel.Views
         public static fhome current;
         public fhome()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             current = this;
-            
+        }
+        protected override async void OnNavigatedTo(NavigationEventArgs e) => percentful();
 
-        }
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-             percentful();
-        }
         public async Task percentful()
         {
-            Core.Classes.mpercent percent = new Core.Classes.mpercent();
+            var percent = new Core.Classes.mpercent();
             percent = Core.Models.Localdb.percentage();
             settoday(percent);
             setyesterday(percent);
         }
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             MainPage.current.ntonavigate("about");
-
         }
 
-        private void settoday(Core.Classes.mpercent percent)
+        void settoday(Core.Classes.mpercent percent)
         {
-            int percentage = percent.firstpercentage;
+            var percentage = percent.firstpercentage;
             todayper.Text = percentage.ToString() + "%";
             todaypie.Percentage = percentage;
-            todaysus.Percentage = 100- percent.firstsuspend ;
+            todaysus.Percentage = 100 - percent.firstsuspend;
             if (percentage == 100)
                 todayword.Text = MultilingualHelpToolkit.GetString("Perfect", "Text");
             else if (percentage <= 99 && percentage >= 75)
@@ -55,19 +50,17 @@ namespace Planel.Views
                 todayword.Text = MultilingualHelpToolkit.GetString("alot", "Text");
             else if (percentage <= 9 && percentage >= 0)
                 todayword.Text = MultilingualHelpToolkit.GetString("addo", "Text");
-
-
-
         }
-        private void setyesterday(Core.Classes.mpercent percent)
+
+        void setyesterday(Core.Classes.mpercent percent)
         {
-            int percentage = percent.secondpercentage;
+            var percentage = percent.secondpercentage;
             yesterpie.Percentage = percentage;
             yesterpar.Text = percentage.ToString() + "%";
-            yestersus.Percentage =100- percent.secondsuspend ;
+            yestersus.Percentage = 100 - percent.secondsuspend;
         }
 
-        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             MainPage.current.ntonavigate("setting");
         }

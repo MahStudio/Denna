@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -24,10 +15,10 @@ namespace Planel.Views.sframes
     /// </summary>
     public sealed partial class EditTask : Page
     {
-       static  Core.Models.todo todo = new Core.Models.todo();
+        static Core.Models.todo todo = new Core.Models.todo();
         public EditTask()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -35,19 +26,18 @@ namespace Planel.Views.sframes
             base.OnNavigatedTo(e);
             if (e.Parameter is Core.Models.todo)
             {
-                
-                todo = (Core.Models.todo) e.Parameter;
+                todo = (Core.Models.todo)e.Parameter;
                 title.Text = todo.title;
                 describe.Text = todo.detail;
-                DateTimeOffset offset = new DateTimeOffset(todo.time);
+                var offset = new DateTimeOffset(todo.time);
                 datepic.Date = offset;
-                TimeSpan Span = new TimeSpan(todo.time.Hour, todo.time.Minute, todo.time.Second);
-                timepic.Time = Span;
+                var span = new TimeSpan(todo.time.Hour, todo.time.Minute, todo.time.Second);
+                timepic.Time = span;
                 if (todo.notify == 0)
                 {
                     rbs.IsChecked = true;
                 }
-                else if(todo.notify ==1)
+                else if (todo.notify == 1)
                 {
                     rbn.IsChecked = true;
                 }
@@ -57,37 +47,34 @@ namespace Planel.Views.sframes
                 }
             }
         }
-        private void SetUpPageAnimation()
-        {
-            TransitionCollection collection = new TransitionCollection();
 
+        void SetUpPageAnimation()
+        {
+            var collection = new TransitionCollection();
 
             var themeR = new EdgeUIThemeTransition();
 
             themeR.Edge = EdgeTransitionLocation.Bottom;
 
-
             collection.Add(themeR);
-            this.Transitions = collection;
+            Transitions = collection;
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             if (Frame.CanGoBack)
                 Frame.GoBack();
-
-
         }
 
-        private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             if (title.Text != "")
             {
                 if (Frame.CanGoBack)
                     Frame.GoBack();
 
-                //add to database
-                DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds) ;
+                // add to database
+                var todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
                 byte notifymode = 0;
                 if (rbs.IsChecked == true)
                     notifymode = 0;
@@ -97,8 +84,7 @@ namespace Planel.Views.sframes
 
                 if (rba.IsChecked == true)
                     notifymode = 2;
-                Core.Models.todo item = new Core.Models.todo() { detail = describe.Text, title = title.Text, time = todate, notify = notifymode, Id=todo.Id};
-
+                var item = new Core.Models.todo() { detail = describe.Text, title = title.Text, time = todate, notify = notifymode, Id = todo.Id };
 
                 await Core.Models.Localdb.UpdateTask(item);
                 Classes.worker.refresher("Add");

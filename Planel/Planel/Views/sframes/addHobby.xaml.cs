@@ -4,18 +4,10 @@ using Planel.Classes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -28,57 +20,59 @@ namespace Planel.Views.sframes
     /// </summary>
     public sealed partial class addHobby : Page
     {
-        private static ObservableCollection<Hobby> Hobbies = new ObservableCollection<Hobby>();
+        static ObservableCollection<Hobby> Hobbies = new ObservableCollection<Hobby>();
         public addHobby()
         {
-            this.InitializeComponent();
-            
+            InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SetUpPageAnimation();
             filler();
         }
+
         public void filler()
         {
             Hobbies = Core.Models.Localdb.Gethobbies();
             lvTest.ItemsSource = Hobbies;
         }
-        private void SetUpPageAnimation()
-        {
-            TransitionCollection collection = new TransitionCollection();
 
+        void SetUpPageAnimation()
+        {
+            var collection = new TransitionCollection();
 
             var themeR = new EdgeUIThemeTransition();
 
             themeR.Edge = EdgeTransitionLocation.Bottom;
 
-
             collection.Add(themeR);
-            this.Transitions = collection;
+            Transitions = collection;
         }
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             if (Frame.CanGoBack)
                 Frame.GoBack();
         }
-        private async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
+
+        async void lvTest_ItemClick(object sender, ItemClickEventArgs e)
         {
             var clk = e.ClickedItem as Core.Models.Hobby;
-            ContentDialog noWifiDialog = new ContentDialog()
+            var noWifiDialog = new ContentDialog()
             {
                 Title = clk.title,
                 Content = clk.detail + " at " + clk.time,
                 PrimaryButtonText = "Ok"
             };
 
-            ContentDialogResult result = await noWifiDialog.ShowAsync();
+            var result = await noWifiDialog.ShowAsync();
         }
 
-        private void delete_Click(object sender, RoutedEventArgs e)
+        void delete_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog("Are you sure?");
-            msg.Commands.Add(new UICommand("Yes", async delegate {
+            var msg = new MessageDialog("Are you sure?");
+            msg.Commands.Add(new UICommand("Yes", async delegate
+            {
                 var clk = ((sender as Button).Tag) as Core.Models.Hobby;
                 await Core.Models.Localdb.DeleteHobby(clk.Id);
                 Hobbies.Remove(clk);
@@ -87,7 +81,8 @@ namespace Planel.Views.sframes
             msg.Commands.Add(new UICommand("Nope"));
             msg.ShowAsync();
         }
-        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+
+        void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             List<DayOfWeek> days = new List<DayOfWeek>();
             if (sat.IsChecked == true)
@@ -104,7 +99,7 @@ namespace Planel.Views.sframes
                 days.Add(DayOfWeek.Thursday);
             if (fri.IsChecked == true)
                 days.Add(DayOfWeek.Friday);
-            string jdays = JsonConvert.SerializeObject(days);
+            var jdays = JsonConvert.SerializeObject(days);
             byte notifymode = 0;
             if (rbs.IsChecked == true)
                 notifymode = 0;
@@ -115,10 +110,9 @@ namespace Planel.Views.sframes
             if (rba.IsChecked == true)
                 notifymode = 2;
 
-            TimeSpan todate = new TimeSpan(timepic.Time.Hours, timepic.Time.Minutes, 0);
-            Hobby myhobby = new Hobby() {detail=describe.Text , title = title.Text , notify=notifymode , time= todate , Days = jdays};
-            
-            
+            var todate = new TimeSpan(timepic.Time.Hours, timepic.Time.Minutes, 0);
+            var myhobby = new Hobby() { detail = describe.Text, title = title.Text, notify = notifymode, time = todate, Days = jdays };
+
             if (title.Text != "" && days.Count != 0)
             {
                 if (Frame.CanGoBack)
@@ -126,10 +120,7 @@ namespace Planel.Views.sframes
 
                 Core.Models.Localdb.Addhobby(myhobby);
 
-
-
-
-                //HobbiesList.current.filler();
+                // HobbiesList.current.filler();
                 Classes.worker.refresher("Add");
             }
             else

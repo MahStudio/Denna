@@ -1,6 +1,5 @@
 ﻿using Planel.Classes;
 using System;
-using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
 using Windows.Storage;
 using Windows.Storage.FileProperties;
@@ -24,17 +23,17 @@ namespace Planel.Views
     {
         public WelcomePage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             Core.Models.Localdb.CreateDatabase();
             filsupress();
             coloradjust();
         }
-        private void coloradjust()
+        void coloradjust()
         {
-            Color a = (Color)Application.Current.Resources["SystemAccentColor"];
+            var a = (Color)Application.Current.Resources["SystemAccentColor"];
             try
             {
-                ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                var titleBar = ApplicationView.GetForCurrentView().TitleBar;
                 titleBar.BackgroundColor = a;
                 titleBar.ForegroundColor = Colors.White;
                 titleBar.ButtonBackgroundColor = a;
@@ -46,13 +45,12 @@ namespace Planel.Views
                 titleBar.ForegroundColor = Colors.White;
                 titleBar.ButtonForegroundColor = Colors.White;
                 titleBar.ButtonForegroundColor = Colors.White;
-                //fuck you asshilism
-
+                // fuck you asshilism
             }
             catch
             {
-
             }
+
             if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
             {
                 var statusBar = StatusBar.GetForCurrentView();
@@ -63,75 +61,63 @@ namespace Planel.Views
                     statusBar.ForegroundColor = Colors.White;
                 }
             }
-
         }
 
-        private async void filsupress()
+        async void filsupress()
         {
-            
-            
-               
-                    Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
-         }
-               
+            Superss.Source = new BitmapImage(new Uri("ms-appx:///Assets/Headings/h14.png"));
+        }
 
         #region FlipView
-        private void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        void flipwel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (flipwel.SelectedIndex == 0)
             {
                 m1();
             }
+
             if (flipwel.SelectedIndex == 1)
             {
                 m2();
             }
+
             if (flipwel.SelectedIndex == 2)
             {
                 m3();
             }
+
             if (flipwel.SelectedIndex == 3)
             {
                 m4();
             }
+
             if (flipwel.SelectedIndex == 4)
             {
                 m5();
             }
         }
-        private void b1_Click(object sender, RoutedEventArgs e)
-        {
-            m1();
-        }
 
-        private void b2_Click(object sender, RoutedEventArgs e)
-        {
-            m2();
-        }
+        void b1_Click(object sender, RoutedEventArgs e) => m1();
 
-        private void b3_Click(object sender, RoutedEventArgs e)
-        {
-            m3();
-        }
+        void b2_Click(object sender, RoutedEventArgs e) => m2();
 
-        private void b4_Click(object sender, RoutedEventArgs e)
+        void b3_Click(object sender, RoutedEventArgs e) => m3();
+
+        void b4_Click(object sender, RoutedEventArgs e) => m4();
+
+        void b5_Click(object sender, RoutedEventArgs e) => m5();
+
+        void m1()
         {
-            m4();
-        }
-        private void b5_Click(object sender, RoutedEventArgs e)
-        {
-            m5();
-        }
-        private void m1()
-        {
-            b1.Background = new SolidColorBrush( Colors.Gray);
+            b1.Background = new SolidColorBrush(Colors.Gray);
             b2.Background = new SolidColorBrush(Colors.White);
             b3.Background = new SolidColorBrush(Colors.White);
             b4.Background = new SolidColorBrush(Colors.White);
             b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 0;
         }
-        private void m2()
+
+        void m2()
         {
             b1.Background = new SolidColorBrush(Colors.White);
             b2.Background = new SolidColorBrush(Colors.Gray);
@@ -140,7 +126,8 @@ namespace Planel.Views
             b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 1;
         }
-        private void m3()
+
+        void m3()
         {
             b1.Background = new SolidColorBrush(Colors.White);
             b2.Background = new SolidColorBrush(Colors.White);
@@ -149,7 +136,8 @@ namespace Planel.Views
             b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 2;
         }
-        private void m4()
+
+        void m4()
         {
             b1.Background = new SolidColorBrush(Colors.White);
             b2.Background = new SolidColorBrush(Colors.White);
@@ -158,7 +146,8 @@ namespace Planel.Views
             b5.Background = new SolidColorBrush(Colors.White);
             flipwel.SelectedIndex = 3;
         }
-        private void m5()
+
+        void m5()
         {
             b1.Background = new SolidColorBrush(Colors.White);
             b2.Background = new SolidColorBrush(Colors.White);
@@ -169,66 +158,58 @@ namespace Planel.Views
             flipwel.SelectedIndex = 4;
         }
 
-
         #endregion
 
+        string name;
+        string filename;
 
-        
-        private string name;
-        private string filename;
-
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            FileOpenPicker openPicker = new FileOpenPicker();
+            var openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
             openPicker.FileTypeFilter.Add(".jpg");
             openPicker.FileTypeFilter.Add(".jpeg");
             openPicker.FileTypeFilter.Add(".png");
-            StorageFile file = await openPicker.PickSingleFileAsync();
+            var file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
-
-               
                 // Application now has read/write access to the picked file
-                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-                
+                var localFolder = ApplicationData.Current.LocalFolder;
+
                 try
                 {
-                    Windows.Storage.StorageFolder storageFolder =
+                    var storageFolder =
     Windows.Storage.ApplicationData.Current.LocalFolder;
-          Windows.Storage.StorageFile sampleFile =
-              await storageFolder.GetFileAsync("avatar.jpg");
-                    await sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete); 
-                    
+                    var sampleFile =
+                        await storageFolder.GetFileAsync("avatar.jpg");
+                    await sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
                 }
                 catch { }
-               
-                StorageFile copiedFile = await file.CopyAsync(localFolder,"avatar.jpg" );
-                filename = "avatar.jpg"; 
-                StorageFolder storageFolder2 = ApplicationData.Current.LocalFolder;
-                StorageFile sampleFile2 = await storageFolder2.GetFileAsync("avatar.jpg");
-                
+
+                var copiedFile = await file.CopyAsync(localFolder, "avatar.jpg");
+                filename = "avatar.jpg";
+                var storageFolder2 = ApplicationData.Current.LocalFolder;
+                var sampleFile2 = await storageFolder2.GetFileAsync("avatar.jpg");
+
                 avatar.ImageSource = null;
-                const uint size = 150; //Send your required size
-                using (StorageItemThumbnail thumbnail = await sampleFile2.GetThumbnailAsync(ThumbnailMode.SingleItem, size))
+                const uint SIZE = 150; //Send your required size
+                using (StorageItemThumbnail thumbnail = await sampleFile2.GetThumbnailAsync(ThumbnailMode.SingleItem, SIZE))
                 {
                     if (thumbnail != null)
                     {
-                        //Prepare thumbnail to display
-                        BitmapImage bitmapImage = new BitmapImage();
+                        // Prepare thumbnail to display
+                        var bitmapImage = new BitmapImage();
 
                         bitmapImage.SetSource(thumbnail);
                         avatar.ImageSource = bitmapImage;
                         butt1.Content = "";
-
-
                     }
                 }
-
             }
         }
-        private async void Button_Click(object sender, RoutedEventArgs e)
+
+        async void Button_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["SmartieToday"] = 3;
             ApplicationData.Current.LocalSettings.Values["SmartieHome"] = 0;
@@ -241,32 +222,29 @@ namespace Planel.Views
                 var messageDialog = new MessageDialog("Fill your name and picture and press agian :)");
                 messageDialog.ShowAsync();
             }
+
             if (name != null)
             {
                 Core.Models.Localdb.Iuser(name);
-                
-                
+
                 if (filename == null)
                 {
                     try
                     {
-                        Windows.Storage.StorageFolder storageFolder =
+                        var storageFolder =
         Windows.Storage.ApplicationData.Current.LocalFolder;
-                        Windows.Storage.StorageFile sampleFile =
+                        var sampleFile =
                             await storageFolder.GetFileAsync("avatar.jpg");
                         await sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
-
                     }
                     catch { }
-                    string CountriesFile = @"Assets\Mockops\usrimg.jpg";
-                    StorageFolder InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-                    StorageFile file = await InstallationFolder.GetFileAsync(CountriesFile);
-                    StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-                    StorageFile copiedFile = await file.CopyAsync(localFolder, "avatar.jpg");
-
-
-
+                    var CountriesFile = @"Assets\Mockops\usrimg.jpg";
+                    var InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+                    var file = await InstallationFolder.GetFileAsync(CountriesFile);
+                    var localFolder = ApplicationData.Current.LocalFolder;
+                    var copiedFile = await file.CopyAsync(localFolder, "avatar.jpg");
                 }
+
                 Frame.Navigate(typeof(MainPage));
             }
             else
@@ -274,9 +252,6 @@ namespace Planel.Views
                 var messageDialog = new MessageDialog(MultilingualHelpToolkit.GetString("Fillalert", "Text"));
                 messageDialog.ShowAsync();
             }
-
-
         }
-
     }
 }

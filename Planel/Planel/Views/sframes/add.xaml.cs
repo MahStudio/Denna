@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Planel.Classes;
+﻿using Planel.Classes;
 using System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -19,44 +18,41 @@ namespace Planel.Views.sframes
     {
         public add()
         {
-            this.InitializeComponent();
-            
+            InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SetUpPageAnimation();
             base.OnNavigatedTo(e);
-            
-
         }
-        private void SetUpPageAnimation()
+
+        void SetUpPageAnimation()
         {
-            TransitionCollection collection = new TransitionCollection();
-            
+            var collection = new TransitionCollection();
 
             var themeR = new EdgeUIThemeTransition();
 
             themeR.Edge = EdgeTransitionLocation.Bottom;
 
-            
             collection.Add(themeR);
-            this.Transitions = collection;
+            Transitions = collection;
         }
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            //ignore
+            // ignore
             Frame.Navigate(typeof(ftoday));
         }
 
-        private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             if (title.Text != "")
             {
                 if (Frame.CanGoBack)
                     Frame.GoBack();
 
-                //add to database
-                DateTime todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
+                // add to database
+                var todate = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
                 byte notifymode = 0;
                 if (rbs.IsChecked == true)
                     notifymode = 0;
@@ -66,18 +62,16 @@ namespace Planel.Views.sframes
 
                 if (rba.IsChecked == true)
                     notifymode = 2;
-                Core.Models.todo item = new Core.Models.todo() { detail = describe.Text, title = title.Text, time = todate, notify = notifymode, isdone = 0 };
-
+                var item = new Core.Models.todo() { detail = describe.Text, title = title.Text, time = todate, notify = notifymode, isdone = 0 };
 
                 await Core.Models.Localdb.Addtodo(item);
-                 Classes.worker.refresher("Add");
+                Classes.worker.refresher("Add");
             }
             else
             {
                 var messageDialog = new MessageDialog(MultilingualHelpToolkit.GetString("uptitler", "Text"));
                 messageDialog.ShowAsync();
             }
-            
         }
     }
 }

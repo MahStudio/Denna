@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
 namespace Planel.Classes
@@ -12,57 +9,63 @@ namespace Planel.Classes
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            string json = value.ToString();
+            var json = value.ToString();
             var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
-            string Days = "";
+            var days = "";
             if (toadd.Count == 7)
             {
-                Days = MultilingualHelpToolkit.GetString("Everydat", "Text"); ;
+                days = MultilingualHelpToolkit.GetString("Everydat", "Text"); ;
             }
             else
             {
                 foreach (var item in toadd)
                 {
                     string x = null;
-                    if(item== DayOfWeek.Friday)
+                    if (item == DayOfWeek.Friday)
                     {
-                       x= MultilingualHelpToolkit.GetString("fri", "Content");
+                        x = MultilingualHelpToolkit.GetString("fri", "Content");
                     }
+
                     if (item == DayOfWeek.Saturday)
                     {
-                       x= MultilingualHelpToolkit.GetString("sat", "Content");
+                        x = MultilingualHelpToolkit.GetString("sat", "Content");
                     }
+
                     if (item == DayOfWeek.Sunday)
                     {
-                       x= MultilingualHelpToolkit.GetString("sun", "Content");
+                        x = MultilingualHelpToolkit.GetString("sun", "Content");
                     }
+
                     if (item == DayOfWeek.Monday)
                     {
-                       x= MultilingualHelpToolkit.GetString("mon", "Content");
+                        x = MultilingualHelpToolkit.GetString("mon", "Content");
                     }
+
                     if (item == DayOfWeek.Tuesday)
                     {
-                       x= MultilingualHelpToolkit.GetString("tue", "Content");
+                        x = MultilingualHelpToolkit.GetString("tue", "Content");
                     }
+
                     if (item == DayOfWeek.Wednesday)
                     {
-                       x= MultilingualHelpToolkit.GetString("wed", "Content");
+                        x = MultilingualHelpToolkit.GetString("wed", "Content");
                     }
+
                     if (item == DayOfWeek.Thursday)
                     {
-                      x=  MultilingualHelpToolkit.GetString("thu", "Content");
+                        x = MultilingualHelpToolkit.GetString("thu", "Content");
                     }
-                    Days += x+"  ";
+
+                    days += x + "  ";
                 }
             }
-            
-            
-            return Days;
+
+            return days;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            string json = value.ToString();
+            var json = value.ToString();
             var toadd = JsonConvert.DeserializeObject<IList<Core.Models.Hobby>>(json);
             return toadd.ToString();
         }

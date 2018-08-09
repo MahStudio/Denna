@@ -1,22 +1,16 @@
 ﻿using Newtonsoft.Json;
 using SQLite.Net.Attributes;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Models
 {
     public class Hobby : INotifyPropertyChanged
     {
-        private int _id;
-        private string _title;
-        private string _detail;
-        private TimeSpan _time;
-        private byte _notify;
-        private string _weekdays;
+        int id;
+        string _title, _detail, weekdays;
+        TimeSpan _time;
+        byte _notify;
         protected void RaisePropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -24,16 +18,17 @@ namespace Core.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
         [PrimaryKey, AutoIncrement]
         public int Id
         {
-            get { return _id; }
+            get { return id; }
             set
             {
-                if (_id != value)
+                if (id != value)
                 {
-                    _id = value;
+                    id = value;
                     RaisePropertyChanged("Id");
                 }
             }
@@ -95,16 +90,15 @@ namespace Core.Models
         // 0 stands for undone, 1 stands for suspend(snooze) and 2 stands for done
         public string Days
         {
-            get { return _weekdays; }
+            get { return weekdays; }
             set
             {
-                if (_weekdays != value)
+                if (weekdays != value)
                 {
-                    _weekdays = value;
+                    weekdays = value;
                     RaisePropertyChanged("Days");
                 }
             }
         }
     }
-   
 }

@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Planel.ZarinPal;
+﻿using Planel.ZarinPal;
+using System;
 using Windows.Storage;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,12 +23,12 @@ namespace Planel.Views
         string callBackUrl = "http://mahholding.ir/paymentcomplete.html";
         public IranBye()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
-        private async void goit_Click(object sender, RoutedEventArgs e)
+        async void goit_Click(object sender, RoutedEventArgs e)
         {
-            if (mob.Text !="" && eemail.Text != "")
+            if (mob.Text != "" && eemail.Text != "")
             {
                 buyer();
             }
@@ -49,7 +38,8 @@ namespace Planel.Views
                 messageDialog.ShowAsync();
             }
         }
-        private async void buyer()
+
+        async void buyer()
         {
             mobile = mob.Text;
             email = eemail.Text;
@@ -57,9 +47,9 @@ namespace Planel.Views
             if (amount < 100 || string.IsNullOrEmpty(merchantCode) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(callBackUrl))
                 return;
 
-            PaymentGatewayImplementationServicePortTypeClient zp = new PaymentGatewayImplementationServicePortTypeClient();
+            var zp = new PaymentGatewayImplementationServicePortTypeClient();
 
-            PaymentRequestResponse response = await zp.PaymentRequestAsync(merchantCode, amount, description, email, mobile, callBackUrl);
+            var response = await zp.PaymentRequestAsync(merchantCode, amount, description, email, mobile, callBackUrl);
 
             authority = response.Body.Authority;
 
@@ -71,19 +61,19 @@ namespace Planel.Views
             else
                 ShowMessage("There is a problem in creating authority code. please contact developer \r\nStatus code: " + response.Body.Status);
         }
-        
-        async private void webView_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
+
+        async void webView_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
         {
             // آدرس فعلی ای که وب ویو در آن است
-            string myUrl = sender.Source.ToString();
+            var myUrl = sender.Source.ToString();
 
             if (myUrl.Contains(callBackUrl))
             {
                 sender.Visibility = Visibility.Collapsed;
 
-                PaymentGatewayImplementationServicePortTypeClient zp = new PaymentGatewayImplementationServicePortTypeClient();
+                var zp = new PaymentGatewayImplementationServicePortTypeClient();
 
-                PaymentVerificationResponse response = await zp.PaymentVerificationAsync(merchantCode, authority, amount);
+                var response = await zp.PaymentVerificationAsync(merchantCode, authority, amount);
 
                 if (response.Body.Status == 100)
                     ShowMessage("Purchase succeed.\r\n please restart the app due to licence activation \r\n RefId in case you need: " + response.Body.RefID);
@@ -92,10 +82,10 @@ namespace Planel.Views
                 ApplicationData.Current.LocalSettings.Values["LicenceActive"] = true;
             }
         }
+
         async void ShowMessage(string content)
         {
             await new Windows.UI.Popups.MessageDialog(content).ShowAsync();
         }
-
     }
 }

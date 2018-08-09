@@ -4,17 +4,17 @@ namespace Planel.Classes
 {
     class MultilingualHelpToolkit
     {
-        //GetString("LanguageOptionsSubTitle","Text")l
-        public static string GetString(string Title, string Property)
+        // GetString("LanguageOptionsSubTitle","Text")l
+        public static string GetString(string title, string Property)
         {
-            Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
-            var expected = loader.GetString(Title + "/" + Property);
+            var loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            var expected = loader.GetString(title + "/" + Property);
             return expected;
         }
 
         public static FlowDirection GetObjectFlowDirection(string Title)
         {
-            Windows.ApplicationModel.Resources.ResourceLoader loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            var loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
             var expected = loader.GetString(Title + "/FlowDirection");
             if (expected.StartsWith("R") || expected.StartsWith("r"))
                 return FlowDirection.RightToLeft;
@@ -28,9 +28,6 @@ namespace Planel.Classes
             else return false;
         }
 
-        public static string GetApplicationLanguage()
-        {
-            return GetString("SelectedLanguage", "Text");
-        }
+        public static string GetApplicationLanguage() => GetString("SelectedLanguage", "Text");
     }
 }

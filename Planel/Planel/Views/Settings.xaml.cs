@@ -1,27 +1,23 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Planel.Classes;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
+using System.Threading.Tasks;
+using Windows.Foundation.Metadata;
+using Windows.Globalization;
+using Windows.Phone.UI.Input;
 using Windows.Storage;
+using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Popups;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Core;
-using Windows.Phone.UI.Input;
-using Windows.Foundation.Metadata;
-using System.Threading.Tasks;
-using Core;
-using Newtonsoft.Json;
-using Windows.ApplicationModel.Store;
-using System.Collections.ObjectModel;
-using System.Collections;
-using System.Collections.Generic;
-using Planel.Classes;
-using System.Linq;
-using System.Globalization;
-using Windows.Globalization;
-using Windows.Storage.FileProperties;
-
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,15 +27,14 @@ namespace Planel.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     /// 
-   //(bool)ApplicationData.Current.LocalSettings.Values["Showtoast"] == true
+   // (bool)ApplicationData.Current.LocalSettings.Values["Showtoast"] == true
     public sealed partial class Settings : Page
     {
-        public static bool isloaded = false;
+        public static bool isloaded;
         ObservableCollection<Core.Models.todo> todos = new ObservableCollection<Core.Models.todo>();
         public Settings()
         {
-            
-            this.InitializeComponent();
+            InitializeComponent();
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
                 HardwareButtons.BackPressed += HardwareButtons_BackPressed;
             else
@@ -66,7 +61,7 @@ namespace Planel.Views
             }
             catch
             { }
-            if(MultilingualHelpToolkit.GetString("Language", "Tag") == "fa")
+            if (MultilingualHelpToolkit.GetString("Language", "Tag") == "fa")
             {
                 langwich.SelectedIndex = 0;
                 Translator.Text = " ";
@@ -78,7 +73,7 @@ namespace Planel.Views
             }
             else if (MultilingualHelpToolkit.GetString("Language", "Tag") == "de-de")
             {
-                langwich.SelectedIndex =2;
+                langwich.SelectedIndex = 2;
                 Translator.Text = "By Lukas Frensel";
             }
             else if (MultilingualHelpToolkit.GetString("Language", "Tag") == "nl-nl")
@@ -86,9 +81,6 @@ namespace Planel.Views
                 langwich.SelectedIndex = 3;
                 Translator.Text = "By Rick Drijvers";
             }
-
-
-
         }
         ~Settings()
         {
@@ -99,9 +91,9 @@ namespace Planel.Views
              App_BackRequested;
         }
 
-        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
+            var rootFrame = Window.Current.Content as Frame;
             if (rootFrame == null)
                 return;
 
@@ -109,16 +101,14 @@ namespace Planel.Views
             // already been handled .
             if (rootFrame.CanGoBack && e.Handled == false)
             {
-                
                 e.Handled = true;
                 rootFrame.GoBack();
             }
-
         }
 
-        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        void App_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
+            var rootFrame = Window.Current.Content as Frame;
             if (rootFrame == null)
                 return;
 
@@ -129,7 +119,6 @@ namespace Planel.Views
                 e.Handled = true;
                 rootFrame.GoBack();
             }
-
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -142,6 +131,7 @@ namespace Planel.Views
             {
                 swicher.IsOn = false;
             }
+
             base.OnNavigatedTo(e);
             var args = e.Parameter as Windows.ApplicationModel.Activation.IActivatedEventArgs;
             if (args != null)
@@ -150,20 +140,21 @@ namespace Planel.Views
                 {
                     isloaded = true;
                     var fileArgs = args as Windows.ApplicationModel.Activation.FileActivatedEventArgs;
-                    string strFilePath = fileArgs.Files[0].Path;
+                    var strFilePath = fileArgs.Files[0].Path;
                     var file = (StorageFile)fileArgs.Files[0];
-                    string json = await FileIO.ReadTextAsync(file);
+                    var json = await FileIO.ReadTextAsync(file);
                     var toadd = JsonConvert.DeserializeObject<IList<Core.Models.todo>>(json);
                     List<Core.Models.todo> adder = new List<Core.Models.todo>();
                     adder = toadd.ToList();
-                    MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Restoree", "Text"));
-                    msg.Commands.Add(new UICommand("Yes", async delegate {
+                    var msg = new MessageDialog(MultilingualHelpToolkit.GetString("Restoree", "Text"));
+                    msg.Commands.Add(new UICommand("Yes", async delegate
+                    {
                         foreach (var item in toadd)
-                        {
                             await Core.Models.Localdb.Addtodo(item);
-                        }
+
+
                         worker.refresher("");
-                        ContentDialog noWifiDialog = new ContentDialog()
+                        var noWifiDialog = new ContentDialog()
                         {
                             Title = "Success! :)",
                             Content = "Backup had been restored.",
@@ -173,14 +164,10 @@ namespace Planel.Views
                     }));
                     msg.Commands.Add(new UICommand("Nope"));
                     msg.ShowAsync();
-                    
-
-                    
-
                 }
             }
-            //try
-            //{
+            // try
+            // {
             //    if (App.licenseactive == true)
             //    {
             //        if (App.License.IsActive == true)
@@ -197,22 +184,18 @@ namespace Planel.Views
             //        Licencer.Text = "Trial";
             //        declame.Visibility = Visibility.Visible;
             //    }
-            //}
-            //catch
-            //{
+            // }
+            // catch
+            // {
             //    Licencer.Text = "There was a problem with your licence activation";
             //    declame.Visibility = Visibility.Visible;
-            //}
-           
+            // }
 
+            var rootFrame = Window.Current.Content as Frame;
 
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            string myPages = "";
+            var myPages = "";
             foreach (PageStackEntry page in rootFrame.BackStack)
-            {
                 myPages += page.SourcePageType.ToString() + "\n";
-            }
 
 
             if (rootFrame.CanGoBack)
@@ -227,77 +210,72 @@ namespace Planel.Views
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                     AppViewBackButtonVisibility.Collapsed;
             }
+
             namebox.Text = ApplicationData.Current.LocalSettings.Values["Username"].ToString();
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            StorageFile sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
+            var storageFolder = ApplicationData.Current.LocalFolder;
+            var sampleFile = await storageFolder.GetFileAsync("avatar.jpg");
 
             avatar.ImageSource = new BitmapImage(new Uri(sampleFile.Path));
         }
-        private string name;
-        private string filename;
 
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        string name, filename;
+
+        async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            FileOpenPicker openPicker = new FileOpenPicker();
+            var openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
             openPicker.FileTypeFilter.Add(".jpg");
             openPicker.FileTypeFilter.Add(".jpeg");
             openPicker.FileTypeFilter.Add(".png");
-            StorageFile file = await openPicker.PickSingleFileAsync();
+            var file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
-
-
                 // Application now has read/write access to the picked file
-                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+                var localFolder = ApplicationData.Current.LocalFolder;
 
                 try
                 {
-                    Windows.Storage.StorageFolder storageFolder =
+                    var storageFolder =
     Windows.Storage.ApplicationData.Current.LocalFolder;
-                    Windows.Storage.StorageFile sampleFile =
+                    var sampleFile =
                         await storageFolder.GetFileAsync("avatar.jpg");
                     sampleFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
-
                 }
                 catch { }
 
-                StorageFile copiedFile = await file.CopyAsync(localFolder, "avatar.jpg");
-                
+                var copiedFile = await file.CopyAsync(localFolder, "avatar.jpg");
+
                 filename = "avatar.jpg";
-                
 
                 avatar.ImageSource = null;
 
-                const uint size = 150; //Send your required size
-                using (StorageItemThumbnail thumbnail = await copiedFile.GetThumbnailAsync(ThumbnailMode.SingleItem, size))
+                const uint SIZE = 150; //Send your required size
+                using (StorageItemThumbnail thumbnail = await copiedFile.GetThumbnailAsync(ThumbnailMode.SingleItem, SIZE))
                 {
                     if (thumbnail != null)
                     {
-                        //Prepare thumbnail to display
-                        BitmapImage bitmapImage = new BitmapImage();
+                        // Prepare thumbnail to display
+                        var bitmapImage = new BitmapImage();
 
                         bitmapImage.SetSource(thumbnail);
                         avatar.ImageSource = bitmapImage;
-
-
                     }
                 }
+
                 var messageDialog = new MessageDialog("Your picture had been saved successfuly.");
                 messageDialog.ShowAsync();
-
             }
         }
 
-        private void namebox_TextChanged(object sender, TextChangedEventArgs e)
+        void namebox_TextChanged(object sender, TextChangedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["Username"] = namebox.Text;
         }
 
-        private  async void logout_Click(object sender, RoutedEventArgs e)
+        async void logout_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
+            var msg = new MessageDialog(MultilingualHelpToolkit.GetString("Shor", "Text"));
             msg.Commands.Add(new UICommand("Yes", async delegate
             {
                 bye.Visibility = Visibility.Visible;
@@ -308,44 +286,40 @@ namespace Planel.Views
             }));
             msg.Commands.Add(new UICommand("No"
 
-               
+
             ));
             msg.ShowAsync();
-
         }
 
-        private async void Buy_Click(object sender, RoutedEventArgs e)
+        async void Buy_Click(object sender, RoutedEventArgs e)
         {
             await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://pdp/?productid=9n9c2hwnzcft"));
         }
 
-        private void Iran_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(IranBye));
-        }
+        void Iran_Click(object sender, RoutedEventArgs e) => Frame.Navigate(typeof(IranBye));
 
-        private async void saver_Click(object sender, RoutedEventArgs e)
+        async void saver_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<Core.Models.todo> forsave = new ObservableCollection<Core.Models.todo>();
             forsave = todos;
-            string json = JsonConvert.SerializeObject(forsave);
+            var json = JsonConvert.SerializeObject(forsave);
             var savePicker = new Windows.Storage.Pickers.FileSavePicker();
             savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
             // Dropdown of file types the user can save the file as
             savePicker.FileTypeChoices.Add("Denna backup file", new List<string>() { ".djson" });
             // Default file name if the user does not type one in or select a file to replace
             savePicker.SuggestedFileName = "DennaBackup";
-            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+            var file = await savePicker.PickSaveFileAsync();
             if (file != null)
             {
                 Windows.Storage.CachedFileManager.DeferUpdates(file);
                 Windows.Storage.CachedFileManager.DeferUpdates(file);
                 await Windows.Storage.FileIO.WriteTextAsync(file, json);
-                Windows.Storage.Provider.FileUpdateStatus status =
+                var status =
            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
                 if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
                 {
-                    ContentDialog noWifiDialog = new ContentDialog()
+                    var noWifiDialog = new ContentDialog()
                     {
                         Title = "Success!",
                         Content = "Backup had been saved .",
@@ -355,7 +329,7 @@ namespace Planel.Views
                 }
                 else
                 {
-                    ContentDialog noWifiDialog = new ContentDialog()
+                    var noWifiDialog = new ContentDialog()
                     {
                         Title = ":(",
                         Content = "Something went wrong",
@@ -363,11 +337,10 @@ namespace Planel.Views
                     };
                     noWifiDialog.ShowAsync();
                 }
-                
             }
             else
             {
-                ContentDialog noWifiDialog = new ContentDialog()
+                var noWifiDialog = new ContentDialog()
                 {
                     Title = ":/",
                     Content = "Operation canceled",
@@ -375,73 +348,61 @@ namespace Planel.Views
                 };
                 noWifiDialog.ShowAsync();
             }
-            
-
         }
 
-        private async void pick_Click(object sender, RoutedEventArgs e)
+        async void pick_Click(object sender, RoutedEventArgs e)
         {
-
-            FileOpenPicker openPicker = new FileOpenPicker();
+            var openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             openPicker.FileTypeFilter.Add(".djson");
             IStorageFile file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
-
-
                 // Application now has read/write access to the picked file
 
+                // try
+                // {
 
-                //try
-                //{
-
-                string json = await FileIO.ReadTextAsync(file);
-                   var toadd = JsonConvert.DeserializeObject<IList <Core.Models.todo>>(json);
+                var json = await FileIO.ReadTextAsync(file);
+                var toadd = JsonConvert.DeserializeObject<IList<Core.Models.todo>>(json);
                 List<Core.Models.todo> adder = new List<Core.Models.todo>();
                 adder = toadd.ToList();
-                    foreach (var item in toadd)
-                    {
-                        await Core.Models.Localdb.Addtodo(item);
-                    }
+                foreach (var item in toadd)
+                    await Core.Models.Localdb.Addtodo(item);
 
-                     worker.refresher("");
-                    ContentDialog noWifiDialog = new ContentDialog()
-                    {
-                        Title = "Success!",
-                        Content = "Backup had been restored.",
-                        PrimaryButtonText = "Nice!"
-                    };
-                    await noWifiDialog.ShowAsync();
-                //}
-                //catch { }
 
-                
-
+                worker.refresher("");
+                var noWifiDialog = new ContentDialog()
+                {
+                    Title = "Success!",
+                    Content = "Backup had been restored.",
+                    PrimaryButtonText = "Nice!"
+                };
+                await noWifiDialog.ShowAsync();
+                // }
+                // catch { }
             }
         }
 
-        private async void swicher_Toggled(object sender, RoutedEventArgs e)
+        async void swicher_Toggled(object sender, RoutedEventArgs e)
         {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            var toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
                 if (toggleSwitch.IsOn == true)
                 {
                     ApplicationData.Current.LocalSettings.Values["Showtoast"] = true;
-                     Core.Classes.LiveTile.GenerateToast();
+                    Core.Classes.LiveTile.GenerateToast();
                 }
                 else
                 {
                     ApplicationData.Current.LocalSettings.Values["Showtoast"] = false;
                 }
             }
-
-
         }
 
-        private void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
@@ -450,7 +411,7 @@ namespace Planel.Views
             catch { }
         }
 
-        private void FollowAccent_Toggled(object sender, RoutedEventArgs e)
+        void FollowAccent_Toggled(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -461,11 +422,10 @@ namespace Planel.Views
             }
             catch
             {
-
             }
         }
 
-        private void langwich_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        void langwich_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (langwich.SelectedIndex == 0)
             {

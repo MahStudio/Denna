@@ -7,12 +7,10 @@ namespace Core.Models
 {
     public class todo : INotifyPropertyChanged
     {
-        private int _id;
-        private string _title;
-        private string _detail;
-        private DateTime _time;
-        private byte _notify;
-        private byte _isdone;
+        int id;
+        string _title, _detail;
+        DateTime _time;
+        byte _notify, _isdone;
         protected void RaisePropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -20,16 +18,17 @@ namespace Core.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
         [PrimaryKey, AutoIncrement]
         public int Id
         {
-            get { return _id; }
+            get { return id; }
             set
             {
-                if (_id != value)
+                if (id != value)
                 {
-                    _id = value;
+                    id = value;
                     RaisePropertyChanged("Id");
                 }
             }
@@ -101,9 +100,5 @@ namespace Core.Models
                 }
             }
         }
-        
-
     }
 }
-
-

@@ -3,10 +3,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.VoiceCommands;
@@ -15,14 +11,14 @@ namespace Planel.BackgroundAPIs
 {
     public sealed class Commands : IBackgroundTask
     {
-        //fuck you cortana :|
-        private BackgroundTaskDeferral serviceDeferral;
+        // fuck you cortana :|
+        BackgroundTaskDeferral serviceDeferral;
         VoiceCommandServiceConnection voiceServiceConnection;
 
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
-            //Take a service deferral so the service isn&#39;t terminated.
-            this.serviceDeferral = taskInstance.GetDeferral();
+            // Take a service deferral so the service isn&#39;t terminated.
+            serviceDeferral = taskInstance.GetDeferral();
 
             taskInstance.Canceled += TaskInstance_Canceled;
             taskInstance.Task.Completed += Task_Completed;
@@ -40,7 +36,7 @@ namespace Planel.BackgroundAPIs
                     voiceServiceConnection.VoiceCommandCompleted +=
                         VoiceCommandCompleted;
 
-                    VoiceCommand voiceCommand = await
+                    var voiceCommand = await
                         voiceServiceConnection.GetVoiceCommandAsync();
                     switch (voiceCommand.CommandName)
                     {
@@ -67,7 +63,7 @@ namespace Planel.BackgroundAPIs
                         case "addhobby":
                             {
                                 LaunchAppInForeground();
-                                    break;
+                                break;
                             }
                         case "addtask":
                             {
@@ -79,7 +75,7 @@ namespace Planel.BackgroundAPIs
                                 getperf();
                                 break;
                             }
-                            
+
                         //   As a last resort, launch the app in the foreground.
                         default:
                             LaunchAppInForeground();
@@ -88,44 +84,41 @@ namespace Planel.BackgroundAPIs
                 }
                 finally
                 {
-                    if (this.serviceDeferral != null)
+                    if (serviceDeferral != null)
                     {
                         // Complete the service deferral.
-                        this.serviceDeferral.Complete();
+                        serviceDeferral.Complete();
                     }
                 }
             }
         }
-        private void VoiceCommandCompleted(
+
+        void VoiceCommandCompleted(
            VoiceCommandServiceConnection sender,
            VoiceCommandCompletedEventArgs args)
         {
-            if (this.serviceDeferral != null)
+            if (serviceDeferral != null)
             {
                 // Insert your code here.
                 // Complete the service deferral.
-                this.serviceDeferral.Complete();
+                serviceDeferral.Complete();
             }
         }
-        private async void getperf()
+
+        async void getperf()
         {
             var z = Core.Models.Localdb.percentage();
 
             VoiceCommandResponse response = null;
-            
-                var userMessage = new VoiceCommandUserMessage();
-                userMessage.DisplayMessage = "There's your performance";
-                userMessage.SpokenMessage = "You have done" + z.firstpercentage+ " pescent and postponed" +z.firstsuspend + "percent of your tasks today." + "and You have done" + z.secondpercentage + " pescent and postponed" + z.secondsuspend + "percent of your tasks Yesterday.";
-                response =
-                 VoiceCommandResponse.CreateResponse(userMessage);
-           
-            
 
-
+            var userMessage = new VoiceCommandUserMessage();
+            userMessage.DisplayMessage = "There's your performance";
+            userMessage.SpokenMessage = "You have done" + z.firstpercentage + " pescent and postponed" + z.firstsuspend + "percent of your tasks today." + "and You have done" + z.secondpercentage + " pescent and postponed" + z.secondsuspend + "percent of your tasks Yesterday.";
+            response =
+             VoiceCommandResponse.CreateResponse(userMessage);
 
             // Create the VoiceCommandResponse from the userMessage and list    
             // of content tiles.
-
 
             // Cortana will present a “Go to app_name” link that the user 
             // can tap to launch the app. 
@@ -136,18 +129,19 @@ namespace Planel.BackgroundAPIs
             // Ask Cortana to display the user message and content tile and 
             // also speak the user message.
             await voiceServiceConnection.ReportSuccessAsync(response);
-        } 
-        
-      private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
+        }
+
+        void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
         {
             serviceDeferral.Complete();
         }
 
-        private void TaskInstance_Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
+        void TaskInstance_Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
         {
             serviceDeferral.Complete();
         }
-        private async void hobbycounter()
+
+        async void hobbycounter()
         {
             ObservableCollection<Core.Models.Hobby> mycol = new ObservableCollection<Core.Models.Hobby>();
             mycol = Core.Models.Localdb.Gethobbies();
@@ -166,14 +160,10 @@ namespace Planel.BackgroundAPIs
                 var x = mycol.Count;
                 userMessage.DisplayMessage = "You have " + x + " habits" + " on Denna";
                 userMessage.SpokenMessage = "You have " + x + " habits";
-
             }
-
-
 
             // Create the VoiceCommandResponse from the userMessage and list    
             // of content tiles.
-
 
             // Cortana will present a “Go to app_name” link that the user 
             // can tap to launch the app. 
@@ -185,11 +175,12 @@ namespace Planel.BackgroundAPIs
             // also speak the user message.
             await voiceServiceConnection.ReportSuccessAsync(response);
         }
-        private async void taskcounter()
+
+        async void taskcounter()
         {
             var x = Localdb.counter();
             VoiceCommandResponse response = null;
-            if (x==0)
+            if (x == 0)
             {
                 var userMessage = new VoiceCommandUserMessage();
                 userMessage.DisplayMessage = "No tasks on Denna";
@@ -200,18 +191,14 @@ namespace Planel.BackgroundAPIs
             else
             {
                 var userMessage = new VoiceCommandUserMessage();
-                userMessage.DisplayMessage = "You have "+ x +" tasks"+" on Denna";
+                userMessage.DisplayMessage = "You have " + x + " tasks" + " on Denna";
                 userMessage.SpokenMessage = "You have " + x + " tasks";
                 response =
                  VoiceCommandResponse.CreateResponse(userMessage);
-
             }
-
-
 
             // Create the VoiceCommandResponse from the userMessage and list    
             // of content tiles.
-
 
             // Cortana will present a “Go to app_name” link that the user 
             // can tap to launch the app. 
@@ -223,7 +210,8 @@ namespace Planel.BackgroundAPIs
             // also speak the user message.
             await voiceServiceConnection.ReportSuccessAsync(response);
         }
-        private async void fetchhobby()
+
+        async void fetchhobby()
         {
             // Take action and determine when the next trip to destination
             // Insert code here.
@@ -233,13 +221,11 @@ namespace Planel.BackgroundAPIs
 
             // First, create the VoiceCommandUserMessage with the strings 
             // that Cortana will show and speak.
-            
 
             // Optionally, present visual information about the answer.
             // For this example, create a VoiceCommandContentTile with an 
             // icon and a string.
             var destinationsContentTiles = new List<VoiceCommandContentTile>();
-
 
             // The user can tap on the visual content to launch the app. 
             // Pass in a launch argument to enable the app to deep link to a 
@@ -254,7 +240,7 @@ namespace Planel.BackgroundAPIs
                 userMessage.DisplayMessage = "No habits on Denna";
                 userMessage.SpokenMessage = "You have no habits ! Add one";
                 response =
-                 VoiceCommandResponse.CreateResponse( userMessage);
+                 VoiceCommandResponse.CreateResponse(userMessage);
             }
             else
             {
@@ -276,12 +262,9 @@ namespace Planel.BackgroundAPIs
                     userMessage, destinationsContentTiles);
                 }
             }
-            
-
 
             // Create the VoiceCommandResponse from the userMessage and list    
             // of content tiles.
-             
 
             // Cortana will present a “Go to app_name” link that the user 
             // can tap to launch the app. 
@@ -293,11 +276,11 @@ namespace Planel.BackgroundAPIs
             // also speak the user message.
             await voiceServiceConnection.ReportSuccessAsync(response);
         }
-        private string convertor(string json)
+
+        string convertor(string json)
         {
-            
             var toadd = JsonConvert.DeserializeObject<IList<DayOfWeek>>(json);
-            string Days = "";
+            var Days = "";
             if (toadd.Count == 7)
             {
                 Days = "Every Day";
@@ -305,15 +288,14 @@ namespace Planel.BackgroundAPIs
             else
             {
                 foreach (var item in toadd)
-                {
                     Days += item.ToString() + "  ";
-                }
-            }
 
+            }
 
             return Days;
         }
-        private async void SendCompletionMessageFortodolist(  )
+
+        async void SendCompletionMessageFortodolist()
         {
             // Take action and determine when the next trip to destination
             // Insert code here.
@@ -323,18 +305,16 @@ namespace Planel.BackgroundAPIs
 
             // First, create the VoiceCommandUserMessage with the strings 
             // that Cortana will show and speak.
-            
 
             // Optionally, present visual information about the answer.
             // For this example, create a VoiceCommandContentTile with an 
             // icon and a string.
             var destinationsContentTiles = new List<VoiceCommandContentTile>();
 
-           
             // The user can tap on the visual content to launch the app. 
             // Pass in a launch argument to enable the app to deep link to a 
             // page relevant to the item displayed on the content tile.
-            
+
             ObservableCollection<Core.Models.todo> mycol = new ObservableCollection<Core.Models.todo>();
             mycol = Core.Models.Localdb.getall(DateTime.Now.ToLocalTime());
             VoiceCommandResponse response = null;
@@ -359,17 +339,14 @@ namespace Planel.BackgroundAPIs
                     destinationTile.TextLine1 = item.detail;
                     destinationTile.TextLine2 = item.time.ToString();
                     destinationsContentTiles.Add(destinationTile);
-                     response =
-                VoiceCommandResponse.CreateResponse(
-                    userMessage, destinationsContentTiles);
+                    response =
+               VoiceCommandResponse.CreateResponse(
+                   userMessage, destinationsContentTiles);
                 }
             }
-            
-            
 
             // Create the VoiceCommandResponse from the userMessage and list    
             // of content tiles.
-            
 
             // Cortana will present a “Go to app_name” link that the user 
             // can tap to launch the app. 
@@ -382,7 +359,7 @@ namespace Planel.BackgroundAPIs
             await voiceServiceConnection.ReportSuccessAsync(response);
         }
 
-        private async void LaunchAppInForeground()
+        async void LaunchAppInForeground()
         {
             var userMessage = new VoiceCommandUserMessage();
             userMessage.SpokenMessage = "Launching Denna";
@@ -392,7 +369,7 @@ namespace Planel.BackgroundAPIs
             // When launching the app in the foreground, pass an app 
             // specific launch parameter to indicate what page to show.
             response.AppLaunchArgument = "agsonCortana";
-            
+
             await voiceServiceConnection.RequestAppLaunchAsync(response);
         }
     }
