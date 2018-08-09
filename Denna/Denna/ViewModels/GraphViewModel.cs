@@ -1,14 +1,7 @@
 ﻿using Core.Domain;
 using Core.Todos.Tasks;
-using Denna.Classes;
 using Realms;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Denna.ViewModels
 {

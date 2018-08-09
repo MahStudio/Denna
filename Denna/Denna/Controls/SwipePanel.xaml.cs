@@ -1,19 +1,10 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -21,15 +12,14 @@ namespace Denna.Controls
 {
     public sealed partial class SwipePanel : UserControl
     {
-        Point startpoint;
-        Point lastPostition;
-        bool isopen = false;
+        Point startpoint, lastPostition;
+        bool isopen;
         public SwipePanel()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
         #region PanelAnimate
-        private void gridMain_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        void gridMain_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             // ManipulationDelta hamzaman ba tagheire positione angosht ya mouse emal mishe
             // ma niyaz darim akharin jaei ke manipulate anjam shode begirim
@@ -58,32 +48,27 @@ namespace Denna.Controls
                     }
                     catch { }
                 }
-
             }
             //
         }
-        private void btnShowHide_Click(object sender, RoutedEventArgs e)
-        {
-            animate();
-        }
 
-        private async void animate()
+        void btnShowHide_Click(object sender, RoutedEventArgs e) => animate();
+
+        async void animate()
         {
             if (isopen == false)
             {
                 try
                 {
-
                     myStoryboard.Begin();
                     rotate.Begin();
                     opacitySb1.Begin();
 
                     await Task.Delay(300);
-                    //detstack.Visibility = Visibility.Visible;
+                    // detstack.Visibility = Visibility.Visible;
                     isopen = !isopen;
                 }
                 catch { }
-
             }
             else
             {
@@ -93,16 +78,17 @@ namespace Denna.Controls
                     urStoryboard.Begin();
                     unrotate.Begin();
                     await Task.Delay(300);
-                    //detstack.Visibility = Visibility.Collapsed;
+                    // detstack.Visibility = Visibility.Collapsed;
 
                     isopen = !isopen;
                 }
                 catch (Exception ex) { }
             }
+
             Analytics.TrackEvent("Swipe panel used");
         }
 
-        private void gridMain_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        void gridMain_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             if (e.Cumulative.Translation.Y > 0 && !isopen) isopen = false;
             if (e.Cumulative.Translation.Y < 0 && isopen) isopen = true;
@@ -110,8 +96,7 @@ namespace Denna.Controls
             animate();
         }
 
-
-        private void gridMain_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        void gridMain_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
             startpoint = e.Position;
             lastPostition = e.Position;

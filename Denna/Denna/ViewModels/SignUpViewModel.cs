@@ -1,20 +1,9 @@
-﻿using Denna.Classes;
+﻿using Core.Service.Users;
+using Denna.Classes;
 using Denna.Views;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core;
-using Windows.Storage;
-using Windows.Storage.FileProperties;
-using Windows.Storage.Pickers;
-using Windows.UI.Popups;
-using Windows.UI.Xaml.Media.Imaging;
-using Core.Service.Users;
-using Core.Data;
 using Microsoft.AppCenter.Analytics;
+using System;
+using System.ComponentModel;
 
 namespace Denna.ViewModels
 {
@@ -22,21 +11,15 @@ namespace Denna.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string _username;
-        private string _password;
-        private string _rpassword;
-        private string _email;
-        private string _name;
+        string username, password, rpassword, email, _name, name, filename;
         public string Name
         {
             get
             {
                 return _name;
-
             }
             set
             {
-
                 if (_name != value)
                 {
                     _name = value;
@@ -52,15 +35,13 @@ namespace Denna.ViewModels
         {
             get
             {
-                return _email;
-
+                return email;
             }
             set
             {
-
-                if (_email != value)
+                if (email != value)
                 {
-                    _email = value;
+                    email = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
@@ -73,15 +54,13 @@ namespace Denna.ViewModels
         {
             get
             {
-                return _rpassword;
-
+                return rpassword;
             }
             set
             {
-
-                if (_rpassword != value)
+                if (rpassword != value)
                 {
-                    _rpassword = value;
+                    rpassword = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
@@ -94,15 +73,13 @@ namespace Denna.ViewModels
         {
             get
             {
-                return _username;
-
+                return username;
             }
             set
             {
-
-                if (_username != value)
+                if (username != value)
                 {
-                    _username = value;
+                    username = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
@@ -115,15 +92,13 @@ namespace Denna.ViewModels
         {
             get
             {
-                return _password;
-
+                return password;
             }
             set
             {
-
-                if (_password != value)
+                if (password != value)
                 {
-                    _password = value;
+                    password = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
@@ -150,14 +125,8 @@ namespace Denna.ViewModels
             SignUpCommand = new MyCommand();
             SignUpCommand.CanExecuteFunc = obj => true;
             SignUpCommand.ExecuteFunc = SignUp;
-
         }
-
-
-
-        private string name;
-        private string filename;
-        private async void SignUp(object obj)
+        async void SignUp(object obj)
         {
             if (Password != RPassword)
             {
@@ -165,14 +134,11 @@ namespace Denna.ViewModels
                 return;
             }
 
-            await UserService.Register(UserName, Password,Name,Email);
+            await UserService.Register(UserName, Password, Name, Email);
             Analytics.TrackEvent("User signed up");
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
 
-        private void SignIn(object obj)
-        {
-            Welcome.current.opensignin();
-        }
+        void SignIn(object obj) => Welcome.current.opensignin();
     }
 }

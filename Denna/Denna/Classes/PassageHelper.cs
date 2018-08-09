@@ -5,7 +5,6 @@ using Windows.UI;
 using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Media;
 
-
 namespace Denna.Classes
 {
     public class PassageHelper : IDisposable

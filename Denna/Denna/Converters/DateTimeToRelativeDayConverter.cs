@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
@@ -11,9 +7,9 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            DateTimeOffset Value = ((DateTimeOffset)value).ToLocalTime() ;
+            var Value = ((DateTimeOffset)value).ToLocalTime();
             var Day = Value.Date;
-            string x = "";
+            var x = "";
             if (Day == DateTime.Today)
                 x += "Today";
             else if (Day == DateTime.Today.AddDays(1))
@@ -26,11 +22,11 @@ namespace Denna.Converters
                 var day = Value.Day;
                 x += month + "/" + day;
             }
-            string Hour = Value.Hour.ToString();
-            string Min = Value.Minute.ToString();
-            
-            x += " " + Hour + ":" + Min;
 
+            var hour = Value.Hour.ToString();
+            var min = Value.Minute.ToString();
+
+            x += " " + hour + ":" + min;
 
             return x;
         }

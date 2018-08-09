@@ -1,38 +1,29 @@
-﻿using System;
+﻿using Denna.Classes;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using Denna.Classes;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
 
 namespace Denna.ViewModels
 {
     class SettingsPageViewModel : INotifyPropertyChanged
-
     {
-        private List<Classes.ItemHolder> _MenuList;
+        List<Classes.ItemHolder> menuList;
         public List<Classes.ItemHolder> MenuList
         {
             get
             {
-
-                return _MenuList;
-
+                return menuList;
             }
             set
             {
-                if (_MenuList != value)
+                if (menuList != value)
                 {
-                    _MenuList = value;
+                    menuList = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
                             new PropertyChangedEventArgs("MenuList"));
                     }
                 }
-
             }
 
         }
@@ -40,7 +31,7 @@ namespace Denna.ViewModels
         {
             adder();
         }
-        private void adder()
+        void adder()
         {
             MenuList = new List<ItemHolder>();
             MenuList.Add(new ItemHolder() { icon = "", detail = "Edit profile, email", title = "Account", ID = 1 });
@@ -52,8 +43,6 @@ namespace Denna.ViewModels
             MenuList.Add(new ItemHolder() { icon = "", detail = "About developers", title = "About", ID = 8 });
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
     }
-
 }

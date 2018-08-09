@@ -1,19 +1,10 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -21,31 +12,28 @@ namespace Denna.Controls
 {
     public sealed partial class SwipeListItem : UserControl
     {
-        Point startpoint;
-        Point lastPostition;
+        Point startpoint, lastPostition;
         public SwipeListItem()
         {
-            this.InitializeComponent();
-            _r1 = R1;
-            _r2 = R2;
-            _r3 = R3;
-            _r1.Click += (s, e) => RightFirstClicked?.Invoke(s, e);
-            _r2.Click += (s, e) => RightSecondClicked?.Invoke(s, e);
-            _r3.Click += (s, e) => RightThirdClicked?.Invoke(s, e);
-            _r1.Click += CloseSwipe;
-            _r2.Click += CloseSwipe;
-            _r3.Click += CloseSwipe;
+            InitializeComponent();
+            r1 = R1;
+            r2 = R2;
+            r3 = R3;
+            r1.Click += (s, e) => RightFirstClicked?.Invoke(s, e);
+            r2.Click += (s, e) => RightSecondClicked?.Invoke(s, e);
+            r3.Click += (s, e) => RightThirdClicked?.Invoke(s, e);
+            r1.Click += CloseSwipe;
+            r2.Click += CloseSwipe;
+            r3.Click += CloseSwipe;
         }
 
-        private void CloseSwipe(object sender, RoutedEventArgs e)
+        void CloseSwipe(object sender, RoutedEventArgs e)
         {
             urStoryboard.Begin();
             Analytics.TrackEvent("Swipe menu button clicked");
         }
 
-        Button _r1;
-        Button _r2;
-        Button _r3;
+        Button r1, r2, r3;
         public event EventHandler<RoutedEventArgs> RightFirstClicked;
         public event EventHandler<RoutedEventArgs> RightSecondClicked;
         public event EventHandler<RoutedEventArgs> RightThirdClicked;
@@ -71,8 +59,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty LeftFirstColorProperty =
             DependencyProperty.Register(nameof(LeftFirstColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
-
         public SolidColorBrush LeftFirstForeground
         {
             get { return (SolidColorBrush)GetValue(LeftFirstForegroundProperty); }
@@ -82,8 +68,6 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for LeftFirstForeground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty LeftFirstForegroundProperty =
             DependencyProperty.Register(nameof(LeftFirstForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
-
-
 
         public string LeftFirstContent
         {
@@ -95,7 +79,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty LeftFirstContentProperty =
             DependencyProperty.Register(nameof(LeftFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
         public SolidColorBrush RightFirstColor
         {
             get { return (SolidColorBrush)GetValue(RightFirstColorProperty); }
@@ -105,8 +88,6 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightFirstColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightFirstColorProperty =
             DependencyProperty.Register(nameof(RightFirstColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
-
-
 
         public SolidColorBrush RightFirstForeground
         {
@@ -118,8 +99,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty RightFirstForegroundProperty =
             DependencyProperty.Register(nameof(RightFirstForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
-
         public string RightFirstContent
         {
             get { return (string)GetValue(RightFirstContentProperty); }
@@ -129,9 +108,6 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightFirstContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightFirstContentProperty =
             DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
-
-
-
 
         public string RightFirstCaption
         {
@@ -143,8 +119,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty RightFirstCaptionProperty =
             DependencyProperty.Register(nameof(RightFirstCaption), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
-
         public SolidColorBrush RightSecondColor
         {
             get { return (SolidColorBrush)GetValue(RightSecondColorProperty); }
@@ -154,8 +128,6 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightSecondColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightSecondColorProperty =
             DependencyProperty.Register(nameof(RightSecondColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
-
-
 
         public SolidColorBrush RightSecondForeground
         {
@@ -167,8 +139,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty RightSecondForegroundProperty =
             DependencyProperty.Register(nameof(RightSecondForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
-
         public string RightSecondContent
         {
             get { return (string)GetValue(RightSecondContentProperty); }
@@ -178,9 +148,6 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightSecondContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightSecondContentProperty =
             DependencyProperty.Register(nameof(RightSecondContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
-
-
-
 
         public string RightSecondCaption
         {
@@ -192,8 +159,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty RightSecondCaptionProperty =
             DependencyProperty.Register(nameof(RightSecondCaption), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
-
         public SolidColorBrush RightThirdColor
         {
             get { return (SolidColorBrush)GetValue(RightThirdColorProperty); }
@@ -203,8 +168,6 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightThirdColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightThirdColorProperty =
             DependencyProperty.Register(nameof(RightThirdColor), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
-
-
 
         public SolidColorBrush RightThirdForeground
         {
@@ -216,8 +179,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty RightThirdForegroundProperty =
             DependencyProperty.Register(nameof(RightThirdForeground), typeof(SolidColorBrush), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
-
         public string RightThirdContent
         {
             get { return (string)GetValue(RightThirdContentProperty); }
@@ -227,8 +188,6 @@ namespace Denna.Controls
         // Using a DependencyProperty as the backing store for RightThirdContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightThirdContentProperty =
             DependencyProperty.Register(nameof(RightFirstContent), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
-
-
 
         public string RightThirdCaption
         {
@@ -240,37 +199,35 @@ namespace Denna.Controls
         public static readonly DependencyProperty RightThirdCaptionProperty =
             DependencyProperty.Register(nameof(RightThirdCaption), typeof(string), typeof(SwipeListItem), new PropertyMetadata(null));
 
-
         #endregion
 
-
         #region Manipulations
-        private void MainGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        void MainGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             if (myScaleTransform.X >= 60 && e.Delta.Translation.X > 1)
             {
                 myScaleTransform.X = 60;
                 return;
             }
+
             if (myScaleTransform.X <= -180 && e.Delta.Translation.X < 1)
             {
                 myScaleTransform.X = -180;
                 return;
             }
+
             myScaleTransform.X += e.Delta.Translation.X;
             lastPostition.X += e.Delta.Translation.X;
-
         }
 
-        private void MainGrid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        void MainGrid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             if (myScaleTransform.X <= -170) return;
             urStoryboard.Begin();
             Analytics.TrackEvent("Swipe menu opened");
-
         }
 
-        private void MainGrid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        void MainGrid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
             startpoint = e.Position;
             lastPostition = e.Position;

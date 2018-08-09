@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 
@@ -53,6 +49,7 @@ namespace Denna.Classes
             };
             await Windows.System.Launcher.LaunchUriAsync(url, options);
         }
+
         public static async void OpenUrl(this string url) => new Uri(url).OpenUrl();
     }
 }

@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace Planel.Classes
 {
     class Themesetter
     {
-        public static void SetApplicationTheme(string Theme = "System")
+        public static void SetApplicationTheme(string theme = "System")
         {
-            ApplicationData.Current.LocalSettings.Values["ApplicationTheme"] = Theme;
+            ApplicationData.Current.LocalSettings.Values["ApplicationTheme"] = theme;
         }
 
         public static string GetApplicationTheme()

@@ -1,9 +1,4 @@
-﻿using Core.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
@@ -13,7 +8,7 @@ namespace Denna.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             var a = (int)value;
-            string x = "";
+            var x = "";
             switch (a)
             {
                 case 2:

@@ -8,61 +8,65 @@ namespace Core.Data
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : RealmObject
     {
-        private readonly Realm _instance;
-        public GenericRepository() => _instance = RealmContext.Instance;
-        public GenericRepository(Realm instance) => _instance = instance;
+        readonly Realm instance;
+        public GenericRepository() => instance = RealmContext.Instance;
+        public GenericRepository(Realm instance) => this.instance = instance;
 
-        public IRealmCollection<TEntity> GetAll() => _instance.All<TEntity>().AsRealmCollection();
+        public IRealmCollection<TEntity> GetAll() => instance.All<TEntity>().AsRealmCollection();
 
-        public TEntity GetById(string id) => _instance.Find<TEntity>(id);
+        public TEntity GetById(string id) => instance.Find<TEntity>(id);
+
         public void Create(TEntity entity)
         {
-            _instance.Write(() =>
+            instance.Write(() =>
             {
-                _instance.Add(entity);
+                instance.Add(entity);
             });
         }
 
         public void UpdateManaged(TEntity oldEntity, TEntity newEntity)
         {
-            using (var trans = _instance.BeginWrite())
+            using (var trans = instance.BeginWrite())
             {
                 oldEntity = newEntity;
                 trans.Commit();
             }
         }
 
-        public void UpdatePrimary(TEntity entity, string id) => _instance.Write(() => _instance.Add(entity, update: true));
+        public void UpdatePrimary(TEntity entity, string id) => instance.Write(() => instance.Add(entity, update: true));
+
         public void Delete(TEntity entity)
         {
-            using (var trans = _instance.BeginWrite())
+            using (var trans = instance.BeginWrite())
             {
-                _instance.Remove(entity);
+                instance.Remove(entity);
                 trans.Commit();
             }
         }
 
         public void Delete(string id)
         {
-            using (var trans = _instance.BeginWrite())
+            using (var trans = instance.BeginWrite())
             {
                 var entity = GetById(id);
-                _instance.Remove(entity);
+                instance.Remove(entity);
                 trans.Commit();
             }
         }
+
         public string CreateId()
         {
-            if (_instance.All<Count>().Count() == 0)
+            if (instance.All<Count>().Count() == 0)
             {
-                _instance.Write(() =>
+                instance.Write(() =>
                 {
-                    _instance.Add(new Count());
+                    instance.Add(new Count());
                 });
             }
+
             var credentials = Credentials.UsernamePassword("", "", createUser: false);
-            var counter = _instance.All<Count>().FirstOrDefault();
-            using (var trans = _instance.BeginWrite())
+            var counter = instance.All<Count>().FirstOrDefault();
+            using (var trans = instance.BeginWrite())
             {
                 counter.Counter.Increment();
                 trans.Commit();

@@ -1,5 +1,5 @@
-﻿using System;
-using Realms;
+﻿using Realms;
+using System;
 namespace Core.Domain
 {
     public class Todo : RealmObject
@@ -11,6 +11,5 @@ namespace Core.Domain
         public int Notify { get; set; }
         public int Status { get; set; }
         public DateTimeOffset StartTime { get; set; }
-
     }
 }

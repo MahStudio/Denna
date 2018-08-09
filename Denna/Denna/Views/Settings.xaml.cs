@@ -1,21 +1,9 @@
 ﻿using Denna.Views.SubSettings;
 using Microsoft.AppCenter.Analytics;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Foundation.Metadata;
 using Windows.Phone.UI.Input;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -29,7 +17,7 @@ namespace Denna.Views
     {
         public Settings()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
                 HardwareButtons.BackPressed += HardwareButtons_BackPressed;
@@ -46,26 +34,8 @@ namespace Denna.Views
              App_BackRequested;
         }
 
-        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
-
-            if (Frame == null)
-                return;
-
-            // Navigate back if possible, and if the event has not 
-            // already been handled .
-            if (Frame.CanGoBack && e.Handled == false)
-            {
-
-                e.Handled = true;
-                Frame.GoBack();
-            }
-
-        }
-
-        private void App_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-
             if (Frame == null)
                 return;
 
@@ -76,8 +46,22 @@ namespace Denna.Views
                 e.Handled = true;
                 Frame.GoBack();
             }
-
         }
+
+        void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (Frame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (Frame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                Frame.GoBack();
+            }
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -93,9 +77,11 @@ namespace Denna.Views
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                     AppViewBackButtonVisibility.Collapsed;
             }
+
             Analytics.TrackEvent("Settings Opened");
         }
-        private void ArtistsList_ItemClick(object sender, ItemClickEventArgs e)
+
+        void ArtistsList_ItemClick(object sender, ItemClickEventArgs e)
         {
             var clk = e.ClickedItem as Classes.ItemHolder;
             switch (clk.ID)

@@ -1,8 +1,8 @@
-﻿using Core.Data;
+﻿using System.Threading.Tasks;
+using Core.Data;
 using Core.Domain;
 using Realms.Sync;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Core.Service.Users
 {
@@ -16,15 +16,18 @@ namespace Core.Service.Users
             RealmContext.Initialize();
             CreateUserInformation(name, email);
         }
+
         public static async Task Login(string username, string password)
         {
             var credentials = Credentials.UsernamePassword(username, password, createUser: false);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
         }
+
         public static async void Logout() => await User.Current.LogOutAsync();
 
         public static bool IsUserLoggenIn() => User.AllLoggedIn.Any();
+
         public static void CreateUserInformation(string name, string email)
         {
             var usr = new DennaUser()
@@ -37,7 +40,9 @@ namespace Core.Service.Users
                 RealmContext.Instance.Add(usr);
             });
         }
+
         public static string GetUsername() => User.Current.Identity;
+
         public static DennaUser GetUserInfo() => RealmContext.Instance.All<DennaUser>().FirstOrDefault();
 
         public static void UpdateUserInfo(DennaUser usr, DennaUser newUser)
@@ -49,6 +54,7 @@ namespace Core.Service.Users
                 RealmContext.Instance.Add(usr, update: true);
             });
         }
+
         public static async Task ChangePass(string newPass)
         {
             var currentUser = User.Current;

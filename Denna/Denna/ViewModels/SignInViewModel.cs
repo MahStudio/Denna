@@ -4,11 +4,7 @@ using Denna.Classes;
 using Denna.Views;
 using Microsoft.AppCenter.Analytics;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Denna.ViewModels
 {
@@ -35,32 +31,28 @@ namespace Denna.ViewModels
             SignUpCommand.ExecuteFunc = SignUp;
         }
 
-        private void SignUp(object obj)
-        {
-            Welcome.current.opensignup();
-        }
-        private async void SignIn(object obj)
+        void SignUp(object obj) => Welcome.current.opensignup();
+
+        async void SignIn(object obj)
         {
             await UserService.Login(UserName, Password);
             RealmContext.Initialize();
             Analytics.TrackEvent("User signed in");
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
-        private string _username;
-        private string _password;
+
+        string username, password;
         public string UserName
         {
             get
             {
-                return _username;
-
+                return username;
             }
             set
             {
-
-                if (_username != value)
+                if (username != value)
                 {
-                    _username = value;
+                    username = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
@@ -73,15 +65,13 @@ namespace Denna.ViewModels
         {
             get
             {
-                return _password;
-
+                return password;
             }
             set
             {
-
-                if (_password != value)
+                if (password != value)
                 {
-                    _password = value;
+                    password = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
@@ -90,6 +80,5 @@ namespace Denna.ViewModels
                 }
             }
         }
-
     }
 }

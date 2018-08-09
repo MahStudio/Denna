@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Denna.Classes
+﻿namespace Denna.Classes
 {
     public class ItemHolder
     {
@@ -12,7 +6,5 @@ namespace Denna.Classes
         public string icon { get; set; }
         public string title { get; set; }
         public string detail { get; set; }
-        
-
     }
 }

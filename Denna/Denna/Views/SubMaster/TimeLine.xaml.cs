@@ -1,19 +1,8 @@
 ﻿using Core.Todos.Tasks;
 using Denna.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,8 +18,7 @@ namespace Denna.Views.SubMaster
         public static TimeLine current;
         public TimeLine()
         {
-
-            this.InitializeComponent();
+            InitializeComponent();
             DataContextChanged += (s, e) =>
             {
                 VM = DataContext as TimeLineViewModel;
@@ -39,7 +27,7 @@ namespace Denna.Views.SubMaster
         }
         public void DoOutsiderSearch(string term)
         {
-            if (String.IsNullOrEmpty(term))
+            if (string.IsNullOrEmpty(term))
             {
                 SearchView.Visibility = Visibility.Collapsed;
                 RegularView.Visibility = Visibility.Visible;
@@ -51,11 +39,9 @@ namespace Denna.Views.SubMaster
                 VM.SearchResults = TodoService.FullTextSearch(term);
                 txtAutoComplete.Text = term;
             }
-
-
         }
 
-        private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             // Only get results when it was a user typing,
             // otherwise assume the value got filled in by TextMemberPath
@@ -65,7 +51,7 @@ namespace Denna.Views.SubMaster
                 if (args.CheckCurrent())
                 {
                     var search_term = txtAutoComplete.Text;
-                    if (String.IsNullOrEmpty(search_term))
+                    if (string.IsNullOrEmpty(search_term))
                     {
                         SearchView.Visibility = Visibility.Collapsed;
                         RegularView.Visibility = Visibility.Visible;
@@ -76,23 +62,21 @@ namespace Denna.Views.SubMaster
                         RegularView.Visibility = Visibility.Collapsed;
                         VM.SearchResults = TodoService.FullTextSearch(search_term);
                     }
-
                 }
             }
         }
 
-        private void AppBarButtonUTest_Click(object sender, RoutedEventArgs e)
+        void AppBarButtonUTest_Click(object sender, RoutedEventArgs e)
         {
-
             PageMaster.current.NavigateToUnitTests();
         }
-        private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+
+        void AppBarButton_Click_2(object sender, RoutedEventArgs e)
         {
             PageMaster.current.NavigateToSettings();
         }
 
-
-        private void AutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        void AutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
             if (args.ChosenSuggestion != null)
             {
@@ -105,12 +89,12 @@ namespace Denna.Views.SubMaster
             }
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Add.Hobby));
         }
 
-        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Add.Task));
         }

@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,12 +10,8 @@ namespace Denna.Controls
     {
         public DoublePi()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
-
-
-        
-
 
         public SolidColorBrush SegmentColor1
         {
@@ -39,8 +23,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty SegmentColor1Property =
             DependencyProperty.Register(nameof(SegmentColor1), typeof(SolidColorBrush), typeof(DoublePi), new PropertyMetadata(null));
 
-
-
         public SolidColorBrush SegmentColor2
         {
             get { return (SolidColorBrush)GetValue(SegmentColor2Property); }
@@ -51,32 +33,24 @@ namespace Denna.Controls
         public static readonly DependencyProperty SegmentColor2Property =
             DependencyProperty.Register(nameof(SegmentColor2), typeof(SolidColorBrush), typeof(DoublePi), new PropertyMetadata(null));
 
-
-
-        public Double Percentage1
+        public double Percentage1
         {
-            get { return (Double)GetValue(Percentage1Property); }
+            get { return (double)GetValue(Percentage1Property); }
             set { SetValue(Percentage1Property, value); }
         }
 
         // Using a DependencyProperty as the backing store for Percentage1.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty Percentage1Property =
-            DependencyProperty.Register(nameof(Percentage1), typeof(Double), typeof(DoublePi), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(Percentage1), typeof(double), typeof(DoublePi), new PropertyMetadata(null));
 
-
-        public Double Percentage2
+        public double Percentage2
         {
-            get { return (Double)GetValue(Percentage2Property); }
+            get { return (double)GetValue(Percentage2Property); }
             set { SetValue(Percentage2Property, value); }
         }
 
         // Using a DependencyProperty as the backing store for Percentage2.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty Percentage2Property =
-            DependencyProperty.Register(nameof(Percentage2), typeof(Double), typeof(DoublePi), new PropertyMetadata(null));
-
-
-
-
-        
+            DependencyProperty.Register(nameof(Percentage2), typeof(double), typeof(DoublePi), new PropertyMetadata(null));
     }
 }

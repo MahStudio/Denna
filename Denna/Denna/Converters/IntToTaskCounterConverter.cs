@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
@@ -11,8 +7,8 @@ namespace Denna.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            int count = (int)value;
-            string x = "";
+            var count = (int)value;
+            var x = "";
             if (count == 0)
                 x = "Nothing to do";
             else if (count == 1)

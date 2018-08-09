@@ -10,14 +10,13 @@ namespace Denna.Controls
 {
     public class PieChart : UserControl
     {
-
-        private double _angle = 120;
-        private ArcSegment _arcSegment = new ArcSegment();
-        private ArcSegment _arcSegment360 = new ArcSegment();
-        private PathFigure _pathFigure = new PathFigure();
-        private PathFigure _pathFigure360 = new PathFigure();
-        private Path _pathRoot = new Path();
-        private Path _pathRoot360 = new Path();
+        double angle = 120;
+        ArcSegment arcSegment = new ArcSegment();
+        ArcSegment arcSegment360 = new ArcSegment();
+        PathFigure pathFigure = new PathFigure();
+        PathFigure pathFigure360 = new PathFigure();
+        Path pathRoot = new Path();
+        Path pathRoot360 = new Path();
 
         public int Radius
         {
@@ -103,7 +102,6 @@ namespace Denna.Controls
         public static readonly DependencyProperty SegmentColorProperty =
             DependencyProperty.Register("SegmentColor", typeof(Brush), typeof(PieChart), new PropertyMetadata(new SolidColorBrush(Colors.Green), OnPropertyChanged));
 
-
         public static readonly DependencyProperty BackgroundColorProperty =
             DependencyProperty.Register("BackgroundColor", typeof(Brush), typeof(PieChart), new PropertyMetadata(new SolidColorBrush(Colors.Transparent), OnPropertyChanged));
 
@@ -117,24 +115,23 @@ namespace Denna.Controls
 
         public PieChart()
         {
-
             InitializePieChart();
 
-            //_angle = Percentage * 360 / 100;
+            // _angle = Percentage * 360 / 100;
         }
 
-        private static void OnPercentageChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        static void OnPercentageChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
             var pieChart = sender as PieChart;
 
-            pieChart._angle = (pieChart.Percentage * 360) / 100;
+            pieChart.angle = (pieChart.Percentage * 360) / 100;
 
             pieChart.InitializePieChart();
 
             pieChart.RenderArc();
         }
 
-        private static void OnPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        static void OnPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
             var pieChart = sender as PieChart;
 
@@ -145,32 +142,31 @@ namespace Denna.Controls
 
         public void RenderArc()
         {
-
-            _angle = Percentage * 360 / 100;
+            angle = Percentage * 360 / 100;
 
             var startPoint = new Point(Radius, 0);
-            var endPoint = ComputeCartesianCoordinate(_angle, Radius);
+            var endPoint = ComputeCartesianCoordinate(angle, Radius);
             endPoint.X += Radius;
             endPoint.Y += Radius;
 
-            _pathRoot.Width = Radius * 2 + StrokeThickness;
-            _pathRoot.Height = Radius * 2 + StrokeThickness;
-            _pathRoot.Margin = new Thickness(StrokeThickness, StrokeThickness, 0, 0);
+            pathRoot.Width = Radius * 2 + StrokeThickness;
+            pathRoot.Height = Radius * 2 + StrokeThickness;
+            pathRoot.Margin = new Thickness(StrokeThickness, StrokeThickness, 0, 0);
 
-            var largeArc = _angle > 180.0;
+            var largeArc = angle > 180.0;
 
             var outerArcSize = new Size(Radius, Radius);
 
-            _pathFigure.StartPoint = startPoint;
+            pathFigure.StartPoint = startPoint;
 
             if (startPoint.X == Math.Round(endPoint.X) && startPoint.Y == Math.Round(endPoint.Y))
             {
                 endPoint.X -= 0.01;
             }
 
-            _arcSegment.Point = endPoint;
-            _arcSegment.Size = outerArcSize;
-            _arcSegment.IsLargeArc = largeArc;
+            arcSegment.Point = endPoint;
+            arcSegment.Size = outerArcSize;
+            arcSegment.IsLargeArc = largeArc;
 
             // Draw the 360 arc/circle
 
@@ -178,23 +174,23 @@ namespace Denna.Controls
             endPoint2.X += Radius;
             endPoint2.Y += Radius;
 
-            _pathRoot360.Width = Radius * 2 + StrokeThickness;
-            _pathRoot360.Height = Radius * 2 + StrokeThickness;
-            _pathRoot360.Margin = new Thickness(StrokeThickness, StrokeThickness, 0, 0);
+            pathRoot360.Width = Radius * 2 + StrokeThickness;
+            pathRoot360.Height = Radius * 2 + StrokeThickness;
+            pathRoot360.Margin = new Thickness(StrokeThickness, StrokeThickness, 0, 0);
 
-            _pathFigure360.StartPoint = startPoint;
+            pathFigure360.StartPoint = startPoint;
 
             if (startPoint.X == Math.Round(endPoint2.X) && startPoint.Y == Math.Round(endPoint2.Y))
             {
                 endPoint2.X -= 0.01;
             }
 
-            _arcSegment360.Point = endPoint2;
-            _arcSegment360.Size = outerArcSize;
-            _arcSegment360.IsLargeArc = true;
+            arcSegment360.Point = endPoint2;
+            arcSegment360.Size = outerArcSize;
+            arcSegment360.IsLargeArc = true;
         }
 
-        private Point ComputeCartesianCoordinate(double angle, double radius)
+        Point ComputeCartesianCoordinate(double angle, double radius)
         {
             // convert to radians
             var angleRad = (Math.PI / 180.0) * (angle - 90);
@@ -207,22 +203,21 @@ namespace Denna.Controls
 
         public void InitializePieChart()
         {
-
             // draw the full circle/arc
-            _arcSegment360 = new ArcSegment
+            arcSegment360 = new ArcSegment
             {
                 SweepDirection = SweepDirection.Clockwise
             };
 
-            _pathFigure360 = new PathFigure
+            pathFigure360 = new PathFigure
             {
                 Segments = new PathSegmentCollection
                 {
-                    _arcSegment360
+                    arcSegment360
                 }
             };
 
-            _pathRoot360 = new Path
+            pathRoot360 = new Path
             {
                 Stroke = Segment360Color,
                 StrokeThickness = StrokeThickness,
@@ -232,27 +227,27 @@ namespace Denna.Controls
                 {
                     Figures = new PathFigureCollection
                     {
-                        _pathFigure360
+                        pathFigure360
                     }
                 }
             };
 
-            //draw a circle with the given angle
+            // draw a circle with the given angle
 
-            _arcSegment = new ArcSegment
+            arcSegment = new ArcSegment
             {
                 SweepDirection = SweepDirection.Clockwise
             };
 
-            _pathFigure = new PathFigure
+            pathFigure = new PathFigure
             {
                 Segments = new PathSegmentCollection
                 {
-                    _arcSegment
+                    arcSegment
                 }
             };
 
-            _pathRoot = new Path
+            pathRoot = new Path
             {
                 Stroke = SegmentColor,
                 StrokeThickness = StrokeThickness,
@@ -262,7 +257,7 @@ namespace Denna.Controls
                 {
                     Figures = new PathFigureCollection
                     {
-                        _pathFigure
+                        pathFigure
                     }
                 }
             };
@@ -272,8 +267,8 @@ namespace Denna.Controls
                 Background = BackgroundColor,
                 Children =
                 {
-                    _pathRoot360,
-                    _pathRoot,
+                    pathRoot360,
+                    pathRoot,
                 }
             };
         }

@@ -1,10 +1,5 @@
 ﻿using Denna.Views.SubMaster;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Documents;
@@ -13,10 +8,7 @@ namespace Denna.Classes
 {
     public class BindingHelper : DependencyObject
     {
-        public static string GetText(DependencyObject obj)
-        {
-            return (string)obj.GetValue(TextProperty);
-        }
+        public static string GetText(DependencyObject obj) => (string)obj.GetValue(TextProperty);
 
         public static void SetText(DependencyObject obj, string value)
         {
@@ -25,15 +17,15 @@ namespace Denna.Classes
 
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.RegisterAttached("Text", typeof(string), typeof(BindingHelper), new PropertyMetadata(String.Empty, OnTextChanged));
+            DependencyProperty.RegisterAttached("Text", typeof(string), typeof(BindingHelper), new PropertyMetadata(string.Empty, OnTextChanged));
 
-        private static void OnTextChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        static void OnTextChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             var control = sender as RichTextBlock;
             if (control != null)
             {
                 control.Blocks.Clear();
-                string value = e.NewValue.ToString();
+                var value = e.NewValue.ToString();
                 using (var pg = new PassageHelper())
                 {
                     var passages = pg.GetParagraph(value, CaptionHyperLinkClick);
@@ -42,7 +34,7 @@ namespace Denna.Classes
             }
         }
 
-        private static async void CaptionHyperLinkClick(Hyperlink sender, HyperlinkClickEventArgs args)
+        static async void CaptionHyperLinkClick(Hyperlink sender, HyperlinkClickEventArgs args)
         {
             if (sender == null)
                 return;
@@ -59,13 +51,12 @@ namespace Denna.Classes
                             run.Text.OpenUrl();
                         else
                         {
-                            TimeLine.current.DoOutsiderSearch( run.Text);
+                            TimeLine.current.DoOutsiderSearch(run.Text);
                         }
                     }
                 }
             }
             catch (Exception ex) { ex.ExceptionMessage("CaptionHyperLinkClick"); }
-
         }
     }
 }

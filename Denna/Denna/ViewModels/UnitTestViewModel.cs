@@ -1,10 +1,5 @@
 ﻿using Denna.Classes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Denna.ViewModels
 {
@@ -23,26 +18,25 @@ namespace Denna.ViewModels
             Click.ExecuteFunc = SignIn;
         }
 
-        private void SignIn(object obj)
+        void SignIn(object obj)
         {
             Value++;
             Per = Per + 1;
         }
-        private Double _per = 10;
-        private int _value = 2;
+
+        double per = 10;
+        int value = 2;
         public int Value
         {
             get
             {
-                return _value;
-
+                return value;
             }
             set
             {
-
-                if (_value != value)
+                if (this.value != value)
                 {
-                    _value = value;
+                    this.value = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
@@ -51,15 +45,14 @@ namespace Denna.ViewModels
                 }
             }
         }
-        public Double Per
+        public double Per
         {
-            get => _per;
+            get => per;
             set
             {
-
-                if (_per != value)
+                if (per != value)
                 {
-                    _per = value;
+                    per = value;
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,

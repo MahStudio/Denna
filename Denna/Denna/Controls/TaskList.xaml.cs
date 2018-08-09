@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using Core.Domain;
+using Core.Todos.Tasks;
+using Microsoft.AppCenter.Analytics;
+using Realms;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Core.Domain;
-using Realms;
-using Core.Todos.Tasks;
-using Microsoft.AppCenter.Analytics;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -26,12 +15,8 @@ namespace Denna.Controls
     {
         public TaskList()
         {
-            this.InitializeComponent();
-
+            InitializeComponent();
         }
-
-
-
 
         public IRealmCollection<Todo> TaskLists
         {
@@ -46,9 +31,7 @@ namespace Denna.Controls
         public static readonly DependencyProperty TaskListsProperty =
             DependencyProperty.Register("TaskLists", typeof(IRealmCollection<Todo>), typeof(TaskList), new PropertyMetadata(null));
 
-
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
+        void Edit_Click(object sender, RoutedEventArgs e)
         {
             Analytics.TrackEvent("Action From Context Menu");
             var btn = sender as Button;
@@ -59,7 +42,7 @@ namespace Denna.Controls
                     TodoService.Delete(todo);
                     break;
                 case "edit":
-                    //Edit page navigation
+                    // Edit page navigation
                     break;
                 case "Done":
                     TodoService.Done(todo);
@@ -73,29 +56,30 @@ namespace Denna.Controls
                 default:
                     break;
             }
-
         }
 
-        private void Undone_click(object sender, RoutedEventArgs e)
+        void Undone_click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             var todo = btn.Tag as Todo;
             TodoService.Undone(todo);
         }
-        private void Done_click(object sender, RoutedEventArgs e)
+
+        void Done_click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             var todo = btn.Tag as Todo;
             TodoService.Done(todo);
         }
-        private void PostponeClick(object sender, RoutedEventArgs e)
+
+        void PostponeClick(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             var todo = btn.Tag as Todo;
             TodoService.Postpone(todo);
         }
 
-        private void SwipeListItem_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        void SwipeListItem_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
             FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
         }

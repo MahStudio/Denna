@@ -1,17 +1,17 @@
-﻿using Core.Infrastructure;
+﻿using Core;
+using Core.Infrastructure;
 using Denna.Views;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Windows.UI.Popups;
-using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter.Push;
-using Core;
 
 namespace Denna
 {
@@ -26,9 +26,9 @@ namespace Denna
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
-            this.UnhandledException += App_UnhandledException;
+            InitializeComponent();
+            Suspending += OnSuspending;
+            UnhandledException += App_UnhandledException;
             AppCenter.Start(Constants.AppCenterSecret, typeof(Analytics));
             AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
             AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
@@ -37,15 +37,14 @@ namespace Denna
             Analytics.TrackEvent("App Opened");
         }
 
-        private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
             Analytics.TrackEvent("Crash happened");
             await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
-
         }
 
-        private void stuff()
+        void stuff()
         {
             try
             {
@@ -57,6 +56,7 @@ namespace Denna
             catch
             { }
         }
+
         void Themesetter()
         {
             if (Planel.Classes.Themesetter.GetApplicationTheme() != "System")
@@ -82,8 +82,8 @@ namespace Denna
             stuff();
             if (args.PreviousExecutionState != ApplicationExecutionState.Running)
             {
-                bool loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);
-                ExtendedSplash extendedSplash = new ExtendedSplash(args.SplashScreen, loadState);
+                var loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);
+                var extendedSplash = new ExtendedSplash(args.SplashScreen, loadState);
                 Window.Current.Content = extendedSplash;
             }
 
@@ -107,10 +107,10 @@ namespace Denna
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
+            // TODO: Save application state and stop any background activity
             deferral.Complete();
         }
     }

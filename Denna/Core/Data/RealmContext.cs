@@ -11,8 +11,8 @@ namespace Core.Data
         {
             var configuration = new SyncConfiguration(User.Current, new Uri("~/myRealm", UriKind.Relative));
             Instance = Realm.GetInstance(configuration);
-
         }
+
         public static void InitializeLocal() => Instance = Realm.GetInstance();
     }
 }

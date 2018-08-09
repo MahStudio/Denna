@@ -2,11 +2,8 @@
 using Denna.Classes;
 using Realms;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
 namespace Denna.Converters
@@ -27,8 +24,10 @@ namespace Denna.Converters
                         Value = 0
                     });
                 }
+
                 return chartItems;
             }
+
             var max = items.Max(x => x.StartTime);
             var min = max.AddMonths(-1);
             for (int i = 0; i < (max - min).TotalDays - 1; i++)
@@ -39,7 +38,7 @@ namespace Denna.Converters
                 var itemsOfTheDay = items.Where(y => y.StartTime > start && y.StartTime < end);
                 if (itemsOfTheDay.Any())
                 {
-                    int done = itemsOfTheDay.Where(z => z.Status == 0).Count();
+                    var done = itemsOfTheDay.Where(z => z.Status == 0).Count();
                     chartItems.Add(new NameValueItem()
                     {
                         Name = "test" + i,
