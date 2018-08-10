@@ -37,6 +37,8 @@ namespace Denna.Classes
                             p.Inlines.Add(hyper);
                             p.Inlines.Add(new Run() { Text = " " });
                         }
+                        else if (item.Text.StartsWith("@@@@@"))
+                            p.Inlines.Add(new LineBreak());
                         else
                         {
                             p.Inlines.Add(new Run() { Text = item.Text });
@@ -45,26 +47,22 @@ namespace Denna.Classes
                     }
                     else
                     {
-                        if (item.Text.StartsWith("@@@@@"))
-                            p.Inlines.Add(new LineBreak());
-                        else
+                        var hyper = new Hyperlink
                         {
-                            var hyper = new Hyperlink
-                            {
-                                Foreground = new SolidColorBrush(hyperColor.Value)
-                            };
-                            hyper.Inlines.Add(new Run()
-                            {
-                                Text = item.Text,
-                                Foreground = new SolidColorBrush(hyperColor.Value),
+                            Foreground = new SolidColorBrush(hyperColor.Value)
+                        };
+                        hyper.Inlines.Add(new Run()
+                        {
+                            Text = item.Text,
+                            Foreground = new SolidColorBrush(hyperColor.Value),
 
-                            });
+                        });
 
-                            hyper.UnderlineStyle = UnderlineStyle.None;
-                            hyper.Click += hyperLinkAction;
-                            p.Inlines.Add(hyper);
-                            p.Inlines.Add(new Run() { Text = " " });
-                        }
+                        hyper.UnderlineStyle = UnderlineStyle.None;
+                        hyper.Click += hyperLinkAction;
+                        p.Inlines.Add(hyper);
+                        p.Inlines.Add(new Run() { Text = " " });
+
                     }
                 }
             }
