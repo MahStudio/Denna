@@ -103,6 +103,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\HeadPainter.cs" />
+    <Compile Include="Classes\AppHelper.cs" />
+    <Compile Include="Classes\AppSettings.cs" />
     <Compile Include="Classes\BindingHelper.cs" />
     <Compile Include="Classes\DelegateCommand.cs" />
     <Compile Include="Classes\Extentions.cs" />
@@ -300,6 +302,9 @@
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\PackageImages\Wide310x150Logo.scale-400.png" />
+    <Content Include="XMLs\CortanaVCD.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Denna_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
@@ -454,12 +459,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Strings\" />
-    <Folder Include="XMLs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{10ba8bb2-60f4-414a-abbc-6063de8d60d6}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CortanaIntegration\CortanaIntegration.csproj">
+      <Project>{41e18d3c-4d2d-43dd-8fd7-d4d7376e3985}</Project>
+      <Name>CortanaIntegration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

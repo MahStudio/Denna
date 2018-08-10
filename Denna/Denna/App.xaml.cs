@@ -1,5 +1,6 @@
 ﻿using Core;
 using Core.Infrastructure;
+using Denna.Classes;
 using Denna.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -32,7 +33,7 @@ namespace Denna
             AppCenter.Start(Constants.AppCenterSecret, typeof(Analytics));
             AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
             AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
-            Themesetter();
+            AppHelper.SetTheme();
             DI.Build();
             Analytics.TrackEvent("App Opened");
         }
@@ -44,33 +45,7 @@ namespace Denna
             await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
         }
 
-        void stuff()
-        {
-            try
-            {
-                if (ApplicationData.Current.LocalSettings.Values["FollowAccent"] == null)
-                    ApplicationData.Current.LocalSettings.Values["FollowAccent"] = false;
-                if (Convert.ToBoolean(ApplicationData.Current.LocalSettings.Values["FollowAccent"]) != true)
-                    App.Current.Resources["SystemAccentColor"] = Windows.UI.Color.FromArgb(255, 32, 200, 165);
-            }
-            catch
-            { }
-        }
 
-        void Themesetter()
-        {
-            if (Planel.Classes.Themesetter.GetApplicationTheme() != "System")
-            {
-                if (Planel.Classes.Themesetter.GetApplicationTheme() == "Dark")
-                {
-                    App.Current.RequestedTheme = ApplicationTheme.Dark;
-                }
-                else
-                {
-                    App.Current.RequestedTheme = ApplicationTheme.Light;
-                }
-            }
-        }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -79,7 +54,8 @@ namespace Denna
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            stuff();
+            AppHelper.ApplyThemeSettings();
+            AppHelper.SetUpVoiceCommends();
             if (args.PreviousExecutionState != ApplicationExecutionState.Running)
             {
                 var loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);

@@ -1,20 +1,17 @@
 ﻿using System;
 using Windows.Storage;
 
-namespace Planel.Classes
+namespace Denna.Classes
 {
     class Themesetter
     {
-        public static void SetApplicationTheme(string theme = "System")
-        {
-            ApplicationData.Current.LocalSettings.Values["ApplicationTheme"] = theme;
-        }
+        public static void SetApplicationTheme(string theme = "System") => AppSettings.Set("ApplicationTheme",theme);
 
         public static string GetApplicationTheme()
         {
             try
             {
-                var res = ApplicationData.Current.LocalSettings.Values["ApplicationTheme"].ToString();
+                var res = AppSettings.OpenGet("ApplicationTheme").ToString();
                 return res;
             }
             catch (Exception)
