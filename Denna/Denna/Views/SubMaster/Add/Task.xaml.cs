@@ -25,12 +25,21 @@ namespace Denna.Views.SubMaster.Add
         void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             var start = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
+            int notiftStatus = 0;
+            if (rbs.IsChecked == true)
+                notiftStatus = 0;
+
+            if (rbn.IsChecked == true)
+                notiftStatus = 1;
+
+            if (rba.IsChecked == true)
+                notiftStatus = 2;
             var todo = new Todo()
             {
                 Subject = Title.Text,
                 Detail = Details.Text,
                 StartTime = start,
-                Notify = 0,
+                Notify = notiftStatus,
                 Status = 2
             };
             TodoService.AddTodo(todo);

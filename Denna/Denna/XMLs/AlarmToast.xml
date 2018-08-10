@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toast launch='action=viewEvent&amp;eventId=1983' scenario='alarm'>
+
+  <visual>
+    <binding template="ToastGeneric">
+      <text>Header</text>
+      <text>Detail</text>
+      <text placement='attribution'>Right now</text>
+    </binding>
+  </visual>
+  <audio  loop='true' />
+  <actions>
+
+    <action
+      activationType='system'
+      arguments='dismiss'
+      content='OK'/>
+
+  </actions>
+
+</toast>

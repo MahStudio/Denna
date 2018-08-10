@@ -3,6 +3,6 @@ namespace Core.Utils
 {
     public static class Extentions
     {
-        public static bool IsToday(this DateTimeOffset offset) => offset > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+        public static int GetUnixTimeNow() => (Int32) (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
     }
 }

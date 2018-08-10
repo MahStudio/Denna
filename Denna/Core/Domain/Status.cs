@@ -1,6 +1,7 @@
 ﻿namespace Core.Domain
 {
-    public enum Status
+    //We don't technically use this. But here is a reference for saved numbers
+    enum Status
     {
         Done = 0,
         Suspended = 1,

@@ -1,4 +1,5 @@
 ﻿using Core.Domain;
+using Core.Utils;
 using Realms;
 using Realms.Sync;
 using System;
@@ -71,7 +72,7 @@ namespace Core.Data
                 counter.Counter.Increment();
                 trans.Commit();
                 int a = counter.Counter;
-                return $"{a}_{DateTime.UtcNow.Ticks}";
+                return $"{a}{Extentions.GetUnixTimeNow()}";
             }
         }
     }

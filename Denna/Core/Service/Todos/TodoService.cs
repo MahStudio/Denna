@@ -5,6 +5,7 @@ using Core.Infrastructure;
 using Realms;
 using System;
 using System.Linq;
+using Core.Service.Notifications;
 
 namespace Core.Todos.Tasks
 {
@@ -12,21 +13,43 @@ namespace Core.Todos.Tasks
     {
         static IGenericRepository<Todo> repo;
         static TodoService() => repo = DI.Container.Resolve<IGenericRepository<Todo>>();
+        #region CRUD
         public static void AddTodo(Todo task)
         {
             task.Id = repo.CreateId();
             repo.Create(task);
+            if (task.Notify == 1)
+                task.CreateNotification();
+            if (task.Notify == 2)
+                task.CreateAlarm();
         }
 
         public static IRealmCollection<Todo> GetAllTodos() => repo.GetAll();
 
         public static Todo GetById(string id) => repo.GetById(id);
 
-        public static void Edit(Todo oldTask, Todo newTask) => repo.UpdateManaged(oldTask, newTask);
+        public static void Edit(Todo oldTask, Todo newTask)
+        {
+            repo.UpdateManaged(oldTask, newTask);
+            if (oldTask.Notify != newTask.Notify)
+            {
+                newTask.UpdateNotification();
+            }
+        }
 
-        public static void Delete(string id) => repo.Delete(id);
 
-        public static void Delete(Todo item) => repo.Delete(item.Id);
+        public static void Delete(string id)
+        {
+            repo.Delete(id);
+            GetById(id).DeleteNotification();
+        }
+
+        public static void Delete(Todo item)
+        {
+            repo.Delete(item.Id);
+            item.DeleteNotification();
+        }
+
 
         public static void Done(Todo task)
         {
@@ -35,7 +58,9 @@ namespace Core.Todos.Tasks
                 task.Status = 0;
                 trans.Commit();
             }
+            task.DeleteNotification();
         }
+        #endregion
 
         public static void Undone(Todo task)
         {
@@ -43,6 +68,13 @@ namespace Core.Todos.Tasks
             {
                 task.Status = 2;
                 trans.Commit();
+            }
+            if (task.Status != 2 || task.Status != 1)
+            {
+                if (task.Notify == 1)
+                    task.CreateNotification();
+                if (task.Notify == 2)
+                    task.CreateAlarm();
             }
         }
 
@@ -52,6 +84,13 @@ namespace Core.Todos.Tasks
             {
                 task.Status = 1;
                 trans.Commit();
+            }
+            if (task.Status != 1 || task.Status != 2)
+            {
+                if (task.Notify == 1)
+                    task.CreateNotification();
+                if (task.Notify == 2)
+                    task.CreateAlarm();
             }
         }
 

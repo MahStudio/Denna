@@ -112,12 +112,13 @@
     <Compile Include="Data\IGenericRepository.cs" />
     <Compile Include="Data\RealmContext.cs" />
     <Compile Include="Domain\Count.cs" />
-    <Compile Include="Domain\Importance.cs" />
+    <Compile Include="Domain\NotificationStatus.cs" />
     <Compile Include="Domain\Status.cs" />
     <Compile Include="Domain\DennaUser.cs" />
     <Compile Include="Infrastructure\DI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Todo.cs" />
+    <Compile Include="Service\Notifications\NotificationService.cs" />
     <Compile Include="Service\Testscv.cs" />
     <Compile Include="Service\Todos\TodoService.cs" />
     <Compile Include="Service\Users\UserService.cs" />
