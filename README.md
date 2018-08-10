@@ -134,6 +134,10 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 
 Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers community for their help to this project.
 
+### Sponsor
+
+This project is sponsored by [Realm.io](https://realm.io). 
+
 ## Licence
 
 This application is available under [GPL-3 Licence](https://github.com/MahStudio/Denna/blob/master/LICENSE).
