@@ -27,7 +27,7 @@
         <uap:SplashScreen Image="Assets\PackageImages\SplashScreen.png" BackgroundColor="black" />
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.appService" EntryPoint="Denna.Cortana.Commands">
+        <uap:Extension Category="windows.appService" EntryPoint="Denna.Services.Cortana.Commands">
           <uap:AppService Name="Bgcommand" />
         </uap:Extension>
         <uap:Extension Category="windows.personalAssistantLaunch" />

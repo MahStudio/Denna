@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Denna", "Denna\Denna.csproj", "{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Background Tasks", "Background Tasks", "{867533D6-40AA-4B0A-9731-5FEFB105186A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{867533D6-40AA-4B0A-9731-5FEFB105186A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{10BA8BB2-60F4-414A-ABBC-6063DE8D60D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CortanaIntegration", "CortanaIntegration\CortanaIntegration.csproj", "{41E18D3C-4D2D-43DD-8FD7-D4D7376E3985}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Denna.Services.Cortana", "CortanaIntegration\Denna.Services.Cortana.csproj", "{41E18D3C-4D2D-43DD-8FD7-D4D7376E3985}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

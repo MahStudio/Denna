@@ -8,7 +8,7 @@ using Windows.ApplicationModel.VoiceCommands;
 using Realms;
 using System.Diagnostics;
 
-namespace Denna.Cortana
+namespace Denna.Services.Cortana
 {
     public sealed class Commands : IBackgroundTask
     {

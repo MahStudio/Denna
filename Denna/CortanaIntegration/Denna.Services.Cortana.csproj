@@ -7,8 +7,8 @@
     <ProjectGuid>{41E18D3C-4D2D-43DD-8FD7-D4D7376E3985}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CortanaIntegration</RootNamespace>
-    <AssemblyName>CortanaIntegration</AssemblyName>
+    <RootNamespace>Denna.Services.Cortana</RootNamespace>
+    <AssemblyName>Denna.Services.Cortana</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>

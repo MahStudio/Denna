@@ -465,9 +465,9 @@
       <Project>{10ba8bb2-60f4-414a-abbc-6063de8d60d6}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CortanaIntegration\CortanaIntegration.csproj">
+    <ProjectReference Include="..\CortanaIntegration\Denna.Services.Cortana.csproj">
       <Project>{41e18d3c-4d2d-43dd-8fd7-d4d7376e3985}</Project>
-      <Name>CortanaIntegration</Name>
+      <Name>Denna.Services.Cortana</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
