@@ -104,7 +104,7 @@
     </Compile>
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Classes\AppHelper.cs" />
-    <Compile Include="Classes\AppSettings.cs" />
+    <Compile Include="Classes\BackgroundHelper.cs" />
     <Compile Include="Classes\BindingHelper.cs" />
     <Compile Include="Classes\DelegateCommand.cs" />
     <Compile Include="Classes\Extentions.cs" />
@@ -302,6 +302,8 @@
     <Content Include="XMLs\CortanaVCD.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="XMLs\LiveTile.xml" />
+    <Content Include="XMLs\QuickAction.xml" />
     <None Include="Denna_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
@@ -457,6 +459,10 @@
     <ProjectReference Include="..\CortanaIntegration\Denna.Services.Cortana.csproj">
       <Project>{41e18d3c-4d2d-43dd-8fd7-d4d7376e3985}</Project>
       <Name>Denna.Services.Cortana</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Denna.Services.Background\Denna.Services.Background.csproj">
+      <Project>{6b757c35-9828-4e78-9694-c432f1adf813}</Project>
+      <Name>Denna.Services.Background</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

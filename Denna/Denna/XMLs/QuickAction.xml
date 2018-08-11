@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toast launch='action=addReminder'>
+
+  <visual>
+    <binding template='ToastGeneric'>
+      <text hint-maxLines='1'>Denna</text>
+      <text>Add a todo</text>
+    </binding>
+  </visual>
+
+  <actions>
+
+    <input id='title' type='text' placeHolderContent='Title'/>
+    <input id='detail' type='text' placeHolderContent='Detail'/>
+
+    <input id='snoozeTime' type='selection' defaultInput='15'>
+      <selection id='15' content='15 minutes'/>
+      <selection id='60' content='1 hour'/>
+      <selection id='140' content='4 hours'/>
+      <selection id='160' content='8 hour'/>
+      <selection id='190' content='1 day'/>
+    </input>
+    <input id='notification' type='selection' defaultInput='1'>
+      <selection id='0' content='Silent'/>
+      <selection id='1' content='Notify'/>
+      <selection id='2' content='Alarm'/>
+    </input>
+    <action
+      content='Send'
+      imageUri='Assets/Icons/Plus.png'
+      hint-inputId='title'
+      activationType='background'
+      arguments='action=addReminder'/>
+  </actions>
+  <audio silent = 'true' />
+</toast>

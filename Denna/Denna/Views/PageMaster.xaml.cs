@@ -1,9 +1,13 @@
 ﻿using Denna.Views.SubMaster;
+using System;
 using PubSub;
+using System.Linq;
+using Windows.ApplicationModel.Background;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Denna.Classes;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,8 +28,11 @@ namespace Denna.Views
 
         public void NavigateToSettings() => Frame.Navigate(typeof(Settings));
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            #region BackgroundTasks
+            BackgroundHelper.RegisterBackgroundServices();
+            #endregion
             #region Back handle
             if (Frame.CanGoBack)
             {

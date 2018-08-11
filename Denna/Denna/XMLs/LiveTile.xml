@@ -1,0 +1,25 @@
+﻿<tile>
+  <visual>
+    <binding template="TileMedium" branding="name" displayName="Date">
+      <text hint-wrap="true" hint-maxLines="2">TaskName</text>
+      <text hint-style="captionSubtle">Time</text>
+    </binding>
+
+    <binding template="TileWide" branding="nameAndLogo" displayName="Date">
+      <text>TaskName</text>
+      <text hint-style="captionSubtle">Detail</text>
+      <text hint-style="captionSubtle">Time</text>
+    </binding>
+
+    <binding template="TileLarge" branding="nameAndLogo" displayName="Date">
+      <group>
+        <subgroup>
+          <text hint-wrap="true">TaskName</text>
+          <text hint-style="captionSubtle">Detail</text>
+          <text hint-style="captionSubtle">Time</text>
+        </subgroup>
+      </group>
+    </binding>
+
+  </visual>
+</tile>

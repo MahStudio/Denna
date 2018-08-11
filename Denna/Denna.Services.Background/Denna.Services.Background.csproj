@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{41E18D3C-4D2D-43DD-8FD7-D4D7376E3985}</ProjectGuid>
+    <ProjectGuid>{6B757C35-9828-4E78-9694-C432F1ADF813}</ProjectGuid>
     <OutputType>winmdobj</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Denna.Services.Cortana</RootNamespace>
-    <AssemblyName>Denna.Services.Cortana</AssemblyName>
+    <RootNamespace>Denna.Services.Background</RootNamespace>
+    <AssemblyName>Denna.Services.Background</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
@@ -106,9 +106,10 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands.cs" />
+    <Compile Include="LiveTile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\CortanaIntegration.rd.xml" />
+    <Compile Include="QuickAction.cs" />
+    <EmbeddedResource Include="Properties\Denna.Services.Background.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">

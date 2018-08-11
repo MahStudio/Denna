@@ -31,6 +31,20 @@
           <uap:AppService Name="Bgcommand" />
         </uap:Extension>
         <uap:Extension Category="windows.personalAssistantLaunch" />
+        <Extension Category="windows.backgroundTasks" EntryPoint="Denna.Services.Background.QuickAction">
+          <BackgroundTasks>
+            <Task Type="general" />
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="Denna.Services.Background.QuickAction.LiveTile">
+          <BackgroundTasks>
+            <Task Type="general" />
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
       </Extensions>
     </Application>
   </Applications>
