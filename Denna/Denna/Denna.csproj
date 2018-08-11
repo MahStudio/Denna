@@ -241,7 +241,9 @@
     <Content Include="Assets\Icons\Denna logo Green.png" />
     <Content Include="Assets\Icons\Denna logo White.png" />
     <Content Include="Assets\Icons\DeskLamp.png" />
+    <Content Include="Assets\Icons\MahStudioFullLogo.png" />
     <Content Include="Assets\Icons\Plus.png" />
+    <Content Include="Assets\Icons\realmio-logo.png" />
     <Content Include="Assets\Icons\TodoList.png" />
     <Content Include="Assets\Mockups\Comp.mp4" />
     <Content Include="Assets\Mockups\Pure.png" />

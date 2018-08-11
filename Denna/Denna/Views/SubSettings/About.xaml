@@ -39,7 +39,7 @@
     </Page.Resources>
     <Grid Background="{ThemeResource AppBackgroundColor}">
         <Grid>
-            <Image Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Assets/Headings/h14.png" Stretch="UniformToFill"      />
+
         </Grid>
         <ScrollViewer>
 
@@ -59,32 +59,35 @@
 
                         </TextBlock>
                         <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
-                            <Button x:Uid="Shaare" BorderThickness="0,0,0,0"  Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="SHARE" Width="70"  />
-                            <Button x:Uid="Rate" BorderThickness="0,0,0,0" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" Background="Transparent" Height="30" FontWeight="SemiBold" Content="RATE AND REVIEW" Width="150"  />
+                            <Button BorderThickness="0,0,0,0"  Style="{StaticResource goitstyle}" Click="Button_Click_2" Height="50"  Content="SHARE" Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10"  />
+                            <Button BorderThickness="0,0,0,0"  Style="{StaticResource goitstyle}" Click="Button_Click_1" Height="50"  Content="Rate and review"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10" />
                         </StackPanel>
 
+                        <Button BorderThickness="0,0,0,0"  Style="{StaticResource goitstyle}" Click="Button_Click" Height="50"  Content="Github"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="320" Margin="10" />
+                        <RichTextBlock Opacity="0.8" Margin="60,20">
+
+                            <Paragraph>
+                                Denna's idea came from my own needs. I'm not punctual at all, so I needed a tool to make me care more about the time I have. So with the help of the whole team in MahStudio we came across with a project named Project Plannel which then became Denna.
+
+Denna is a name of a mountain in Iran. The idea of Denna came from where I failed my test due to not making time for studies and the answer of that missed question was Denna.
+
+Then with the help of the team and the community we developed and release a lovely tool named Denna. The aim of Denna is to help people to care more about the time they have. Cuz time flies!
+
+Ease of access and productivity is Denna's core value.
+                                
+                            </Paragraph>
+                        </RichTextBlock>
                     </StackPanel>
                 </ScrollViewer>
                 <StackPanel VerticalAlignment="Bottom" >
                     <TextBlock x:Uid="Dev" TextAlignment="Center" FontWeight="SemiBold" >
-                    DEVELOPED WITH LOVE 
-                    
+                    Powered By:
+
 
                     </TextBlock>
-                    <StackPanel HorizontalAlignment="Center" >
-                        <TextBlock TextAlignment="Center">
-                            MAH Studio
-                            <LineBreak />
-                            Mohsen Seifi
-                            <LineBreak />
-                            Lukas Frensel
-                            <LineBreak/>
-                            Mohammad Alidoost
-                            <LineBreak />
-                            Aref M. Ahmadi
-                            <LineBreak />
-                            And all insiders...
-                        </TextBlock>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                        <Image Tapped="Image_Tapped"  Height="70" Source="/Assets//Icons/MahStudioFullLogo.png" Margin="20,10"/>
+                        <Image Tapped="Image_Tapped_1" Height="70" Source="/Assets//Icons/realmio-logo.png" Margin="20,10" />
                     </StackPanel>
 
 
