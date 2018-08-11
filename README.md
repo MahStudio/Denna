@@ -12,10 +12,15 @@
   <a href="https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/insiders">
     <img src="https://build.appcenter.ms/v0.1/apps/dc393a1e-1121-4a3e-99c2-589182d9e5f6/branches/master/badge">
     </a>
+  <a href="https://www.paypal.me/mohsens22">
+    <img src="https://img.shields.io/badge/Donate-Paypal-blue.svg" />
+  </a>
     <br>
     <a href="https://www.microsoft.com/en-us/store/p/denna/9n9c2hwnzcft">Download</a>
     &middot;
     <a href="https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g">Insiders Group</a>
+  &middot;
+    <a href="https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/insiders">Nightly builds</a>
   </p>
 </p>
 
@@ -34,7 +39,9 @@ The aim of Denna is to help people to care more about the time they have. Cuz ti
 
 Ease of access and productivity is Denna's core value.
 
-![image](https://user-images.githubusercontent.com/22152065/38919555-2566f7b2-4306-11e8-8a9c-95eb08eff28a.png)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/22152065/38919555-2566f7b2-4306-11e8-8a9c-95eb08eff28a.png">
+  </p>
 
 ### Denna in press
 
@@ -52,9 +59,12 @@ And so on ...
 ### Design
 
 This project is designed by Sr. architect and designer Aref M. Ahmadi and Sr. designer Mohammad R. Alidoost.
-![image](https://user-images.githubusercontent.com/22152065/38919395-b3181f38-4305-11e8-8ead-161766d6148c.png)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/22152065/38919395-b3181f38-4305-11e8-8ead-161766d6148c.png">
+    <br>
+  <img src="https://user-images.githubusercontent.com/22152065/38919478-f123c7b4-4305-11e8-9d7c-98d49b692b31.png">
+  </p>
 
-![image](https://user-images.githubusercontent.com/22152065/38919478-f123c7b4-4305-11e8-9d7c-98d49b692b31.png)
 
 Also you can see the whole design files [HERE](https://github.com/MahStudio/Denna/tree/master/Design)
 
@@ -63,7 +73,23 @@ Also you can see the whole design files [HERE](https://github.com/MahStudio/Denn
 Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design.
 As Denna is an open source project, all kind of contributions are welcome.
 
-> **Note:** Denna V2 is under development. You can help us by giving us feedbacks. Nightly builds are [HERE AT DENNA INSIDER CHAT ON TELEGRAM](https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g)
+> **Note:** Denna V2 with bunch of revolutionary features is under development.
+
+### How do I contribute
+
+You can contribute us in either 3 ways:
+
+1. You can get our stable builds and send us feedbacks, ideas and feature requests either in email or [issues](https://github.com/MahStudio/Denna/issues)
+2. You can get our nightly builds from [HERE](https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/insiders) and give us feedback pr join us [HERE AT DENNA INSIDER CHAT ON TELEGRAM](https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g)
+3. You can help us in development cycle.
+4. You can get me a coffee!
+
+<p align="center">
+<a href="http://paypal.me/mohsens22">
+    <img src="https://user-images.githubusercontent.com/22152065/43985552-5eb38708-9d1d-11e8-85ee-609299bcf0fc.png">
+    </a>
+  </p>
+
 
 ### What we had in V1
 
@@ -133,6 +159,10 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 - Reza Cloner : UX tests
 
 Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers community for their help to this project.
+
+### Sponsor
+
+This project is sponsored by [Realm.io](https://realm.io). 
 
 ## Licence
 
