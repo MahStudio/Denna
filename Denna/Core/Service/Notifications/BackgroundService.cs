@@ -48,6 +48,8 @@ namespace Core.Service.Notifications
         {
             System.Diagnostics.Debug.WriteLine("Hello From live tile caller");
             var tasks = TodoService.GetMustDoList();
+            if (tasks.Count == 0)
+                return;
             var counter = tasks.Count;
 
 
