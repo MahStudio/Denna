@@ -1,6 +1,7 @@
 ﻿using Core.Todos.Tasks;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
@@ -13,7 +14,7 @@ namespace Core.Service.Notifications
     public static class BackgroundService
     {
         const string TRANSLATOR_GROUP = "Translator";
-        
+
         public static async void GenerateQuickAction()
         {
             System.Diagnostics.Debug.WriteLine("Hello From Quick actions caller");
@@ -48,20 +49,43 @@ namespace Core.Service.Notifications
             System.Diagnostics.Debug.WriteLine("Hello From live tile caller");
             var tasks = TodoService.GetMustDoList();
             var counter = tasks.Count;
-            
+
 
             var xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
                 new Uri("ms-appx:///XMLs/LiveTile.xml"))));
-            
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TaskName", tasks.FirstOrDefault().Subject));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Detail", tasks.FirstOrDefault().Detail));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Time", tasks.FirstOrDefault().StartTime.ToString()));
-
+            Random rnd = new Random();
+            int r = rnd.Next(tasks.Count);
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TaskName", tasks[r].Subject));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Detail", tasks[r].Detail));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Time", tasks[r].StartTime.Convert()));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Date", CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month) + "  " + DateTime.Now.Day));
             var tup = TileUpdateManager.CreateTileUpdaterForApplication();
             tup.Update(new TileNotification(xmlDoc));
         }
+        static string Convert(this DateTimeOffset Value)
+        {
+            var Day = Value.Date;
+            var x = "";
+            if (Day == DateTime.Today)
+                x += "Today";
+            else if (Day == DateTime.Today.AddDays(1))
+                x += "Tomorrow";
+            else if (Day == DateTime.Today.AddDays(-1))
+                x += "Yesterday";
+            else
+            {
+                var month = Value.Month;
+                var day = Value.Day;
+                x += month + "/" + day;
+            }
 
+            var hour = Value.Hour.ToString();
+            var min = Value.Minute.ToString();
+
+            x += " " + hour + ":" + min;
+            return x;
+        }
         public static void UpdateBadge()
         {
             System.Diagnostics.Debug.WriteLine("Hello From Quick update badge caller");
@@ -77,6 +101,12 @@ namespace Core.Service.Notifications
             var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
             var notification = new BadgeNotification(xml);
             updator.Update(notification);
+        }
+
+        public static void UpdateTiles()
+        {
+            UpdateBadge();
+            GenerateLiveTile();
         }
     }
 }

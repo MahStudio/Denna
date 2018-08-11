@@ -8,6 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Denna.Classes;
+using Core.Service.Notifications;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -50,6 +51,7 @@ namespace Denna.Views
             TimeLine.Navigate(typeof(TimeLine));
             Chats.Navigate(typeof(Graphs));
             #endregion
+            BackgroundService.UpdateTiles();
         }
 
         #region Pivot
