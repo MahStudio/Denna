@@ -96,19 +96,9 @@ namespace Denna.Views
                         Frame.Navigate(typeof(Notifications));
                         break;
                     }
-                case 4:
-                    {
-                        Frame.Navigate(typeof(QuickActions));
-                        break;
-                    }
                 case 5:
                     {
                         Frame.Navigate(typeof(Personalization));
-                        break;
-                    }
-                case 6:
-                    {
-                        Frame.Navigate(typeof(Language));
                         break;
                     }
                 case 7:

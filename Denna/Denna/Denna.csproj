@@ -206,17 +206,11 @@
     <Compile Include="Views\SubSettings\Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SubSettings\Language.xaml.cs">
-      <DependentUpon>Language.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SubSettings\Notifications.xaml.cs">
       <DependentUpon>Notifications.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubSettings\Personalization.xaml.cs">
       <DependentUpon>Personalization.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SubSettings\QuickActions.xaml.cs">
-      <DependentUpon>QuickActions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubSettings\Support.xaml.cs">
       <DependentUpon>Support.xaml</DependentUpon>
@@ -403,19 +397,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SubSettings\Language.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\SubSettings\Notifications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubSettings\Personalization.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SubSettings\QuickActions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
