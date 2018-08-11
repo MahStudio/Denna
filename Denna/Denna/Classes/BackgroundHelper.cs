@@ -22,7 +22,7 @@ namespace Denna.Classes
                 var taskBuilder = new BackgroundTaskBuilder
                 {
                     Name = "LiveTile",
-                    TaskEntryPoint = "Denna.Services.Background.QuickAction.LiveTile",
+                    TaskEntryPoint = "Denna.Services.Background.LiveTile",
                     CancelOnConditionLoss = false
                 };
                 taskBuilder.SetTrigger(new TimeTrigger(15, false));

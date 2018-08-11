@@ -38,7 +38,7 @@
             <Task Type="timer" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Denna.Services.Background.QuickAction.LiveTile">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Denna.Services.Background.LiveTile">
           <BackgroundTasks>
             <Task Type="general" />
             <Task Type="systemEvent" />

@@ -456,14 +456,6 @@
       <Project>{10ba8bb2-60f4-414a-abbc-6063de8d60d6}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CortanaIntegration\Denna.Services.Cortana.csproj">
-      <Project>{41e18d3c-4d2d-43dd-8fd7-d4d7376e3985}</Project>
-      <Name>Denna.Services.Cortana</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Denna.Services.Background\Denna.Services.Background.csproj">
-      <Project>{6b757c35-9828-4e78-9694-c432f1adf813}</Project>
-      <Name>Denna.Services.Background</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="WindowsMobile, Version=10.0.17134.0">
