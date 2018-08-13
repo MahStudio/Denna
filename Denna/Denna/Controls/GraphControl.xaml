@@ -31,8 +31,8 @@
                  Style="{StaticResource ChartStyle1}" Grid.Row="1">
             <charting:LineSeries
                 
-                    IndependentValueBinding="{Binding Name , Mode=OneWay}"
-                    DependentValueBinding="{Binding Value,Mode=OneWay}"
+                    IndependentValueBinding="{Binding Name , Mode=TwoWay}"
+                    DependentValueBinding="{Binding Value,Mode=TwoWay}"
                     IsSelectionEnabled="True" >
                 <charting:LineSeries.DataPointStyle>
                     <Style
@@ -68,9 +68,9 @@
         </charting:Chart>
         <StackPanel Margin="20,0,0,0" Grid.Row="2">
 
-            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource GreenBrush}" Text="{x:Bind Done, Converter={StaticResource IntToDoneConverter}}" Glyph=""  />
+            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource GreenBrush}" Text="{x:Bind Done, Converter={StaticResource IntToDoneConverter},Mode=TwoWay}" Glyph=""  />
 
-            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToNotdoneConverter}}" Glyph=""  />
+            <local:IconItem Height="40" FontSizeGlyph="20" Brush="{StaticResource RedBrush}" Text="{x:Bind Pending, Converter={StaticResource IntToNotdoneConverter},Mode=TwoWay}" Glyph=""  />
         </StackPanel>
 
     </Grid>

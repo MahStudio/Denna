@@ -17,14 +17,14 @@
     </UserControl.Resources>
     <RelativePanel>
 
-        <local:DoublePi x:Name="Nc" SegmentColor1="#20C8A5" SegmentColor2="{x:Bind SegmentColor,Mode=OneWay}" HorizontalAlignment="Left" Percentage1="{x:Bind Percent1,Mode=OneWay}" Percentage2="{x:Bind Percent2,Mode=OneWay}" 
+        <local:DoublePi x:Name="Nc" SegmentColor1="#20C8A5" SegmentColor2="{x:Bind SegmentColor,Mode=TwoWay}" HorizontalAlignment="Left" Percentage1="{x:Bind Percent1,Mode=TwoWay}" Percentage2="{x:Bind Percent2,Mode=TwoWay}" 
                 RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"        />
         <Grid RelativePanel.RightOf="Nc" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <StackPanel VerticalAlignment="Center" Margin="0">
-                <local:IconItem Height="50" FontSizeGlyph="23" Glyph="" Brush="{StaticResource GreenBrush }" Text="{x:Bind DoneTasks,Mode=OneWay,Converter={StaticResource IntToDoneConverter}}" />
-                <local:IconItem Height="50" FontSizeGlyph="27" Glyph="" Brush="{StaticResource YellowBrush}" Text="{x:Bind PostponedTasks,Mode=OneWay ,Converter={StaticResource IntToPostponeConverter}}" />
+                <local:IconItem Height="50" FontSizeGlyph="23" Glyph="" Brush="{StaticResource GreenBrush }" Text="{x:Bind DoneTasks,Mode=TwoWay,Converter={StaticResource IntToDoneConverter}}" />
+                <local:IconItem Height="50" FontSizeGlyph="27" Glyph="" Brush="{StaticResource YellowBrush}" Text="{x:Bind PostponedTasks,Mode=TwoWay ,Converter={StaticResource IntToPostponeConverter}}" />
 
-                <local:IconItem Height="50" FontSizeGlyph="25" Glyph="" Brush="{x:Bind GlyphBrush,Mode=OneWay}" Text="{x:Bind PendingTasks,Mode=OneWay ,Converter={StaticResource IntToPendingConverter}}" />
+                <local:IconItem Height="50" FontSizeGlyph="25" Glyph="" Brush="{x:Bind GlyphBrush,Mode=TwoWay}" Text="{x:Bind PendingTasks,Mode=TwoWay ,Converter={StaticResource IntToPendingConverter}}" />
 
 
             </StackPanel>
