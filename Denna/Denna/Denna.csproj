@@ -300,6 +300,7 @@
     <Content Include="XMLs\AlarmToast.xml" />
     <Content Include="XMLs\CortanaVCD.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="XMLs\LiveTile.xml" />
     <Content Include="XMLs\QuickAction.xml" />

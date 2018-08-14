@@ -12,21 +12,23 @@ namespace Denna.Classes
 {
     public static class AppHelper
     {
-        public static async void SetUpVoiceCommends()
+        public static async Task SetUpVoiceCommends()
         {
-            try
-            {
-                // Install the main VCD. 
-                var vcdStorageFile =
-                  await Package.Current.InstalledLocation.GetFileAsync(@"XMLs\CortanaVCD.xml");
+            if (AppSettings.Get<bool>("VCDPresent") == false || AppSettings.OpenGet("VCDPresent") == null)
+                try
+                {
+                    // Install the main VCD. 
+                    var vcdStorageFile =
+                      await Package.Current.InstalledLocation.GetFileAsync(@"XMLs\CortanaVCD.xml");
 
-                await Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.
-                  InstallCommandDefinitionsFromStorageFileAsync(vcdStorageFile);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
-            }
+                    await Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.
+                      InstallCommandDefinitionsFromStorageFileAsync(vcdStorageFile);
+                    AppSettings.Set("VCDPresent", true);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
+                }
         }
         public static void ApplyThemeSettings()
         {
