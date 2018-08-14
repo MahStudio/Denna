@@ -21,8 +21,7 @@ namespace Core.Service.Notifications
         }
         public async void GenerateQuickAction()
         {
-            
-            System.Diagnostics.Debug.WriteLine("Hello From Quick actions caller");
+
             var toastFile = await StorageFile.GetFileFromApplicationUriAsync(
                    new Uri("ms-appx:///XMls/QuickAction.xml"));
             var xmlString = await FileIO.ReadTextAsync(toastFile);
@@ -51,7 +50,6 @@ namespace Core.Service.Notifications
 
         public async void GenerateLiveTile()
         {
-            System.Diagnostics.Debug.WriteLine("Hello From live tile caller");
             var tasks = _service.GetMustDoList();
             if (tasks.Count == 0)
                 return;
@@ -95,7 +93,6 @@ namespace Core.Service.Notifications
         }
         public void UpdateBadge()
         {
-            System.Diagnostics.Debug.WriteLine("Hello From Quick update badge caller");
 
             var type = BadgeTemplateType.BadgeNumber;
             var xml = BadgeUpdateManager.GetTemplateContent(type);

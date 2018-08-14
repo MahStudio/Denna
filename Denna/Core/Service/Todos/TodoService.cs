@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Core.Data;
 using Core.Domain;
-using Core.Infrastructure;
 using Realms;
 using System;
 using System.Linq;
@@ -15,7 +14,7 @@ namespace Core.Todos.Tasks
         Realm _instance;
         public TodoService()
         {
-            repo = DI.Container.Resolve<IGenericRepository<Todo>>();
+            repo = new GenericRepository<Todo>();
             _instance = RealmContext.GetInstance();
         }
         #region CRUD

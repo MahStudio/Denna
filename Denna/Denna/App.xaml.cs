@@ -1,5 +1,4 @@
 ﻿using Core;
-using Core.Infrastructure;
 using Denna.Classes;
 using Denna.Views;
 using Microsoft.AppCenter;
@@ -34,7 +33,6 @@ namespace Denna
             AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
             AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
             AppHelper.SetTheme();
-            DI.Build();
             Analytics.TrackEvent("App Opened");
         }
 
