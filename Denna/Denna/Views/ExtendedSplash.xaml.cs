@@ -67,10 +67,7 @@ namespace Denna.Views
         void DismissExtendedSplash()
         {
             if (UserService.IsUserLoggenIn())
-            {
-                RealmContext.Initialize();
                 rootFrame.Navigate(typeof(PageMaster));
-            }
             else
                 rootFrame.Navigate(typeof(Welcome));
 

@@ -16,12 +16,14 @@ namespace Denna.Views.SubMaster
         List<string> countries = new List<string>();
         public TimeLineViewModel VM { get; set; }
         public static TimeLine current;
+        TodoService _service;
         public TimeLine()
         {
             InitializeComponent();
             DataContextChanged += (s, e) =>
             {
                 VM = DataContext as TimeLineViewModel;
+                _service = new TodoService();
             };
             current = this;
         }
@@ -36,7 +38,7 @@ namespace Denna.Views.SubMaster
             {
                 SearchView.Visibility = Visibility.Visible;
                 RegularView.Visibility = Visibility.Collapsed;
-                VM.SearchResults = TodoService.FullTextSearch(term);
+                VM.SearchResults = _service.FullTextSearch(term);
                 txtAutoComplete.Text = term;
             }
         }
@@ -60,7 +62,7 @@ namespace Denna.Views.SubMaster
                     {
                         SearchView.Visibility = Visibility.Visible;
                         RegularView.Visibility = Visibility.Collapsed;
-                        VM.SearchResults = TodoService.FullTextSearch(search_term);
+                        VM.SearchResults = _service.FullTextSearch(search_term);
                     }
                 }
             }
@@ -81,7 +83,7 @@ namespace Denna.Views.SubMaster
             if (args.ChosenSuggestion != null)
             {
                 var search_term = args.QueryText;
-                VM.SearchResults = TodoService.FullTextSearch(search_term);
+                VM.SearchResults = _service.FullTextSearch(search_term);
             }
             else
             {

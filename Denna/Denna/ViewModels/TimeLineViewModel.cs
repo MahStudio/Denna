@@ -7,11 +7,12 @@ namespace Denna.ViewModels
 {
     public class TimeLineViewModel : INotifyPropertyChanged
     {
+        TodoService _service = new TodoService();
         public TimeLineViewModel()
         {
-            TodayList = TodoService.GetTodayList();
+            TodayList = _service.GetTodayList();
 
-            Attention = TodoService.GetPostponedList();
+            Attention = _service.GetPostponedList();
         }
 
         public IRealmCollection<Todo> TodayList { get; set; }

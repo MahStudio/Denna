@@ -13,9 +13,11 @@ namespace Denna.Controls
 {
     public sealed partial class TaskList : UserControl
     {
+        TodoService _service;
         public TaskList()
         {
             InitializeComponent();
+            _service = new TodoService();
         }
 
         public IRealmCollection<Todo> TaskLists
@@ -39,19 +41,19 @@ namespace Denna.Controls
             switch (btn.Name)
             {
                 case "delete":
-                    TodoService.Delete(todo);
+                    _service.Delete(todo);
                     break;
                 case "edit":
                     // Edit page navigation
                     break;
                 case "Done":
-                    TodoService.Done(todo);
+                    _service.Done(todo);
                     break;
                 case "Undo":
-                    TodoService.Undone(todo);
+                    _service.Undone(todo);
                     break;
                 case "Postpone":
-                    TodoService.Postpone(todo);
+                    _service.Postpone(todo);
                     break;
                 default:
                     break;
@@ -62,21 +64,21 @@ namespace Denna.Controls
         {
             var btn = sender as Button;
             var todo = btn.Tag as Todo;
-            TodoService.Undone(todo);
+            _service.Undone(todo);
         }
 
         void Done_click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             var todo = btn.Tag as Todo;
-            TodoService.Done(todo);
+            _service.Done(todo);
         }
 
         void PostponeClick(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             var todo = btn.Tag as Todo;
-            TodoService.Postpone(todo);
+            _service.Postpone(todo);
         }
 
         void SwipeListItem_RightTapped(object sender, RightTappedRoutedEventArgs e)

@@ -13,7 +13,6 @@ namespace Core.Service.Users
             var credentials = Credentials.UsernamePassword(username, password, createUser: true);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            RealmContext.Initialize();
             CreateUserInformation(name, email);
         }
 
@@ -35,23 +34,23 @@ namespace Core.Service.Users
                 FullName = name,
                 Email = email
             };
-            RealmContext.Instance.Write(() =>
+            RealmContext.GetInstance().Write(() =>
             {
-                RealmContext.Instance.Add(usr);
+                RealmContext.GetInstance().Add(usr);
             });
         }
 
         public static string GetUsername() => User.Current.Identity;
 
-        public static DennaUser GetUserInfo() => RealmContext.Instance.All<DennaUser>().FirstOrDefault();
+        public static DennaUser GetUserInfo() => RealmContext.GetInstance().All<DennaUser>().FirstOrDefault();
 
         public static void UpdateUserInfo(DennaUser usr, DennaUser newUser)
         {
-            RealmContext.Instance.Write(() =>
+            RealmContext.GetInstance().Write(() =>
             {
                 usr.Email = newUser.Email;
                 usr.FullName = newUser.FullName;
-                RealmContext.Instance.Add(usr, update: true);
+                RealmContext.GetInstance().Add(usr, update: true);
             });
         }
 

@@ -14,9 +14,11 @@ namespace Denna.Views.SubMaster.Add
     /// </summary>
     public sealed partial class Task : Page
     {
+        TodoService _service;
         public Task()
         {
             InitializeComponent();
+            _service = new TodoService();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e) => base.OnNavigatedTo(e);
 
@@ -42,7 +44,7 @@ namespace Denna.Views.SubMaster.Add
                 Notify = notiftStatus,
                 Status = 2
             };
-            TodoService.AddTodo(todo);
+            _service.AddTodo(todo);
             Frame.GoBack();
         }
     }

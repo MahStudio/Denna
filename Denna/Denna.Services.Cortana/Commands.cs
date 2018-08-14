@@ -15,6 +15,11 @@ namespace Denna.Services.Cortana
         // fuck you cortana :|
         BackgroundTaskDeferral serviceDeferral;
         VoiceCommandServiceConnection voiceServiceConnection;
+        TodoService _service;
+        public Commands()
+        {
+            _service = new TodoService();
+        }
 
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
@@ -100,7 +105,7 @@ namespace Denna.Services.Cortana
 
         async void taskcounter()
         {
-            var x = TodoService.GetMustDoList().Count;
+            var x = _service.GetMustDoList().Count;
             VoiceCommandResponse response = null;
             if (x == 0)
             {
@@ -139,7 +144,7 @@ namespace Denna.Services.Cortana
         async void SendCompletionMessageFortodolist()
         {
             var destinationsContentTiles = new List<VoiceCommandContentTile>();
-            var mycol = TodoService.GetTodayList();
+            var mycol = _service.GetTodayList();
             VoiceCommandResponse response = null;
             if (mycol.Count == 0)
             {

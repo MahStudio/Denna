@@ -165,7 +165,6 @@
     <Compile Include="Converters\TaskListToWeeklyLineChartConverter.cs" />
     <Compile Include="Converters\TextToHashtagConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\CalendarViewModel.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />

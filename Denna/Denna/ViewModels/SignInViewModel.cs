@@ -36,7 +36,6 @@ namespace Denna.ViewModels
         async void SignIn(object obj)
         {
             await UserService.Login(UserName, Password);
-            RealmContext.Initialize();
             Analytics.TrackEvent("User signed in");
             Welcome.current.Frame.Navigate(typeof(PageMaster));
         }

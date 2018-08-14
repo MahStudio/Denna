@@ -27,7 +27,7 @@ namespace Denna.Views.SubSettings
             var userInfo = UserService.GetUserInfo();
             FullName.Text = userInfo.FullName;
             Email.Text = userInfo.Email;
-            Ses.Text = RealmContext.Instance.GetSession().State.ToString();
+            Ses.Text = RealmContext.GetInstance().GetSession().State.ToString();
             base.OnNavigatedTo(e);
         }
 

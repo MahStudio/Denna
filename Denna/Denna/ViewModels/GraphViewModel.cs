@@ -13,13 +13,15 @@ namespace Denna.ViewModels
         public IRealmCollection<Todo> ThisWeek { get; set; }
         public IRealmCollection<Todo> LastWeek { get; set; }
         public IRealmCollection<Todo> LastMonth { get; set; }
+        TodoService _service;
         public GraphViewModel()
         {
-            Today = TodoService.GetTodayList();
-            Yesterday = TodoService.GetYesterdayList();
-            ThisWeek = TodoService.GetThisWeekList();
-            LastWeek = TodoService.GetLastWeekList();
-            LastMonth = TodoService.GetLastMonthList();
+            _service = new TodoService();
+            Today = _service.GetTodayList();
+            Yesterday = _service.GetYesterdayList();
+            ThisWeek = _service.GetThisWeekList();
+            LastWeek = _service.GetLastWeekList();
+            LastMonth = _service.GetLastMonthList();
         }
     }
 }

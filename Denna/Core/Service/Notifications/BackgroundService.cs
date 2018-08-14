@@ -11,12 +11,17 @@ using Windows.UI.Notifications;
 
 namespace Core.Service.Notifications
 {
-    public static class BackgroundService
+    public class BackgroundService
     {
         const string TRANSLATOR_GROUP = "Translator";
-
-        public static async void GenerateQuickAction()
+        TodoService _service;
+        public BackgroundService()
         {
+            _service = new TodoService();
+        }
+        public async void GenerateQuickAction()
+        {
+            
             System.Diagnostics.Debug.WriteLine("Hello From Quick actions caller");
             var toastFile = await StorageFile.GetFileFromApplicationUriAsync(
                    new Uri("ms-appx:///XMls/QuickAction.xml"));
@@ -38,16 +43,16 @@ namespace Core.Service.Notifications
             await Task.Delay(1000);
         }
 
-        static void Toast_Failed(ToastNotification sender, ToastFailedEventArgs args) => GenerateQuickAction();
+        void Toast_Failed(ToastNotification sender, ToastFailedEventArgs args) => GenerateQuickAction();
 
-        static void ToastOnActivated(ToastNotification sender, object args) => GenerateQuickAction();
+        void ToastOnActivated(ToastNotification sender, object args) => GenerateQuickAction();
 
-        static void Toast_Dismissed(ToastNotification sender, ToastDismissedEventArgs args) => GenerateQuickAction();
+        void Toast_Dismissed(ToastNotification sender, ToastDismissedEventArgs args) => GenerateQuickAction();
 
-        public static async void GenerateLiveTile()
+        public async void GenerateLiveTile()
         {
             System.Diagnostics.Debug.WriteLine("Hello From live tile caller");
-            var tasks = TodoService.GetMustDoList();
+            var tasks = _service.GetMustDoList();
             if (tasks.Count == 0)
                 return;
             var counter = tasks.Count;
@@ -60,12 +65,12 @@ namespace Core.Service.Notifications
             int r = rnd.Next(tasks.Count);
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TaskName", tasks[r].Subject));
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Detail", tasks[r].Detail));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Time", tasks[r].StartTime.Convert()));
+            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Time", Convert(tasks[r].StartTime)));
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Date", CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month) + "  " + DateTime.Now.Day));
             var tup = TileUpdateManager.CreateTileUpdaterForApplication();
             tup.Update(new TileNotification(xmlDoc));
         }
-        static string Convert(this DateTimeOffset Value)
+        string Convert(DateTimeOffset Value)
         {
             var Day = Value.Date;
             var x = "";
@@ -88,7 +93,7 @@ namespace Core.Service.Notifications
             x += " " + hour + ":" + min;
             return x;
         }
-        public static void UpdateBadge()
+        public void UpdateBadge()
         {
             System.Diagnostics.Debug.WriteLine("Hello From Quick update badge caller");
 
@@ -97,7 +102,7 @@ namespace Core.Service.Notifications
 
             var elements = xml.GetElementsByTagName("badge");
             var element = elements[0] as Windows.Data.Xml.Dom.XmlElement;
-            var val = TodoService.GetMustDoList().Count;
+            var val = _service.GetMustDoList().Count;
             element.SetAttribute("value", val.ToString());
 
             var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
@@ -105,7 +110,7 @@ namespace Core.Service.Notifications
             updator.Update(notification);
         }
 
-        public static void UpdateTiles()
+        public void UpdateTiles()
         {
             UpdateBadge();
             GenerateLiveTile();

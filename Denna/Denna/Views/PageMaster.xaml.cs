@@ -20,9 +20,11 @@ namespace Denna.Views
     public sealed partial class PageMaster : Page
     {
         public static PageMaster current;
+        BackgroundService _bgService;
         public PageMaster()
         {
             InitializeComponent();
+            _bgService = new BackgroundService();
             current = this;
         }
         public void NavigateToUnitTests() => Frame.Navigate(typeof(UnitTests));
@@ -51,7 +53,7 @@ namespace Denna.Views
             TimeLine.Navigate(typeof(TimeLine));
             Chats.Navigate(typeof(Graphs));
             #endregion
-            BackgroundService.UpdateTiles();
+            _bgService.UpdateTiles();
         }
 
         #region Pivot

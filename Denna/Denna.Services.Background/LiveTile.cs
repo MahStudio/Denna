@@ -12,6 +12,11 @@ namespace Denna.Services.Background
     public sealed class LiveTile : IBackgroundTask
     {
         BackgroundTaskDeferral deferal;
+        BackgroundService _bgService;
+        public LiveTile()
+        {
+            _bgService = new BackgroundService();
+        }
         public void Run(IBackgroundTaskInstance taskInstance)
         {
             deferal = taskInstance.GetDeferral();
@@ -20,13 +25,13 @@ namespace Denna.Services.Background
             System.Diagnostics.Debug.WriteLine("Hello From Live bg");
             try
             {
-                BackgroundService.GenerateLiveTile();
-                BackgroundService.UpdateBadge();
+                _bgService.GenerateLiveTile();
+                _bgService.UpdateBadge();
                 if (AppSettings.OpenGet("Showtoast") != null)
                 {
                     if (AppSettings.Get<bool>("Showtoast") == true)
                     {
-                        BackgroundService.GenerateQuickAction();
+                        _bgService.GenerateQuickAction();
                     }
                 }
             }

@@ -12,13 +12,15 @@ namespace Denna.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         string greet;
         string todate = DateTime.Now.ToLocalTime().ToString("D");
+        TodoService _service;
         public SwipePanelViewModel()
         {
+            _service = new TodoService();
             this.Subscribe<Classes.Header>(Text =>
             {
                 Greet = Text.Text;
             });
-            ToDos = TodoService.GetMustDoList();
+            ToDos = _service.GetMustDoList();
         }
         public IRealmCollection<Todo> ToDos { get; set; }
 

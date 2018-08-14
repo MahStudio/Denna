@@ -9,12 +9,17 @@ using Core.Service.Notifications;
 
 namespace Core.Todos.Tasks
 {
-    public static class TodoService
+    public class TodoService
     {
-        static IGenericRepository<Todo> repo;
-        static TodoService() => repo = DI.Container.Resolve<IGenericRepository<Todo>>();
+        IGenericRepository<Todo> repo;
+        Realm _instance;
+        public TodoService()
+        {
+            repo = DI.Container.Resolve<IGenericRepository<Todo>>();
+            _instance = RealmContext.GetInstance();
+        }
         #region CRUD
-        public static void AddTodo(Todo task)
+        public void AddTodo(Todo task)
         {
             task.Id = repo.CreateId();
             repo.Create(task);
@@ -24,11 +29,11 @@ namespace Core.Todos.Tasks
                 task.CreateAlarm();
         }
 
-        public static IRealmCollection<Todo> GetAllTodos() => repo.GetAll();
+        public IRealmCollection<Todo> GetAllTodos() => repo.GetAll();
 
-        public static Todo GetById(string id) => repo.GetById(id);
+        public Todo GetById(string id) => repo.GetById(id);
 
-        public static void Edit(Todo oldTask, Todo newTask)
+        public void Edit(Todo oldTask, Todo newTask)
         {
             repo.UpdateManaged(oldTask, newTask);
             if (oldTask.Notify != newTask.Notify)
@@ -38,22 +43,22 @@ namespace Core.Todos.Tasks
         }
 
 
-        public static void Delete(string id)
+        public void Delete(string id)
         {
             repo.Delete(id);
             GetById(id).DeleteNotification();
         }
 
-        public static void Delete(Todo item)
+        public void Delete(Todo item)
         {
             repo.Delete(item.Id);
             item.DeleteNotification();
         }
 
 
-        public static void Done(Todo task)
+        public void Done(Todo task)
         {
-            using (var trans = RealmContext.Instance.BeginWrite())
+            using (var trans = _instance.BeginWrite())
             {
                 task.Status = 0;
                 trans.Commit();
@@ -61,10 +66,11 @@ namespace Core.Todos.Tasks
             task.DeleteNotification();
         }
         #endregion
+        #region actions
 
-        public static void Undone(Todo task)
+        public void Undone(Todo task)
         {
-            using (var trans = RealmContext.Instance.BeginWrite())
+            using (var trans = _instance.BeginWrite())
             {
                 task.Status = 2;
                 trans.Commit();
@@ -77,10 +83,10 @@ namespace Core.Todos.Tasks
                     task.CreateAlarm();
             }
         }
-
-        public static void Postpone(Todo task)
+        
+        public void Postpone(Todo task)
         {
-            using (var trans = RealmContext.Instance.BeginWrite())
+            using (var trans = _instance.BeginWrite())
             {
                 task.Status = 1;
                 trans.Commit();
@@ -93,61 +99,63 @@ namespace Core.Todos.Tasks
                     task.CreateAlarm();
             }
         }
-
-        public static IRealmCollection<Todo> GetTodayList()
+        #endregion
+        #region Queries
+        public IRealmCollection<Todo> GetTodayList()
         {
             var today = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0));
-            return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime >= today).OrderBy(x => x.StartTime).AsRealmCollection();
+            return _instance.All<Todo>().Where(offset => offset.StartTime >= today).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
-        public static IRealmCollection<Todo> GetYesterdayList()
+        public IRealmCollection<Todo> GetYesterdayList()
         {
             var yesterdayMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-1).Day, 0, 0, 0));
             var yesterdayEnd = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-1).Day, 23, 59, 59));
-            return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime >= yesterdayMorning && offset.StartTime <= yesterdayEnd).OrderBy(x => x.StartTime).AsRealmCollection();
+            return _instance.All<Todo>().Where(offset => offset.StartTime >= yesterdayMorning && offset.StartTime <= yesterdayEnd).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
-        public static IRealmCollection<Todo> GetThisWeekList()
+        public IRealmCollection<Todo> GetThisWeekList()
         {
             var today = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59));
             var lastWeek = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-7).Day, 0, 0, 0));
-            return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime >= lastWeek && offset.StartTime <= today).OrderBy(x => x.StartTime).AsRealmCollection();
+            return _instance.All<Todo>().Where(offset => offset.StartTime >= lastWeek && offset.StartTime <= today).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
-        public static IRealmCollection<Todo> GetLastWeekList()
+        public IRealmCollection<Todo> GetLastWeekList()
         {
             var lastWeekMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-7).Day, 0, 0, 0));
             var twoWeeksAgoMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-14).Day, 0, 0, 0));
-            return RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime >= lastWeekMorning && offset.StartTime <= twoWeeksAgoMorning).OrderBy(x => x.StartTime).AsRealmCollection();
+            return _instance.All<Todo>().Where(offset => offset.StartTime >= lastWeekMorning && offset.StartTime <= twoWeeksAgoMorning).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
-        public static IRealmCollection<Todo> GetLastMonthList()
+        public IRealmCollection<Todo> GetLastMonthList()
         {
             var lastMonthMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.AddMonths(-1).Month, DateTime.Now.Day, 0, 0, 0));
             var endOfToday = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59));
-            var y = RealmContext.Instance.All<Todo>().Where(offset => offset.StartTime >= lastMonthMorning && offset.StartTime <= endOfToday).OrderBy(x => x.StartTime).AsRealmCollection();
+            var y = _instance.All<Todo>().Where(offset => offset.StartTime >= lastMonthMorning && offset.StartTime <= endOfToday).OrderBy(x => x.StartTime).AsRealmCollection();
             return y;
         }
 
-        public static IRealmCollection<Todo> GetPostponedList()
+        public IRealmCollection<Todo> GetPostponedList()
         {
             var today = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0));
-            return RealmContext.Instance.All<Todo>().Where(s => (s.Status == 1 || s.Status == 2) && s.StartTime < today).OrderBy(x => x.StartTime).AsRealmCollection();
+            return _instance.All<Todo>().Where(s => (s.Status == 1 || s.Status == 2) && s.StartTime < today).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
-        public static IRealmCollection<Todo> GetMustDoList() => RealmContext.Instance.All<Todo>().Where(s => s.Status == 1 || s.Status == 2).OrderBy(x => x.StartTime).AsRealmCollection();
+        public IRealmCollection<Todo> GetMustDoList() => _instance.All<Todo>().Where(s => s.Status == 1 || s.Status == 2).OrderBy(x => x.StartTime).AsRealmCollection();
 
-        public static IRealmCollection<Todo> GetTodoListForDate(DateTimeOffset date)
+        public IRealmCollection<Todo> GetTodoListForDate(DateTimeOffset date)
         {
             var startDate = new DateTimeOffset(new DateTime(date.Year, date.Month, date.Day, 0, 0, 0));
             var endDate = new DateTimeOffset(new DateTime(date.Year, date.Month, date.Day, 23, 59, 59));
-            return RealmContext.Instance.All<Todo>().Where(s => s.StartTime >= startDate && s.StartTime <= endDate).OrderBy(x => x.StartTime).AsRealmCollection();
+            return _instance.All<Todo>().Where(s => s.StartTime >= startDate && s.StartTime <= endDate).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
-        public static IRealmCollection<Todo> FullTextSearch(string term)
+        public IRealmCollection<Todo> FullTextSearch(string term)
         {
-            var itmz = RealmContext.Instance.All<Todo>().Where(s => s.Detail.Contains(term) || s.Subject.Contains(term)).OrderBy(x => x.StartTime).AsRealmCollection();
+            var itmz = _instance.All<Todo>().Where(s => s.Detail.Contains(term) || s.Subject.Contains(term)).OrderBy(x => x.StartTime).AsRealmCollection();
             return itmz;
         }
+#endregion
     }
 }

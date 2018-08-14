@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Core.Data;
 using Core.Domain;
+using Realms;
 
 namespace Core.Infrastructure
 {

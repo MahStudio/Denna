@@ -14,6 +14,13 @@ namespace Denna.Services.Background
     public sealed class QuickAction : IBackgroundTask
     {
         BackgroundTaskDeferral _deferal;
+        TodoService _service;
+        BackgroundService _bgService;
+        public QuickAction()
+        {
+            _bgService = new BackgroundService();
+            _service = new TodoService();
+        }
         public void Run(IBackgroundTaskInstance taskInstance)
         {
             System.Diagnostics.Debug.WriteLine("Hello From Quick actions bg");
@@ -71,7 +78,7 @@ namespace Denna.Services.Background
                         Status = 2
                     };
 
-                    TodoService.AddTodo(todo);
+                    _service.AddTodo(todo);
                 }
                 catch (Exception ex) { }
                 try
@@ -87,8 +94,8 @@ namespace Denna.Services.Background
         }
         private void Update()
         {
-            BackgroundService.GenerateLiveTile();
-            BackgroundService.UpdateBadge();
+            _bgService.GenerateLiveTile();
+            _bgService.UpdateBadge();
         }
         private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args) => _deferal.Complete();
 
