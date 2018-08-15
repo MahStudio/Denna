@@ -14,8 +14,9 @@ namespace Core.Todos.Tasks
         Realm _instance;
         public TodoService()
         {
-            repo = new GenericRepository<Todo>();
             _instance = RealmContext.GetInstance();
+            repo = new GenericRepository<Todo>(_instance);
+            
         }
         #region CRUD
         public void AddTodo(Todo task)

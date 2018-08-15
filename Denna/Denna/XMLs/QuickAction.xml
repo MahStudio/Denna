@@ -4,7 +4,7 @@
   <visual>
     <binding template='ToastGeneric'>
       <text hint-maxLines='1'>Denna</text>
-      <text>Add a todo</text>
+      <text>Add a task</text>
     </binding>
   </visual>
 

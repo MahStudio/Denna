@@ -39,7 +39,8 @@ namespace Denna
         async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
-            Analytics.TrackEvent("Crash happened");
+            Analytics.TrackEvent("Unhandled Exception");
+            //Analytics.
             await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
         }
 
