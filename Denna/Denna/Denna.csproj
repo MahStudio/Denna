@@ -21,7 +21,7 @@
     <PackageCertificateThumbprint>377F5451BD3C45B7EDE373B6332AB15E75BD9C59</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
