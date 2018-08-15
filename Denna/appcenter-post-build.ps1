@@ -1,6 +1,9 @@
 $megtxt="Denna insider build $env:APPCENTER_BUILD_ID on $env:APPCENTER_BRANCH is now available at: 
 https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/Insiders
 
+and full package including dependencies and certificate is here:
+https://github.com/MahStudio/Denna/releases/latest
+
 Any issues? Post is here:
 https://github.com/MahStudio/Denna/issues
 
@@ -12,23 +15,19 @@ Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?c
 Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?chat_id=$env:ChannelId&text=$megtxt"
 
 
-Compress-Archive -path "$env:APPCENTER_SOURCE_DIRECTORY\Denna\Denna\AppPackages" -DestinationPath "$env:APPCENTER_SOURCE_DIRECTORY\Denna\Denna\Build.zip"
-
-
-
-$versionNumber = $env:APPCENTER_BUILD_ID
+$versionNumber = 12
 $preRelease = $TRUE
 $releaseNotes=$megtxt
-$artifactOutputDirectory="$env:APPCENTER_SOURCE_DIRECTORY\Denna\Denna"
-$artifact="Build.zip"
+$artifactOutputDirectory="$env:APPCENTER_SOURCE_DIRECTORY\Denna\Denna\AppPackages"
+
 $gitHubUsername="MahStudio"
 $gitHubRepository="Denna"
 $gitHubApiKey="$env:GithubSicktear"
     $draft = $FALSE
     
     $releaseData = @{
-       tag_name = [string]::Format("v{0}", $versionNumber);
-       name = [string]::Format("v{0}", $versionNumber);
+       tag_name = [string]::Format("Build{0}", $versionNumber);
+       name = [string]::Format("Build{0}", $versionNumber);
        body = $releaseNotes;
        draft = $draft;
        prerelease = $preRelease;
@@ -47,11 +46,16 @@ $gitHubApiKey="$env:GithubSicktear"
     }
 
     $result = Invoke-RestMethod @releaseParams 
+    $include = @("*.appxbundle","*.cer","*.appx")
+$removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
+
+foreach ($file in $removefiles) {
     $uploadUri = $result | Select -ExpandProperty upload_url
     Write-Host $uploadUri
     $uploadUri = $uploadUri -creplace '\{\?name,label\}'  #, "?name=$artifact"
-    $uploadUri = $uploadUri + "?name=$artifact"
-    $uploadFile = Join-Path -path $artifactOutputDirectory -childpath $artifact
+    $outputFile = Split-Path $file -leaf
+    $parent = (get-item $file ).parent
+    $uploadUri = $uploadUri + "?name=$parent$outputFile"
 
     $uploadParams = @{
       Uri = $uploadUri;
@@ -60,6 +64,7 @@ $gitHubApiKey="$env:GithubSicktear"
         Authorization = $auth;
       }
       ContentType = 'application/zip';
-      InFile = $uploadFile
+      InFile = $file
     }
     $result = Invoke-RestMethod @uploadParams
+}
