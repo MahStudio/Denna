@@ -41,7 +41,7 @@ namespace Core.Service.Notifications
             doc.LoadXml(xml);
             doc.LoadXml(doc.GetXml().Replace("Header", item.Subject));
             doc.LoadXml(doc.GetXml().Replace("Detail", item.Detail));
-            DateTimeOffset offset = item.StartTime;
+            var offset = item.StartTime.ToLocalTime();
             var toast = new ScheduledToastNotification(doc, offset);
             toast.Id = item.Id;
 

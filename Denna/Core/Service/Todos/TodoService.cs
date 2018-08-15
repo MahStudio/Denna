@@ -44,25 +44,28 @@ namespace Core.Todos.Tasks
 
         public void Delete(string id)
         {
-            repo.Delete(id);
             GetById(id).DeleteNotification();
+            repo.Delete(id);
+
         }
 
         public void Delete(Todo item)
         {
-            repo.Delete(item.Id);
             item.DeleteNotification();
+            repo.Delete(item.Id);
+
         }
 
 
         public void Done(Todo task)
         {
+            task.DeleteNotification();
             using (var trans = _instance.BeginWrite())
             {
                 task.Status = 0;
                 trans.Commit();
             }
-            task.DeleteNotification();
+
         }
         #endregion
         #region actions
@@ -82,7 +85,7 @@ namespace Core.Todos.Tasks
                     task.CreateAlarm();
             }
         }
-        
+
         public void Postpone(Todo task)
         {
             using (var trans = _instance.BeginWrite())
@@ -155,6 +158,6 @@ namespace Core.Todos.Tasks
             var itmz = _instance.All<Todo>().Where(s => s.Detail.Contains(term) || s.Subject.Contains(term)).OrderBy(x => x.StartTime).AsRealmCollection();
             return itmz;
         }
-#endregion
+        #endregion
     }
 }

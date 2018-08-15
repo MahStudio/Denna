@@ -87,7 +87,7 @@ Ease of access and productivity is Denna's core value.
                     </TextBlock>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
                         <Image  Tapped="Image_Tapped_1" Height="40" Source="/Assets//Icons/realmio-logo.png" Margin="10,10" />
-                        <Image HorizontalAlignment="Left" Tapped="Image_Tapped"  Height="50" Source="/Assets//Icons/MahStudioFullLogo.png" Margin="10,10"/>
+                        <Image HorizontalAlignment="Left" Tapped="Image_Tapped"  Height="45" Source="/Assets//Icons/MahStudioFullLogo.png" Margin="10,10"/>
                         
                     </StackPanel>
 

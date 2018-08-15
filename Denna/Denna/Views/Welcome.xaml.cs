@@ -35,7 +35,7 @@ namespace Denna.Views
                     flipwel.SelectedIndex = 0;
 
                 // Your code here
-                await Task.Delay(3000);
+                await Task.Delay(5500);
             }
         }
 
