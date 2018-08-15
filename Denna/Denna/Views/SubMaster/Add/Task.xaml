@@ -23,17 +23,21 @@
         </TransitionCollection>
     </Page.Transitions>
     <Grid Background="Transparent">
-        <Grid Margin="0,0,0,48">
-            <ScrollViewer>
-            <StackPanel x:Name="Damn">
-               
+        <Grid Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Center">
+                <StackPanel x:Name="Damn">
 
-                <controls:TemplatedTextBox x:Name="Title" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Title" />
+
+                    <controls:TemplatedTextBox x:Name="Title" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Title" />
                     <controls:TemplatedTextBox x:Name="Details" Text="" Margin="10,10,10,0" Glyph="" PlaceHolder="Details" />
-                
+
                     <StackPanel>
-                    <DatePicker Width="300" HorizontalAlignment="Center" BorderBrush="Transparent" BorderThickness="0"  x:Name="datepic"  Margin="5,10,5,0" Style="{StaticResource DatePickerStyle}" />
-                    <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
+                        <DatePicker Width="300" HorizontalAlignment="Center" BorderBrush="Transparent" BorderThickness="0"  x:Name="datepic"  Margin="5,10,5,0" Style="{StaticResource DatePickerStyle}" />
+                        <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
 
                         <StackPanel HorizontalAlignment="Center" Margin="0,5,0,0" Orientation="Horizontal" >
                             <RadioButton x:Uid="silent" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rbs" Content="Silent" IsChecked="True" GroupName="not" />
@@ -41,7 +45,7 @@
                             <RadioButton x:Uid="alarm" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
                         </StackPanel>
                     </StackPanel>
-                
+
                     <!--<Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,10,0,10" 
                                Header="Deadline"
                                IsExpanded="False">
@@ -53,29 +57,13 @@
                 </StackPanel>
             </ScrollViewer>
 
+            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click" Width="160" Background="{StaticResource RedBrush}" Content="Dismiss" Margin="5,5" Height="45" Style="{StaticResource goitstyle}"/>
+                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click_1" Width="160" Background="{StaticResource GreenBrush}" Content="Save" Margin="5,5" Height="45" Style="{StaticResource goitstyle}"/>
+            </StackPanel>
         </Grid>
 
-        <CommandBar   VerticalAlignment="Bottom">
-            <AppBarButton Width="Auto" MinWidth="70" Label="Cancel" Click="AppBarButton_Click" >
 
-                <AppBarButton.Icon>
-                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-            
-            <AppBarButton Width="Auto" MinWidth="70"  Label="Save"  Click="AppBarButton_Click_1"  >
-
-                <AppBarButton.Icon>
-                    <FontIcon Margin="0,-14,0,-15" FontFamily="Segoe MDL2 Assets" Glyph=""  Height="49" VerticalAlignment="Top"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-
-
-
-
-
-
-        </CommandBar>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowStates">
                 <VisualState x:Name="Wide3State">

@@ -26,6 +26,8 @@ namespace Denna.Views.SubMaster.Add
 
         void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
+            Title.Focus(FocusState.Programmatic);
+            Details.Focus(FocusState.Programmatic);
             var start = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
             int notiftStatus = 0;
             if (rbs.IsChecked == true)
