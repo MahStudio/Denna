@@ -26,8 +26,8 @@ $gitHubApiKey="$env:GithubSicktear"
     $draft = $FALSE
     
     $releaseData = @{
-       tag_name = [string]::Format("Build {0}", $versionNumber);
-       name = [string]::Format("Build {0}", $versionNumber);
+       tag_name = [string]::Format("Build{0}", $versionNumber);
+       name = [string]::Format("Build{0}", $versionNumber);
        body = $releaseNotes;
        draft = $draft;
        prerelease = $preRelease;
