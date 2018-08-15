@@ -21,7 +21,7 @@
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel Background="{ThemeResource AppBackgroundColor}">
 
         <RelativePanel Margin="60,20" >
             <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="Quick" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" FontWeight="SemiBold"  Text="Quick Actions" />

@@ -21,26 +21,29 @@
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
-    <StackPanel Background="{ThemeResource AppBackgroundColor}">
-        <StackPanel>
-            <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
-                <Button BorderThickness="0,0,0,0" Click="Button_Click" Style="{StaticResource goitstyle}" Height="50"  Content="Feedback" Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10"  />
-                <Button BorderThickness="0,0,0,0" Click="Button_Click_1" Style="{StaticResource goitstyle}" Height="50"  Content="Nightly builds"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10" />
+    <ScrollViewer>
+        <StackPanel Background="{ThemeResource AppBackgroundColor}">
+            <StackPanel>
+                <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                    <Button BorderThickness="0,0,0,0" Click="Button_Click" Style="{StaticResource goitstyle}" Height="50"  Content="Feedback" Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10"  />
+                    <Button BorderThickness="0,0,0,0" Click="Button_Click_1" Style="{StaticResource goitstyle}" Height="50"  Content="Nightly builds"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10" />
+                </StackPanel>
+
+                <Button BorderThickness="0,0,0,0" Click="Button_Click_2" Style="{StaticResource goitstyle}" Height="50"  Content="Join insider chat on Telegram"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="320" Margin="10" />
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                    <Button BorderThickness="0,0,0,0" Click="Button_Click_3" Style="{StaticResource goitstyle}"  Height="50"  Content="Issues" Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10"  />
+                    <Button BorderThickness="0,0,0,0" Click="Button_Click_4" Style="{StaticResource goitstyle}"  Height="50"  Content="Github"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10" />
+
+                </StackPanel>
+                <Button BorderThickness="0,0,0,0" Click="Button_Click_5" Style="{StaticResource goitstyle}" Height="50"  Content="Donate with Paypal"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="320" Margin="10" />
+                <RichTextBlock Opacity="0.8" Margin="60,20">
+                    <Paragraph>
+                        Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design. As Denna is an open source project, all kind of contributions are welcome.
+                    </Paragraph>
+                </RichTextBlock>
             </StackPanel>
 
-            <Button BorderThickness="0,0,0,0" Click="Button_Click_2" Style="{StaticResource goitstyle}" Height="50"  Content="Join insider chat on Telegram"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="320" Margin="10" />
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
-                <Button BorderThickness="0,0,0,0" Click="Button_Click_3" Style="{StaticResource goitstyle}"  Height="50"  Content="Issues" Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10"  />
-                <Button BorderThickness="0,0,0,0" Click="Button_Click_4" Style="{StaticResource goitstyle}"  Height="50"  Content="Github"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="150" Margin="10" />
-                
-            </StackPanel>
-            <Button BorderThickness="0,0,0,0" Click="Button_Click_5" Style="{StaticResource goitstyle}" Height="50"  Content="Donate with Paypal"  Background="{StaticResource SystemControlBackgroundAccentBrush}" Width="320" Margin="10" />
-            <RichTextBlock Opacity="0.8" Margin="60,20">
-                <Paragraph>
-                    Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design. As Denna is an open source project, all kind of contributions are welcome.
-                </Paragraph>
-            </RichTextBlock>
         </StackPanel>
-        
-    </StackPanel>
+    </ScrollViewer>
+    
 </Page>

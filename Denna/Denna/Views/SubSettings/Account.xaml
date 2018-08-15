@@ -21,37 +21,39 @@
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
+    <ScrollViewer>
+        <StackPanel Background="{ThemeResource AppBackgroundColor}">
+            <TextBlock Margin="30,20,10,0" Text="Profile" Opacity="0.8" />
+            <StackPanel Grid.Row="0" >
+                <controls:TemplatedTextBox x:Name="Username" IsEnabled="False" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Username" />
+                <controls:TemplatedTextBox x:Name="FullName" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Full Name" />
+                <controls:TemplatedTextBox x:Name="Email" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Email" />
 
-    <StackPanel Background="{ThemeResource AppBackgroundColor}">
-        <TextBlock Margin="30,20,10,0" Text="Profile" Opacity="0.8" />
-        <StackPanel Grid.Row="0" >
-            <controls:TemplatedTextBox x:Name="Username" IsEnabled="False" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Username" />
-            <controls:TemplatedTextBox x:Name="FullName" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Full Name" />
-            <controls:TemplatedTextBox x:Name="Email" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Email" />
-
-            <Button x:Name="UsrInfo" HorizontalAlignment="Stretch" Content="Update" Margin="0,20,0,0" Width="300"
+                <Button x:Name="UsrInfo" HorizontalAlignment="Stretch" Content="Update" Margin="0,20,0,0" Width="300"
              Height="35" Style="{StaticResource goitstyle}" Click="UsrInfo_Click"/>
-        </StackPanel>
+            </StackPanel>
 
-        <TextBlock Margin="30,20,10,0" Text="Password" Opacity="0.8" />
-        <StackPanel Grid.Row="0" >
-            <controls:TemplatedPasswordBox x:Name="Pass"
+            <TextBlock Margin="30,20,10,0" Text="Password" Opacity="0.8" />
+            <StackPanel Grid.Row="0" >
+                <controls:TemplatedPasswordBox x:Name="Pass"
                 PlaceHolder="New password" Glyph="" Margin="10,10,10,0" Height="35"  />
-            <controls:TemplatedPasswordBox x:Name="Rpass"
+                <controls:TemplatedPasswordBox x:Name="Rpass"
                 PlaceHolder="Retype password" Glyph="" Margin="10,10,10,0" Height="35"  />
-        </StackPanel>
-        <Button x:Name="CoPAss" HorizontalAlignment="Stretch" Content="Change Password" Margin="0,20,0,0" Width="300"
+            </StackPanel>
+            <Button x:Name="CoPAss" HorizontalAlignment="Stretch" Content="Change Password" Margin="0,20,0,0" Width="300"
              Height="35" Style="{StaticResource goitstyle}" Click="CoPAss_Click"/>
-        
-        <TextBlock Margin="30,20,10,0" Text="Session Information" Opacity="0.8" />
-        <StackPanel Grid.Row="0" >
-            <controls:TemplatedTextBox x:Name="Ses" IsEnabled="False" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Session" />
-            <Button x:Name="Reconnect" HorizontalAlignment="Stretch" Content="Reconnect" Margin="0,20,0,0" Width="300"
-             Height="35" Style="{StaticResource goitstyle}" Click="Reconnect_Click"/>
-        </StackPanel>
 
-        <Button HorizontalAlignment="Center" Background="#ec5f5f" Content="Log Out" Margin="0,60,0,0" Width="300"
+            <TextBlock Margin="30,20,10,0" Text="Session Information" Opacity="0.8" />
+            <StackPanel Grid.Row="0" >
+                <controls:TemplatedTextBox x:Name="Ses" IsEnabled="False" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Session" />
+                <Button x:Name="Reconnect" HorizontalAlignment="Stretch" Content="Reconnect" Margin="0,20,0,0" Width="300"
+             Height="35" Style="{StaticResource goitstyle}" Click="Reconnect_Click"/>
+            </StackPanel>
+
+            <Button HorizontalAlignment="Center" Background="#ec5f5f" Content="Log Out" Margin="0,60,0,0" Width="300"
              Height="35" Style="{StaticResource goitstyle}" Click="LogOut"/>
 
-    </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+    
 </Page>

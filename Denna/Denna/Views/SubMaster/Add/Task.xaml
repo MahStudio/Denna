@@ -35,7 +35,7 @@
                     <controls:TemplatedTextBox x:Name="Title" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Title" />
                     <controls:TemplatedTextBox x:Name="Details" Text="" Margin="10,10,10,0" Glyph="" PlaceHolder="Details" />
 
-                    <StackPanel>
+                    <StackPanel Margin="0,30,0,0">
                         <DatePicker Width="300" HorizontalAlignment="Center" BorderBrush="Transparent" BorderThickness="0"  x:Name="datepic"  Margin="5,10,5,0" Style="{StaticResource DatePickerStyle}" />
                         <TimePicker Width="300" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Center" x:Name="timepic" Margin="5,10,5,0" Style="{StaticResource TimePickerStyle}" />
 
@@ -58,8 +58,8 @@
             </ScrollViewer>
 
             <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
-                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click" Width="160" Background="{StaticResource RedBrush}" Content="Dismiss" Margin="5,5" Height="45" Style="{StaticResource goitstyle}"/>
-                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click_1" Width="160" Background="{StaticResource GreenBrush}" Content="Save" Margin="5,5" Height="45" Style="{StaticResource goitstyle}"/>
+                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click" Width="160" Foreground="{StaticResource RedBrush}" Content="Dismiss" Margin="5,15" Height="45" Style="{StaticResource goitstyle}"/>
+                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click_1" Width="160" Foreground="{StaticResource GreenBrush}" Content="Save" Margin="5,15" Height="45" Style="{StaticResource goitstyle}"/>
             </StackPanel>
         </Grid>
 
