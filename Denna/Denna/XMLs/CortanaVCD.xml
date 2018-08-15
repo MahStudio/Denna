@@ -38,7 +38,7 @@
     </PhraseList>
 
   </CommandSet>
-  <CommandSet xml:lang="en-us" Name="ToDoCommandSet_en_gb">
+  <CommandSet xml:lang="en-us" Name="ToDoCommandSet_en-gb">
 
     <AppName> Hey </AppName>
     <Example> Hey, What to do today ? </Example>

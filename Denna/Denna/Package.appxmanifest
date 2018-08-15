@@ -36,6 +36,7 @@
             <Task Type="general" />
             <Task Type="systemEvent" />
             <Task Type="timer" />
+            <Task Type="deviceUse" />
           </BackgroundTasks>
         </Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="Denna.Services.Background.LiveTile">
@@ -43,6 +44,7 @@
             <Task Type="general" />
             <Task Type="systemEvent" />
             <Task Type="timer" />
+            <Task Type="deviceUse" />
           </BackgroundTasks>
         </Extension>
       </Extensions>

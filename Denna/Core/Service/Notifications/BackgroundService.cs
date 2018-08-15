@@ -66,7 +66,15 @@ namespace Core.Service.Notifications
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Time", Convert(tasks[r].StartTime)));
             xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Date", CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month) + "  " + DateTime.Now.Day));
             var tup = TileUpdateManager.CreateTileUpdaterForApplication();
-            tup.Update(new TileNotification(xmlDoc));
+            try
+            {
+                tup.Update(new TileNotification(xmlDoc));
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
         string Convert(DateTimeOffset Value)
         {
