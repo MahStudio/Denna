@@ -13,31 +13,18 @@ namespace Core.Service.Users
         public static async Task Register(string username, string password, string name, string email)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
-            try
-            {
-                var user = await User.LoginAsync(credentials, Constants.ServerUri);
-                User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-                CreateUserInformation(name, email);
-            }
-            catch (Exception ex)
-            {
-                "SomethingwentWrong".ShowMessage(ex.Message);
-            }
+            var user = await User.LoginAsync(credentials, Constants.ServerUri);
+            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
+            CreateUserInformation(name, email);
 
         }
 
         public static async Task Login(string username, string password)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
-            try
-            {
-                var user = await User.LoginAsync(credentials, Constants.ServerUri);
-                User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            }
-            catch (Exception ex)
-            {
-                "SomethingwentWrong".ShowMessage(ex.Message);
-            }
+            var user = await User.LoginAsync(credentials, Constants.ServerUri);
+            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
+            
         }
 
         public static async void Logout() => await User.Current.LogOutAsync();

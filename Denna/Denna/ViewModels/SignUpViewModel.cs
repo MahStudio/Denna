@@ -129,15 +129,23 @@ namespace Denna.ViewModels
         }
         async void SignUp(object obj)
         {
-            if (Password != RPassword)
+            try
             {
-                "Retype password".ShowMessage("Passwords not maching");
-                return;
+                if (Password != RPassword)
+                {
+                    "Retype password".ShowMessage("Passwords not maching");
+                    return;
+                }
+
+                await UserService.Register(UserName, Password, Name, Email);
+                Analytics.TrackEvent("User signed up");
+                Welcome.current.Frame.Navigate(typeof(PageMaster));
+            }
+            catch (Exception ex)
+            {
+                "SomethingwentWrong".ShowMessage(ex.Message);
             }
 
-            await UserService.Register(UserName, Password, Name, Email);
-            Analytics.TrackEvent("User signed up");
-            Welcome.current.Frame.Navigate(typeof(PageMaster));
         }
 
         void SignIn(object obj) => Welcome.current.opensignin();

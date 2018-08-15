@@ -1,4 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -17,6 +20,23 @@ namespace Denna.Views
             Logger.Navigate(typeof(Sign.In));
             Signerup.Navigate(typeof(Sign.Up));
             current = this;
+            KeepChanging();
+        }
+
+        private async void KeepChanging()
+        {
+            while (true)
+            {
+                var count = flipwel.Items.Count;
+                var selected = flipwel.SelectedIndex;
+                if (selected != count - 1)
+                    flipwel.SelectedIndex++;
+                else
+                    flipwel.SelectedIndex = 0;
+
+                // Your code here
+                await Task.Delay(3000);
+            }
         }
 
         public void opensignup()

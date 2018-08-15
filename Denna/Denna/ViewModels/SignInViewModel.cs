@@ -1,5 +1,6 @@
 ﻿using Core.Data;
 using Core.Service.Users;
+using Core.Utils;
 using Denna.Classes;
 using Denna.Views;
 using Microsoft.AppCenter.Analytics;
@@ -35,9 +36,17 @@ namespace Denna.ViewModels
 
         async void SignIn(object obj)
         {
-            await UserService.Login(UserName, Password);
-            Analytics.TrackEvent("User signed in");
-            Welcome.current.Frame.Navigate(typeof(PageMaster));
+            try
+            {
+                await UserService.Login(UserName, Password);
+                Analytics.TrackEvent("User signed in");
+                Welcome.current.Frame.Navigate(typeof(PageMaster));
+            }
+            catch (Exception ex)
+            {
+                "SomethingwentWrong".ShowMessage(ex.Message);
+            }
+            
         }
 
         string username, password;
