@@ -76,7 +76,7 @@
     <Grid  ManipulationMode="TranslateY"
               ManipulationDelta="gridMain_ManipulationDelta"
               ManipulationCompleted="gridMain_ManipulationCompleted"
-              Height="280" Margin="0,-120,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" 
+              Height="250" Margin="0,-120,0,0" x:Name="gridMain" RelativePanel.AlignLeftWithPanel="True" 
                    RelativePanel.AlignRightWithPanel="True"  Background="{ThemeResource AppSuspressBrush}" ManipulationStarted="gridMain_ManipulationStarted"  >
 
 
@@ -85,7 +85,7 @@
         <Grid>
             <StackPanel Margin="0,0,0,0" x:Name="detstack" Opacity="0">
 
-                <TextBlock x:Name="todate" Margin="0,120,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="{Binding Todate}" />
+                <TextBlock x:Name="todate" Margin="0,100,0,0" Foreground="White" TextAlignment="Center" FontSize="20" Text="{Binding Todate}" />
                 <TextBlock x:Name="counter" Text="{Binding ToDos.Count , Converter={StaticResource IntToTaskCounterConverter}}" Margin="0,7,0,0" MaxLines="3" Foreground="White" TextAlignment="Center" FontSize="15" >
 
 
@@ -93,7 +93,7 @@
 
             </StackPanel>
             <TextBlock Text="{Binding Greet}" Foreground="White" FontWeight="Bold" VerticalAlignment="Bottom"
-             TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,0,10,50" />
+             TextAlignment="Center" x:Name="news" FontSize="20" Margin="10,0,10,40" />
         </Grid>
         <Button Click="btnShowHide_Click"  x:Name="btnShowHide" Style="{StaticResource Changebutstyle}" HorizontalAlignment="Center" BorderThickness="0,0,0,0"
          AutomationProperties.Name="Resize" ToolTipService.ToolTip="Resize" Content="&#57361;" Width="30" VerticalAlignment="Bottom"  Height="30" Margin="165,0" Grid.Row="1"   RenderTransformOrigin="0.5, 0.5">

@@ -22,14 +22,15 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
+    <ScrollViewer >
     <Grid Background="Transparent">
         <Grid Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
-            <ScrollViewer Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Center">
-                <StackPanel x:Name="Damn">
+            
+                <StackPanel x:Name="Damn" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center">
 
 
                     <controls:TemplatedTextBox x:Name="Title" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Title" />
@@ -55,7 +56,7 @@
                     </Controls:Expander>-->
 
                 </StackPanel>
-            </ScrollViewer>
+            
 
             <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
                 <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click" Width="160" Foreground="{StaticResource RedBrush}" Content="Dismiss" Margin="5,15" Height="45" Style="{StaticResource goitstyle}"/>
@@ -64,6 +65,7 @@
         </Grid>
 
 
+        </Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowStates">
                 <VisualState x:Name="Wide3State">
@@ -99,5 +101,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-    </Grid>
+    
+    </ScrollViewer>
 </Page>
