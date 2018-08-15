@@ -15,7 +15,7 @@ Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?c
 Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?chat_id=$env:ChannelId&text=$megtxt"
 
 
-$versionNumber = 12
+$versionNumber = $env:APPCENTER_BUILD_ID
 $preRelease = $TRUE
 $releaseNotes=$megtxt
 $artifactOutputDirectory="$env:APPCENTER_SOURCE_DIRECTORY\Denna\Denna\AppPackages"
@@ -26,8 +26,8 @@ $gitHubApiKey="$env:GithubSicktear"
     $draft = $FALSE
     
     $releaseData = @{
-       tag_name = [string]::Format("Build{0}", $versionNumber);
-       name = [string]::Format("Build{0}", $versionNumber);
+       tag_name = [string]::Format("Build {0}", $versionNumber);
+       name = [string]::Format("Build {0}", $versionNumber);
        body = $releaseNotes;
        draft = $draft;
        prerelease = $preRelease;
@@ -47,18 +47,16 @@ $gitHubApiKey="$env:GithubSicktear"
 
     $result = Invoke-RestMethod @releaseParams 
     $include = @("*.appxbundle","*.cer","*.appx")
-$removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
+    $removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
 
-foreach ($file in $removefiles) {
     $uploadUri = $result | Select -ExpandProperty upload_url
     Write-Host $uploadUri
     $uploadUri = $uploadUri -creplace '\{\?name,label\}'  #, "?name=$artifact"
     $outputFile = Split-Path $file -leaf
     $parent = (get-item $file ).parent
-    $uploadUri = $uploadUri + "?name=$parent$outputFile"
-
+foreach ($file in $removefiles) {
     $uploadParams = @{
-      Uri = $uploadUri;
+      Uri = $uploadUri + "?name=$parent$outputFile";
       Method = 'POST';
       Headers = @{
         Authorization = $auth;
