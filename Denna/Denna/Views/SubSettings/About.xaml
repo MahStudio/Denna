@@ -49,13 +49,13 @@
                     <StackPanel >
                         <Image Style="{StaticResource WikiSedaIcon}" Height="200" Width="200"  />
                         <StackPanel  Margin="20,0,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
-                            <TextBlock FontWeight="Bold" FontSize="40" Text="DENNA" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
+                            <TextBlock FontWeight="Bold" FontSize="40" Text="Denna" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                             <TextBlock x:Name="ApplicationVersion" Margin="3,0,0,5" VerticalAlignment="Bottom" FontSize="15" Text="V 2 Preview" Foreground="{StaticResource SystemControlBackgroundAccentBrush}" />
                         </StackPanel>
                         <TextBlock x:Uid="Info" TextAlignment="Center" Margin="20,20,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8" FontSize="15" >
                     This app is dedicated for having the best planning and scheduling experience.
                     <LineBreak />
-                        Do not miss any thing, just type it in DENNA :)
+                        Do not miss any thing, just type it in Denna :)
 
                         </TextBlock>
                         <StackPanel  Margin="20,50,20,0" HorizontalAlignment="Center" Orientation="Horizontal" >
@@ -86,8 +86,9 @@ Ease of access and productivity is Denna's core value.
 
                     </TextBlock>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
-                        <Image Tapped="Image_Tapped"  Height="70" Source="/Assets//Icons/MahStudioFullLogo.png" Margin="20,10"/>
-                        <Image Tapped="Image_Tapped_1" Height="70" Source="/Assets//Icons/realmio-logo.png" Margin="20,10" />
+                        <Image  Tapped="Image_Tapped_1" Height="40" Source="/Assets//Icons/realmio-logo.png" Margin="10,10" />
+                        <Image HorizontalAlignment="Left" Tapped="Image_Tapped"  Height="50" Source="/Assets//Icons/MahStudioFullLogo.png" Margin="10,10"/>
+                        
                     </StackPanel>
 
 
