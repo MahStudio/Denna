@@ -71,7 +71,10 @@ namespace Denna.Views
             btoday.BorderThickness = new Thickness(0, 0, 0, 2);
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             Pivot.SelectedIndex = 0;
-            this.Publish(new Classes.Header("Timeline"));
+            if (TimeLine.Content.GetType() != typeof(SubMaster.Add.Task))
+                this.Publish(new Classes.Header("Timeline"));
+            else
+                this.Publish(new Classes.Header("Add"));
         }
 
         void mpref()

@@ -1,5 +1,6 @@
 ﻿using Core.Domain;
 using Core.Todos.Tasks;
+using PubSub;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -20,9 +21,18 @@ namespace Denna.Views.SubMaster.Add
             InitializeComponent();
             _service = new TodoService();
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e) => base.OnNavigatedTo(e);
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.Publish(new Classes.Header("Add"));
+            base.OnNavigatedTo(e);
+        }
 
-        void AppBarButton_Click(object sender, RoutedEventArgs e) => Frame.GoBack();
+
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+            this.Publish(new Classes.Header("Timeline"));
+        }
 
         void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
@@ -48,6 +58,7 @@ namespace Denna.Views.SubMaster.Add
             };
             _service.AddTodo(todo);
             Frame.GoBack();
+            this.Publish(new Classes.Header("Timeline"));
         }
     }
 }
