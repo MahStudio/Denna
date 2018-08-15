@@ -52,9 +52,10 @@ $gitHubApiKey="$env:GithubSicktear"
     $uploadUri = $result | Select -ExpandProperty upload_url
     Write-Host $uploadUri
     $uploadUri = $uploadUri -creplace '\{\?name,label\}'  #, "?name=$artifact"
+    
+foreach ($file in $removefiles) {
     $outputFile = Split-Path $file -leaf
     $parent = (get-item $file ).parent
-foreach ($file in $removefiles) {
     $uploadParams = @{
       Uri = $uploadUri + "?name=$parent$outputFile";
       Method = 'POST';
