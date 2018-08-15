@@ -3,6 +3,8 @@ using Core.Data;
 using Core.Domain;
 using Realms.Sync;
 using System.Linq;
+using System;
+using Core.Utils;
 
 namespace Core.Service.Users
 {
@@ -11,16 +13,31 @@ namespace Core.Service.Users
         public static async Task Register(string username, string password, string name, string email)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
-            var user = await User.LoginAsync(credentials, Constants.ServerUri);
-            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            CreateUserInformation(name, email);
+            try
+            {
+                var user = await User.LoginAsync(credentials, Constants.ServerUri);
+                User.ConfigurePersistence(UserPersistenceMode.Encrypted);
+                CreateUserInformation(name, email);
+            }
+            catch (Exception ex)
+            {
+                "SomethingwentWrong".ShowMessage(ex.Message);
+            }
+
         }
 
         public static async Task Login(string username, string password)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
-            var user = await User.LoginAsync(credentials, Constants.ServerUri);
-            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
+            try
+            {
+                var user = await User.LoginAsync(credentials, Constants.ServerUri);
+                User.ConfigurePersistence(UserPersistenceMode.Encrypted);
+            }
+            catch (Exception ex)
+            {
+                "SomethingwentWrong".ShowMessage(ex.Message);
+            }
         }
 
         public static async void Logout() => await User.Current.LogOutAsync();
