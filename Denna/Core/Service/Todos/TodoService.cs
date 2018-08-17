@@ -16,7 +16,7 @@ namespace Core.Todos.Tasks
         {
             _instance = RealmContext.GetInstance();
             repo = new GenericRepository<Todo>(_instance);
-            
+
         }
         #region CRUD
         public void AddTodo(Todo task)
@@ -37,9 +37,7 @@ namespace Core.Todos.Tasks
         {
             repo.UpdateManaged(oldTask, newTask);
             if (oldTask.Notify != newTask.Notify)
-            {
                 newTask.UpdateNotification();
-            }
         }
 
 

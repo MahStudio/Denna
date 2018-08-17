@@ -1,5 +1,6 @@
 ﻿using Core.Domain;
 using Core.Todos.Tasks;
+using Denna.Views;
 using Microsoft.AppCenter.Analytics;
 using Realms;
 using Windows.UI.Xaml;
@@ -44,7 +45,7 @@ namespace Denna.Controls
                     _service.Delete(todo);
                     break;
                 case "edit":
-                    // Edit page navigation
+                    PageMaster.current.TimeLine.Navigate(typeof(Views.SubMaster.Add.Task), todo);
                     break;
                 case "Done":
                     _service.Done(todo);

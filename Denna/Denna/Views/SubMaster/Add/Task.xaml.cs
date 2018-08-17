@@ -16,6 +16,8 @@ namespace Denna.Views.SubMaster.Add
     public sealed partial class Task : Page
     {
         TodoService _service;
+        bool editmode = false;
+        Todo editing = null;
         public Task()
         {
             InitializeComponent();
@@ -23,7 +25,25 @@ namespace Denna.Views.SubMaster.Add
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.Publish(new Classes.Header("Add"));
+
+            if (e.Parameter is Todo)
+            {
+                editing = e.Parameter as Todo;
+                Title.Text = editing.Subject;
+                Details.Text = editing.Detail;
+                datepic.Date = editing.StartTime;
+                timepic.Time = editing.StartTime.TimeOfDay;
+                if (editing.Notify == 0)
+                    rbs.IsChecked = true;
+                else if (editing.Notify == 1)
+                    rbn.IsChecked = true;
+                else
+                    rba.IsChecked = true;
+            }
+            if (editmode)
+                this.Publish(new Classes.Header("Edit"));
+            else
+                this.Publish(new Classes.Header("Add"));
             base.OnNavigatedTo(e);
         }
 
@@ -36,8 +56,6 @@ namespace Denna.Views.SubMaster.Add
 
         void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
-            Title.Focus(FocusState.Programmatic);
-            Details.Focus(FocusState.Programmatic);
             var start = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
             int notiftStatus = 0;
             if (rbs.IsChecked == true)
@@ -56,6 +74,10 @@ namespace Denna.Views.SubMaster.Add
                 Notify = notiftStatus,
                 Status = 2
             };
+            if (editmode)
+            {
+                _service.Edit(editing, todo);
+            }
             _service.AddTodo(todo);
             Frame.GoBack();
             this.Publish(new Classes.Header("Timeline"));
