@@ -32,7 +32,7 @@ namespace Denna.Views.SubMaster.Add
                 Title.Text = editing.Subject;
                 Details.Text = editing.Detail;
                 datepic.Date = editing.StartTime;
-                timepic.Time = editing.StartTime.TimeOfDay;
+                timepic.Time = editing.StartTime.ToLocalTime().TimeOfDay;
                 if (editing.Notify == 0)
                     rbs.IsChecked = true;
                 else if (editing.Notify == 1)
