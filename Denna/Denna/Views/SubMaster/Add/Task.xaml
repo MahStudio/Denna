@@ -59,8 +59,8 @@
             
 
             <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
-                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click" Width="160" Foreground="{StaticResource RedBrush}" Content="Dismiss" Margin="5,15" Height="45" Style="{StaticResource goitstyle}"/>
-                <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click_1" Width="160" Foreground="{StaticResource GreenBrush}" Content="Save" Margin="5,15" Height="45" Style="{StaticResource goitstyle}"/>
+                    <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click" Width="160" Foreground="{StaticResource RedBrush}" Content="Dismiss" Margin="5,15" Height="45" Style="{StaticResource goitstyle}" Background="#2b2b2b"/>
+                    <Button HorizontalAlignment="Stretch" Click="AppBarButton_Click_1" Width="160" Foreground="{StaticResource GreenBrush}" Content="Save" Margin="5,15" Height="45" Style="{StaticResource goitstyle}" Background="#2b2b2b"/>
             </StackPanel>
         </Grid>
 

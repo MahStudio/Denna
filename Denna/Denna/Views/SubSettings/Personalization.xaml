@@ -20,8 +20,27 @@
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
+    <Grid Background="{ThemeResource AppBackgroundColor}">
+    <StackPanel Margin="30,0" MaxWidth="600" >
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="0,0,0,0">
+            <TextBlock x:Uid="Theme" HorizontalAlignment="Left" FontWeight="SemiBold"  Text="Theme" />
+            <ComboBox Margin="0,15,0,0" MaxWidth="700" BorderThickness="1" BorderBrush="Gray"  x:Name="ThemeSelector"  HorizontalAlignment="Stretch" MinWidth="310" SelectionChanged="ThemeSelector_SelectionChanged">
+                <ComboBoxItem x:Uid="Dark" Content="Dark" Tag="Dark"/>
+                <ComboBoxItem x:Uid="Light" Content="Light" Tag="Light"/>
+                <ComboBoxItem x:Uid="System" Content="System" Tag="System"/>
+            </ComboBox>
+        </StackPanel>
 
+        <StackPanel Margin="0,0,0,0" MinWidth="200" Orientation="Vertical">
+            <RelativePanel>
+
+                <TextBlock  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Uid="accent" Height="25" HorizontalAlignment="Left" Margin="0,0 ,0,0" Text="Follow accent color" />
+                <ToggleSwitch RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Grid.Column="2" MinWidth="10" x:Name="FollowAccent" HorizontalAlignment="Right" Margin="0,0,0,0" Toggled="FollowAccent_Toggled" OffContent="" OnContent=""/>
+            </RelativePanel>
+
+
+        </StackPanel>
+    </StackPanel>
     </Grid>
 </Page>
