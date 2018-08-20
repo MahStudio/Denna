@@ -1,12 +1,4 @@
-﻿using Windows.Security.Authentication.Web.Core;
-using Windows.Security.Credentials;
-using Windows.UI.Xaml.Controls;
-using System.Linq;
-using System.Collections.Generic;
-using System;
-using Windows.Data.Json;
-using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,11 +12,6 @@ namespace Denna.Views.Sign
         public In()
         {
             InitializeComponent();
-        }
-
-        private async void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            
         }
     }
 }

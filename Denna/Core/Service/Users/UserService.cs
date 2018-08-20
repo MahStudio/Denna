@@ -5,13 +5,12 @@ using Realms.Sync;
 using System.Linq;
 using System;
 using Core.Utils;
-using Core.Service.Auth;
 
 namespace Core.Service.Users
 {
-    public class UserService
+    public static class UserService
     {
-        public async Task Register(string username, string password, string name, string email)
+        public static async Task Register(string username, string password, string name, string email)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
@@ -20,30 +19,19 @@ namespace Core.Service.Users
 
         }
 
-        public async Task Login(string username, string password)
+        public static async Task Login(string username, string password)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-
-        }
-        public async Task LoginWithMicrosoft(string username, string password)
-        {
-            var msUser = await MicrosoftLogin.AuthMicrosoft();
-            var credentials = Credentials.Custom("MicrosoftAccount", msUser.Token, null);
-            var user = await User.LoginAsync(credentials, Constants.ServerUri);
-            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            if (!IsInformationPresent())
-                CreateUserInformation(msUser.Name, msUser.Email);
-
+            
         }
 
-        public async void Logout() => await User.Current.LogOutAsync();
+        public static async void Logout() => await User.Current.LogOutAsync();
 
-        public bool IsUserLoggenIn() => User.AllLoggedIn.Any();
-        public bool IsInformationPresent() => RealmContext.GetInstance().All<DennaUser>().Any();
+        public static bool IsUserLoggenIn() => User.AllLoggedIn.Any();
 
-        public void CreateUserInformation(string name, string email)
+        public static void CreateUserInformation(string name, string email)
         {
             var usr = new DennaUser()
             {
@@ -56,11 +44,11 @@ namespace Core.Service.Users
             });
         }
 
-        public string GetUsername() => User.Current.Identity;
+        public static string GetUsername() => User.Current.Identity;
 
-        public DennaUser GetUserInfo() => RealmContext.GetInstance().All<DennaUser>().FirstOrDefault();
+        public static DennaUser GetUserInfo() => RealmContext.GetInstance().All<DennaUser>().FirstOrDefault();
 
-        public void UpdateUserInfo(DennaUser usr, DennaUser newUser)
+        public static void UpdateUserInfo(DennaUser usr, DennaUser newUser)
         {
             RealmContext.GetInstance().Write(() =>
             {
@@ -70,7 +58,7 @@ namespace Core.Service.Users
             });
         }
 
-        public async Task ChangePass(string newPass)
+        public static async Task ChangePass(string newPass)
         {
             var currentUser = User.Current;
             await currentUser.ChangePasswordAsync(newPass);
