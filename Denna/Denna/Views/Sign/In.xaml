@@ -15,8 +15,10 @@
         <controls:TemplatedTextBox Text="{Binding UserName,Mode=TwoWay}" Margin="10,40,10,0" Height="35" Glyph="" PlaceHolder="Username" />
         <controls:TemplatedPasswordBox Text="{Binding Password,Mode=TwoWay}" PlaceHolder="Password" Glyph="" Margin="10,10,10,0" Height="35"  />
         <Button Command="{Binding SignInCommand}" HorizontalAlignment="Stretch" Content="LOGIN" Margin="40,20,40,0" Height="35" Style="{StaticResource goitstyle}"/>
+        <TextBlock Opacity="0.8" Margin="0,20,0,0" HorizontalAlignment="Center" Text="Or login with" />
+        <Button Content="Login with MSFT" Click="Button_Click" />
         <HyperlinkButton Command="{Binding SignUpCommand}" Margin="10,30,10,0" HorizontalAlignment="Stretch" Content="Do not have an account? SIGN UP" />
     </StackPanel>
 
-    
+
 </Page>

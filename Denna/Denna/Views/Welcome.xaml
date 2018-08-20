@@ -79,7 +79,7 @@
                   RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                   MaxHeight="500" MinHeight="350">
 
-                <Grid MaxHeight="300" MaxWidth="500"
+                <Grid MaxHeight="400" MaxWidth="500"
                     CornerRadius="5" Background="{StaticResource AppBackgroundColor}" Margin="30,20">
 
                     <Frame x:Name="Logger" />
