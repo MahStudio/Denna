@@ -39,6 +39,8 @@ namespace Denna.Views.SubMaster.Add
                     rbn.IsChecked = true;
                 else
                     rba.IsChecked = true;
+
+                editmode = true;
             }
             if (editmode)
                 this.Publish(new Classes.Header("Edit"));
@@ -76,9 +78,14 @@ namespace Denna.Views.SubMaster.Add
             };
             if (editmode)
             {
+                todo.Id = editing.Id;
                 _service.Edit(editing, todo);
             }
-            _service.AddTodo(todo);
+            else
+            {
+
+                _service.AddTodo(todo);
+            }
             Frame.GoBack();
             this.Publish(new Classes.Header("Timeline"));
         }
