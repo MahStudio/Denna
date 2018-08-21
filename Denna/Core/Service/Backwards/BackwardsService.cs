@@ -39,7 +39,7 @@ namespace Core.Service.Backwards
                     Detail = todo.detail,
                     Notify = todo.notify,
                     StartTime = todo.time,
-                    Status = todo.isdone,
+                    Status = ConvertToNewIsdone(todo.isdone),
                     Subject = todo.title
                 });
             }
@@ -47,6 +47,17 @@ namespace Core.Service.Backwards
 
             File.Delete(SQLPath);
         }
-
+        int ConvertToNewIsdone(int num)
+        {
+            switch (num)
+            {
+                case 0:
+                    return 2;
+                case 2:
+                    return 0;
+                default:
+                    return 1;
+            }
+        }
     }
 }
