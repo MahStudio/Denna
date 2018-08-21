@@ -11,8 +11,7 @@ or you can join Denna insider chat:
 https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g
 "
 echo $megtxt;
-Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?chat_id=$env:chatId&text=$megtxt"
-Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?chat_id=$env:ChannelId&text=$megtxt"
+
 
 
 $versionNumber = $env:APPCENTER_BUILD_ID
@@ -47,23 +46,14 @@ $gitHubApiKey="$env:GithubSicktear"
 
     $result = Invoke-RestMethod @releaseParams 
     $include = @("*.appxbundle","*.cer","*.appx")
-    
-    $removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
 
-    $removefiles
-
-    for ($i = 0; $i -lt $removefiles.Count; $i++) {
-      $iteeem = Get-Item -Path $removefiles[$i]
-      $newname= "$i-$($iteeem.Name)"
-      Rename-Item -Path $removefiles[$i] -NewName $newname
-    }
-    $removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
+    $buildFiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
 
     New-Item -ItemType Directory -Force -Path "$artifactOutputDirectory\Outs"
-    for ($i = 0; $i -lt $removefiles.Count; $i++) {
-      $iteeem = Get-Item -Path $removefiles[$i]
+    for ($i = 0; $i -lt $buildFiles.Count; $i++) {
+      $iteeem = Get-Item -Path $buildFiles[$i]
       $newname= "$i-$($iteeem.Name)"
-      Copy-Item $removefiles[$i] -Destination "$artifactOutputDirectory\Outs\$newname"
+      Copy-Item $buildFiles[$i] -Destination "$artifactOutputDirectory\Outs\$newname"
     }
     $yesFiles = Get-ChildItem "$artifactOutputDirectory\Outs" -recurse -force -include $include | % { $_.FullName }
 
@@ -74,9 +64,8 @@ $gitHubApiKey="$env:GithubSicktear"
     
 foreach ($file in $yesFiles) {
     $outputFile = Split-Path $file -leaf
-    $parent = (get-item $file ).parent
     $uploadParams = @{
-      Uri = $uploadUri + "?name=$parent$outputFile";
+      Uri = $uploadUri + "?name=$outputFile";
       Method = 'POST';
       Headers = @{
         Authorization = $auth;
@@ -86,3 +75,9 @@ foreach ($file in $yesFiles) {
     }
     $result = Invoke-RestMethod @uploadParams
 }
+
+
+
+
+Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?chat_id=$env:chatId&text=$megtxt"
+Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?chat_id=$env:ChannelId&text=$megtxt"
