@@ -47,8 +47,19 @@ $gitHubApiKey="$env:GithubSicktear"
 
     $result = Invoke-RestMethod @releaseParams 
     $include = @("*.appxbundle","*.cer","*.appx")
+    
     $removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
 
+    $removefiles
+
+    for ($i = 0; $i -lt $removefiles.Count; $i++) {
+      $iteeem = Get-Item -Path $removefiles[$i]
+      $newname= "$i-$($iteeem.Name)"
+      Rename-Item -Path $removefiles[$i] -NewName $newname
+    }
+    $removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
+
+    $removefiles
     $uploadUri = $result | Select -ExpandProperty upload_url
     Write-Host $uploadUri
     $uploadUri = $uploadUri -creplace '\{\?name,label\}'  #, "?name=$artifact"
