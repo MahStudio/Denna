@@ -47,7 +47,7 @@
                     <StackPanel  >
                         <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Today" />
                         <Grid Height="80" Visibility="{Binding TodayList.Count,Mode=TwoWay,Converter={StaticResource TaskListToVisibilityConverter}}" HorizontalAlignment="Center">
-                            <TextBlock VerticalAlignment="Center" Opacity="0.7" HorizontalAlignment="Center" TextAlignment="Center" >
+                            <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Opacity="0.7" HorizontalAlignment="Center" TextAlignment="Center" >
                                 You have no tasks for today! press + button to add one.
                             </TextBlock>
                         </Grid>
@@ -56,7 +56,7 @@
                     <StackPanel Margin="0,30,0,0" >
                         <TextBlock FontSize="14" FontWeight="SemiBold" Opacity="0.6" Margin="20,0,0,0" Text="Need attention" />
                         <Grid Visibility="{Binding Attention.Count,Mode=TwoWay,Converter={StaticResource TaskListToVisibilityConverter}}" Height="80" HorizontalAlignment="Center">
-                            <TextBlock VerticalAlignment="Center" Opacity="0.7" HorizontalAlignment="Center" TextAlignment="Center" >
+                                <TextBlock VerticalAlignment="Center" Opacity="0.7" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" >
                                 Nice, no postponed task needs your attention.
                             </TextBlock>
                         </Grid>
