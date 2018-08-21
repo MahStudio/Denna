@@ -6,6 +6,7 @@ using System.Linq;
 using System;
 using Core.Utils;
 using Core.Service.Backwards;
+using Core.Service.Notifications;
 
 namespace Core.Service.Users
 {
@@ -38,7 +39,7 @@ namespace Core.Service.Users
         public static async void Logout()
         {
             await User.Current.LogOutAsync();
-            AppSettings.Set("Showtoast", null);
+            NotificationService.ClearBadgeAndLiveTile();
         }
 
         public static bool IsUserLoggenIn() => User.AllLoggedIn.Any();

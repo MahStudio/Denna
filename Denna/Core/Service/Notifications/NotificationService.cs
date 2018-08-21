@@ -1,4 +1,5 @@
 ﻿using Core.Domain;
+using Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,18 @@ namespace Core.Service.Notifications
                     toastnotifier.RemoveFromSchedule(scheduledToastNotification);
                 }
             }
+        }
+        public static void ClearBadgeAndLiveTile()
+        {
+            AppSettings.Set("Showtoast", null);
+            try
+            {
+                var tup = TileUpdateManager.CreateTileUpdaterForApplication();
+                tup.Clear();
+                var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
+                updator.Clear();
+            }
+            catch { }
         }
     }
 }

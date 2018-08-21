@@ -21,8 +21,8 @@
     <Interactivity:Interaction.Behaviors>
         <behavior:HeadPainter Brush="{ThemeResource AppBackgroundColor}" Foreground="White" />
     </Interactivity:Interaction.Behaviors>
-    <ScrollViewer>
-        <StackPanel Background="{ThemeResource AppBackgroundColor}" MaxWidth="600">
+    <ScrollViewer Background="{ThemeResource AppBackgroundColor}">
+        <StackPanel  MaxWidth="600">
             <TextBlock Margin="30,20,10,0" Text="Profile" Opacity="0.8" />
             <StackPanel Grid.Row="0" >
                 <controls:TemplatedTextBox x:Name="Username" IsEnabled="False" Margin="10,10,10,0" Height="35" Glyph="" PlaceHolder="Username" />
