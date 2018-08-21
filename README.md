@@ -73,8 +73,6 @@ Also you can see the whole design files [HERE](https://github.com/MahStudio/Denn
 Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design.
 As Denna is an open source project, all kind of contributions are welcome.
 
-> **Note:** Denna V2 with bunch of revolutionary features is under development.
-
 ### How do I contribute
 
 You can contribute us in either 3 ways:
@@ -91,27 +89,15 @@ You can contribute us in either 3 ways:
   </p>
 
 
-### What we had in V1
+### What we offer in Denna
 
-- Manage your tasks
+- Productive task management
+- Offline-first sync
 - Cortana interaction
-- Action center actions
-- Manage your hobbies
-- Ability to postpone,edit and delete your tasks
-- Share tasks
-- Back up tasks
-- Graphical performance charts
+- Action center integration 
+- Productivity analysis
 
-### What features are planned in V2
-
-- Offline-first Sync
-- New codebase
-- Better performance
-- Design improvements
-- Support for android and IOS
-- and so on
-
-You can see V 2.0 milestone [HERE](https://github.com/MahStudio/Denna/milestone/1)
+You can see V 2.1 milestone [HERE](https://github.com/MahStudio/Denna/milestone/2)
 
 ### Build Prerequisites
 
