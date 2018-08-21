@@ -47,7 +47,7 @@ namespace Denna.Views
 
         async void Diss()
         {
-            await Task.Delay(2200);
+            await Task.Delay(700);
             DismissExtendedSplash();
         }
 
