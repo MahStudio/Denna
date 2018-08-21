@@ -126,6 +126,7 @@ namespace Denna.ViewModels
             SignUpCommand = new MyCommand();
             SignUpCommand.CanExecuteFunc = obj => true;
             SignUpCommand.ExecuteFunc = SignUp;
+            Name = AppSettings.Get<string>("Username");
         }
         async void SignUp(object obj)
         {

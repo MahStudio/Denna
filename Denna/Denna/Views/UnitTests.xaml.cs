@@ -99,7 +99,7 @@ namespace Denna.Views
 
         void Button_Click(object sender, RoutedEventArgs e)
         {
-            Testscv.test();
+            //Testscv.test();
             // Frame.Navigate(typeof(Welcome));
         }
     }

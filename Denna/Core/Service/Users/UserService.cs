@@ -5,18 +5,20 @@ using Realms.Sync;
 using System.Linq;
 using System;
 using Core.Utils;
+using Core.Service.Backwards;
 
 namespace Core.Service.Users
 {
     public static class UserService
     {
+        static BackwardsService _backSvc = new BackwardsService();
         public static async Task Register(string username, string password, string name, string email)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
             CreateUserInformation(name, email);
-
+            FinalizeLogin();
         }
 
         public static async Task Login(string username, string password)
@@ -24,10 +26,20 @@ namespace Core.Service.Users
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            
+            FinalizeLogin();
+
+        }
+        static void FinalizeLogin()
+        {
+            if (_backSvc.IsBacwardsPresent())
+                _backSvc.MigrateTodos();
         }
 
-        public static async void Logout() => await User.Current.LogOutAsync();
+        public static async void Logout()
+        {
+            await User.Current.LogOutAsync();
+            AppSettings.Set("Showtoast", null);
+        }
 
         public static bool IsUserLoggenIn() => User.AllLoggedIn.Any();
 
