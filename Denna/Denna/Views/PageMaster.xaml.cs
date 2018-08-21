@@ -34,7 +34,7 @@ namespace Denna.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             #region BackgroundTasks
-            //BackgroundHelper.RegisterBackgroundServices();
+            BackgroundHelper.RegisterBackgroundServices();
             #endregion
             #region Back handle
             if (Frame.CanGoBack)
@@ -53,7 +53,7 @@ namespace Denna.Views
             TimeLine.Navigate(typeof(TimeLine));
             Chats.Navigate(typeof(Graphs));
             #endregion
-            //_bgService.UpdateTiles();
+            _bgService.UpdateTiles();
         }
 
         #region Pivot
