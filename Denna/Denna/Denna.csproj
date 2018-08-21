@@ -128,8 +128,8 @@
     <Compile Include="Controls\SwipeListItem.xaml.cs">
       <DependentUpon>SwipeListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SwipePanel.xaml.cs">
-      <DependentUpon>SwipePanel.xaml</DependentUpon>
+    <Compile Include="Controls\ShutterPanel.xaml.cs">
+      <DependentUpon>ShutterPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TaskList.xaml.cs">
       <DependentUpon>TaskList.xaml</DependentUpon>
@@ -329,7 +329,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SwipePanel.xaml">
+    <Page Include="Controls\ShutterPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

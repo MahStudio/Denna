@@ -29,15 +29,14 @@
 
 ## Story
 
-Denna's idea came from my own needs. I'm not punctual at all, so I needed a tool to make me care more about the time I have.
-So with the help of the whole team in MahStudio we came across with a project named *Project Plannel* which then became **Denna**.
+Denna's idea came from my own needs. I'm not punctual at all, so I needed a tool to make me care more about my time. So with the help of the whole team in MahStudio, we came across with a project named *Plannel* which then became **Denna**.
 
-**Denna** is a name of a mountain in Iran. The idea of *Denna* came from where I failed my test due to not making time for studies and the answer of that missed question was Denna.
+**Denna** is a name of a mountain in Iran.
+The idea of creating Denna, poped up to my mind, when I couldn't spend enough time to study, and failed to answer some of the questions on my test. The answer of one those missed questions them was "Denna".
 
-Then with the help of the team and the community we developed and release a lovely tool named **Denna**.
-The aim of Denna is to help people to care more about the time they have. Cuz time flies!
+Then with the help of the team and the community, we developed and released a lovely tool named Denna. The main goal of Denna is to help people to care more about their time. Because time flies!
 
-Ease of access and productivity is Denna's core value.
+Ease of access and productivity, are Denna's core values.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/22152065/38919555-2566f7b2-4306-11e8-8a9c-95eb08eff28a.png">

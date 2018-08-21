@@ -10,11 +10,11 @@ using Windows.UI.Xaml.Input;
 
 namespace Denna.Controls
 {
-    public sealed partial class SwipePanel : UserControl
+    public sealed partial class ShutterPanel : UserControl
     {
         Point startpoint, lastPostition;
         bool isopen;
-        public SwipePanel()
+        public ShutterPanel()
         {
             InitializeComponent();
         }

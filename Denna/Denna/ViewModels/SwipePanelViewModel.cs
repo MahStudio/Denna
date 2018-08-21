@@ -7,13 +7,13 @@ using System.ComponentModel;
 
 namespace Denna.ViewModels
 {
-    class SwipePanelViewModel : INotifyPropertyChanged
+    class ShutterPanelViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         string greet;
         string todate = DateTime.Now.ToLocalTime().ToString("D");
         TodoService _service;
-        public SwipePanelViewModel()
+        public ShutterPanelViewModel()
         {
             _service = new TodoService();
             this.Subscribe<Classes.Header>(Text =>
