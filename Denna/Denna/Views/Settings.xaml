@@ -31,7 +31,7 @@
 
         <RelativePanel>
             <TextBlock Margin="0,20,0,10" x:Name="Name" FontSize="20" FontWeight="Bold" Text="SETTINGS" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
-            <ListView x:Name="ArtistsList" ItemsSource="{Binding MenuList}" ItemTemplate="{StaticResource SettingsListItem}"
+            <ListView x:Name="ArtistsList" ItemsSource="{Binding MenuList}" ItemTemplate="{StaticResource SettingsListItem}" Margin="0,5,0,0"
                   SelectionMode="None" IsItemClickEnabled="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="Name" ItemClick="ArtistsList_ItemClick"
                   Background="Transparent">

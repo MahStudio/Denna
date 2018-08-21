@@ -18,10 +18,10 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="{Binding icon}" Tag="{Binding ID}" FontSize="23" Grid.RowSpan="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets" />
+                    <TextBlock Text="{Binding icon}" Tag="{Binding ID}" FontSize="23" Grid.RowSpan="2" Margin="9,0,0,0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets" />
                     <TextBlock Text="{Binding title}" FontSize="15" FontWeight="SemiBold" Grid.Row="0" VerticalAlignment="Center" Grid.Column="2" />
                     <TextBlock Text="{Binding detail}" FontSize="14" Opacity="0.7"  Grid.Row="1" VerticalAlignment="Top" Grid.Column="2" />
                 </Grid>

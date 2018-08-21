@@ -20,7 +20,7 @@ namespace Denna.Views.SubSettings
         {
             InitializeComponent();
             var v = Package.Current.Id.Version;
-            ApplicationVersion.Text = "V" + string.Format("{0}.{1}.{2}.{3} Preview", v.Major, v.Minor, v.Build, v.Revision);
+            ApplicationVersion.Text = "V" + string.Format("{0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
