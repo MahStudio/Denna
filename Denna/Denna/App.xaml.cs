@@ -53,16 +53,13 @@ namespace Denna
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            AppHelper.ApplyThemeSettings();
-            AppHelper.SetUpVoiceCommends();
-            if (args.PreviousExecutionState != ApplicationExecutionState.Running)
-            {
-                var loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);
-                var extendedSplash = new ExtendedSplash(args.SplashScreen, loadState);
-                Window.Current.Content = extendedSplash;
-            }
+            AppHelper.LaunchApplication(args);
+        }
 
-            Window.Current.Activate();
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            AppHelper.LaunchApplication(args);
+            base.OnActivated(args);
         }
 
         /// <summary>
