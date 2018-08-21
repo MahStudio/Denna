@@ -59,12 +59,20 @@ $gitHubApiKey="$env:GithubSicktear"
     }
     $removefiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
 
-    $removefiles
+    New-Item -ItemType Directory -Force -Path "$artifactOutputDirectory\Outs"
+    for ($i = 0; $i -lt $removefiles.Count; $i++) {
+      $iteeem = Get-Item -Path $removefiles[$i]
+      $newname= "$i-$($iteeem.Name)"
+      Copy-Item $removefiles[$i] -Destination "$artifactOutputDirectory\Outs\$newname"
+    }
+    $yesFiles = Get-ChildItem "$artifactOutputDirectory\Outs" -recurse -force -include $include | % { $_.FullName }
+
+    $yesFiles
     $uploadUri = $result | Select -ExpandProperty upload_url
     Write-Host $uploadUri
     $uploadUri = $uploadUri -creplace '\{\?name,label\}'  #, "?name=$artifact"
     
-foreach ($file in $removefiles) {
+foreach ($file in $yesFiles) {
     $outputFile = Split-Path $file -leaf
     $parent = (get-item $file ).parent
     $uploadParams = @{
