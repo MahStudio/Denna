@@ -104,7 +104,6 @@
     </Compile>
     <Compile Include="Behaviors\HeadPainter.cs" />
     <Compile Include="Classes\AppHelper.cs" />
-    <Compile Include="Classes\BackgroundHelper.cs" />
     <Compile Include="Classes\BindingHelper.cs" />
     <Compile Include="Classes\DelegateCommand.cs" />
     <Compile Include="Classes\Extentions.cs" />

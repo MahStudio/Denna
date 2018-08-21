@@ -119,6 +119,7 @@
     <Compile Include="Domain\Todo.cs" />
     <Compile Include="Service\Backwards\BackwardsService.cs" />
     <Compile Include="Service\Backwards\todo.cs" />
+    <Compile Include="Service\Notifications\BackgroundHelper.cs" />
     <Compile Include="Service\Notifications\BackgroundService.cs" />
     <Compile Include="Service\Notifications\NotificationService.cs" />
     <Compile Include="Service\Todos\TodoService.cs" />

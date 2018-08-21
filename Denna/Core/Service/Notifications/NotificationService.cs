@@ -86,6 +86,7 @@ namespace Core.Service.Notifications
                 tup.Clear();
                 var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
                 updator.Clear();
+                BackgroundHelper.DeleteBackgroundServices();
             }
             catch { }
         }
