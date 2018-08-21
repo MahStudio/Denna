@@ -21,6 +21,9 @@
   <a href="https://www.paypal.me/mohsens22">
     <img src="https://img.shields.io/badge/Donate-Paypal-blue.svg" />
   </a>
+  <a href="https://waffle.io/MahStudio/Denna">
+    <img src="https://badge.waffle.io/MahStudio/Denna.svg" />
+  </a>
   </p>
 </p>
 
@@ -148,6 +151,10 @@ Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers commun
 ### Sponsor
 
 This project is sponsored by [Realm.io](https://realm.io). 
+
+### Metrics
+
+[![Throughput Graph](http://graphs.waffle.io/MahStudio/Denna/throughput.svg)](https://waffle.io/MahStudio/Denna/metrics)
 
 ## Licence
 
