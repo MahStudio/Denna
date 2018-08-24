@@ -30,7 +30,7 @@ namespace Denna.Controls
         void CloseSwipe(object sender, RoutedEventArgs e)
         {
             urStoryboard.Begin();
-            Analytics.TrackEvent("Swipe menu button clicked");
+            Analytics.TrackEvent("Swipe menu button clicked");          
         }
 
         Button r1, r2, r3;
