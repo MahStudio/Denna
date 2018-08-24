@@ -59,7 +59,7 @@ namespace Denna.Views.SubMaster.Add
         void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             var start = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
-
+            
             if (Title.Text == "")
             {
                 ErrorText.Text = "Please set a title for this alarm.";
@@ -93,6 +93,8 @@ namespace Denna.Views.SubMaster.Add
             };
             if (editmode)
             {
+              DateTimeOffset d =  todo.StartTime;
+                d = editing.StartTime;
                 todo.Id = editing.Id;
                 _service.Edit(editing, todo);
             }

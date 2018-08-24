@@ -35,9 +35,12 @@ namespace Core.Todos.Tasks
 
         public void Edit(Todo oldTask, Todo newTask)
         {
-            repo.UpdatePrimary(newTask, newTask.Id);
-            if (oldTask.Notify != newTask.Notify)
+           
+            if (oldTask.StartTime != newTask.StartTime)
                 newTask.UpdateNotification();
+            repo.UpdatePrimary(newTask, newTask.Id);
+         
+         
         }
 
 
