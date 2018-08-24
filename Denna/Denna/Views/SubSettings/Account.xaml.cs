@@ -64,7 +64,7 @@ namespace Denna.Views.SubSettings
             UpdatedInfo.Email = Email.Text;
             UpdatedInfo.FullName = FullName.Text;
             
-   
+  
             
             UserService.UpdateUserInfo(UserService.GetUserInfo(), UpdatedInfo);
         }
