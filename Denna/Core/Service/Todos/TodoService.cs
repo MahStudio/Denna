@@ -98,6 +98,8 @@ namespace Core.Todos.Tasks
                 task.Status = 1;
                 trans.Commit();
             }
+
+            if (task.StartTime > DateTimeOffset.Now)
             if (task.Status != 1 || task.Status != 2)
             {
                 if (task.Notify == 1)
