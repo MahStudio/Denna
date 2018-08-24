@@ -35,12 +35,8 @@ namespace Core.Todos.Tasks
 
         public void Edit(Todo oldTask, Todo newTask)
         {
-           
-            if (oldTask.StartTime != newTask.StartTime)
-                newTask.UpdateNotification();
+            newTask.UpdateNotification();
             repo.UpdatePrimary(newTask, newTask.Id);
-         
-         
         }
 
 
@@ -91,7 +87,7 @@ namespace Core.Todos.Tasks
                         task.CreateAlarm();
                 }
             }
-           
+
         }
 
         public void Postpone(Todo task)
@@ -103,13 +99,13 @@ namespace Core.Todos.Tasks
             }
 
             if (task.StartTime > DateTimeOffset.Now)
-            if (task.Status != 1 || task.Status != 2)
-            {
-                if (task.Notify == 1)
-                    task.CreateNotification();
-                if (task.Notify == 2)
-                    task.CreateAlarm();
-            }
+                if (task.Status != 1 || task.Status != 2)
+                {
+                    if (task.Notify == 1)
+                        task.CreateNotification();
+                    if (task.Notify == 2)
+                        task.CreateAlarm();
+                }
         }
         #endregion
         #region Queries
