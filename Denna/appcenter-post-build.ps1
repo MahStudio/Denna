@@ -45,25 +45,14 @@ $gitHubApiKey="$env:GithubSicktear"
     }
 
     $result = Invoke-RestMethod @releaseParams 
-    $include = @("*.appxbundle","*.cer","*.appx")
 
-    $buildFiles = Get-ChildItem "$artifactOutputDirectory" -recurse -force -include $include | % { $_.FullName }
+    Compress-Archive -Path $artifactOutputDirectory -DestinationPath "$artifactOutputDirectory\FullPack.zip"
 
-    New-Item -ItemType Directory -Force -Path "$artifactOutputDirectory\Outs"
-    for ($i = 0; $i -lt $buildFiles.Count; $i++) {
-      $iteeem = Get-Item -Path $buildFiles[$i]
-      $newname= "$i-$($iteeem.Name)"
-      Copy-Item $buildFiles[$i] -Destination "$artifactOutputDirectory\Outs\$newname"
-    }
-    $yesFiles = Get-ChildItem "$artifactOutputDirectory\Outs" -recurse -force -include $include | % { $_.FullName }
-
-    $yesFiles
     $uploadUri = $result | Select -ExpandProperty upload_url
     Write-Host $uploadUri
     $uploadUri = $uploadUri -creplace '\{\?name,label\}'  #, "?name=$artifact"
-    
-foreach ($file in $yesFiles) {
-    $outputFile = Split-Path $file -leaf
+
+    $outputFile = Split-Path "$artifactOutputDirectory\FullPack.zip" -leaf
     $uploadParams = @{
       Uri = $uploadUri + "?name=$outputFile";
       Method = 'POST';
@@ -71,12 +60,9 @@ foreach ($file in $yesFiles) {
         Authorization = $auth;
       }
       ContentType = 'application/zip';
-      InFile = $file
+      InFile = "$artifactOutputDirectory\FullPack.zip"
     }
     $result = Invoke-RestMethod @uploadParams
-}
-
-
 
 
 Invoke-WebRequest -Uri "https://api.telegram.org/bot$env:BotSecret/sendMessage?chat_id=$env:chatId&text=$megtxt"

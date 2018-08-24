@@ -47,13 +47,13 @@ namespace Denna.ViewModels
                 IsLogging = true;
                 await UserService.Login(UserName, Password);
                 Analytics.TrackEvent("User signed in");
-               IsLogging = false;
+                IsLogging = false;
                 Welcome.current.Frame.Navigate(typeof(PageMaster));
             }
             catch (Exception ex)
             {
                 IsLogging = false;
-                "SomethingwentWrong".ShowMessage(ex.Message);              
+                "SomethingwentWrong".ShowMessage(ex.Message);
             }
 
         }
@@ -82,7 +82,8 @@ namespace Denna.ViewModels
 
         public bool IsLogging
         {
-            set {
+            set
+            {
                 islogging = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("IsLogging"));
 
