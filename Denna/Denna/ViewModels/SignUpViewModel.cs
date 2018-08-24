@@ -13,6 +13,19 @@ namespace Denna.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         string username, password, rpassword, email, _name, name, filename;
+        bool issigning = false;
+        public bool IsSigning {
+             set {
+
+                issigning = value;
+                PropertyChanged(this,
+                                           new PropertyChangedEventArgs("IsSigning"));
+            }
+            get {
+                return issigning;
+               
+            }
+        }
         public string Name
         {
             get
@@ -137,13 +150,17 @@ namespace Denna.ViewModels
                     "Retype password".ShowMessage("Passwords not maching");
                     return;
                 }
-
+                IsSigning = true;
                 await UserService.Register(UserName, Password, Name, Email);
+
                 Analytics.TrackEvent("User signed up");
+                IsSigning = false;
                 Welcome.current.Frame.Navigate(typeof(PageMaster));
+             
             }
             catch (Exception ex)
             {
+                IsSigning = false;
                 "SomethingwentWrong".ShowMessage(ex.Message);
             }
 
