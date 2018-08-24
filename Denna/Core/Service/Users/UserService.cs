@@ -12,7 +12,7 @@ using Realms;
 namespace Core.Service.Users
 {
     public static class UserService
-    {       
+    {
         static BackwardsService _backSvc = new BackwardsService();
         public static Realm _instance = RealmContext.GetInstance();
         public static async Task Register(string username, string password, string name, string email)
@@ -20,7 +20,8 @@ namespace Core.Service.Users
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            CreateUserInformation(name, email);
+            await Task.Delay(200);
+            CreateUserInformation(name, email, username);
             FinalizeLogin();
         }
 
@@ -28,7 +29,7 @@ namespace Core.Service.Users
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
-            User.ConfigurePersistence(UserPersistenceMode.Encrypted);          
+            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
             FinalizeLogin();
 
         }
@@ -46,12 +47,13 @@ namespace Core.Service.Users
 
         public static bool IsUserLoggenIn() => User.AllLoggedIn.Any();
 
-        public static void CreateUserInformation(string name, string email)
+        public static void CreateUserInformation(string name, string email, string username)
         {
             var usr = new DennaUser()
             {
                 FullName = name,
-                Email = email
+                Email = email,
+                Username = username
             };
             _instance.Write(() =>
             {
@@ -59,9 +61,16 @@ namespace Core.Service.Users
             });
         }
 
-        public static string GetUsername() => User.Current.Identity;
-       
-        
+        public static string GetUsername()
+        {
+            var usr = GetUserInfo();
+            if (string.IsNullOrEmpty(usr.Username))
+                return User.Current.Identity;
+
+            else return usr.Username;
+        }
+
+
         public static DennaUser GetUserInfo() => _instance.All<DennaUser>().FirstOrDefault();
 
         public static void UpdateUserInfo(DennaUser usr, DennaUser newUser)
