@@ -25,7 +25,7 @@ namespace Denna.Views.SubMaster.Add
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+
             if (e.Parameter is Todo)
             {
                 editing = e.Parameter as Todo;

@@ -76,18 +76,13 @@ namespace Core.Todos.Tasks
                 task.Status = 2;
                 trans.Commit();
             }
-
-            if (task.StartTime > DateTimeOffset.Now)   //If else... the user should edit the time
+            if (task.Status != 2 || task.Status != 1)
             {
-                if (task.Status != 2 || task.Status != 1)
-                {
-                    if (task.Notify == 1)
-                        task.CreateNotification();
-                    if (task.Notify == 2)
-                        task.CreateAlarm();
-                }
+                if (task.Notify == 1)
+                    task.CreateNotification();
+                if (task.Notify == 2)
+                    task.CreateAlarm();
             }
-           
         }
 
         public void Postpone(Todo task)

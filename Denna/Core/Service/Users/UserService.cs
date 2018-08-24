@@ -11,7 +11,7 @@ using Core.Service.Notifications;
 namespace Core.Service.Users
 {
     public static class UserService
-    {       
+    {
         static BackwardsService _backSvc = new BackwardsService();
         public static async Task Register(string username, string password, string name, string email)
         {
@@ -26,7 +26,7 @@ namespace Core.Service.Users
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
-            User.ConfigurePersistence(UserPersistenceMode.Encrypted);          
+            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
             FinalizeLogin();
 
         }
@@ -53,34 +53,22 @@ namespace Core.Service.Users
             };
             RealmContext.GetInstance().Write(() =>
             {
-                r.Add(usr);
+                RealmContext.GetInstance().Add(usr);
             });
         }
 
         public static string GetUsername() => User.Current.Identity;
-        public static Realms.Realm r = RealmContext.GetInstance();
-        
-        public static DennaUser GetUserInfo() => r.All<DennaUser>().FirstOrDefault();
+
+        public static DennaUser GetUserInfo() => RealmContext.GetInstance().All<DennaUser>().FirstOrDefault();
 
         public static void UpdateUserInfo(DennaUser usr, DennaUser newUser)
         {
-
-            try
+            RealmContext.GetInstance().Write(() =>
             {
-  
-                
-                r.Write(() =>
-                {
-                    usr.Email = newUser.Email;
-                    usr.FullName = newUser.FullName;
-                    r.Add(usr, update: true);
-                });
-            }
-            catch (Exception e)
-            {
-                e.Message.ShowMessage("error");
-            }
-
+                usr.Email = newUser.Email;
+                usr.FullName = newUser.FullName;
+                RealmContext.GetInstance().Add(usr, update: true);
+            });
         }
 
         public static async Task ChangePass(string newPass)

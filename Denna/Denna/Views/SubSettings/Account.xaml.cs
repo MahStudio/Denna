@@ -18,15 +18,11 @@ namespace Denna.Views.SubSettings
         public Account()
         {
             InitializeComponent();
-
-
-
             // reconnect, sync session
             // Get and Set user data
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
             Username.Text = UserService.GetUsername();
             var userInfo = UserService.GetUserInfo();
             FullName.Text = userInfo.FullName;
@@ -57,16 +53,10 @@ namespace Denna.Views.SubSettings
 
         void UsrInfo_Click(object sender, RoutedEventArgs e)
         {
-    
             var user = UserService.GetUserInfo();
-            Core.Domain.DennaUser UpdatedInfo = new Core.Domain.DennaUser();
-          
-            UpdatedInfo.Email = Email.Text;
-            UpdatedInfo.FullName = FullName.Text;
-            
-   
-            
-            UserService.UpdateUserInfo(UserService.GetUserInfo(), UpdatedInfo);
+            user.Email = Email.Text;
+            user.FullName = FullName.Text;
+            UserService.UpdateUserInfo(UserService.GetUserInfo(), user);
         }
     }
 }

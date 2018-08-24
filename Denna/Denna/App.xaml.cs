@@ -28,12 +28,12 @@ namespace Denna
         {
             InitializeComponent();
             Suspending += OnSuspending;
-            UnhandledException += App_UnhandledException;          
-                AppCenter.Start(Constants.AppCenterSecret, typeof(Analytics));
-                AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
-                AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
-                AppHelper.SetTheme();
-                Analytics.TrackEvent("App Opened");            
+            UnhandledException += App_UnhandledException;
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Analytics));
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
+            AppHelper.SetTheme();
+            Analytics.TrackEvent("App Opened");
         }
 
         async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Denna", "Denna\Denna.csproj", "{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}"
 EndProject
@@ -26,8 +26,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}.Debug|Any CPU.Build.0 = Debug|x86
-		{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}.Debug|ARM.ActiveCfg = Debug|ARM
 		{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}.Debug|ARM.Build.0 = Debug|ARM
 		{D70D96EC-83F7-4421-B2A3-8F6763E1D07E}.Debug|ARM.Deploy.0 = Debug|ARM
