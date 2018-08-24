@@ -1,5 +1,5 @@
 $megtxt="Denna insider build $env:APPCENTER_BUILD_ID on $env:APPCENTER_BRANCH is now available at: 
-https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/Insiders
+https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/stablechannel
 
 and full package including dependencies and certificate is here:
 https://github.com/MahStudio/Denna/releases/latest
