@@ -7,12 +7,14 @@ using System;
 using Core.Utils;
 using Core.Service.Backwards;
 using Core.Service.Notifications;
+using Realms;
 
 namespace Core.Service.Users
 {
     public static class UserService
     {       
         static BackwardsService _backSvc = new BackwardsService();
+        public static Realm _instance = RealmContext.GetInstance();
         public static async Task Register(string username, string password, string name, string email)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
@@ -51,29 +53,27 @@ namespace Core.Service.Users
                 FullName = name,
                 Email = email
             };
-            RealmContext.GetInstance().Write(() =>
+            _instance.Write(() =>
             {
-                r.Add(usr);
+                _instance.Add(usr);
             });
         }
 
         public static string GetUsername() => User.Current.Identity;
-        public static Realms.Realm r = RealmContext.GetInstance();
+       
         
-        public static DennaUser GetUserInfo() => r.All<DennaUser>().FirstOrDefault();
+        public static DennaUser GetUserInfo() => _instance.All<DennaUser>().FirstOrDefault();
 
         public static void UpdateUserInfo(DennaUser usr, DennaUser newUser)
         {
 
             try
             {
-  
-                
-                r.Write(() =>
+                _instance.Write(() =>
                 {
                     usr.Email = newUser.Email;
                     usr.FullName = newUser.FullName;
-                    r.Add(usr, update: true);
+                    _instance.Add(usr, update: true);
                 });
             }
             catch (Exception e)

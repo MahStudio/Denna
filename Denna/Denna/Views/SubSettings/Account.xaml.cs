@@ -1,4 +1,5 @@
 ﻿using Core.Data;
+using Core.Domain;
 using Core.Service.Users;
 using Core.Utils;
 using Realms.Sync;
@@ -26,7 +27,7 @@ namespace Denna.Views.SubSettings
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+
             Username.Text = UserService.GetUsername();
             var userInfo = UserService.GetUserInfo();
             FullName.Text = userInfo.FullName;
@@ -57,15 +58,15 @@ namespace Denna.Views.SubSettings
 
         void UsrInfo_Click(object sender, RoutedEventArgs e)
         {
-    
+
             var user = UserService.GetUserInfo();
-            Core.Domain.DennaUser UpdatedInfo = new Core.Domain.DennaUser();
-          
+            var UpdatedInfo = new DennaUser();
+
             UpdatedInfo.Email = Email.Text;
             UpdatedInfo.FullName = FullName.Text;
-            
-  
-            
+
+
+
             UserService.UpdateUserInfo(UserService.GetUserInfo(), UpdatedInfo);
         }
     }
