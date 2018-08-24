@@ -22,6 +22,9 @@ namespace Denna.ViewModels
             get;
             set;
         }
+
+       
+        
         public SignInViewModel()
         {
             SignInCommand = new MyCommand();

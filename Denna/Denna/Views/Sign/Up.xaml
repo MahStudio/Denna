@@ -25,5 +25,6 @@
         <Button HorizontalAlignment="Stretch"
              Command="{Binding SignUpCommand}"   Content="SIGN UP" Margin="40,20,40,0" Height="35" Style="{StaticResource goitstyle}"/>
         <HyperlinkButton Command="{Binding SignInCommand}" Margin="10,30,10,0" HorizontalAlignment="Stretch" Content="Back to SIGN IN" />
+        <ProgressRing HorizontalAlignment="Center" IsActive="{Binding IsSigning}"/>
     </StackPanel>
 </Page>
