@@ -38,18 +38,25 @@ namespace Denna.ViewModels
         {
             try
             {
+                if (username == null && password == null)
+                    throw new Exception("Please fill blank fields");
+
+                IsLogging = true;
                 await UserService.Login(UserName, Password);
                 Analytics.TrackEvent("User signed in");
+               IsLogging = false;
                 Welcome.current.Frame.Navigate(typeof(PageMaster));
             }
             catch (Exception ex)
             {
-                "SomethingwentWrong".ShowMessage(ex.Message);
+                IsLogging = false;
+                "SomethingwentWrong".ShowMessage(ex.Message);              
             }
-            
+
         }
 
         string username, password;
+        bool islogging;
         public string UserName
         {
             get
@@ -68,6 +75,16 @@ namespace Denna.ViewModels
                     }
                 }
             }
+        }
+
+        public bool IsLogging
+        {
+            set {
+                islogging = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("IsLogging"));
+
+            }
+            get { return islogging; }
         }
         public string Password
         {
