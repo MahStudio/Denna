@@ -146,7 +146,7 @@ See also the list of [contributors](https://github.com/MahStudio/Denna/contribut
 - Lukas Frensel : UX tests
 - Reza Cloner : UX tests
 
-Special thanks to AliNGame, Pouria Riahi, Windows insiders and developers community for their help to this project.
+Special thanks to AliNGame, Pouria Riahi, Microsoft app center team and Windows insiders and developers community for their help to this project.
 
 ### Sponsor
 
