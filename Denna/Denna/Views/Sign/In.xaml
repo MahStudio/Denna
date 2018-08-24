@@ -16,6 +16,8 @@
         <controls:TemplatedPasswordBox Text="{Binding Password,Mode=TwoWay}" PlaceHolder="Password" Glyph="" Margin="10,10,10,0" Height="35"  />
         <Button Command="{Binding SignInCommand}" HorizontalAlignment="Stretch" Content="LOGIN" Margin="40,20,40,0" Height="35" Style="{StaticResource goitstyle}"/>
         <HyperlinkButton Command="{Binding SignUpCommand}" Margin="10,30,10,0" HorizontalAlignment="Stretch" Content="Do not have an account? SIGN UP" />
+        
+        <ProgressRing Name="LoginProgressRing" IsActive="{Binding IsLogging}" HorizontalAlignment="Center"/>
     </StackPanel>
 
     

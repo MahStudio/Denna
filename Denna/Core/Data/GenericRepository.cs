@@ -69,9 +69,9 @@ namespace Core.Data
             var credentials = Credentials.UsernamePassword("", "", createUser: false);
             var counter = instance.All<Count>().FirstOrDefault();
             using (var trans = instance.BeginWrite())
-            {
-                counter.Counter.Increment();
-                trans.Commit();
+           {
+                   counter.Counter.Increment(); 
+                   trans.Commit();
                 int a = counter.Counter;
                 return $"{a}{Extentions.GetUnixTimeNow()}";
             }

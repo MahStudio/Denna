@@ -32,7 +32,7 @@
             
                 <StackPanel x:Name="Damn" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center">
 
-
+                    <TextBlock Name="ErrorText" Margin="30" Visibility="Visible" Foreground="Red"/>
                     <controls:TemplatedTextBox x:Name="Title" Text="" Margin="10,20,10,0" Height="35" Glyph="" PlaceHolder="Title" />
                     <controls:TemplatedTextBox x:Name="Details" Text="" Margin="10,10,10,0" Glyph="" PlaceHolder="Details" />
 
@@ -44,8 +44,11 @@
                             <RadioButton x:Uid="silent" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rbs" Content="Silent" IsChecked="True" GroupName="not" />
                             <RadioButton x:Uid="notify" MinWidth="0" Margin="30" Width="Auto"  Opacity="0.85" x:Name="rbn" Content="Notify" GroupName="not" />
                             <RadioButton x:Uid="alarm" MinWidth="0"  Width="Auto" Opacity="0.85" x:Name="rba" Content="Alarm" GroupName="not" />
+
                         </StackPanel>
+                       
                     </StackPanel>
+                    
 
                     <!--<Controls:Expander x:Name="Expander4" VerticalAlignment="Top" Margin="0,10,0,10" 
                                Header="Deadline"

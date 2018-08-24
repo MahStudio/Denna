@@ -25,7 +25,7 @@ namespace Denna.Views.SubMaster.Add
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
+            
             if (e.Parameter is Todo)
             {
                 editing = e.Parameter as Todo;
@@ -59,6 +59,21 @@ namespace Denna.Views.SubMaster.Add
         void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             var start = new DateTime(datepic.Date.Year, datepic.Date.Month, datepic.Date.Day, timepic.Time.Hours, timepic.Time.Minutes, timepic.Time.Seconds);
+
+            if (Title.Text == "")
+            {
+                ErrorText.Text = "Please set a title for this alarm.";
+                return;
+            }
+
+
+            if (start < DateTime.Now)
+            {
+                ErrorText.Text = "Can't set a time in past.";
+                return;
+            }
+
+         
             int notiftStatus = 0;
             if (rbs.IsChecked == true)
                 notiftStatus = 0;
