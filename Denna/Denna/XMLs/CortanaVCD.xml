@@ -38,4 +38,42 @@
     </PhraseList>
 
   </CommandSet>
+  <!--<CommandSet xml:lang="en-uk" Name="ToDoCommandSet_en-uk">
+
+    <AppName> Hey </AppName>
+    <Example> Hey, What to do today ? </Example>
+
+    <Command Name="ToDoFetcher">
+      <Example>What to do today ?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">What to do {date}</ListenFor>
+      <ListenFor >What to do {date}</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">What you do {date}</ListenFor>
+      <ListenFor >What you do {date}</ListenFor>
+      <Feedback>Fetching your {date} To do List</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
+    <Command Name="TodoCounter">
+      <Example>How much tasks do I have ?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much tasks do i have</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much task do i have</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much tasks shall i do</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">How much tasks should i do</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Count my tasks</ListenFor>
+      <Feedback>Fetching your Tasks</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
+    <Command Name="addtask">
+      <Example>Add a task</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Add a task</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Create a task</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Add a todo</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">Create a todo</ListenFor>
+      <Feedback>Openning the app</Feedback>
+      <VoiceCommandService Target="Bgcommand" />
+    </Command>
+    <PhraseList Label="date">
+      <Item>today</Item>
+    </PhraseList>
+
+  </CommandSet>-->
 </VoiceCommands>
