@@ -20,7 +20,7 @@ namespace Denna.Views.SubSettings
         public Account()
         {
             InitializeComponent();
-            _usrsvc = new UserService() ;
+            _usrsvc = new UserService();
 
 
             // reconnect, sync session
@@ -29,10 +29,18 @@ namespace Denna.Views.SubSettings
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            Username.Text = _usrsvc.GetUsername();
-            var userInfo = _usrsvc.GetUserInfo();
-            FullName.Text = userInfo.FullName;
-            Email.Text = userInfo.Email;
+            try
+            {
+                Username.Text = _usrsvc.GetUsername();
+                var userInfo = _usrsvc.GetUserInfo();
+                FullName.Text = userInfo.FullName;
+                Email.Text = userInfo.Email;
+            }
+            catch
+            {
+                "Something isn't right".ShowMessage("Let us fetch your data from our cloud ...");
+            }
+
             Ses.Text = RealmContext.GetInstance().GetSession().State.ToString();
             base.OnNavigatedTo(e);
         }
