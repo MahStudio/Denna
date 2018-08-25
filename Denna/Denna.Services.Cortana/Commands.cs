@@ -138,9 +138,18 @@ namespace Denna.Services.Cortana
                 // also speak the user message.
                 await voiceServiceConnection.ReportSuccessAsync(response);
             }
-            catch
+            catch (Exception ex)
             {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.SpokenMessage = "You gotta screenshot report this to app developer";
+                userMessage.DisplayMessage = ex.Message;
 
+                var response = VoiceCommandResponse.CreateResponse(userMessage);
+
+                // When launching the app in the foreground, pass an app 
+                // specific launch parameter to indicate what page to show.
+                response.AppLaunchArgument = "agsonCortana";
+                await voiceServiceConnection.ReportSuccessAsync(response);
             }
 
 
@@ -197,7 +206,19 @@ namespace Denna.Services.Cortana
                 // also speak the user message.
                 await voiceServiceConnection.ReportSuccessAsync(response);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                var userMessage = new VoiceCommandUserMessage();
+                userMessage.SpokenMessage = "You gotta screenshot report this to app developer";
+                userMessage.DisplayMessage = ex.Message;
+
+                var response = VoiceCommandResponse.CreateResponse(userMessage);
+
+                // When launching the app in the foreground, pass an app 
+                // specific launch parameter to indicate what page to show.
+                response.AppLaunchArgument = "agsonCortana";
+                await voiceServiceConnection.ReportSuccessAsync(response);
+            }
 
         }
 
