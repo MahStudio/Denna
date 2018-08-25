@@ -20,11 +20,11 @@ namespace Denna.Views
         SplashScreen splash; // Variable to hold the splash screen object.
         internal bool dismissed = false; // Variable to track splash screen dismissal status.
         internal Frame rootFrame;
-
+        bool IsLoggedIn = false;
         public ExtendedSplash(SplashScreen splashscreen, bool loadState)
         {
             InitializeComponent();
-
+            IsLoggedIn = UserService.IsUserLoggenIn();
             // Listen for window resize events to reposition the extended splash screen image accordingly.
             // This ensures that the extended splash screen formats properly in response to window resizing.
             Window.Current.SizeChanged += new WindowSizeChangedEventHandler(ExtendedSplash_OnResize);
@@ -42,13 +42,6 @@ namespace Denna.Views
             // Create a Frame to act as the navigation context
             rootFrame = new Frame();
 
-            Diss();
-        }
-
-        async void Diss()
-        {
-            await Task.Delay(500);
-            DismissExtendedSplash();
         }
 
         void ExtendedSplash_OnResize(object sender, WindowSizeChangedEventArgs e)
@@ -66,7 +59,7 @@ namespace Denna.Views
 
         void DismissExtendedSplash()
         {
-            if (UserService.IsUserLoggenIn())
+            if (IsLoggedIn)
                 rootFrame.Navigate(typeof(PageMaster));
             else
                 rootFrame.Navigate(typeof(Welcome));
@@ -83,8 +76,6 @@ namespace Denna.Views
             }
         }
 
-        void Media_MediaEnded(object sender, RoutedEventArgs e)
-        {
-        }
+        void Media_MediaEnded(object sender, RoutedEventArgs e) => DismissExtendedSplash();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Core.Domain;
 using Core.Service.Notifications;
 using Core.Todos.Tasks;
+using Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,8 @@ namespace Denna.Services.Background
         BackgroundService _bgService;
         public QuickAction()
         {
-            _bgService = new BackgroundService();
             _service = new TodoService();
+            _bgService = new BackgroundService(_service);
         }
         public void Run(IBackgroundTaskInstance taskInstance)
         {
@@ -94,8 +95,16 @@ namespace Denna.Services.Background
         }
         private void Update()
         {
+
             _bgService.GenerateLiveTile();
             _bgService.UpdateBadge();
+            if (AppSettings.OpenGet("Showtoast") != null)
+            {
+                if (AppSettings.Get<bool>("Showtoast") == true)
+                {
+                    _bgService.GenerateQuickAction();
+                }
+            }
         }
         private void Task_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args) => _deferal.Complete();
 

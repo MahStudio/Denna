@@ -19,6 +19,10 @@ namespace Core.Service.Notifications
         {
             _service = new TodoService();
         }
+        public BackgroundService(TodoService service)
+        {
+            _service = service;
+        }
         public async void GenerateQuickAction()
         {
 
@@ -50,30 +54,38 @@ namespace Core.Service.Notifications
 
         public async void GenerateLiveTile()
         {
-            var tasks = _service.GetMustDoList();
-            if (tasks.Count == 0)
-                return;
-            var counter = tasks.Count;
-
-
-            var xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
-                new Uri("ms-appx:///XMLs/LiveTile.xml"))));
-            Random rnd = new Random();
-            int r = rnd.Next(tasks.Count);
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TaskName", tasks[r].Subject));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Detail", tasks[r].Detail));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Time", Convert(tasks[r].StartTime)));
-            xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Date", CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month) + "  " + DateTime.Now.Day));
-            var tup = TileUpdateManager.CreateTileUpdaterForApplication();
             try
             {
-                tup.Update(new TileNotification(xmlDoc));
+                var tasks = _service.GetMustDoList();
+                if (tasks.Count == 0)
+                    return;
+                var counter = tasks.Count;
+
+
+                var xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(
+                    new Uri("ms-appx:///XMLs/LiveTile.xml"))));
+                Random rnd = new Random();
+                int r = rnd.Next(tasks.Count);
+                xmlDoc.LoadXml(xmlDoc.GetXml().Replace("TaskName", tasks[r].Subject));
+                xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Detail", tasks[r].Detail));
+                xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Time", Convert(tasks[r].StartTime)));
+                xmlDoc.LoadXml(xmlDoc.GetXml().Replace("Date", CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month) + "  " + DateTime.Now.Day));
+                var tup = TileUpdateManager.CreateTileUpdaterForApplication();
+                try
+                {
+                    tup.Update(new TileNotification(xmlDoc));
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
-            catch (Exception ex)
+            catch
             {
 
             }
+            
 
         }
         string Convert(DateTimeOffset Value)
@@ -101,18 +113,22 @@ namespace Core.Service.Notifications
         }
         public void UpdateBadge()
         {
+            try
+            {
+                var type = BadgeTemplateType.BadgeNumber;
+                var xml = BadgeUpdateManager.GetTemplateContent(type);
 
-            var type = BadgeTemplateType.BadgeNumber;
-            var xml = BadgeUpdateManager.GetTemplateContent(type);
+                var elements = xml.GetElementsByTagName("badge");
+                var element = elements[0] as Windows.Data.Xml.Dom.XmlElement;
+                var val = _service.GetMustDoList().Count;
+                element.SetAttribute("value", val.ToString());
 
-            var elements = xml.GetElementsByTagName("badge");
-            var element = elements[0] as Windows.Data.Xml.Dom.XmlElement;
-            var val = _service.GetMustDoList().Count;
-            element.SetAttribute("value", val.ToString());
-
-            var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
-            var notification = new BadgeNotification(xml);
-            updator.Update(notification);
+                var updator = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
+                var notification = new BadgeNotification(xml);
+                updator.Update(notification);
+            }
+            catch { }
+            
         }
 
         public void UpdateTiles()
