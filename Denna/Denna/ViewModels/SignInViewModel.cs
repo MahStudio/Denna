@@ -23,8 +23,8 @@ namespace Denna.ViewModels
             set;
         }
 
-       
-        
+        UserService _usrsvc;
+
         public SignInViewModel()
         {
             SignInCommand = new MyCommand();
@@ -33,6 +33,7 @@ namespace Denna.ViewModels
             SignUpCommand = new MyCommand();
             SignUpCommand.CanExecuteFunc = obj => true;
             SignUpCommand.ExecuteFunc = SignUp;
+            _usrsvc = new UserService();
         }
 
         void SignUp(object obj) => Welcome.current.opensignup();
@@ -45,7 +46,7 @@ namespace Denna.ViewModels
                     throw new Exception("Please fill blank fields");
 
                 IsLogging = true;
-                await UserService.Login(UserName, Password);
+                await _usrsvc.Login(UserName.Replace(" ",""), Password);
                 Analytics.TrackEvent("User signed in");
                 IsLogging = false;
                 Welcome.current.Frame.Navigate(typeof(PageMaster));

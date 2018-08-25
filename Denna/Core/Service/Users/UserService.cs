@@ -11,11 +11,9 @@ using Realms;
 
 namespace Core.Service.Users
 {
-    public static class UserService
+    public class UserService
     {
-        static BackwardsService _backSvc = new BackwardsService();
-        public static Realm _instance = RealmContext.GetInstance();
-        public static async Task Register(string username, string password, string name, string email)
+        public async Task Register(string username, string password, string name, string email)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
@@ -25,7 +23,7 @@ namespace Core.Service.Users
             FinalizeLogin();
         }
 
-        public static async Task Login(string username, string password)
+        public async Task Login(string username, string password)
         {
             var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
             var user = await User.LoginAsync(credentials, Constants.ServerUri);
@@ -33,35 +31,38 @@ namespace Core.Service.Users
             FinalizeLogin();
 
         }
-        static void FinalizeLogin()
+        void FinalizeLogin()
         {
-            if (_backSvc.IsBacwardsPresent())
-                _backSvc.MigrateTodos();
+            var backSvc = new BackwardsService();
+
+            if (backSvc.IsBacwardsPresent())
+                backSvc.MigrateTodos();
         }
 
-        public static async void Logout()
+        public async void Logout()
         {
             await User.Current.LogOutAsync();
             NotificationService.ClearBadgeAndLiveTile();
         }
 
-        public static bool IsUserLoggenIn() => User.AllLoggedIn.Any();
+        public bool IsUserLoggenIn() => User.AllLoggedIn.Any();
 
-        public static void CreateUserInformation(string name, string email, string username)
+        public void CreateUserInformation(string name, string email, string username)
         {
+            var instance = RealmContext.GetInstance();
             var usr = new DennaUser()
             {
                 FullName = name,
                 Email = email,
                 Username = username
             };
-            _instance.Write(() =>
+            instance.Write(() =>
             {
-                _instance.Add(usr);
+                instance.Add(usr);
             });
         }
 
-        public static string GetUsername()
+        public string GetUsername()
         {
             var usr = GetUserInfo();
             if (string.IsNullOrEmpty(usr.Username))
@@ -71,18 +72,23 @@ namespace Core.Service.Users
         }
 
 
-        public static DennaUser GetUserInfo() => _instance.All<DennaUser>().FirstOrDefault();
+        public DennaUser GetUserInfo()
+        {
+            var instance = RealmContext.GetInstance();
+            return instance.All<DennaUser>().FirstOrDefault();
+        }
 
-        public static void UpdateUserInfo(DennaUser usr, DennaUser newUser)
+        public void UpdateUserInfo(DennaUser usr, DennaUser newUser)
         {
 
             try
             {
-                _instance.Write(() =>
+                var instance = RealmContext.GetInstance();
+                instance.Write(() =>
                 {
                     usr.Email = newUser.Email;
                     usr.FullName = newUser.FullName;
-                    _instance.Add(usr, update: true);
+                    instance.Add(usr, update: true);
                 });
             }
             catch (Exception e)
@@ -92,7 +98,7 @@ namespace Core.Service.Users
 
         }
 
-        public static async Task ChangePass(string newPass)
+        public async Task ChangePass(string newPass)
         {
             var currentUser = User.Current;
             await currentUser.ChangePasswordAsync(newPass);

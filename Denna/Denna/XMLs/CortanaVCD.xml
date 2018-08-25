@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
-  <CommandSet xml:lang="en-us" Name="ToDoCommandSet_en-us">
+  <CommandSet xml:lang="en" Name="ToDoCommandSet_en">
 
     <AppName> Hey </AppName>
     <Example> Hey, What to do today ? </Example>

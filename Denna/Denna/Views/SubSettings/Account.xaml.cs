@@ -16,10 +16,11 @@ namespace Denna.Views.SubSettings
     /// </summary>
     public sealed partial class Account : Page
     {
+        UserService _usrsvc;
         public Account()
         {
             InitializeComponent();
-
+            _usrsvc = new UserService() ;
 
 
             // reconnect, sync session
@@ -28,8 +29,8 @@ namespace Denna.Views.SubSettings
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            Username.Text = UserService.GetUsername();
-            var userInfo = UserService.GetUserInfo();
+            Username.Text = _usrsvc.GetUsername();
+            var userInfo = _usrsvc.GetUserInfo();
             FullName.Text = userInfo.FullName;
             Email.Text = userInfo.Email;
             Ses.Text = RealmContext.GetInstance().GetSession().State.ToString();
@@ -38,7 +39,7 @@ namespace Denna.Views.SubSettings
 
         void LogOut(object sender, RoutedEventArgs e)
         {
-            UserService.Logout();
+            _usrsvc.Logout();
             Frame.Navigate(typeof(Welcome));
             Frame.BackStack.Clear();
         }
@@ -53,13 +54,13 @@ namespace Denna.Views.SubSettings
                 return;
             }
 
-            await UserService.ChangePass(Pass.Text);
+            await _usrsvc.ChangePass(Pass.Text);
         }
 
         void UsrInfo_Click(object sender, RoutedEventArgs e)
         {
 
-            var user = UserService.GetUserInfo();
+            var user = _usrsvc.GetUserInfo();
             var UpdatedInfo = new DennaUser();
 
             UpdatedInfo.Email = Email.Text;
@@ -67,7 +68,7 @@ namespace Denna.Views.SubSettings
 
 
 
-            UserService.UpdateUserInfo(UserService.GetUserInfo(), UpdatedInfo);
+            _usrsvc.UpdateUserInfo(_usrsvc.GetUserInfo(), UpdatedInfo);
         }
     }
 }

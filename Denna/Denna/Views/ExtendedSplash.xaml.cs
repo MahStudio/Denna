@@ -24,7 +24,7 @@ namespace Denna.Views
         public ExtendedSplash(SplashScreen splashscreen, bool loadState)
         {
             InitializeComponent();
-            IsLoggedIn = UserService.IsUserLoggenIn();
+            IsLoggedIn = new UserService().IsUserLoggenIn();
             // Listen for window resize events to reposition the extended splash screen image accordingly.
             // This ensures that the extended splash screen formats properly in response to window resizing.
             Window.Current.SizeChanged += new WindowSizeChangedEventHandler(ExtendedSplash_OnResize);

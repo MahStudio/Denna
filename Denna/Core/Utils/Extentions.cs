@@ -7,8 +7,8 @@ namespace Core.Utils
 {
     public static class Extentions
     {
-        public static int GetUnixTimeNow() => (Int32) (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-        public static async void ShowMessage(this string source, string title = "", CoreDispatcher dispatcher = null)
+        public static int GetUnixTimeNow() => (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        public static async void ShowMessage(this string title, string source = "", CoreDispatcher dispatcher = null)
         {
             if (dispatcher == null)
                 await new MessageDialog(source, title).ShowAsync();

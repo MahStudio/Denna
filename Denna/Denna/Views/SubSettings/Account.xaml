@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" xmlns:behavior="using:Denna.Behaviors"
+    NavigationCacheMode="Disabled"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:controls="using:Denna.Controls">
     <Page.Transitions>
@@ -50,7 +51,7 @@
              Height="35" Style="{StaticResource goitstyle}" Click="Reconnect_Click"/>
             </StackPanel>
 
-            <Button HorizontalAlignment="Center" Background="#ec5f5f" Content="Log Out" Margin="0,60,0,0" Width="300"
+            <Button HorizontalAlignment="Center" Background="#ec5f5f" Content="Log Out" Margin="0,60,0,10" Width="300"
              Height="35" Style="{StaticResource goitstyle}" Click="LogOut"/>
 
         </StackPanel>
