@@ -2,6 +2,7 @@
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
   <Publisher>CN=44988219-A722-4FA5-9335-1E47D73A1418</Publisher>
   <PublisherDisplayName>MAH Studio</PublisherDisplayName>
+  <DeveloperAccountType>MSA</DeveloperAccountType>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
     <Language Code="af" InMinimumRequirementSet="true" />
@@ -364,6 +365,10 @@
       <ReservedName>دنا</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
-  <AccountPackageIdentityNames />
+  <AccountPackageIdentityNames>
+    <MainPackageIdentityName>45104MAHStudio.BrainStudio</MainPackageIdentityName>
+    <MainPackageIdentityName>45104MAHStudio.TGJU</MainPackageIdentityName>
+    <MainPackageIdentityName>45104MAHStudio.WinGoMaps</MainPackageIdentityName>
+  </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9N9C2HWNZCFT" />
 </StoreAssociation>
