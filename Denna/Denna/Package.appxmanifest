@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="45104MAHStudio.Denna" Publisher="CN=44988219-A722-4FA5-9335-1E47D73A1418" Version="2.0.37.0" />
-  <mp:PhoneIdentity PhoneProductId="b8120380-21e2-4c62-83b6-5d07ffc7a571" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="45104MAHStudio.Denna" Publisher="CN=44988219-A722-4FA5-9335-1E47D73A1418" Version="2.0.38.0" />
+  <mp:PhoneIdentity PhoneProductId="550eb920-9a74-4acc-b780-dd871c2c41f2" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Denna</DisplayName>
     <PublisherDisplayName>MAH Studio</PublisherDisplayName>
