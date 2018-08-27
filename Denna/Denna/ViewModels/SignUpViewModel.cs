@@ -182,7 +182,7 @@ namespace Denna.ViewModels
             catch (Exception ex)
             {
                 IsSigning = false;
-                "SomethingwentWrong".ShowMessage(ex.Message);
+                "Something went wrong".ShowMessage(ex.Message);
             }
 
         }

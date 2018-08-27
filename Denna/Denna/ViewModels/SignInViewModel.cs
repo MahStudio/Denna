@@ -46,7 +46,7 @@ namespace Denna.ViewModels
                     throw new Exception("Please fill blank fields");
 
                 IsLogging = true;
-                await _usrsvc.Login(UserName.Replace(" ",""), Password);
+                await _usrsvc.Login(UserName.Replace(" ", ""), Password);
                 Analytics.TrackEvent("User signed in");
                 IsLogging = false;
                 Welcome.current.Frame.Navigate(typeof(PageMaster));
@@ -54,7 +54,7 @@ namespace Denna.ViewModels
             catch (Exception ex)
             {
                 IsLogging = false;
-                "SomethingwentWrong".ShowMessage(ex.Message);
+                "Something went wrong".ShowMessage(ex.Message);
             }
 
         }

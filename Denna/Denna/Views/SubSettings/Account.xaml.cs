@@ -61,7 +61,11 @@ namespace Denna.Views.SubSettings
                 "Retype password".ShowMessage("Passwords not maching");
                 return;
             }
-
+            if (Pass.Text.Length < 6)
+            {
+                "Passwork too short".ShowMessage("Passwords must have more than 6 chars");
+                return;
+            }
             await _usrsvc.ChangePass(Pass.Text);
         }
 

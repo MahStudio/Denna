@@ -80,21 +80,24 @@ namespace Core.Service.Users
 
         public void UpdateUserInfo(DennaUser usr, DennaUser newUser)
         {
-
-            try
+            if (usr.Email != newUser.Email || usr.FullName != newUser.FullName)
             {
-                var instance = RealmContext.GetInstance();
-                instance.Write(() =>
+                try
                 {
-                    usr.Email = newUser.Email;
-                    usr.FullName = newUser.FullName;
-                    instance.Add(usr, update: true);
-                });
+                    var instance = RealmContext.GetInstance();
+                    instance.Write(() =>
+                    {
+                        usr.Email = newUser.Email;
+                        usr.FullName = newUser.FullName;
+                        instance.Add(usr, update: true);
+                    });
+                }
+                catch (Exception e)
+                {
+                    "Error".ShowMessage(e.Message);
+                }
             }
-            catch (Exception e)
-            {
-                e.Message.ShowMessage("error");
-            }
+            
 
         }
 
