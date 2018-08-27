@@ -65,6 +65,7 @@ Denna got a really good attention from users and some of the news websites. You 
 - [MS Power User](https://mspoweruser.com/developer-submission-denna-uwp-todo-list-app/)
 - [The win central](https://thewincentral.com/denna-windows-phone-goes-free-myappfree-app-day/)
 - [Windows phone arena](http://www.windowsphonearea.com/3-new-windows-10-apps-march-2017/)
+- [Softpedia](https://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/Denna.shtml)
 
 And so on ...
 
