@@ -19,8 +19,7 @@ namespace Denna.Views.SubSettings
         public About()
         {
             InitializeComponent();
-            var v = Package.Current.Id.Version;
-            ApplicationVersion.Text = "V" + string.Format("{0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
+            ApplicationVersion.Text = Extentions.GetApplicationVersion();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

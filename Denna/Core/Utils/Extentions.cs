@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Windows.ApplicationModel;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 
@@ -8,6 +9,19 @@ namespace Core.Utils
     public static class Extentions
     {
         public static int GetUnixTimeNow() => (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        public static string GetApplicationVersion()
+        {
+            try
+            {
+                var v = Package.Current.Id.Version;
+                return "V" + string.Format("{0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
+            }
+            catch
+            {
+                return "Unidentified version";
+            }
+
+        }
         public static async void ShowMessage(this string title, string source = "", CoreDispatcher dispatcher = null)
         {
             if (dispatcher == null)

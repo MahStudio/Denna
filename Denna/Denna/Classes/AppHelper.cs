@@ -1,6 +1,7 @@
 ﻿using Autofac.Core;
 using Core.Utils;
 using Denna.Views;
+using Microsoft.AppCenter.Analytics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,25 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 
 namespace Denna.Classes
 {
     public static class AppHelper
     {
+        public static async void OnUnhandledException(UnhandledExceptionEventArgs e, string sender)
+        {
+            Analytics.TrackEvent("Unhandled Exception");
+            //Analytics.
+            string message = e.Exception.Message + Environment.NewLine + Environment.NewLine + e.Exception.StackTrace;
+            var msg = new MessageDialog(message,"Somethig is fucking wrong, you gotta report this to developer");
+            msg.Commands.Add(new UICommand("Report this to developer", async delegate
+            {
+                $"mailto:MahStudio@outlook.com?subject={Uri.EscapeDataString($"Exception happened in Denna {Extentions.GetApplicationVersion()}")}&body={Uri.EscapeDataString(message)}".OpenUrl();
+            }));
+            await msg.ShowAsync();
+        }
         public static void LaunchApplication(IActivatedEventArgs args)
         {
             if (args.PreviousExecutionState != ApplicationExecutionState.Running)

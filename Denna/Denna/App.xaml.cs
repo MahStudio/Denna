@@ -37,12 +37,9 @@ namespace Denna
             Analytics.TrackEvent("App Opened");
         }
 
-        async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            e.Handled = true;
-            Analytics.TrackEvent("Unhandled Exception");
-            //Analytics.
-            await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
+            AppHelper.OnUnhandledException(e, sender.ToString());
         }
 
         protected override void OnFileActivated(FileActivatedEventArgs args)

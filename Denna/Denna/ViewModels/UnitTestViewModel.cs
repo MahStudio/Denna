@@ -1,4 +1,6 @@
-﻿using Denna.Classes;
+﻿using Core.Utils;
+using Denna.Classes;
+using System;
 using System.ComponentModel;
 
 namespace Denna.ViewModels
@@ -20,8 +22,7 @@ namespace Denna.ViewModels
 
         void SignIn(object obj)
         {
-            Value++;
-            Per = Per + 1;
+
         }
 
         double per = 10;
