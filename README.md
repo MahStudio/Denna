@@ -30,6 +30,16 @@
 <br>
 
 
+### What we offer in Denna
+
+- Productive task management
+- Offline-first sync
+- Cortana interaction
+- Action center integration 
+- Productivity analysis
+- Simple but effective interface
+- Fast support
+
 ## Story
 
 Denna's idea came from my own needs. I'm not punctual at all, so I needed a tool to make me care more about my time. So with the help of the whole team in MahStudio, we came across with a project named *Plannel* which then became **Denna**.
@@ -89,15 +99,6 @@ You can contribute us in either 3 ways:
     <img src="https://user-images.githubusercontent.com/22152065/43985552-5eb38708-9d1d-11e8-85ee-609299bcf0fc.png">
     </a>
   </p>
-
-
-### What we offer in Denna
-
-- Productive task management
-- Offline-first sync
-- Cortana interaction
-- Action center integration 
-- Productivity analysis
 
 You can see V 2.1 milestone [HERE](https://github.com/MahStudio/Denna/milestone/2)
 
