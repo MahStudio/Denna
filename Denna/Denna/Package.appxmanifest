@@ -47,6 +47,15 @@
             <Task Type="deviceUse" />
           </BackgroundTasks>
         </Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="dennabackup">
+            <uap:DisplayName>Denna backup file</uap:DisplayName>
+            <uap:Logo>Assets\Icons\Denna logo Green.png</uap:Logo>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.djson</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>

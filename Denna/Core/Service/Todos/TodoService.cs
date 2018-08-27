@@ -29,6 +29,12 @@ namespace Core.Todos.Tasks
                 task.CreateAlarm();
         }
 
+        public void AddSilentTodo(Todo task)
+        {
+            task.Id = repo.CreateId();
+            repo.Create(task);
+        }
+
         public IRealmCollection<Todo> GetAllTodos() => repo.GetAll();
 
         public Todo GetById(string id) => repo.GetById(id);

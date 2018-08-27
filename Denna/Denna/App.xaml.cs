@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Service.Backwards;
 using Denna.Classes;
 using Denna.Views;
 using Microsoft.AppCenter;
@@ -28,12 +29,12 @@ namespace Denna
         {
             InitializeComponent();
             Suspending += OnSuspending;
-            UnhandledException += App_UnhandledException;          
-                AppCenter.Start(Constants.AppCenterSecret, typeof(Analytics));
-                AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
-                AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
-                AppHelper.SetTheme();
-                Analytics.TrackEvent("App Opened");            
+            UnhandledException += App_UnhandledException;
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Analytics));
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Crashes));
+            AppCenter.Start(Constants.AppCenterSecret, typeof(Push));
+            AppHelper.SetTheme();
+            Analytics.TrackEvent("App Opened");
         }
 
         async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -44,6 +45,11 @@ namespace Denna
             await new MessageDialog(e.Exception.StackTrace, e.Exception.Message).ShowAsync();
         }
 
+        protected override void OnFileActivated(FileActivatedEventArgs args)
+        {
+            AppHelper.LaunchApplication(args);
+            new BackwardsService().RestoreBakcup(args);
+        }
 
 
         /// <summary>
