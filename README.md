@@ -30,17 +30,9 @@
 <br>
 
 
-### What we offer in Denna
 
-- Productive task management
-- Offline-first sync
-- Cortana interaction
-- Action center integration 
-- Productivity analysis
-- Simple but effective interface
-- Fast support
 
-## Story
+## The Story
 
 Denna's idea came from my own needs. I'm not punctual at all, so I needed a tool to make me care more about my time. So with the help of the whole team in MahStudio, we came across with a project named *Plannel* which then became **Denna**.
 
@@ -54,6 +46,20 @@ Ease of access and productivity, are Denna's core values.
 <p align="center">
     <img src="https://user-images.githubusercontent.com/22152065/38919555-2566f7b2-4306-11e8-8a9c-95eb08eff28a.png">
   </p>
+
+### The theory
+
+We think that all leading todo lists and task managers of the market suck too much! So we decided to make one with the help of community. We think only people can say what they want not the big companies!
+
+### What we offer in Denna
+
+- Productive task management
+- Offline-first sync
+- Cortana interaction
+- Action center integration 
+- Productivity analysis
+- Simple but effective interface
+- Fast support
 
 ### Denna in press
 
@@ -86,13 +92,28 @@ Also you can see the whole design files [HERE](https://github.com/MahStudio/Denn
 Denna looks for new maintainers and contributors. The key feature that we need for next update is sync and the features that are into the design.
 As Denna is an open source project, all kind of contributions are welcome.
 
+### Roadmap
+
+First let me explain what we are our plans for Denna:
+
+- Make it as simple but productive. High UX values.
+- Supporting UWP platform.
+- Supporting Android.
+- Supporting iOS.
+- Supporting office extentions.
+- Supporting web client.
+- Adding collaborative task management.
+- Keep learning from users and let them decide what features they want in Denna.
+
+We currently need Android, Web and iOS developers to sharpen our team. Ideally a React/React native developer will help us to build everything we need.
+
 ### How do I contribute
 
 You can contribute us in either 3 ways:
 
-1. You can get our stable builds and send us feedbacks, ideas and feature requests either in email or [issues](https://github.com/MahStudio/Denna/issues)
+1. You can get our stable builds and send us feedbacks, ideas and feature requests either in [email](mailto:mahstudio@outlook.com) or [issues](https://github.com/MahStudio/Denna/issues)
 2. You can get our nightly builds from [HERE](https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/insiders) and give us feedback pr join us [HERE AT DENNA INSIDER CHAT ON TELEGRAM](https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g)
-3. You can help us in development cycle.
+3. You can help us in development cycle. See roadmap.
 4. You can get me a coffee!
 
 <p align="center">
