@@ -123,28 +123,33 @@ namespace Core.Todos.Tasks
 
         public IRealmCollection<Todo> GetYesterdayList()
         {
-            var yesterdayMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-1).Day, 0, 0, 0));
-            var yesterdayEnd = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-1).Day, 23, 59, 59));
+            var Time = DateTime.Now.AddDays(-1);
+            var yesterdayMorning = new DateTimeOffset(new DateTime(Time.Year, Time.Month, Time.Day, 0, 0, 0));
+            var yesterdayEnd = new DateTimeOffset(new DateTime(Time.Year, Time.Month, Time.Day, 23, 59, 59));
             return _instance.All<Todo>().Where(offset => offset.StartTime >= yesterdayMorning && offset.StartTime <= yesterdayEnd).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
         public IRealmCollection<Todo> GetThisWeekList()
         {
             var today = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59));
-            var lastWeek = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-7).Day, 0, 0, 0));
+            var Time = DateTime.Now.AddDays(-7);
+            var lastWeek = new DateTimeOffset(new DateTime(Time.Year, Time.Month, Time.Day, 0, 0, 0));
             return _instance.All<Todo>().Where(offset => offset.StartTime >= lastWeek && offset.StartTime <= today).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
         public IRealmCollection<Todo> GetLastWeekList()
         {
-            var lastWeekMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-7).Day, 0, 0, 0));
-            var twoWeeksAgoMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-14).Day, 0, 0, 0));
+            var Time = DateTime.Now.AddDays(-7);
+            var lastWeekMorning = new DateTimeOffset(new DateTime(Time.Year, Time.Month, Time.Day, 0, 0, 0));
+            var Time2 = DateTime.Now.AddDays(-14);
+            var twoWeeksAgoMorning = new DateTimeOffset(new DateTime(Time2.Year, Time2.Month, Time2.Day, 0, 0, 0));
             return _instance.All<Todo>().Where(offset => offset.StartTime >= lastWeekMorning && offset.StartTime <= twoWeeksAgoMorning).OrderBy(x => x.StartTime).AsRealmCollection();
         }
 
         public IRealmCollection<Todo> GetLastMonthList()
         {
-            var lastMonthMorning = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.AddMonths(-1).Month, DateTime.Now.Day, 0, 0, 0));
+            var Time2 = DateTime.Now.AddMonths(-1);
+            var lastMonthMorning = new DateTimeOffset(new DateTime(Time2.Year, Time2.Month, Time2.Day, 0, 0, 0));
             var endOfToday = new DateTimeOffset(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59));
             var y = _instance.All<Todo>().Where(offset => offset.StartTime >= lastMonthMorning && offset.StartTime <= endOfToday).OrderBy(x => x.StartTime).AsRealmCollection();
             return y;
