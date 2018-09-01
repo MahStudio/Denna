@@ -10,7 +10,7 @@ namespace Core.Todos.Tasks
 {
     public class TodoService
     {
-        IGenericRepository<Todo> repo;
+        GenericRepository<Todo> repo;
         Realm _instance;
         public TodoService()
         {

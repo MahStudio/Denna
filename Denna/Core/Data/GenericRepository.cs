@@ -1,5 +1,4 @@
-﻿using Autofac;
-using Core.Domain;
+﻿using Core.Domain;
 using Core.Utils;
 using Realms;
 using Realms.Sync;
@@ -8,7 +7,7 @@ using System.Linq;
 
 namespace Core.Data
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : RealmObject
+    public class GenericRepository<TEntity>  where TEntity : RealmObject
     {
         readonly Realm instance;
         public GenericRepository() => instance = RealmContext.GetInstance();

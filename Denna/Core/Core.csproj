@@ -108,8 +108,6 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\GenericRepository.cs" />
-    <Compile Include="Data\IAuditable.cs" />
-    <Compile Include="Data\IGenericRepository.cs" />
     <Compile Include="Data\RealmContext.cs" />
     <Compile Include="Domain\Count.cs" />
     <Compile Include="Domain\NotificationStatus.cs" />
