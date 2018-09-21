@@ -13,10 +13,10 @@ namespace Denna.Views.SubMaster
     /// </summary>
     public sealed partial class TimeLine : Page
     {
-        List<string> countries = new List<string>();
+        private List<string> countries = new List<string>();
         public TimeLineViewModel VM { get; set; }
         public static TimeLine current;
-        TodoService _service;
+        private TodoService _service;
         public TimeLine()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace Denna.Views.SubMaster
             }
         }
 
-        void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             // Only get results when it was a user typing,
             // otherwise assume the value got filled in by TextMemberPath
@@ -52,7 +52,7 @@ namespace Denna.Views.SubMaster
             {
                 if (args.CheckCurrent())
                 {
-                    var search_term = txtAutoComplete.Text;
+                    string search_term = txtAutoComplete.Text;
                     if (string.IsNullOrEmpty(search_term))
                     {
                         SearchView.Visibility = Visibility.Collapsed;
@@ -68,21 +68,21 @@ namespace Denna.Views.SubMaster
             }
         }
 
-        void AppBarButtonUTest_Click(object sender, RoutedEventArgs e)
+        private void AppBarButtonUTest_Click(object sender, RoutedEventArgs e)
         {
             PageMaster.current.NavigateToUnitTests();
         }
 
-        void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+        private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
         {
             PageMaster.current.NavigateToSettings();
         }
 
-        void AutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        private void AutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
             if (args.ChosenSuggestion != null)
             {
-                var search_term = args.QueryText;
+                string search_term = args.QueryText;
                 VM.SearchResults = _service.FullTextSearch(search_term);
             }
             else
@@ -91,12 +91,12 @@ namespace Denna.Views.SubMaster
             }
         }
 
-        void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Add.Hobby));
         }
 
-        void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Add.Task));
         }
