@@ -3,6 +3,8 @@ using Core.Domain;
 using Core.Service.Users;
 using Core.Utils;
 using Realms.Sync;
+using System;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -16,7 +18,7 @@ namespace Denna.Views.SubSettings
     /// </summary>
     public sealed partial class Account : Page
     {
-        UserService _usrsvc;
+        private UserService _usrsvc;
         public Account()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace Denna.Views.SubSettings
             try
             {
                 Username.Text = _usrsvc.GetUsername();
-                var userInfo = _usrsvc.GetUserInfo();
+                DennaUser userInfo = _usrsvc.GetUserInfo();
                 FullName.Text = userInfo.FullName;
                 Email.Text = userInfo.Email;
             }
@@ -45,42 +47,70 @@ namespace Denna.Views.SubSettings
             base.OnNavigatedTo(e);
         }
 
-        void LogOut(object sender, RoutedEventArgs e)
+        private async void LogOut(object sender, RoutedEventArgs e)
         {
-            _usrsvc.Logout();
-            Frame.Navigate(typeof(Welcome));
-            Frame.BackStack.Clear();
+            MessageDialog msg = new MessageDialog("Log out? Seriously?");
+            msg.Commands.Add(new UICommand("Yes", delegate
+            {
+                _usrsvc.Logout();
+                Frame.Navigate(typeof(Welcome));
+                Frame.BackStack.Clear();
+            }));
+            msg.Commands.Add(new UICommand("No", delegate { }));
+            await msg.ShowAsync();
+
         }
 
-        void Reconnect_Click(object sender, RoutedEventArgs e) => Session.Reconnect();
-
-        async void CoPAss_Click(object sender, RoutedEventArgs e)
+        private void Reconnect_Click(object sender, RoutedEventArgs e)
         {
-            if (Pass.Text != Rpass.Text)
-            {
-                "Retype password".ShowMessage("Passwords not maching");
-                return;
-            }
-            if (Pass.Text.Length < 6)
-            {
-                "Passwork too short".ShowMessage("Passwords must have more than 6 chars");
-                return;
-            }
-            await _usrsvc.ChangePass(Pass.Text);
+            Session.Reconnect();
         }
 
-        void UsrInfo_Click(object sender, RoutedEventArgs e)
+        private async void CoPAss_Click(object sender, RoutedEventArgs e)
         {
+            
 
-            var user = _usrsvc.GetUserInfo();
-            var UpdatedInfo = new DennaUser();
+            MessageDialog msg = new MessageDialog("Changing password? Seriously?");
+            msg.Commands.Add(new UICommand("Yes", async delegate
+            {
+                if (Pass.Text != Rpass.Text)
+                {
+                    "Retype password".ShowMessage("Passwords not maching");
+                    return;
+                }
+                if (Pass.Text.Length < 6)
+                {
+                    "Passwork too short".ShowMessage("Passwords must have more than 6 chars");
+                    return;
+                }
+                await _usrsvc.ChangePass(Pass.Text);
+            }));
+            msg.Commands.Add(new UICommand("No", delegate { }));
+            await msg.ShowAsync();
 
-            UpdatedInfo.Email = Email.Text;
-            UpdatedInfo.FullName = FullName.Text;
+        }
+
+        private async void UsrInfo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog msg = new MessageDialog("Changing info? Seriously?");
+            msg.Commands.Add(new UICommand("Yes", delegate
+            {
+                DennaUser user = _usrsvc.GetUserInfo();
+                DennaUser UpdatedInfo = new DennaUser
+                {
+                    Email = Email.Text,
+                    FullName = FullName.Text
+                };
+                _usrsvc.UpdateUserInfo(_usrsvc.GetUserInfo(), UpdatedInfo);
+            }));
+            msg.Commands.Add(new UICommand("No", delegate { }));
+            await msg.ShowAsync();
+
+            
 
 
 
-            _usrsvc.UpdateUserInfo(_usrsvc.GetUserInfo(), UpdatedInfo);
+           
         }
     }
 }
