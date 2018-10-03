@@ -1,11 +1,8 @@
-﻿using Autofac.Core;
-using Core.Utils;
+﻿using Core.Utils;
+using Denna.Converters;
 using Denna.Views;
 using Microsoft.AppCenter.Analytics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -22,7 +19,7 @@ namespace Denna.Classes
             Analytics.TrackEvent("Unhandled Exception");
             //Analytics.
             string message = e.Exception.Message + Environment.NewLine + Environment.NewLine + e.Exception.StackTrace;
-            var msg = new MessageDialog(message,"Somethig is fucking wrong, you gotta report this to developer");
+            MessageDialog msg = new MessageDialog(message, "Somethig is fucking wrong, you gotta report this to developer");
             msg.Commands.Add(new UICommand("Report this to developer", async delegate
             {
                 $"mailto:MahStudio@outlook.com?subject={Uri.EscapeDataString($"Exception happened in Denna {Extentions.GetApplicationVersion()}")}&body={Uri.EscapeDataString(message)}".OpenUrl();
@@ -35,8 +32,8 @@ namespace Denna.Classes
             {
                 ApplyThemeSettings();
                 SetUpVoiceCommends();
-                var loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);
-                var extendedSplash = new ExtendedSplash(args.SplashScreen, loadState);
+                bool loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);
+                ExtendedSplash extendedSplash = new ExtendedSplash(args.SplashScreen, loadState);
                 Window.Current.Content = extendedSplash;
             }
 
@@ -45,10 +42,11 @@ namespace Denna.Classes
         public static async Task SetUpVoiceCommends()
         {
             if (AppSettings.Get<bool>("VCDPresent") == false || AppSettings.OpenGet("VCDPresent") == null)
+            {
                 try
                 {
                     // Install the main VCD. 
-                    var vcdStorageFile =
+                    StorageFile vcdStorageFile =
                       await Package.Current.InstalledLocation.GetFileAsync(@"XMLs\CortanaVCD.xml");
 
                     await Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.
@@ -59,15 +57,33 @@ namespace Denna.Classes
                 {
                     System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
                 }
+            }
         }
         public static void ApplyThemeSettings()
         {
             try
             {
-                if (AppSettings.OpenGet("FollowAccent") == null)
+                string s = AppSettings.OpenGet("FollowAccent").ToString();
+
+                if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+                {
                     AppSettings.Set("FollowAccent", false);
-                if (Convert.ToBoolean(AppSettings.OpenGet("FollowAccent")) != true)
                     App.Current.Resources["SystemAccentColor"] = Windows.UI.Color.FromArgb(255, 32, 200, 165);
+                }
+                else if (s.ToLower() == "true")
+                {
+                    ///Do nothing
+                }
+                else if (s.ToLower() == "false")
+                {
+                    App.Current.Resources["SystemAccentColor"] = Windows.UI.Color.FromArgb(255, 32, 200, 165);
+                }
+                else
+                {
+                    //Needs to use custom shit
+                    App.Current.Resources["SystemAccentColor"] = ColorFromHexStringConverter.GetColor(s);
+                }
+
             }
             catch
             { }

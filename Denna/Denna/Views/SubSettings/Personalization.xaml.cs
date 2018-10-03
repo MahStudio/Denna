@@ -1,5 +1,6 @@
 ﻿using Core.Utils;
-using Windows.UI.Xaml;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -16,30 +17,55 @@ namespace Denna.Views.SubSettings
         {
             InitializeComponent();
         }
+
+        private ObservableCollection<string> colors = new ObservableCollection<string>() { "fad616", "f3d741", "20c8a5", "12a889", "50b9ff", "50b9ff", "505cff", "6b5cf8", "f85ca0", "ff2e7d", "e54747", "ff2451" };
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             try
             {
-                if (AppSettings.Get<bool>("FollowAccent") == true)
-                    FollowAccent.IsOn = true;
+                string s = AppSettings.OpenGet("FollowAccent").ToString();
+
+                if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+                {
+                    defaultColor.IsChecked = true;
+                }
+                else if (s.ToLower() == "true")
+                {
+                    Accent.IsChecked = true;
+                }
+                else if (s.ToLower() == "false")
+                {
+                    defaultColor.IsChecked = true;
+                }
                 else
-                    FollowAccent.IsOn = false;
+                {
+                    custom.IsChecked = true;
+                }
+
+
             }
             catch
             { }
             try
             {
                 if (Classes.Themesetter.GetApplicationTheme() == "Dark")
+                {
                     ThemeSelector.SelectedIndex = 0;
+                }
                 else if (Classes.Themesetter.GetApplicationTheme() == "Light")
+                {
                     ThemeSelector.SelectedIndex = 1;
+                }
                 else
+                {
                     ThemeSelector.SelectedIndex = 2;
+                }
             }
             catch { }
             base.OnNavigatedTo(e);
         }
-        void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
@@ -48,18 +74,29 @@ namespace Denna.Views.SubSettings
             catch { }
         }
 
-        void FollowAccent_Toggled(object sender, RoutedEventArgs e)
+        private void defaultColor_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            try
-            {
-                if (FollowAccent.IsOn)
-                    AppSettings.Set("FollowAccent", true);
-                else
-                    AppSettings.Set("FollowAccent", false);
-            }
-            catch
-            {
-            }
+            colorpiker.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            AppSettings.Set("FollowAccent", false);
+        }
+
+        private void Accent_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            colorpiker.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            AppSettings.Set("FollowAccent", true);
+        }
+
+        private void custom_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            colorpiker.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            string s = AppSettings.OpenGet("FollowAccent").ToString();
+            colorslist.SelectedItem = colors.Where(x => x == s);
+        }
+
+        private void colorslist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string s = e.AddedItems.FirstOrDefault().ToString();
+            AppSettings.Set("FollowAccent", s);
         }
     }
 }
