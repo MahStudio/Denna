@@ -6,6 +6,8 @@ using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -18,13 +20,47 @@ namespace Denna.Classes
         {
             Analytics.TrackEvent("Unhandled Exception");
             //Analytics.
-            string message = e.Exception.Message + Environment.NewLine + Environment.NewLine + e.Exception.StackTrace;
+            EasClientDeviceInformation clientDeviceInformation = new EasClientDeviceInformation();
+            string message =
+                e.Exception.Message +
+                Environment.NewLine +
+                Environment.NewLine +
+                e.Exception.StackTrace +
+                Environment.NewLine +
+                clientDeviceInformation.SystemManufacturer +
+                Environment.NewLine +
+                clientDeviceInformation.SystemProductName +
+                Environment.NewLine +
+                clientDeviceInformation.OperatingSystem +
+                Environment.NewLine +
+                clientDeviceInformation.SystemHardwareVersion +
+                Environment.NewLine +
+                clientDeviceInformation.SystemFirmwareVersion +
+                Environment.NewLine +
+                clientDeviceInformation.FriendlyName +
+                Environment.NewLine +
+                clientDeviceInformation.SystemSku;
             MessageDialog msg = new MessageDialog(message, "Somethig is fucking wrong, you gotta report this to developer");
             msg.Commands.Add(new UICommand("Report this to developer", async delegate
             {
                 $"mailto:MahStudio@outlook.com?subject={Uri.EscapeDataString($"Exception happened in Denna {Extentions.GetApplicationVersion()}")}&body={Uri.EscapeDataString(message)}".OpenUrl();
             }));
+            msg.Commands.Add(new UICommand("Copy to clipboard", delegate
+            {
+                DataPackage pkg = new DataPackage();
+                pkg.SetText(message);
+                Clipboard.SetContent(pkg);
+            }));
+            msg.Commands.Add(new UICommand("Open an issue in Github", delegate
+            {
+                DataPackage pkg = new DataPackage();
+                pkg.SetText(message);
+                Clipboard.SetContent(pkg);
+
+                "https://github.com/MahStudio/Denna/issues/new".OpenUrl();
+            }));
             await msg.ShowAsync();
+
         }
         public static void LaunchApplication(IActivatedEventArgs args)
         {
