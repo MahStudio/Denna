@@ -1,13 +1,13 @@
-﻿using System.Threading.Tasks;
-using Core.Data;
+﻿using Core.Data;
 using Core.Domain;
-using Realms.Sync;
-using System.Linq;
-using System;
-using Core.Utils;
 using Core.Service.Backwards;
 using Core.Service.Notifications;
+using Core.Utils;
 using Realms;
+using Realms.Sync;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Core.Service.Users
 {
@@ -15,8 +15,8 @@ namespace Core.Service.Users
     {
         public async Task Register(string username, string password, string name, string email)
         {
-            var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
-            var user = await User.LoginAsync(credentials, Constants.ServerUri);
+            Credentials credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
+            User user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
             await Task.Delay(200);
             CreateUserInformation(name, email, username);
@@ -25,18 +25,21 @@ namespace Core.Service.Users
 
         public async Task Login(string username, string password)
         {
-            var credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
-            var user = await User.LoginAsync(credentials, Constants.ServerUri);
+            Credentials credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
+            User user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
             FinalizeLogin();
 
         }
-        void FinalizeLogin()
+
+        private void FinalizeLogin()
         {
-            var backSvc = new BackwardsService();
+            BackwardsService backSvc = new BackwardsService();
 
             if (backSvc.IsBacwardsPresent())
+            {
                 backSvc.MigrateTodos();
+            }
         }
 
         public async void Logout()
@@ -45,12 +48,15 @@ namespace Core.Service.Users
             NotificationService.ClearBadgeAndLiveTile();
         }
 
-        public bool IsUserLoggenIn() => User.AllLoggedIn.Any();
+        public bool IsUserLoggenIn()
+        {
+            return User.AllLoggedIn.Any();
+        }
 
         public void CreateUserInformation(string name, string email, string username)
         {
-            var instance = RealmContext.GetInstance();
-            var usr = new DennaUser()
+            Realm instance = RealmContext.GetInstance();
+            DennaUser usr = new DennaUser()
             {
                 FullName = name,
                 Email = email,
@@ -64,31 +70,36 @@ namespace Core.Service.Users
 
         public string GetUsername()
         {
-            var usr = GetUserInfo();
+            DennaUser usr = GetUserInfo();
             if (string.IsNullOrEmpty(usr.Username))
+            {
                 return User.Current.Identity;
-
-            else return usr.Username;
+            }
+            else
+            {
+                return usr.Username;
+            }
         }
 
 
         public DennaUser GetUserInfo()
         {
-            var instance = RealmContext.GetInstance();
+            Realm instance = RealmContext.GetInstance();
             return instance.All<DennaUser>().FirstOrDefault();
         }
 
-        public void UpdateUserInfo(DennaUser usr, DennaUser newUser)
+        public void UpdateUserInfo(string Email, string FullName)
         {
-            if (usr.Email != newUser.Email || usr.FullName != newUser.FullName)
+            DennaUser usr = GetUserInfo();
+            if (usr.Email != Email || usr.FullName != FullName)
             {
                 try
                 {
-                    var instance = RealmContext.GetInstance();
+                    Realm instance = usr.Realm;
                     instance.Write(() =>
                     {
-                        usr.Email = newUser.Email;
-                        usr.FullName = newUser.FullName;
+                        usr.Email = Email;
+                        usr.FullName = FullName;
                         instance.Add(usr, update: true);
                     });
                 }
@@ -97,13 +108,13 @@ namespace Core.Service.Users
                     "Error".ShowMessage(e.Message);
                 }
             }
-            
+
 
         }
 
         public async Task ChangePass(string newPass)
         {
-            var currentUser = User.Current;
+            User currentUser = User.Current;
             await currentUser.ChangePasswordAsync(newPass);
         }
     }

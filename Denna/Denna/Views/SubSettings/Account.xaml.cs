@@ -95,13 +95,7 @@ namespace Denna.Views.SubSettings
             MessageDialog msg = new MessageDialog("Changing info? Seriously?");
             msg.Commands.Add(new UICommand("Yes", delegate
             {
-                DennaUser user = _usrsvc.GetUserInfo();
-                DennaUser UpdatedInfo = new DennaUser
-                {
-                    Email = Email.Text,
-                    FullName = FullName.Text
-                };
-                _usrsvc.UpdateUserInfo(_usrsvc.GetUserInfo(), UpdatedInfo);
+                _usrsvc.UpdateUserInfo(Email.Text, FullName.Text);
             }));
             msg.Commands.Add(new UICommand("No", delegate { }));
             await msg.ShowAsync();
