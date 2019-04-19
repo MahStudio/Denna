@@ -16,7 +16,7 @@ namespace Denna.Classes
 {
     public static class AppHelper
     {
-        public static async void OnUnhandledException(UnhandledExceptionEventArgs e, string sender)
+        public static async void OnUnhandledException(Windows.UI.Xaml.UnhandledExceptionEventArgs e, string sender)
         {
             Analytics.TrackEvent("Unhandled Exception");
             //Analytics.

@@ -37,7 +37,7 @@ namespace Denna
             Analytics.TrackEvent("App Opened");
         }
 
-        void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
             AppHelper.OnUnhandledException(e, sender.ToString());
         }
