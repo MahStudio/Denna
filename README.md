@@ -114,13 +114,6 @@ You can contribute us in either 3 ways:
 1. You can get our stable builds and send us feedbacks, ideas and feature requests either in [email](mailto:mahstudio@outlook.com) or [issues](https://github.com/MahStudio/Denna/issues)
 2. You can get our nightly builds from [HERE](https://install.appcenter.ms/orgs/mahstudio-u5ev/apps/denna/distribution_groups/insiders) and give us feedback pr join us [HERE AT DENNA INSIDER CHAT ON TELEGRAM](https://t.me/joinchat/EJ9gLURDAcbOxpoIGSdD8g)
 3. You can help us in development cycle. See roadmap.
-4. You can get me a coffee!
-
-<p align="center">
-<a href="http://paypal.me/mohsens22">
-    <img src="https://user-images.githubusercontent.com/22152065/43985552-5eb38708-9d1d-11e8-85ee-609299bcf0fc.png">
-    </a>
-  </p>
 
 You can see V 2.1 milestone [HERE](https://github.com/MahStudio/Denna/milestone/2)
 
