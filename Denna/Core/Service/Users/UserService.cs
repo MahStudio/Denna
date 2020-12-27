@@ -16,7 +16,6 @@ namespace Core.Service.Users
         {
             Credentials credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: true);
             User user = await User.LoginAsync(credentials, Constants.ServerUri);
-            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
             await Task.Delay(200);
             CreateUserInformation(name, email, username);
         }
@@ -25,7 +24,6 @@ namespace Core.Service.Users
         {
             Credentials credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
             User user = await User.LoginAsync(credentials, Constants.ServerUri);
-            User.ConfigurePersistence(UserPersistenceMode.Encrypted);
 
         }
 
