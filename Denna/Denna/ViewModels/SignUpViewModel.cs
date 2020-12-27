@@ -1,6 +1,6 @@
 ﻿using Core.Service.Users;
-using Denna.Classes;
 using Core.Utils;
+using Denna.Classes;
 using Denna.Views;
 using Microsoft.AppCenter.Analytics;
 using System;

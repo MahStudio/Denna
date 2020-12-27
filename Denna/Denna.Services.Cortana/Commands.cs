@@ -1,12 +1,10 @@
 ﻿using Core.Todos.Tasks;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Diagnostics;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.VoiceCommands;
-using Realms;
-using System.Diagnostics;
 
 namespace Denna.Services.Cortana
 {

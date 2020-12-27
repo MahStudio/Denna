@@ -1,10 +1,10 @@
 ﻿using Autofac;
 using Core.Data;
 using Core.Domain;
+using Core.Service.Notifications;
 using Realms;
 using System;
 using System.Linq;
-using Core.Service.Notifications;
 
 namespace Core.Todos.Tasks
 {

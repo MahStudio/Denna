@@ -1,6 +1,5 @@
 ﻿using Core.Domain;
 using Core.Todos.Tasks;
-using PubSub;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

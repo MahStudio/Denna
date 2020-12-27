@@ -1,6 +1,4 @@
-﻿using Core.Data;
-using Core.Service.Users;
-using System.Threading.Tasks;
+﻿using Core.Service.Users;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.UI.Core;

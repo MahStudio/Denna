@@ -1,10 +1,8 @@
 ﻿using Core.Todos.Tasks;
 using System;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Background;
 using Windows.Data.Xml.Dom;
 using Windows.Storage;
 using Windows.UI.Notifications;
@@ -85,7 +83,7 @@ namespace Core.Service.Notifications
             {
 
             }
-            
+
 
         }
         string Convert(DateTimeOffset Value)
@@ -128,7 +126,7 @@ namespace Core.Service.Notifications
                 updator.Update(notification);
             }
             catch { }
-            
+
         }
 
         public void UpdateTiles()

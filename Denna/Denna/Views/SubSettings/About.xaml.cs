@@ -1,6 +1,5 @@
 ﻿using Core.Utils;
 using System;
-using Windows.ApplicationModel;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;

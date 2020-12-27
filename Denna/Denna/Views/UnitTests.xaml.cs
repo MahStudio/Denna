@@ -1,5 +1,4 @@
-﻿using Core.Service;
-using System;
+﻿using System;
 using Windows.Foundation.Metadata;
 using Windows.Phone.UI.Input;
 using Windows.UI.Core;

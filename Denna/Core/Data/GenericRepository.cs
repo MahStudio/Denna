@@ -2,12 +2,11 @@
 using Core.Utils;
 using Realms;
 using Realms.Sync;
-using System;
 using System.Linq;
 
 namespace Core.Data
 {
-    public class GenericRepository<TEntity>  where TEntity : RealmObject
+    public class GenericRepository<TEntity> where TEntity : RealmObject
     {
         readonly Realm instance;
         public GenericRepository() => instance = RealmContext.GetInstance();
@@ -68,9 +67,9 @@ namespace Core.Data
             var credentials = Credentials.UsernamePassword("", "", createUser: false);
             var counter = instance.All<Count>().FirstOrDefault();
             using (var trans = instance.BeginWrite())
-           {
-                   counter.Counter.Increment(); 
-                   trans.Commit();
+            {
+                counter.Counter.Increment();
+                trans.Commit();
                 int a = counter.Counter;
                 return $"{a}{Extentions.GetUnixTimeNow()}";
             }

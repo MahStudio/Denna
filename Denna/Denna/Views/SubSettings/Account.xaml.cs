@@ -68,7 +68,7 @@ namespace Denna.Views.SubSettings
 
         private async void CoPAss_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
             MessageDialog msg = new MessageDialog("Changing password? Seriously?");
             msg.Commands.Add(new UICommand("Yes", async delegate
@@ -100,11 +100,11 @@ namespace Denna.Views.SubSettings
             msg.Commands.Add(new UICommand("No", delegate { }));
             await msg.ShowAsync();
 
-            
 
 
 
-           
+
+
         }
     }
 }

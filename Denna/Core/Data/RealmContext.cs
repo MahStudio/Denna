@@ -10,7 +10,7 @@ namespace Core.Data
         {
             var configuration = new FullSyncConfiguration(new Uri("~/myRealm", UriKind.Relative), User.Current)
             {
-                SchemaVersion=1
+                SchemaVersion = 1
             };
             return Realm.GetInstance(configuration);
         }

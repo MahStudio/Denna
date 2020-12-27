@@ -1,5 +1,4 @@
-﻿using Core.Data;
-using Core.Service.Users;
+﻿using Core.Service.Users;
 using Core.Utils;
 using Denna.Classes;
 using Denna.Views;

@@ -1,14 +1,10 @@
-﻿using Denna.Views.SubMaster;
+﻿using Core.Service.Notifications;
+using Denna.Views.SubMaster;
 using System;
-using PubSub;
-using System.Linq;
-using Windows.ApplicationModel.Background;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Denna.Classes;
-using Core.Service.Notifications;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
