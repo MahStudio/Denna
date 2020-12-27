@@ -1,6 +1,5 @@
 ﻿using Core.Data;
 using Core.Domain;
-using Core.Service.Backwards;
 using Core.Service.Notifications;
 using Core.Utils;
 using Realms;
@@ -20,7 +19,6 @@ namespace Core.Service.Users
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
             await Task.Delay(200);
             CreateUserInformation(name, email, username);
-            FinalizeLogin();
         }
 
         public async Task Login(string username, string password)
@@ -28,18 +26,7 @@ namespace Core.Service.Users
             Credentials credentials = Credentials.UsernamePassword(username.ToLower(), password, createUser: false);
             User user = await User.LoginAsync(credentials, Constants.ServerUri);
             User.ConfigurePersistence(UserPersistenceMode.Encrypted);
-            FinalizeLogin();
 
-        }
-
-        private void FinalizeLogin()
-        {
-            BackwardsService backSvc = new BackwardsService();
-
-            if (backSvc.IsBacwardsPresent())
-            {
-                backSvc.MigrateTodos();
-            }
         }
 
         public async void Logout()

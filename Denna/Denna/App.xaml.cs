@@ -1,5 +1,4 @@
 ﻿using Core;
-using Core.Service.Backwards;
 using Denna.Classes;
 using Denna.Views;
 using Microsoft.AppCenter;
@@ -45,7 +44,6 @@ namespace Denna
         protected override void OnFileActivated(FileActivatedEventArgs args)
         {
             AppHelper.LaunchApplication(args);
-            new BackwardsService().RestoreBakcup(args);
         }
 
 

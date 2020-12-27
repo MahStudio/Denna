@@ -21,6 +21,8 @@ namespace Denna.Views
     {
         public static PageMaster current;
         BackgroundService _bgService;
+        PubSub.Hub hub = PubSub.Hub.Default;
+
         public PageMaster()
         {
             InitializeComponent();
@@ -72,16 +74,16 @@ namespace Denna.Views
             bpref.BorderThickness = new Thickness(0, 0, 0, 0);
             Pivot.SelectedIndex = 0;
             if (TimeLine.Content.GetType() != typeof(SubMaster.Add.Task))
-                this.Publish(new Classes.Header("Timeline"));
+                hub.Publish(new Classes.Header("Timeline"));
             else
-                this.Publish(new Classes.Header("Add"));
+                hub.Publish(new Classes.Header("Add"));
         }
 
         void mpref()
         {
             btoday.BorderThickness = new Thickness(0, 0, 0, 0);
             bpref.BorderThickness = new Thickness(0, 0, 0, 2);
-            this.Publish(new Classes.Header("Performance"));
+            hub.Publish(new Classes.Header("Performance"));
             Pivot.SelectedIndex = 1;
         }
 

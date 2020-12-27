@@ -18,6 +18,7 @@ namespace Denna.Views.SubMaster.Add
         TodoService _service;
         bool editmode = false;
         Todo editing = null;
+        PubSub.Hub hub = PubSub.Hub.Default;
         public Task()
         {
             InitializeComponent();
@@ -43,9 +44,9 @@ namespace Denna.Views.SubMaster.Add
                 editmode = true;
             }
             if (editmode)
-                this.Publish(new Classes.Header("Edit"));
+                hub.Publish(new Classes.Header("Edit"));
             else
-                this.Publish(new Classes.Header("Add"));
+                hub.Publish(new Classes.Header("Add"));
             base.OnNavigatedTo(e);
         }
 
@@ -53,7 +54,7 @@ namespace Denna.Views.SubMaster.Add
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
-            this.Publish(new Classes.Header("Timeline"));
+            hub.Publish(new Classes.Header("Timeline"));
         }
 
         void AppBarButton_Click_1(object sender, RoutedEventArgs e)
@@ -102,7 +103,7 @@ namespace Denna.Views.SubMaster.Add
                 _service.AddTodo(todo);
             }
             Frame.GoBack();
-            this.Publish(new Classes.Header("Timeline"));
+            hub.Publish(new Classes.Header("Timeline"));
         }
     }
 }

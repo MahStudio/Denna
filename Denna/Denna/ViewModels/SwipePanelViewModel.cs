@@ -11,12 +11,14 @@ namespace Denna.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         string greet;
+        Hub hub = Hub.Default;
         string todate = DateTime.Now.ToLocalTime().ToString("D");
         TodoService _service;
+
         public ShutterPanelViewModel()
         {
             _service = new TodoService();
-            this.Subscribe<Classes.Header>(Text =>
+            hub.Subscribe<Classes.Header>(Text =>
             {
                 Greet = Text.Text;
             });
