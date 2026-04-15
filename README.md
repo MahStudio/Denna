@@ -30,6 +30,9 @@
 <br>
 
 
+## NOTE
+
+This project has been archived and will nologer be maintained. This repository is going to exist for historical reasons. This project can not run and function due to deprecation of Realm Sync.
 
 
 ## The Story
@@ -153,14 +156,6 @@ namespace Core
 This project is designed, developed, maintained and supported by the community software development team **Mah Studio**.
 See also the list of [contributors](https://github.com/MahStudio/Denna/contributors) who participated in this project.
 
-#### Personnel
-
-- [Mohsen Seifi](https://github.com/mohsens22) : Frontman, architect and lead developer.
-- [Aref M. Ahmadi](https://www.instagram.com/itsaref/) : UI/UX design
-- [Mohammad R. Alidoost](https://www.instagram.com/mr.alidoost/) : UI/UX design
-- [Amir Stephade](https://www.instagram.com/amir_stefad/) : Motion
-- Lukas Frensel : UX tests
-- Reza Cloner : UX tests
 
 Special thanks to AliNGame, Pouria Riahi, Microsoft app center team and Windows insiders and developers community for their help to this project.
 
